@@ -1,0 +1,189 @@
+# 01:56:36 split benchmark --threads 8,12,14 --tiles 1:2,2:4 --fracs 0,0.3,0.4,0.5,0.6 --reps 40
+ninja: no work to do.
+pool loaded in 8 s: 128 hot, 384 cold
+                gpu-only T= 1 C=  3:    147.5 us
+                gpu-only T= 4 C= 11:    430.8 us
+                gpu-only T= 8 C= 28:   1045.0 us
+                gpu-only T=16 C= 50:   1886.2 us
+                gpu-only T=32 C= 86:   3241.4 us
+edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.00, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+        th=8 t=1:2 f=0.0 T= 1 C=  3:    158.4 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+        th=8 t=1:2 f=0.0 T= 4 C= 11:    443.4 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+        th=8 t=1:2 f=0.0 T= 8 C= 28:   1057.1 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+        th=8 t=1:2 f=0.0 T=16 C= 50:   1901.9 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+        th=8 t=1:2 f=0.0 T=32 C= 86:   3252.5 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.30, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+        th=8 t=1:2 f=0.3 T= 1 C=  3:    143.9 us cpu 1.0 exp 45 us | gpu side 126 us, waited 1 us
+        th=8 t=1:2 f=0.3 T= 4 C= 11:    394.5 us cpu 3.0 exp 130 us | gpu side 368 us, waited 7 us
+        th=8 t=1:2 f=0.3 T= 8 C= 28:    925.3 us cpu 8.0 exp 361 us | gpu side 897 us, waited 10 us
+        th=8 t=1:2 f=0.3 T=16 C= 50:   1646.4 us cpu 15.0 exp 658 us | gpu side 1614 us, waited 9 us
+        th=8 t=1:2 f=0.3 T=32 C= 86:   2840.2 us cpu 26.0 exp 1167 us | gpu side 2811 us, waited 9 us
+edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.40, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+        th=8 t=1:2 f=0.4 T= 1 C=  3:    144.6 us cpu 1.0 exp 45 us | gpu side 126 us, waited 1 us
+        th=8 t=1:2 f=0.4 T= 4 C= 11:    377.6 us cpu 4.0 exp 179 us | gpu side 353 us, waited 4 us
+        th=8 t=1:2 f=0.4 T= 8 C= 28:    877.9 us cpu 11.0 exp 513 us | gpu side 849 us, waited 9 us
+        th=8 t=1:2 f=0.4 T=16 C= 50:   1574.6 us cpu 20.0 exp 916 us | gpu side 1541 us, waited 9 us
+        th=8 t=1:2 f=0.4 T=32 C= 86:   2713.3 us cpu 34.0 exp 1575 us | gpu side 2674 us, waited 9 us
+edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.50, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+        th=8 t=1:2 f=0.5 T= 1 C=  3:    120.1 us cpu 2.0 exp 79 us | gpu side 103 us, waited 1 us
+        th=8 t=1:2 f=0.5 T= 4 C= 11:    336.9 us cpu 6.0 exp 274 us | gpu side 313 us, waited 1 us
+        th=8 t=1:2 f=0.5 T= 8 C= 28:    824.8 us cpu 14.0 exp 655 us | gpu side 795 us, waited 9 us
+        th=8 t=1:2 f=0.5 T=16 C= 50:   1470.9 us cpu 25.0 exp 1165 us | gpu side 1438 us, waited 9 us
+        th=8 t=1:2 f=0.5 T=32 C= 86:   2599.3 us cpu 43.0 exp 2037 us | gpu side 2564 us, waited 9 us
+edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.60, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+        th=8 t=1:2 f=0.6 T= 1 C=  3:    119.4 us cpu 2.0 exp 80 us | gpu side 103 us, waited 1 us
+        th=8 t=1:2 f=0.6 T= 4 C= 11:    323.0 us cpu 7.0 exp 299 us | gpu side 271 us, waited 31 us
+        th=8 t=1:2 f=0.6 T= 8 C= 28:    788.7 us cpu 17.0 exp 762 us | gpu side 697 us, waited 71 us
+        th=8 t=1:2 f=0.6 T=16 C= 50:   1397.9 us cpu 30.0 exp 1370 us | gpu side 1303 us, waited 71 us
+        th=8 t=1:2 f=0.6 T=32 C= 86:   2462.8 us cpu 52.0 exp 2424 us | gpu side 2298 us, waited 129 us
+edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.00, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+        th=8 t=2:4 f=0.0 T= 1 C=  3:    158.6 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+        th=8 t=2:4 f=0.0 T= 4 C= 11:    442.2 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+        th=8 t=2:4 f=0.0 T= 8 C= 28:   1057.1 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+        th=8 t=2:4 f=0.0 T=16 C= 50:   1900.8 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+        th=8 t=2:4 f=0.0 T=32 C= 86:   3250.6 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.30, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+        th=8 t=2:4 f=0.3 T= 1 C=  3:    143.0 us cpu 1.0 exp 45 us | gpu side 126 us, waited 1 us
+        th=8 t=2:4 f=0.3 T= 4 C= 11:    396.8 us cpu 3.0 exp 134 us | gpu side 369 us, waited 7 us
+        th=8 t=2:4 f=0.3 T= 8 C= 28:    925.9 us cpu 8.0 exp 364 us | gpu side 897 us, waited 10 us
+        th=8 t=2:4 f=0.3 T=16 C= 50:   1648.3 us cpu 15.0 exp 666 us | gpu side 1618 us, waited 9 us
+        th=8 t=2:4 f=0.3 T=32 C= 86:   2844.5 us cpu 26.0 exp 1177 us | gpu side 2814 us, waited 9 us
+edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.40, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+        th=8 t=2:4 f=0.4 T= 1 C=  3:    143.7 us cpu 1.0 exp 46 us | gpu side 126 us, waited 1 us
+        th=8 t=2:4 f=0.4 T= 4 C= 11:    378.6 us cpu 4.0 exp 181 us | gpu side 354 us, waited 4 us
+        th=8 t=2:4 f=0.4 T= 8 C= 28:    878.5 us cpu 11.0 exp 515 us | gpu side 850 us, waited 9 us
+        th=8 t=2:4 f=0.4 T=16 C= 50:   1582.0 us cpu 20.0 exp 935 us | gpu side 1569 us, waited 8 us
+        th=8 t=2:4 f=0.4 T=32 C= 86:   2725.0 us cpu 34.0 exp 1592 us | gpu side 2691 us, waited 8 us
+edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.50, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+        th=8 t=2:4 f=0.5 T= 1 C=  3:    119.7 us cpu 2.0 exp 82 us | gpu side 104 us, waited 1 us
+        th=8 t=2:4 f=0.5 T= 4 C= 11:    336.1 us cpu 6.0 exp 275 us | gpu side 313 us, waited 1 us
+        th=8 t=2:4 f=0.5 T= 8 C= 28:    824.6 us cpu 14.0 exp 664 us | gpu side 795 us, waited 9 us
+        th=8 t=2:4 f=0.5 T=16 C= 50:   1469.6 us cpu 25.0 exp 1176 us | gpu side 1438 us, waited 9 us
+        th=8 t=2:4 f=0.5 T=32 C= 86:   2610.3 us cpu 43.0 exp 2055 us | gpu side 2568 us, waited 9 us
+edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.60, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+        th=8 t=2:4 f=0.6 T= 1 C=  3:    119.1 us cpu 2.0 exp 82 us | gpu side 103 us, waited 1 us
+        th=8 t=2:4 f=0.6 T= 4 C= 11:    326.8 us cpu 7.0 exp 303 us | gpu side 273 us, waited 33 us
+        th=8 t=2:4 f=0.6 T= 8 C= 28:    798.8 us cpu 17.0 exp 772 us | gpu side 699 us, waited 77 us
+        th=8 t=2:4 f=0.6 T=16 C= 50:   1408.4 us cpu 30.0 exp 1382 us | gpu side 1299 us, waited 87 us
+        th=8 t=2:4 f=0.6 T=32 C= 86:   2477.6 us cpu 52.0 exp 2442 us | gpu side 2306 us, waited 138 us
+edge0 cpu-experts: 12 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], frac 0.00, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=12 t=1:2 f=0.0 T= 1 C=  3:    157.4 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+       th=12 t=1:2 f=0.0 T= 4 C= 11:    442.0 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+       th=12 t=1:2 f=0.0 T= 8 C= 28:   1057.2 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+       th=12 t=1:2 f=0.0 T=16 C= 50:   1898.4 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+       th=12 t=1:2 f=0.0 T=32 C= 86:   3247.5 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+edge0 cpu-experts: 12 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], frac 0.30, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=12 t=1:2 f=0.3 T= 1 C=  3:    143.7 us cpu 1.0 exp 44 us | gpu side 125 us, waited 1 us
+       th=12 t=1:2 f=0.3 T= 4 C= 11:    394.9 us cpu 3.0 exp 129 us | gpu side 367 us, waited 8 us
+       th=12 t=1:2 f=0.3 T= 8 C= 28:    920.7 us cpu 8.0 exp 348 us | gpu side 891 us, waited 10 us
+       th=12 t=1:2 f=0.3 T=16 C= 50:   1640.8 us cpu 15.0 exp 650 us | gpu side 1610 us, waited 10 us
+       th=12 t=1:2 f=0.3 T=32 C= 86:   2839.2 us cpu 26.0 exp 1155 us | gpu side 2807 us, waited 9 us
+edge0 cpu-experts: 12 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], frac 0.40, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=12 t=1:2 f=0.4 T= 1 C=  3:    142.8 us cpu 1.0 exp 44 us | gpu side 125 us, waited 1 us
+       th=12 t=1:2 f=0.4 T= 4 C= 11:    376.1 us cpu 4.0 exp 177 us | gpu side 352 us, waited 4 us
+       th=12 t=1:2 f=0.4 T= 8 C= 28:    871.6 us cpu 11.0 exp 498 us | gpu side 842 us, waited 9 us
+       th=12 t=1:2 f=0.4 T=16 C= 50:   1567.7 us cpu 20.0 exp 907 us | gpu side 1536 us, waited 9 us
+       th=12 t=1:2 f=0.4 T=32 C= 86:   2699.6 us cpu 34.0 exp 1560 us | gpu side 2667 us, waited 9 us
+edge0 cpu-experts: 12 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], frac 0.50, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=12 t=1:2 f=0.5 T= 1 C=  3:    119.7 us cpu 2.0 exp 80 us | gpu side 103 us, waited 1 us
+       th=12 t=1:2 f=0.5 T= 4 C= 11:    334.0 us cpu 6.0 exp 269 us | gpu side 311 us, waited 1 us
+       th=12 t=1:2 f=0.5 T= 8 C= 28:    815.7 us cpu 14.0 exp 643 us | gpu side 789 us, waited 9 us
+       th=12 t=1:2 f=0.5 T=16 C= 50:   1458.0 us cpu 25.0 exp 1155 us | gpu side 1424 us, waited 9 us
+       th=12 t=1:2 f=0.5 T=32 C= 86:   2601.4 us cpu 43.0 exp 2022 us | gpu side 2562 us, waited 9 us
+edge0 cpu-experts: 12 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], frac 0.60, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=12 t=1:2 f=0.6 T= 1 C=  3:    118.8 us cpu 2.0 exp 78 us | gpu side 103 us, waited 1 us
+       th=12 t=1:2 f=0.6 T= 4 C= 11:    323.0 us cpu 7.0 exp 297 us | gpu side 273 us, waited 28 us
+       th=12 t=1:2 f=0.6 T= 8 C= 28:    794.6 us cpu 17.0 exp 759 us | gpu side 695 us, waited 71 us
+       th=12 t=1:2 f=0.6 T=16 C= 50:   1407.2 us cpu 30.0 exp 1375 us | gpu side 1304 us, waited 78 us
+       th=12 t=1:2 f=0.6 T=32 C= 86:   2467.2 us cpu 52.0 exp 2436 us | gpu side 2337 us, waited 102 us
+edge0 cpu-experts: 12 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], frac 0.00, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=12 t=2:4 f=0.0 T= 1 C=  3:    157.2 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+       th=12 t=2:4 f=0.0 T= 4 C= 11:    442.2 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+       th=12 t=2:4 f=0.0 T= 8 C= 28:   1056.9 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+       th=12 t=2:4 f=0.0 T=16 C= 50:   1899.9 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+       th=12 t=2:4 f=0.0 T=32 C= 86:   3250.9 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+edge0 cpu-experts: 12 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], frac 0.30, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=12 t=2:4 f=0.3 T= 1 C=  3:    143.6 us cpu 1.0 exp 46 us | gpu side 126 us, waited 1 us
+       th=12 t=2:4 f=0.3 T= 4 C= 11:    393.0 us cpu 3.0 exp 128 us | gpu side 367 us, waited 7 us
+       th=12 t=2:4 f=0.3 T= 8 C= 28:    918.9 us cpu 8.0 exp 350 us | gpu side 891 us, waited 10 us
+       th=12 t=2:4 f=0.3 T=16 C= 50:   1639.5 us cpu 15.0 exp 647 us | gpu side 1610 us, waited 9 us
+       th=12 t=2:4 f=0.3 T=32 C= 86:   2852.0 us cpu 26.0 exp 1159 us | gpu side 2823 us, waited 8 us
+edge0 cpu-experts: 12 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], frac 0.40, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=12 t=2:4 f=0.4 T= 1 C=  3:    144.1 us cpu 1.0 exp 46 us | gpu side 126 us, waited 1 us
+       th=12 t=2:4 f=0.4 T= 4 C= 11:    377.2 us cpu 4.0 exp 178 us | gpu side 352 us, waited 4 us
+       th=12 t=2:4 f=0.4 T= 8 C= 28:    874.1 us cpu 11.0 exp 501 us | gpu side 844 us, waited 9 us
+       th=12 t=2:4 f=0.4 T=16 C= 50:   1568.3 us cpu 20.0 exp 911 us | gpu side 1535 us, waited 9 us
+       th=12 t=2:4 f=0.4 T=32 C= 86:   2707.8 us cpu 34.0 exp 1569 us | gpu side 2667 us, waited 9 us
+edge0 cpu-experts: 12 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], frac 0.50, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=12 t=2:4 f=0.5 T= 1 C=  3:    119.9 us cpu 2.0 exp 80 us | gpu side 103 us, waited 1 us
+       th=12 t=2:4 f=0.5 T= 4 C= 11:    335.7 us cpu 6.0 exp 271 us | gpu side 312 us, waited 1 us
+       th=12 t=2:4 f=0.5 T= 8 C= 28:    817.2 us cpu 14.0 exp 643 us | gpu side 786 us, waited 9 us
+       th=12 t=2:4 f=0.5 T=16 C= 50:   1459.7 us cpu 25.0 exp 1161 us | gpu side 1424 us, waited 9 us
+       th=12 t=2:4 f=0.5 T=32 C= 86:   2592.6 us cpu 43.0 exp 2035 us | gpu side 2555 us, waited 9 us
+edge0 cpu-experts: 12 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], frac 0.60, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=12 t=2:4 f=0.6 T= 1 C=  3:    120.5 us cpu 2.0 exp 82 us | gpu side 104 us, waited 1 us
+       th=12 t=2:4 f=0.6 T= 4 C= 11:    326.2 us cpu 7.0 exp 300 us | gpu side 273 us, waited 31 us
+       th=12 t=2:4 f=0.6 T= 8 C= 28:    794.9 us cpu 17.0 exp 766 us | gpu side 696 us, waited 76 us
+       th=12 t=2:4 f=0.6 T=16 C= 50:   1403.8 us cpu 30.0 exp 1374 us | gpu side 1293 us, waited 87 us
+       th=12 t=2:4 f=0.6 T=32 C= 86:   2467.4 us cpu 52.0 exp 2430 us | gpu side 2288 us, waited 145 us
+edge0 cpu-experts: 14 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], frac 0.00, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=14 t=1:2 f=0.0 T= 1 C=  3:    157.2 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+       th=14 t=1:2 f=0.0 T= 4 C= 11:    442.8 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+       th=14 t=1:2 f=0.0 T= 8 C= 28:   1057.0 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+       th=14 t=1:2 f=0.0 T=16 C= 50:   1902.8 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+       th=14 t=1:2 f=0.0 T=32 C= 86:   3251.9 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+edge0 cpu-experts: 14 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], frac 0.30, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=14 t=1:2 f=0.3 T= 1 C=  3:    144.0 us cpu 1.0 exp 43 us | gpu side 125 us, waited 1 us
+       th=14 t=1:2 f=0.3 T= 4 C= 11:    395.3 us cpu 3.0 exp 130 us | gpu side 368 us, waited 7 us
+       th=14 t=1:2 f=0.3 T= 8 C= 28:    922.1 us cpu 8.0 exp 351 us | gpu side 893 us, waited 10 us
+       th=14 t=1:2 f=0.3 T=16 C= 50:   1644.0 us cpu 15.0 exp 645 us | gpu side 1608 us, waited 10 us
+       th=14 t=1:2 f=0.3 T=32 C= 86:   2841.8 us cpu 26.0 exp 1153 us | gpu side 2810 us, waited 9 us
+edge0 cpu-experts: 14 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], frac 0.40, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=14 t=1:2 f=0.4 T= 1 C=  3:    144.0 us cpu 1.0 exp 43 us | gpu side 125 us, waited 1 us
+       th=14 t=1:2 f=0.4 T= 4 C= 11:    377.5 us cpu 4.0 exp 176 us | gpu side 352 us, waited 4 us
+       th=14 t=1:2 f=0.4 T= 8 C= 28:    873.8 us cpu 11.0 exp 499 us | gpu side 844 us, waited 9 us
+       th=14 t=1:2 f=0.4 T=16 C= 50:   1566.3 us cpu 20.0 exp 907 us | gpu side 1533 us, waited 9 us
+       th=14 t=1:2 f=0.4 T=32 C= 86:   2708.6 us cpu 34.0 exp 1566 us | gpu side 2673 us, waited 9 us
+edge0 cpu-experts: 14 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], frac 0.50, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=14 t=1:2 f=0.5 T= 1 C=  3:    119.4 us cpu 2.0 exp 80 us | gpu side 103 us, waited 1 us
+       th=14 t=1:2 f=0.5 T= 4 C= 11:    336.4 us cpu 6.0 exp 268 us | gpu side 311 us, waited 1 us
+       th=14 t=1:2 f=0.5 T= 8 C= 28:    820.0 us cpu 14.0 exp 647 us | gpu side 788 us, waited 9 us
+       th=14 t=1:2 f=0.5 T=16 C= 50:   1465.1 us cpu 25.0 exp 1155 us | gpu side 1427 us, waited 9 us
+       th=14 t=1:2 f=0.5 T=32 C= 86:   2603.1 us cpu 43.0 exp 2030 us | gpu side 2563 us, waited 9 us
+edge0 cpu-experts: 14 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], frac 0.60, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=14 t=1:2 f=0.6 T= 1 C=  3:    120.2 us cpu 2.0 exp 79 us | gpu side 103 us, waited 1 us
+       th=14 t=1:2 f=0.6 T= 4 C= 11:    324.5 us cpu 7.0 exp 299 us | gpu side 276 us, waited 28 us
+       th=14 t=1:2 f=0.6 T= 8 C= 28:    793.4 us cpu 17.0 exp 762 us | gpu side 696 us, waited 72 us
+       th=14 t=1:2 f=0.6 T=16 C= 50:   1402.0 us cpu 30.0 exp 1368 us | gpu side 1296 us, waited 79 us
+       th=14 t=1:2 f=0.6 T=32 C= 86:   2464.8 us cpu 52.0 exp 2424 us | gpu side 2303 us, waited 125 us
+edge0 cpu-experts: 14 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], frac 0.00, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=14 t=2:4 f=0.0 T= 1 C=  3:    158.2 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+       th=14 t=2:4 f=0.0 T= 4 C= 11:    442.1 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+       th=14 t=2:4 f=0.0 T= 8 C= 28:   1056.2 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+       th=14 t=2:4 f=0.0 T=16 C= 50:   1899.9 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+       th=14 t=2:4 f=0.0 T=32 C= 86:   3251.3 us cpu 0.0 exp 0 us | gpu side 0 us, waited 0 us
+edge0 cpu-experts: 14 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], frac 0.30, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=14 t=2:4 f=0.3 T= 1 C=  3:    145.8 us cpu 1.0 exp 48 us | gpu side 128 us, waited 1 us
+       th=14 t=2:4 f=0.3 T= 4 C= 11:    397.1 us cpu 3.0 exp 131 us | gpu side 369 us, waited 7 us
+       th=14 t=2:4 f=0.3 T= 8 C= 28:    920.0 us cpu 8.0 exp 352 us | gpu side 891 us, waited 9 us
+       th=14 t=2:4 f=0.3 T=16 C= 50:   1637.6 us cpu 15.0 exp 648 us | gpu side 1606 us, waited 10 us
+       th=14 t=2:4 f=0.3 T=32 C= 86:   2838.5 us cpu 26.0 exp 1160 us | gpu side 2805 us, waited 9 us
+edge0 cpu-experts: 14 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], frac 0.40, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=14 t=2:4 f=0.4 T= 1 C=  3:    144.3 us cpu 1.0 exp 47 us | gpu side 126 us, waited 1 us
+       th=14 t=2:4 f=0.4 T= 4 C= 11:    378.4 us cpu 4.0 exp 177 us | gpu side 353 us, waited 4 us
+       th=14 t=2:4 f=0.4 T= 8 C= 28:    871.0 us cpu 11.0 exp 499 us | gpu side 842 us, waited 9 us
+       th=14 t=2:4 f=0.4 T=16 C= 50:   1569.0 us cpu 20.0 exp 908 us | gpu side 1532 us, waited 9 us
+       th=14 t=2:4 f=0.4 T=32 C= 86:   2707.2 us cpu 34.0 exp 1573 us | gpu side 2669 us, waited 9 us
+edge0 cpu-experts: 14 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], frac 0.50, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=14 t=2:4 f=0.5 T= 1 C=  3:    120.9 us cpu 2.0 exp 81 us | gpu side 104 us, waited 1 us
+       th=14 t=2:4 f=0.5 T= 4 C= 11:    337.7 us cpu 6.0 exp 268 us | gpu side 311 us, waited 1 us
+       th=14 t=2:4 f=0.5 T= 8 C= 28:    819.2 us cpu 14.0 exp 650 us | gpu side 788 us, waited 9 us
+       th=14 t=2:4 f=0.5 T=16 C= 50:   1463.6 us cpu 25.0 exp 1162 us | gpu side 1426 us, waited 9 us
+       th=14 t=2:4 f=0.5 T=32 C= 86:   2589.3 us cpu 43.0 exp 2041 us | gpu side 2553 us, waited 9 us
+edge0 cpu-experts: 14 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], frac 0.60, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+       th=14 t=2:4 f=0.6 T= 1 C=  3:    121.0 us cpu 2.0 exp 81 us | gpu side 104 us, waited 1 us
+       th=14 t=2:4 f=0.6 T= 4 C= 11:    330.7 us cpu 7.0 exp 301 us | gpu side 274 us, waited 31 us
+       th=14 t=2:4 f=0.6 T= 8 C= 28:    795.6 us cpu 17.0 exp 763 us | gpu side 694 us, waited 75 us
+       th=14 t=2:4 f=0.6 T=16 C= 50:   1411.5 us cpu 30.0 exp 1373 us | gpu side 1292 us, waited 89 us
+       th=14 t=2:4 f=0.6 T=32 C= 86:   2480.6 us cpu 52.0 exp 2459 us | gpu side 2335 us, waited 133 us
+# 01:57:02 GATE_DONE

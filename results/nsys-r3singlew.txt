@@ -1,0 +1,85 @@
+== profiles/r3singlew/c1-k1.sqlite: 145 steps, gen tokens [(4, 145)], kernels/step 2803, unlabelled None
+period 19.49 ms (median 19.20), GPU busy 17.55, idle 1.94 (9.9%), H2D 41.49 MB/step, execute_model CPU 16.89 ms
+exclusive GPU time per category (ms, % of period) | summed kernel time (ms):
+  attn_gdn            0.422   2.2%   sum    0.422
+  attn_qsa            0.182   0.9%   sum    0.183
+  attn_proj           2.360  12.1%   sum    2.360
+  router_gate         0.218   1.1%   sum    0.228
+  latent_U            0.031   0.2%   sum    0.031
+  shared_expert       2.086  10.7%   sum    2.137
+  moe_route           2.332  12.0%   sum    2.348
+  moe_gather          0.106   0.5%   sum    0.106
+  hot_marlin          0.307   1.6%   sum    4.473
+  cold_marlin         5.789  29.7%   sum    5.794
+  cpu_wait            0.109   0.6%   sum    0.109
+  moe_combine         0.112   0.6%   sum    0.123
+  ple_gpu             0.002   0.0%   sum    0.002
+  hc_norm             1.437   7.4%   sum    1.642
+  lm_head_sample      0.417   2.1%   sum    0.417
+  drafter             1.390   7.1%   sum    1.392
+  spec_reject         0.035   0.2%   sum    0.035
+  other_gpu           0.143   0.7%   sum    0.157
+  memcpy_h2d          0.025   0.1%   sum    1.946
+  memcpy_d2h          0.010   0.0%   sum    1.933
+  memset              0.043   0.2%   sum    0.049
+  GPU idle            1.938   9.9%
+GPU idle attributed to the engine thread's host range (ms):
+  graph.full                      1.693
+  ple.stage                       0.188
+  runner.sample                   0.034
+  runner.execute_model            0.013
+  runner.prepare_inputs           0.004
+  model_state.prepare_inputs      0.003
+  runner.postprocess              0.001
+  runner.sample_tokens            0.001
+  none                            0.000
+  spec.propose                    0.000
+  sched.schedule                  0.000
+  sched.update_from_output        0.000
+  spec.reject                     0.000
+  execute_model(other)            0.000
+host ranges per step (ms, all engine threads):
+  runner.execute_model           16.885
+  model_state.prepare_inputs     13.795
+  ple.stage                      13.642
+  graph.full                      3.994
+  runner.sample_tokens            2.478
+  runner.sample                   1.929
+  spec.propose                    0.319
+  spec.reject                     0.312
+  runner.prepare_inputs           0.266
+  sched.schedule                  0.076
+  runner.postprocess              0.048
+  sched.update_from_output        0.040
+CUDA API per step (ms): {'graph_launch': 2.076, 'memcpy_api': 0.672, 'sync': 13.556}
+top kernels (category | name: ms per step):
+     5.460  cold_marlin|Marlin
+     4.135  hot_marlin|Marlin
+     1.946  memcpy_h2d|memcpy:HtoD
+     1.933  memcpy_d2h|memcpy:DtoH
+     1.741  shared_expert|_q8_gemv_kernel
+     1.260  moe_route|_q8_gemv_kernel
+     1.068  attn_proj|kernel_cutlass_kernel_b12x_libdense_gemmDenseGemmKernel_object_at__CopyAtom_ThrID10_TVLayoutSrc1102401_TVLayoutDst1102401_Valuetypebf16_tens
+     0.703  hc_norm|kernel_cutlass_kernel_vllmmodelsqwen4_expnvidiaopscute_dsl_hc_down_silu_fmaHcDownSiluFma_object_at__tensorptrbf16gmemalign16o410240i64div81_te
+     0.629  attn_proj|kernel_cutlass_kernel_b12x_libdense_gemmDenseGemmKernel_object_at__CopyAtom_ThrID10_TVLayoutSrc1102401_TVLayoutDst1102401_Valuetypebf16_tens
+     0.564  attn_proj|nvjet_sm120_tst_mma_128x8x64_5_32x8x64_tmaAB_alignCD4_bz_TNNN
+     0.556  hc_norm|nvjet_sm120_tst_mma_128x8x64_5_32x8x64_tmaAB_alignCD4_bz_TNNN
+     0.415  lm_head_sample|_q8_gemv_kernel
+     0.413  drafter|_q8_gemv_kernel
+     0.324  attn_gdn|gdn_decode_post_conv_mtp_kernel
+     0.268  hc_norm|_hc_combine_norm_kernel
+     0.252  drafter|nvjet_sm120_tst_mma_128x8x64_5_32x8x64_tmaAB_alignCD4_bz_TNNN
+     0.243  moe_route|vectorized_elementwise_kernel
+     0.237  shared_expert|_splitk_sum_kernel
+     0.191  moe_route|elementwise_kernel
+     0.189  moe_route|topkGating
+     0.185  moe_route|_tier_count_kernel
+     0.161  router_gate|nvjet_sm120_tss_mma_64x8x128_5_16x8x128_tmaAB_alignCD4_splitK_TNNN
+     0.147  hot_marlin|act_and_mul_kernel
+     0.139  hot_marlin|moe_align_block_size_kernel
+     0.139  drafter|nvjet_sm120_tst_mma_320x8x64_2_80x8x64_tmaAB_alignCD4_splitK_TNNN
+     0.128  drafter|nvjet_sm120_tst_mma_256x8x64_2_64x8x64_tmaAB_alignCD4_splitK_TNNN
+     0.128  cold_marlin|moe_align_block_size_kernel
+     0.127  cold_marlin|act_and_mul_kernel
+     0.123  moe_combine|_combine_routes_kernel
+     0.113  drafter|nvjet_sm120_tst_mma_128x8x64_5_32x8x64_tmaAB_alignCD4_splitK_TNNN

@@ -1,0 +1,105 @@
+# 13:59:11 reusing the running server (REUSE=1)
+# 13:59:11 healthy after 0 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-135435.log)
+# 13:59:11 bench nsys-r2singlew-c1 conc 1 out 512 prompts 2, capture 150 iterations
+Open-file limit: 1048576
+========================= Concurrency Sweep ==========================
+Sweeping --max-concurrency over 1 values: [1]
+
+--------------------- Run 1/1: max_concurrency=1 ---------------------
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 2 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 2 prompts in 0.43s
+Warming up with 2 requests...
+# 13:59:18 steady: running 1 waiting 0; start_profile
+Warmup run completed.
+Speculative decoding detected, will collect metrics.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 1
+================= Serving Benchmark Result =================
+Successful requests:                     2         
+Failed requests:                         0         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  10.45     
+Total input tokens:                      246       
+Total generated tokens:                  1024      
+Request throughput (req/s):              0.19      
+Output token throughput (tok/s):         97.95     
+Peak output token throughput (tok/s):    54.00     
+Peak concurrent requests:                2.00      
+Total token throughput (tok/s):          121.48    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          155.60    
+Median TTFT (ms):                        155.60    
+P99 TTFT (ms):                           192.83    
+P90 TTFT (ms):                           185.99    
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          9.92      
+Median TPOT (ms):                        9.92      
+P99 TPOT (ms):                           11.61     
+P90 TPOT (ms):                           11.30     
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           27.34     
+Median ITL (ms):                         20.22     
+P99 ITL (ms):                            30.19     
+P90 ITL (ms):                            25.32     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          5226.87   
+Median E2EL (ms):                        5226.87   
+P99 E2EL (ms):                           6127.06   
+P90 E2EL (ms):                           5961.72   
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     59.17     
+Acceptance length:                       2.78      
+Drafts:                                  369       
+Draft tokens:                            1107      
+Accepted tokens:                         655       
+Per-position acceptance (%):
+  Position 0:                            79.67     
+  Position 1:                            57.72     
+  Position 2:                            40.11     
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 1 = 1
+Window:                             0.0s -> 10.5s  (10.5s)
+Observed peak concurrency:          1
+Requests started in window:         2 / 2 (100.0%)
+Requests completed in window:       1
+-----------------------------------------------
+Request throughput (req/s):         0.10
+Output token throughput (tok/s):    35.68
+Input token throughput (tok/s):     23.53
+Total token throughput (tok/s):     59.21
+-----------------------------------------------
+Mean TTFT (ms):                     155.60
+Median TTFT (ms):                   155.60
+P99 TTFT (ms):                      192.83
+P90 TTFT (ms):                      185.99
+-----------------------------------------------
+Mean TPOT (ms):                     9.92
+Median TPOT (ms):                   9.92
+P90 TPOT (ms):                      11.30
+P99 TPOT (ms):                      11.61
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/nsys-r2singlew-c1/nsys-r2singlew-c1-infqps-concurrency1-edge0_145b-20261120-135911.json
+
+========================================================== Sweep Summary ==========================================================
+Max Concurrency           Req/s      Tok/s  Total tok/s   SS req/s SS out tok/s P50 TTFT(ms) P50 TPOT(ms) P90 TTFT(ms) P90 TPOT(ms)
+-------------------- ---------- ---------- ------------ ---------- ------------ ------------ ------------ ------------ ------------
+concurrency=1              0.19      97.95       121.48       0.10        35.68       155.60         9.92       185.99        11.30
+===================================================================================================================================
+Best throughput: 0.19 req/s at concurrency=1
+# 13:59:34 capture 1: /tmp/nsys-report-3c72.qdstrm (15589087 B) -> /home/andychen/work/edge0-vllm/profiles/r2singlew/c1-k1.qdstrm (importing)
+# 13:59:34 capture 1 done: c1-k1.qdstrm 
+# 13:59:34 tokens during capture window+write: 1335 tokens in 16.5 s = 80.7 tok/s
+Collecting data...
+Generating '/tmp/nsys-report-4b94.qdstrm'
+[1/1] [0%                          ] gpum-c1.nsys-rep[1/1] [0%                          ] gpum-c1.nsys-rep[1/1] [12%                         ] gpum-c1.nsys-rep[1/1] [14%                         ] gpum-c1.nsys-rep[1/1] [=16%                        ] gpum-c1.nsys-rep[1/1] [====28%                     ] gpum-c1.nsys-rep[1/1] [========40%                 ] gpum-c1.nsys-rep[1/1] [===========52%              ] gpum-c1.nsys-rep[1/1] [========================100%] gpum-c1.nsys-rep[1/1] [========================100%] gpum-c1.nsys-rep
+Generated:
+	/home/andychen/work/edge0-vllm/profiles/r2singlew/gpum-c1.nsys-rep
+# 13:59:40 gpu metrics c1: 0 tokens in 6.1 s = 0.0 tok/s (running, no capture)
+# 13:59:49 waiting for the host-side imports
+# 13:59:49 NSYS_DONE c1-k1.nsys-rep c1-k1.sqlite gpum-c1.nsys-rep 

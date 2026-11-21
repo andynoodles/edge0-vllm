@@ -1,0 +1,3 @@
+................................routing tail per MoE call in a graph of 48 (T=4, padding mask + tier count): unfused 5.13 us, fused 1.15 us
+.
+33 passed in 10.91s

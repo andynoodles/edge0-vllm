@@ -1,0 +1,474 @@
+Open-file limit: 1048576
+========================= Concurrency Sweep ==========================
+Sweeping --max-concurrency over 1 values: [1]
+
+--------------------- Run 1/1: max_concurrency=1 ---------------------
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 4 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 4 prompts in 1.88s
+Warming up with 2 requests...
+Warmup run completed.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 1
+================= Serving Benchmark Result =================
+Successful requests:                     4         
+Failed requests:                         0         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  74.74     
+Total input tokens:                      592       
+Total generated tokens:                  4096      
+Request throughput (req/s):              0.05      
+Output token throughput (tok/s):         54.80     
+Peak output token throughput (tok/s):    72.00     
+Peak concurrent requests:                2.00      
+Total token throughput (tok/s):          62.72     
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          246.77    
+Median TTFT (ms):                        184.65    
+P99 TTFT (ms):                           497.27    
+P90 TTFT (ms):                           420.64    
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          18.02     
+Median TPOT (ms):                        18.70     
+P99 TPOT (ms):                           19.36     
+P90 TPOT (ms):                           19.32     
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           18.01     
+Median ITL (ms):                         17.76     
+P99 ITL (ms):                            26.70     
+P90 ITL (ms):                            22.12     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          18685.97  
+Median E2EL (ms):                        19452.13  
+P99 E2EL (ms):                           19914.34  
+P90 E2EL (ms):                           19884.56  
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 1 = 1
+Window:                             0.0s -> 74.7s  (74.7s)
+Observed peak concurrency:          1
+Requests started in window:         4 / 4 (100.0%)
+Requests completed in window:       3
+-----------------------------------------------
+Request throughput (req/s):         0.04
+Output token throughput (tok/s):    54.85
+Input token throughput (tok/s):     7.92
+Total token throughput (tok/s):     62.77
+-----------------------------------------------
+Mean TTFT (ms):                     246.77
+Median TTFT (ms):                   184.65
+P99 TTFT (ms):                      497.27
+P90 TTFT (ms):                      420.64
+-----------------------------------------------
+Mean TPOT (ms):                     18.02
+Median TPOT (ms):                   18.70
+P90 TPOT (ms):                      19.32
+P99 TPOT (ms):                      19.36
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/vllm-final-tuned/vllm-final-tuned-infqps-concurrency1-edge0_145b-20261120-193040.json
+
+========================================================== Sweep Summary ==========================================================
+Max Concurrency           Req/s      Tok/s  Total tok/s   SS req/s SS out tok/s P50 TTFT(ms) P50 TPOT(ms) P90 TTFT(ms) P90 TPOT(ms)
+-------------------- ---------- ---------- ------------ ---------- ------------ ------------ ------------ ------------ ------------
+concurrency=1              0.05      54.80        62.72       0.04        54.85       184.65        18.70       420.64        19.32
+===================================================================================================================================
+Best throughput: 0.05 req/s at concurrency=1
+Open-file limit: 1048576
+========================= Concurrency Sweep ==========================
+Sweeping --max-concurrency over 1 values: [2]
+
+--------------------- Run 1/1: max_concurrency=2 ---------------------
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 8 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 8 prompts in 0.47s
+Warming up with 2 requests...
+Warmup run completed.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 2
+================= Serving Benchmark Result =================
+Successful requests:                     8         
+Failed requests:                         0         
+Maximum request concurrency:             2         
+Benchmark duration (s):                  88.18     
+Total input tokens:                      1992      
+Total generated tokens:                  8192      
+Request throughput (req/s):              0.09      
+Output token throughput (tok/s):         92.90     
+Peak output token throughput (tok/s):    114.00    
+Peak concurrent requests:                4.00      
+Total token throughput (tok/s):          115.49    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          529.81    
+Median TTFT (ms):                        545.36    
+P99 TTFT (ms):                           790.97    
+P90 TTFT (ms):                           752.80    
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          21.03     
+Median TPOT (ms):                        21.20     
+P99 TPOT (ms):                           22.48     
+P90 TPOT (ms):                           22.44     
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           21.01     
+Median ITL (ms):                         20.73     
+P99 ITL (ms):                            28.68     
+P90 ITL (ms):                            24.48     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          22043.70  
+Median E2EL (ms):                        22219.06  
+P99 E2EL (ms):                           23731.35  
+P90 E2EL (ms):                           23730.10  
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 2 = 2
+Window:                             0.0s -> 88.2s  (88.2s)
+Observed peak concurrency:          2
+Requests started in window:         7 / 8 (87.5%)
+Requests completed in window:       6
+-----------------------------------------------
+Request throughput (req/s):         0.07
+Output token throughput (tok/s):    92.98
+Input token throughput (tok/s):     19.97
+Total token throughput (tok/s):     112.96
+-----------------------------------------------
+Mean TTFT (ms):                     571.15
+Median TTFT (ms):                   651.64
+P99 TTFT (ms):                      791.57
+P90 TTFT (ms):                      758.86
+-----------------------------------------------
+Mean TPOT (ms):                     21.28
+Median TPOT (ms):                   21.44
+P90 TPOT (ms):                      22.44
+P99 TPOT (ms):                      22.48
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/vllm-final-tuned/vllm-final-tuned-infqps-concurrency2-edge0_145b-20261120-193232.json
+
+========================================================== Sweep Summary ==========================================================
+Max Concurrency           Req/s      Tok/s  Total tok/s   SS req/s SS out tok/s P50 TTFT(ms) P50 TPOT(ms) P90 TTFT(ms) P90 TPOT(ms)
+-------------------- ---------- ---------- ------------ ---------- ------------ ------------ ------------ ------------ ------------
+concurrency=2              0.09      92.90       115.49       0.07        92.98       545.36        21.20       752.80        22.44
+===================================================================================================================================
+Best throughput: 0.09 req/s at concurrency=2
+Open-file limit: 1048576
+========================= Concurrency Sweep ==========================
+Sweeping --max-concurrency over 1 values: [4]
+
+--------------------- Run 1/1: max_concurrency=4 ---------------------
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 16 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 16 prompts in 0.45s
+Warming up with 2 requests...
+Warmup run completed.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 4
+================= Serving Benchmark Result =================
+Successful requests:                     16        
+Failed requests:                         0         
+Maximum request concurrency:             4         
+Benchmark duration (s):                  145.22    
+Total input tokens:                      4724      
+Total generated tokens:                  16384     
+Request throughput (req/s):              0.11      
+Output token throughput (tok/s):         112.82    
+Peak output token throughput (tok/s):    164.00    
+Peak concurrent requests:                8.00      
+Total token throughput (tok/s):          145.35    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          940.74    
+Median TTFT (ms):                        865.02    
+P99 TTFT (ms):                           1384.24   
+P90 TTFT (ms):                           1384.16   
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          34.57     
+Median TPOT (ms):                        34.75     
+P99 TPOT (ms):                           38.07     
+P90 TPOT (ms):                           37.97     
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           34.54     
+Median ITL (ms):                         34.87     
+P99 ITL (ms):                            69.63     
+P90 ITL (ms):                            40.39     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          36305.51  
+Median E2EL (ms):                        36656.04  
+P99 E2EL (ms):                           39736.71  
+P90 E2EL (ms):                           39712.79  
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 4 = 4
+Window:                             0.0s -> 145.2s  (145.2s)
+Observed peak concurrency:          4
+Requests started in window:         13 / 16 (81.2%)
+Requests completed in window:       12
+-----------------------------------------------
+Request throughput (req/s):         0.08
+Output token throughput (tok/s):    112.89
+Input token throughput (tok/s):     28.52
+Total token throughput (tok/s):     141.41
+-----------------------------------------------
+Mean TTFT (ms):                     1021.51
+Median TTFT (ms):                   1078.69
+P99 TTFT (ms):                      1384.24
+P90 TTFT (ms):                      1384.17
+-----------------------------------------------
+Mean TPOT (ms):                     35.42
+Median TPOT (ms):                   35.53
+P90 TPOT (ms):                      37.97
+P99 TPOT (ms):                      38.07
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/vllm-final-tuned/vllm-final-tuned-infqps-concurrency4-edge0_145b-20261120-193421.json
+
+========================================================== Sweep Summary ==========================================================
+Max Concurrency           Req/s      Tok/s  Total tok/s   SS req/s SS out tok/s P50 TTFT(ms) P50 TPOT(ms) P90 TTFT(ms) P90 TPOT(ms)
+-------------------- ---------- ---------- ------------ ---------- ------------ ------------ ------------ ------------ ------------
+concurrency=4              0.11     112.82       145.35       0.08       112.89       865.02        34.75      1384.16        37.97
+===================================================================================================================================
+Best throughput: 0.11 req/s at concurrency=4
+Open-file limit: 1048576
+========================= Concurrency Sweep ==========================
+Sweeping --max-concurrency over 1 values: [8]
+
+--------------------- Run 1/1: max_concurrency=8 ---------------------
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 32 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 32 prompts in 0.44s
+Warming up with 2 requests...
+Warmup run completed.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 8
+================= Serving Benchmark Result =================
+Successful requests:                     32        
+Failed requests:                         0         
+Maximum request concurrency:             8         
+Benchmark duration (s):                  240.39    
+Total input tokens:                      7986      
+Total generated tokens:                  32768     
+Request throughput (req/s):              0.13      
+Output token throughput (tok/s):         136.31    
+Peak output token throughput (tok/s):    176.00    
+Peak concurrent requests:                16.00     
+Total token throughput (tok/s):          169.53    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          1183.05   
+Median TTFT (ms):                        1253.18   
+P99 TTFT (ms):                           1577.15   
+P90 TTFT (ms):                           1535.47   
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          57.59     
+Median TPOT (ms):                        57.84     
+P99 TPOT (ms):                           61.88     
+P90 TPOT (ms):                           61.74     
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           57.53     
+Median ITL (ms):                         56.81     
+P99 ITL (ms):                            120.64    
+P90 ITL (ms):                            66.50     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          60096.40  
+Median E2EL (ms):                        60140.88  
+P99 E2EL (ms):                           64187.87  
+P90 E2EL (ms):                           64145.86  
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 8 = 8
+Window:                             0.0s -> 240.3s  (240.3s)
+Observed peak concurrency:          8
+Requests started in window:         25 / 32 (78.1%)
+Requests completed in window:       24
+-----------------------------------------------
+Request throughput (req/s):         0.10
+Output token throughput (tok/s):    136.41
+Input token throughput (tok/s):     25.00
+Total token throughput (tok/s):     161.42
+-----------------------------------------------
+Mean TTFT (ms):                     1202.84
+Median TTFT (ms):                   1260.31
+P99 TTFT (ms):                      1581.35
+P90 TTFT (ms):                      1535.56
+-----------------------------------------------
+Mean TPOT (ms):                     58.70
+Median TPOT (ms):                   57.84
+P90 TPOT (ms):                      61.74
+P99 TPOT (ms):                      61.90
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/vllm-final-tuned/vllm-final-tuned-infqps-concurrency8-edge0_145b-20261120-193706.json
+
+========================================================== Sweep Summary ==========================================================
+Max Concurrency           Req/s      Tok/s  Total tok/s   SS req/s SS out tok/s P50 TTFT(ms) P50 TPOT(ms) P90 TTFT(ms) P90 TPOT(ms)
+-------------------- ---------- ---------- ------------ ---------- ------------ ------------ ------------ ------------ ------------
+concurrency=8              0.13     136.31       169.53       0.10       136.41      1253.18        57.84      1535.47        61.74
+===================================================================================================================================
+Best throughput: 0.13 req/s at concurrency=8
+Open-file limit: 1048576
+========================= Concurrency Sweep ==========================
+Sweeping --max-concurrency over 1 values: [16]
+
+-------------------- Run 1/1: max_concurrency=16 ---------------------
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 64 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 64 prompts in 0.45s
+Warming up with 2 requests...
+Warmup run completed.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 16
+================= Serving Benchmark Result =================
+Successful requests:                     64        
+Failed requests:                         0         
+Maximum request concurrency:             16        
+Benchmark duration (s):                  440.70    
+Total input tokens:                      16553     
+Total generated tokens:                  65536     
+Request throughput (req/s):              0.15      
+Output token throughput (tok/s):         148.71    
+Peak output token throughput (tok/s):    224.00    
+Peak concurrent requests:                32.00     
+Total token throughput (tok/s):          186.27    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          2225.47   
+Median TTFT (ms):                        2302.33   
+P99 TTFT (ms):                           2473.85   
+P90 TTFT (ms):                           2473.41   
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          105.52    
+Median TPOT (ms):                        104.94    
+P99 TPOT (ms):                           110.20    
+P90 TPOT (ms):                           110.06    
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           105.41    
+Median ITL (ms):                         105.49    
+P99 ITL (ms):                            219.71    
+P90 ITL (ms):                            117.95    
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          110169.00 
+Median E2EL (ms):                        109392.32 
+P99 E2EL (ms):                           115065.15 
+P90 E2EL (ms):                           115064.99 
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 16 = 16
+Window:                             0.0s -> 440.6s  (440.6s)
+Observed peak concurrency:          16
+Requests started in window:         49 / 64 (76.6%)
+Requests completed in window:       48
+-----------------------------------------------
+Request throughput (req/s):         0.11
+Output token throughput (tok/s):    148.82
+Input token throughput (tok/s):     27.76
+Total token throughput (tok/s):     176.58
+-----------------------------------------------
+Mean TTFT (ms):                     2221.35
+Median TTFT (ms):                   2306.95
+P99 TTFT (ms):                      2473.88
+P90 TTFT (ms):                      2473.57
+-----------------------------------------------
+Mean TPOT (ms):                     106.21
+Median TPOT (ms):                   105.89
+P90 TPOT (ms):                      110.06
+P99 TPOT (ms):                      110.25
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/vllm-final-tuned/vllm-final-tuned-infqps-concurrency16-edge0_145b-20261120-194128.json
+
+========================================================== Sweep Summary ==========================================================
+Max Concurrency           Req/s      Tok/s  Total tok/s   SS req/s SS out tok/s P50 TTFT(ms) P50 TPOT(ms) P90 TTFT(ms) P90 TPOT(ms)
+-------------------- ---------- ---------- ------------ ---------- ------------ ------------ ------------ ------------ ------------
+concurrency=16             0.15     148.71       186.27       0.11       148.82      2302.33       104.94      2473.41       110.06
+===================================================================================================================================
+Best throughput: 0.15 req/s at concurrency=16
+Open-file limit: 1048576
+========================= Concurrency Sweep ==========================
+Sweeping --max-concurrency over 1 values: [32]
+
+-------------------- Run 1/1: max_concurrency=32 ---------------------
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 128 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 128 prompts in 0.45s
+Warming up with 2 requests...
+Warmup run completed.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 32
+================= Serving Benchmark Result =================
+Successful requests:                     128       
+Failed requests:                         0         
+Maximum request concurrency:             32        
+Benchmark duration (s):                  727.14    
+Total input tokens:                      29870     
+Total generated tokens:                  131072    
+Request throughput (req/s):              0.18      
+Output token throughput (tok/s):         180.26    
+Peak output token throughput (tok/s):    293.00    
+Peak concurrent requests:                61.00     
+Total token throughput (tok/s):          221.33    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          3141.77   
+Median TTFT (ms):                        3108.48   
+P99 TTFT (ms):                           3874.07   
+P90 TTFT (ms):                           3665.82   
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          174.61    
+Median TPOT (ms):                        177.09    
+P99 TPOT (ms):                           181.62    
+P90 TPOT (ms):                           180.99    
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           174.44    
+Median ITL (ms):                         175.87    
+P99 ITL (ms):                            373.38    
+P90 ITL (ms):                            193.94    
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          181766.12 
+Median E2EL (ms):                        184152.29 
+P99 E2EL (ms):                           189082.10 
+P90 E2EL (ms):                           188262.14 
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 32 = 31
+Window:                             0.0s -> 727.0s  (727.0s)
+Observed peak concurrency:          32
+Requests started in window:         98 / 128 (76.6%)
+Requests completed in window:       97
+-----------------------------------------------
+Request throughput (req/s):         0.13
+Output token throughput (tok/s):    180.40
+Input token throughput (tok/s):     30.14
+Total token throughput (tok/s):     210.54
+-----------------------------------------------
+Mean TTFT (ms):                     3149.35
+Median TTFT (ms):                   3108.48
+P99 TTFT (ms):                      3874.09
+P90 TTFT (ms):                      3665.93
+-----------------------------------------------
+Mean TPOT (ms):                     172.74
+Median TPOT (ms):                   172.31
+P90 TPOT (ms):                      180.99
+P99 TPOT (ms):                      181.63
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/vllm-final-tuned/vllm-final-tuned-infqps-concurrency32-edge0_145b-20261120-194912.json
+
+========================================================== Sweep Summary ==========================================================
+Max Concurrency           Req/s      Tok/s  Total tok/s   SS req/s SS out tok/s P50 TTFT(ms) P50 TPOT(ms) P90 TTFT(ms) P90 TPOT(ms)
+-------------------- ---------- ---------- ------------ ---------- ------------ ------------ ------------ ------------ ------------
+concurrency=32             0.18     180.26       221.33       0.13       180.40      3108.48       177.09      3665.82       180.99
+===================================================================================================================================
+Best throughput: 0.18 req/s at concurrency=32

@@ -1,0 +1,8529 @@
+{
+ "summary": {
+  "steps": 149,
+  "period_ms": 16.3761182147651,
+  "period_med_ms": 16.288326,
+  "busy_ms": 15.550334798657719,
+  "idle_ms": 0.8257834161073825,
+  "excl_ms": {
+   "attn_proj": 0.7494019261744966,
+   "attn_qsa": 0.12299575838926174,
+   "forward_graph": 14.667982765100671,
+   "memcpy_d2h": 0.00041428187919463085,
+   "memcpy_h2d": 0.0019573691275167784,
+   "memset": 0.0002867114093959731,
+   "other_gpu": 0.007295986577181208
+  },
+  "sums_ms": {
+   "attn_proj": 0.7494805302013423,
+   "attn_qsa": 0.12337310067114095,
+   "forward_graph": 14.667982765100671,
+   "memcpy_d2h": 0.0012374765100671141,
+   "memcpy_h2d": 0.0019573691275167784,
+   "memset": 0.0002867114093959731,
+   "other_gpu": 0.007295986577181208
+  },
+  "gap_ms": {
+   "edge0.adapt.epoch": 0.017174946308724834,
+   "graph.full": 0.17285430872483223,
+   "model_state.prepare_inputs": 0.0011395369127516779,
+   "none": 6.4e-05,
+   "ple.read": 0.5918261812080537,
+   "ple.stage": 0.026302449664429527,
+   "runner.execute_model": 0.005694275167785235,
+   "runner.postprocess": 7.688590604026845e-05,
+   "runner.prepare_inputs": 0.010085785234899329,
+   "runner.sample": 0.00019307382550335568,
+   "runner.sample_tokens": 4.9395973154362416e-05,
+   "sched.schedule": 6.0134228187919464e-05,
+   "sched.update_from_output": 5.154362416107382e-06
+  },
+  "host_ms": {
+   "edge0.adapt.epoch": 0.1578773624161074,
+   "graph.full": 0.3348875234899329,
+   "model_state.prepare_inputs": 14.679572570469798,
+   "ple.read": 0.529883899328859,
+   "ple.stage": 14.561619704697987,
+   "runner.execute_model": 15.61672834228188,
+   "runner.postprocess": 0.03804008053691275,
+   "runner.prepare_inputs": 0.1977976577181208,
+   "runner.sample": 0.3884960067114094,
+   "runner.sample_tokens": 0.5128853020134229,
+   "sched.schedule": 0.04516136912751678,
+   "sched.update_from_output": 0.018891637583892618
+  },
+  "api_ms": {
+   "graph_launch": 0.15963724832214765,
+   "memcpy_api": 0.06390187919463088,
+   "sync": 14.006693953020134
+  },
+  "h2d_MB": 0.0027281342281879196,
+  "cpu_exec_ms": 15.619716677852349,
+  "kernels": 38.88590604026846,
+  "gen_tok": [
+   [
+    1,
+    149
+   ]
+  ],
+  "unlabelled": null,
+  "top_names": [
+   [
+    "forward_graph|graph:forward",
+    14.66798276510067
+   ],
+   [
+    "attn_proj|kernel_cutlass_kernel_vllmmodel_executorkernelslinearcute_dsl_skinny_gemmCuteSkinnyGemm_object_at__tensorptrbf16gmemalign4o12560i64div21_tensorptrbf16gmemalign4o2560i64div21_tensorptrbf16_0",
+    0.7494805302013423
+   ],
+   [
+    "attn_qsa|indexSelectSmallIndex",
+    0.03595761744966443
+   ],
+   [
+    "attn_qsa|index_elementwise_kernel",
+    0.035751899328859034
+   ],
+   [
+    "attn_qsa|_gumbel_sample_kernel",
+    0.011926758389261749
+   ],
+   [
+    "attn_qsa|vectorized_elementwise_kernel",
+    0.007767825503355698
+   ],
+   [
+    "other_gpu|memcpy:DtoD",
+    0.0072959865771812
+   ],
+   [
+    "attn_qsa|_get_num_sampled_and_rejected_kernel",
+    0.006140986577181207
+   ],
+   [
+    "attn_qsa|elementwise_kernel",
+    0.003922899328859062
+   ],
+   [
+    "attn_qsa|_gather_block_tables_kernel",
+    0.003344738255033558
+   ],
+   [
+    "attn_qsa|reduce_kernel",
+    0.0030479395973154366
+   ],
+   [
+    "attn_qsa|_post_update_kernel",
+    0.002750489932885907
+   ],
+   [
+    "attn_qsa|_build_qsa_metadata_kernel",
+    0.002434140939597316
+   ],
+   [
+    "memcpy_h2d|memcpy:HtoD",
+    0.0019573691275167793
+   ],
+   [
+    "attn_qsa|_compute_slot_mappings_kernel",
+    0.001892080536912755
+   ],
+   [
+    "attn_qsa|_ple_ngram_ids_kernel",
+    0.001747953020134232
+   ],
+   [
+    "attn_qsa|_combine_sampled_and_draft_tokens_kernel",
+    0.0017028724832214759
+   ],
+   [
+    "attn_qsa|_scatter_gather_elementwise_kernel",
+    0.001664214765100672
+   ],
+   [
+    "memcpy_d2h|memcpy:DtoH",
+    0.001237476510067116
+   ],
+   [
+    "attn_qsa|_prepare_pos_seq_lens_kernel",
+    0.0009054429530201345
+   ],
+   [
+    "attn_qsa|unrolled_elementwise_kernel",
+    0.0008618523489932905
+   ],
+   [
+    "attn_qsa|_scatter_num_accepted_kernel",
+    0.0008586308724832233
+   ],
+   [
+    "attn_qsa|elementwise_kernel_with_index",
+    0.0006947583892617452
+   ],
+   [
+    "memset|memset:?",
+    0.0002867114093959729
+   ]
+  ]
+ },
+ "rows": [
+  {
+   "step": 0,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 23158108,
+   "busy": 19510946,
+   "idle": 3647162,
+   "excl": {
+    "attn_qsa": 66112,
+    "memcpy_h2d": 928,
+    "memset": 256,
+    "other_gpu": 7072,
+    "memcpy_d2h": 352,
+    "forward_graph": 18686851,
+    "attn_proj": 749375
+   },
+   "sums": {
+    "attn_qsa": 66112,
+    "attn_proj": 749375,
+    "memcpy_h2d": 928,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1248,
+    "memset": 256,
+    "forward_graph": 18686851
+   },
+   "gap_attr": {
+    "runner.prepare_inputs": 1483902,
+    "runner.execute_model": 788671,
+    "model_state.prepare_inputs": 158559,
+    "ple.stage": 89344,
+    "ple.read": 581311,
+    "graph.full": 545087
+   },
+   "host": {
+    "runner.execute_model": 4114227,
+    "runner.prepare_inputs": 1604631,
+    "model_state.prepare_inputs": 847286,
+    "ple.stage": 657955,
+    "ple.read": 467153,
+    "graph.full": 1086496,
+    "runner.sample_tokens": 560383,
+    "runner.sample": 394012,
+    "runner.postprocess": 52240,
+    "sched.update_from_output": 34810,
+    "sched.schedule": 49340
+   },
+   "api": {
+    "memcpy_api": 103290,
+    "sync": 6170,
+    "graph_launch": 525893
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 4121037,
+   "unlabelled": null
+  },
+  {
+   "step": 1,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 18112099,
+   "busy": 17664228,
+   "idle": 447871,
+   "excl": {
+    "attn_qsa": 63776,
+    "memcpy_h2d": 1504,
+    "memset": 288,
+    "other_gpu": 7008,
+    "memcpy_d2h": 384,
+    "forward_graph": 16842021,
+    "attn_proj": 749247
+   },
+   "sums": {
+    "attn_qsa": 64256,
+    "attn_proj": 749503,
+    "memcpy_h2d": 1504,
+    "other_gpu": 7008,
+    "memcpy_d2h": 1280,
+    "memset": 288,
+    "forward_graph": 16842021
+   },
+   "gap_attr": {
+    "ple.stage": 33504,
+    "ple.read": 126719,
+    "graph.full": 287392
+   },
+   "host": {
+    "runner.execute_model": 19187937,
+    "runner.prepare_inputs": 190511,
+    "model_state.prepare_inputs": 17997379,
+    "ple.stage": 17861059,
+    "ple.read": 61090,
+    "graph.full": 559454,
+    "runner.sample_tokens": 384053,
+    "runner.sample": 247891,
+    "runner.postprocess": 38770,
+    "sched.update_from_output": 21530,
+    "sched.schedule": 44831
+   },
+   "api": {
+    "memcpy_api": 59661,
+    "sync": 17681348,
+    "graph_launch": 270842
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 19190947,
+   "unlabelled": null
+  },
+  {
+   "step": 2,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16493222,
+   "busy": 15667879,
+   "idle": 825343,
+   "excl": {
+    "attn_qsa": 64256,
+    "memcpy_h2d": 1472,
+    "memset": 288,
+    "other_gpu": 7232,
+    "memcpy_d2h": 352,
+    "forward_graph": 14844872,
+    "attn_proj": 749407
+   },
+   "sums": {
+    "attn_qsa": 64608,
+    "attn_proj": 749695,
+    "memcpy_h2d": 1472,
+    "other_gpu": 7232,
+    "memcpy_d2h": 1056,
+    "memset": 288,
+    "forward_graph": 14844872
+   },
+   "gap_attr": {
+    "ple.stage": 22400,
+    "ple.read": 577279,
+    "graph.full": 225408
+   },
+   "host": {
+    "runner.execute_model": 17966790,
+    "runner.prepare_inputs": 219782,
+    "model_state.prepare_inputs": 16974303,
+    "ple.stage": 16830162,
+    "ple.read": 513174,
+    "graph.full": 442944,
+    "runner.sample_tokens": 363402,
+    "runner.sample": 239171,
+    "runner.postprocess": 37370,
+    "sched.update_from_output": 20760,
+    "sched.schedule": 44070
+   },
+   "api": {
+    "memcpy_api": 61080,
+    "sync": 16198288,
+    "graph_launch": 213302
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 17969590,
+   "unlabelled": null
+  },
+  {
+   "step": 3,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15569128,
+   "busy": 14616905,
+   "idle": 952223,
+   "excl": {
+    "attn_qsa": 63808,
+    "memcpy_h2d": 1792,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 352,
+    "forward_graph": 13794762,
+    "attn_proj": 748767
+   },
+   "sums": {
+    "attn_qsa": 64192,
+    "attn_proj": 748767,
+    "memcpy_h2d": 1792,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1248,
+    "memset": 288,
+    "forward_graph": 13794762
+   },
+   "gap_attr": {
+    "ple.stage": 30272,
+    "ple.read": 722911,
+    "graph.full": 198784
+   },
+   "host": {
+    "runner.execute_model": 16115367,
+    "runner.prepare_inputs": 204602,
+    "model_state.prepare_inputs": 15174611,
+    "ple.stage": 15040390,
+    "ple.read": 655695,
+    "graph.full": 373592,
+    "runner.sample_tokens": 371573,
+    "runner.sample": 235742,
+    "runner.postprocess": 41691,
+    "sched.update_from_output": 20370,
+    "sched.schedule": 43811
+   },
+   "api": {
+    "memcpy_api": 68120,
+    "sync": 14263225,
+    "graph_launch": 178621
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16118467,
+   "unlabelled": null
+  },
+  {
+   "step": 4,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15092936,
+   "busy": 13878730,
+   "idle": 1214206,
+   "excl": {
+    "attn_qsa": 62528,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 13058219,
+    "attn_proj": 748767
+   },
+   "sums": {
+    "attn_qsa": 62880,
+    "attn_proj": 749023,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1312,
+    "memset": 288,
+    "forward_graph": 13058219
+   },
+   "gap_attr": {
+    "ple.stage": 23776,
+    "ple.read": 1009118,
+    "graph.full": 181024
+   },
+   "host": {
+    "runner.execute_model": 15326602,
+    "runner.prepare_inputs": 209202,
+    "model_state.prepare_inputs": 14393475,
+    "ple.stage": 14266345,
+    "ple.read": 947326,
+    "graph.full": 351252,
+    "runner.sample_tokens": 352332,
+    "runner.sample": 229581,
+    "runner.postprocess": 36900,
+    "sched.update_from_output": 18850,
+    "sched.schedule": 48430
+   },
+   "api": {
+    "memcpy_api": 58641,
+    "sync": 13204748,
+    "graph_launch": 167781
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15329402,
+   "unlabelled": null
+  },
+  {
+   "step": 5,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15674439,
+   "busy": 14704297,
+   "idle": 970142,
+   "excl": {
+    "attn_qsa": 63616,
+    "memcpy_h2d": 1408,
+    "memset": 256,
+    "other_gpu": 7072,
+    "memcpy_d2h": 384,
+    "forward_graph": 13882474,
+    "attn_proj": 749087
+   },
+   "sums": {
+    "attn_qsa": 64000,
+    "attn_proj": 749279,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1248,
+    "memset": 256,
+    "forward_graph": 13882474
+   },
+   "gap_attr": {
+    "ple.stage": 32448,
+    "ple.read": 758239,
+    "graph.full": 179199
+   },
+   "host": {
+    "runner.execute_model": 14360456,
+    "runner.prepare_inputs": 184391,
+    "model_state.prepare_inputs": 13419209,
+    "ple.stage": 13295948,
+    "ple.read": 691104,
+    "graph.full": 347574,
+    "runner.sample_tokens": 363232,
+    "runner.sample": 238821,
+    "runner.postprocess": 40010,
+    "sched.update_from_output": 18360,
+    "sched.schedule": 44170
+   },
+   "api": {
+    "memcpy_api": 57960,
+    "sync": 12484533,
+    "graph_launch": 165962
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14363406,
+   "unlabelled": null
+  },
+  {
+   "step": 6,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17080453,
+   "busy": 16340550,
+   "idle": 739903,
+   "excl": {
+    "attn_qsa": 64032,
+    "memcpy_h2d": 1376,
+    "memset": 288,
+    "other_gpu": 7200,
+    "memcpy_d2h": 576,
+    "forward_graph": 15517544,
+    "attn_proj": 749534
+   },
+   "sums": {
+    "attn_qsa": 64384,
+    "attn_proj": 749534,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7200,
+    "memcpy_d2h": 1056,
+    "memset": 288,
+    "forward_graph": 15517544
+   },
+   "gap_attr": {
+    "ple.stage": 23584,
+    "ple.read": 540479,
+    "graph.full": 175648
+   },
+   "host": {
+    "runner.execute_model": 14947850,
+    "runner.prepare_inputs": 192281,
+    "model_state.prepare_inputs": 14012273,
+    "ple.stage": 13887542,
+    "ple.read": 479073,
+    "graph.full": 339513,
+    "runner.sample_tokens": 362022,
+    "runner.sample": 236601,
+    "runner.postprocess": 37630,
+    "sched.update_from_output": 18530,
+    "sched.schedule": 43391
+   },
+   "api": {
+    "memcpy_api": 57621,
+    "sync": 13294469,
+    "graph_launch": 161801
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14950680,
+   "unlabelled": null
+  },
+  {
+   "step": 7,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15935559,
+   "busy": 15037640,
+   "idle": 897919,
+   "excl": {
+    "attn_qsa": 63840,
+    "memcpy_h2d": 1280,
+    "memset": 256,
+    "other_gpu": 7168,
+    "memcpy_d2h": 384,
+    "forward_graph": 14214921,
+    "attn_proj": 749791
+   },
+   "sums": {
+    "attn_qsa": 64192,
+    "attn_proj": 749791,
+    "memcpy_h2d": 1280,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1248,
+    "memset": 256,
+    "forward_graph": 14214921
+   },
+   "gap_attr": {
+    "ple.stage": 23680,
+    "ple.read": 700447,
+    "graph.full": 173536
+   },
+   "host": {
+    "runner.execute_model": 16744161,
+    "runner.prepare_inputs": 190862,
+    "model_state.prepare_inputs": 15839925,
+    "ple.stage": 15717865,
+    "ple.read": 639284,
+    "graph.full": 336322,
+    "runner.sample_tokens": 352932,
+    "runner.sample": 231701,
+    "runner.postprocess": 36680,
+    "sched.update_from_output": 18130,
+    "sched.schedule": 43641
+   },
+   "api": {
+    "memcpy_api": 58660,
+    "sync": 14965950,
+    "graph_launch": 160491
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16747091,
+   "unlabelled": null
+  },
+  {
+   "step": 8,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15653736,
+   "busy": 14740777,
+   "idle": 912959,
+   "excl": {
+    "attn_qsa": 63776,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7104,
+    "memcpy_d2h": 384,
+    "forward_graph": 13918666,
+    "attn_proj": 749151
+   },
+   "sums": {
+    "attn_qsa": 64128,
+    "attn_proj": 749151,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1344,
+    "memset": 288,
+    "forward_graph": 13918666
+   },
+   "gap_attr": {
+    "ple.stage": 23328,
+    "ple.read": 712447,
+    "graph.full": 176928
+   },
+   "host": {
+    "runner.execute_model": 15461263,
+    "runner.prepare_inputs": 196782,
+    "model_state.prepare_inputs": 14531136,
+    "ple.stage": 14412746,
+    "ple.read": 650064,
+    "graph.full": 339204,
+    "runner.sample_tokens": 356552,
+    "runner.sample": 231471,
+    "runner.postprocess": 39390,
+    "sched.update_from_output": 18610,
+    "sched.schedule": 43850
+   },
+   "api": {
+    "memcpy_api": 67540,
+    "sync": 13645341,
+    "graph_launch": 161431
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15464183,
+   "unlabelled": null
+  },
+  {
+   "step": 9,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 18319907,
+   "busy": 17501157,
+   "idle": 818750,
+   "excl": {
+    "attn_qsa": 63232,
+    "memcpy_h2d": 1504,
+    "memset": 256,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 16679270,
+    "attn_proj": 749375
+   },
+   "sums": {
+    "attn_qsa": 63552,
+    "attn_proj": 749375,
+    "memcpy_h2d": 1504,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 16679270
+   },
+   "gap_attr": {
+    "ple.stage": 23423,
+    "ple.read": 627520,
+    "graph.full": 167551
+   },
+   "host": {
+    "runner.execute_model": 15067950,
+    "runner.prepare_inputs": 173321,
+    "model_state.prepare_inputs": 14160384,
+    "ple.stage": 14042743,
+    "ple.read": 566854,
+    "graph.full": 323942,
+    "runner.sample_tokens": 348263,
+    "runner.sample": 227222,
+    "runner.postprocess": 37521,
+    "sched.update_from_output": 18400,
+    "sched.schedule": 44930
+   },
+   "api": {
+    "memcpy_api": 55980,
+    "sync": 13363749,
+    "graph_launch": 154431
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15070610,
+   "unlabelled": null
+  },
+  {
+   "step": 10,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17513220,
+   "busy": 16738630,
+   "idle": 774590,
+   "excl": {
+    "attn_qsa": 63584,
+    "memcpy_h2d": 1728,
+    "memset": 256,
+    "other_gpu": 7168,
+    "memcpy_d2h": 384,
+    "forward_graph": 15915879,
+    "attn_proj": 749631
+   },
+   "sums": {
+    "attn_qsa": 63968,
+    "attn_proj": 749631,
+    "memcpy_h2d": 1728,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1792,
+    "memset": 256,
+    "forward_graph": 15915879
+   },
+   "gap_attr": {
+    "ple.stage": 24032,
+    "ple.read": 582559,
+    "graph.full": 167711
+   },
+   "host": {
+    "runner.execute_model": 17790478,
+    "runner.prepare_inputs": 193122,
+    "model_state.prepare_inputs": 16882943,
+    "ple.stage": 16761462,
+    "ple.read": 519664,
+    "graph.full": 323572,
+    "runner.sample_tokens": 359233,
+    "runner.sample": 238992,
+    "runner.postprocess": 36070,
+    "sched.update_from_output": 18440,
+    "sched.schedule": 43990
+   },
+   "api": {
+    "memcpy_api": 56900,
+    "sync": 16128137,
+    "graph_launch": 154261
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 17793158,
+   "unlabelled": null
+  },
+  {
+   "step": 11,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 19284738,
+   "busy": 18339267,
+   "idle": 945471,
+   "excl": {
+    "attn_qsa": 64064,
+    "memcpy_h2d": 1696,
+    "memset": 256,
+    "other_gpu": 7136,
+    "memcpy_d2h": 352,
+    "forward_graph": 17516388,
+    "attn_proj": 749375
+   },
+   "sums": {
+    "attn_qsa": 64448,
+    "attn_proj": 749375,
+    "memcpy_h2d": 1696,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1312,
+    "memset": 256,
+    "forward_graph": 17516388
+   },
+   "gap_attr": {
+    "ple.stage": 22784,
+    "ple.read": 756447,
+    "graph.full": 165984
+   },
+   "host": {
+    "runner.execute_model": 17191805,
+    "runner.prepare_inputs": 182991,
+    "model_state.prepare_inputs": 16258559,
+    "ple.stage": 16140278,
+    "ple.read": 697965,
+    "graph.full": 322582,
+    "runner.sample_tokens": 348492,
+    "runner.sample": 223912,
+    "runner.postprocess": 37490,
+    "sched.update_from_output": 18161,
+    "sched.schedule": 50090
+   },
+   "api": {
+    "memcpy_api": 60510,
+    "sync": 15333702,
+    "graph_launch": 153291
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 17194615,
+   "unlabelled": null
+  },
+  {
+   "step": 12,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17226117,
+   "busy": 16380103,
+   "idle": 846014,
+   "excl": {
+    "attn_qsa": 63328,
+    "memcpy_h2d": 1472,
+    "memset": 288,
+    "other_gpu": 7104,
+    "memcpy_d2h": 352,
+    "forward_graph": 15558056,
+    "attn_proj": 749503
+   },
+   "sums": {
+    "attn_qsa": 63776,
+    "attn_proj": 749503,
+    "memcpy_h2d": 1472,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1024,
+    "memset": 288,
+    "forward_graph": 15558056
+   },
+   "gap_attr": {
+    "ple.stage": 23872,
+    "ple.read": 653887,
+    "graph.full": 167999
+   },
+   "host": {
+    "runner.execute_model": 18697915,
+    "runner.prepare_inputs": 183691,
+    "model_state.prepare_inputs": 17782889,
+    "ple.stage": 17664858,
+    "ple.read": 592114,
+    "graph.full": 323502,
+    "runner.sample_tokens": 372092,
+    "runner.sample": 239211,
+    "runner.postprocess": 39370,
+    "sched.update_from_output": 18541,
+    "sched.schedule": 43800
+   },
+   "api": {
+    "memcpy_api": 57030,
+    "sync": 16955203,
+    "graph_launch": 154151
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 18700735,
+   "unlabelled": null
+  },
+  {
+   "step": 13,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16299174,
+   "busy": 15992551,
+   "idle": 306623,
+   "excl": {
+    "attn_qsa": 64224,
+    "memcpy_h2d": 1408,
+    "memset": 256,
+    "other_gpu": 7072,
+    "memcpy_d2h": 384,
+    "forward_graph": 15170088,
+    "attn_proj": 749119
+   },
+   "sums": {
+    "attn_qsa": 64576,
+    "attn_proj": 749119,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 15170088
+   },
+   "gap_attr": {
+    "ple.stage": 30752,
+    "ple.read": 111231,
+    "graph.full": 164384
+   },
+   "host": {
+    "runner.execute_model": 16186128,
+    "runner.prepare_inputs": 174071,
+    "model_state.prepare_inputs": 15304802,
+    "ple.stage": 15179791,
+    "ple.read": 56281,
+    "graph.full": 324702,
+    "runner.sample_tokens": 342562,
+    "runner.sample": 220601,
+    "runner.postprocess": 39020,
+    "sched.update_from_output": 18091,
+    "sched.schedule": 44890
+   },
+   "api": {
+    "memcpy_api": 57471,
+    "sync": 15017030,
+    "graph_launch": 154881
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16188908,
+   "unlabelled": null
+  },
+  {
+   "step": 14,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15523240,
+   "busy": 14647081,
+   "idle": 876159,
+   "excl": {
+    "attn_qsa": 63424,
+    "memcpy_h2d": 1440,
+    "memset": 288,
+    "other_gpu": 7072,
+    "memcpy_d2h": 384,
+    "forward_graph": 13825578,
+    "attn_proj": 748895
+   },
+   "sums": {
+    "attn_qsa": 63776,
+    "attn_proj": 748895,
+    "memcpy_h2d": 1440,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 13825578
+   },
+   "gap_attr": {
+    "ple.stage": 23168,
+    "ple.read": 688863,
+    "graph.full": 163872
+   },
+   "host": {
+    "runner.execute_model": 16392659,
+    "runner.prepare_inputs": 188931,
+    "model_state.prepare_inputs": 15487943,
+    "ple.stage": 15360442,
+    "ple.read": 630694,
+    "graph.full": 318552,
+    "runner.sample_tokens": 349433,
+    "runner.sample": 227452,
+    "runner.postprocess": 37661,
+    "sched.update_from_output": 18360,
+    "sched.schedule": 44410
+   },
+   "api": {
+    "memcpy_api": 56580,
+    "sync": 14618727,
+    "graph_launch": 151611
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16395369,
+   "unlabelled": null
+  },
+  {
+   "step": 15,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16844133,
+   "busy": 15730022,
+   "idle": 1114111,
+   "excl": {
+    "attn_qsa": 63295,
+    "memcpy_h2d": 1792,
+    "memset": 256,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 14907880,
+    "attn_proj": 749279
+   },
+   "sums": {
+    "attn_qsa": 63711,
+    "attn_proj": 749279,
+    "memcpy_h2d": 1792,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 14907880
+   },
+   "gap_attr": {
+    "ple.stage": 30528,
+    "ple.read": 914879,
+    "graph.full": 168448
+   },
+   "host": {
+    "runner.execute_model": 15281492,
+    "runner.prepare_inputs": 203201,
+    "model_state.prepare_inputs": 14356996,
+    "ple.stage": 14241605,
+    "ple.read": 852086,
+    "graph.full": 324892,
+    "runner.sample_tokens": 357533,
+    "runner.sample": 235992,
+    "runner.postprocess": 37101,
+    "sched.update_from_output": 18490,
+    "sched.schedule": 45470
+   },
+   "api": {
+    "memcpy_api": 57500,
+    "sync": 13275578,
+    "graph_launch": 154761
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15284292,
+   "unlabelled": null
+  },
+  {
+   "step": 16,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16050951,
+   "busy": 15040521,
+   "idle": 1010430,
+   "excl": {
+    "attn_qsa": 63392,
+    "memcpy_h2d": 1376,
+    "memset": 288,
+    "other_gpu": 7168,
+    "memcpy_d2h": 416,
+    "forward_graph": 14217002,
+    "attn_proj": 750879
+   },
+   "sums": {
+    "attn_qsa": 63744,
+    "attn_proj": 751199,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1280,
+    "memset": 288,
+    "forward_graph": 14217002
+   },
+   "gap_attr": {
+    "ple.stage": 32832,
+    "ple.read": 811327,
+    "graph.full": 166015
+   },
+   "host": {
+    "runner.execute_model": 16248828,
+    "runner.prepare_inputs": 193371,
+    "model_state.prepare_inputs": 15315132,
+    "ple.stage": 15200662,
+    "ple.read": 747525,
+    "graph.full": 319402,
+    "runner.sample_tokens": 363922,
+    "runner.sample": 234671,
+    "runner.postprocess": 37910,
+    "sched.update_from_output": 18551,
+    "sched.schedule": 46040
+   },
+   "api": {
+    "memcpy_api": 67080,
+    "sync": 14337635,
+    "graph_launch": 152081
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16251918,
+   "unlabelled": null
+  },
+  {
+   "step": 17,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16360902,
+   "busy": 15520648,
+   "idle": 840254,
+   "excl": {
+    "attn_qsa": 63648,
+    "memcpy_h2d": 1280,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 14698697,
+    "attn_proj": 749215
+   },
+   "sums": {
+    "attn_qsa": 64000,
+    "attn_proj": 749215,
+    "memcpy_h2d": 1280,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 14698697
+   },
+   "gap_attr": {
+    "ple.stage": 32000,
+    "ple.read": 641663,
+    "graph.full": 166335
+   },
+   "host": {
+    "runner.execute_model": 15382943,
+    "runner.prepare_inputs": 174901,
+    "model_state.prepare_inputs": 14470246,
+    "ple.stage": 14345975,
+    "ple.read": 579914,
+    "graph.full": 320952,
+    "runner.sample_tokens": 362012,
+    "runner.sample": 232931,
+    "runner.postprocess": 43330,
+    "sched.update_from_output": 18820,
+    "sched.schedule": 45211
+   },
+   "api": {
+    "memcpy_api": 57610,
+    "sync": 13651871,
+    "graph_launch": 152841
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15385973,
+   "unlabelled": null
+  },
+  {
+   "step": 18,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17402981,
+   "busy": 16305351,
+   "idle": 1097630,
+   "excl": {
+    "attn_qsa": 63904,
+    "memcpy_h2d": 1984,
+    "memset": 256,
+    "other_gpu": 7328,
+    "memcpy_d2h": 320,
+    "forward_graph": 15481448,
+    "attn_proj": 750111
+   },
+   "sums": {
+    "attn_qsa": 64256,
+    "attn_proj": 750111,
+    "memcpy_h2d": 1984,
+    "other_gpu": 7328,
+    "memcpy_d2h": 1440,
+    "memset": 256,
+    "forward_graph": 15481448
+   },
+   "gap_attr": {
+    "ple.stage": 24608,
+    "ple.read": 907774,
+    "graph.full": 164960
+   },
+   "host": {
+    "runner.execute_model": 16122797,
+    "runner.prepare_inputs": 189941,
+    "model_state.prepare_inputs": 15207311,
+    "ple.stage": 15085920,
+    "ple.read": 847406,
+    "graph.full": 320072,
+    "runner.sample_tokens": 349523,
+    "runner.sample": 227502,
+    "runner.postprocess": 39081,
+    "sched.update_from_output": 18120,
+    "sched.schedule": 44660
+   },
+   "api": {
+    "memcpy_api": 56290,
+    "sync": 14126174,
+    "graph_launch": 152341
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16125557,
+   "unlabelled": null
+  },
+  {
+   "step": 19,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16378534,
+   "busy": 15541543,
+   "idle": 836991,
+   "excl": {
+    "attn_qsa": 63775,
+    "memcpy_h2d": 1600,
+    "memset": 288,
+    "other_gpu": 7072,
+    "memcpy_d2h": 384,
+    "forward_graph": 14719369,
+    "attn_proj": 749055
+   },
+   "sums": {
+    "attn_qsa": 64223,
+    "attn_proj": 749055,
+    "memcpy_h2d": 1600,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 14719369
+   },
+   "gap_attr": {
+    "ple.stage": 24224,
+    "ple.read": 646367,
+    "graph.full": 166144
+   },
+   "host": {
+    "runner.execute_model": 16660251,
+    "runner.prepare_inputs": 179201,
+    "model_state.prepare_inputs": 15765245,
+    "ple.stage": 15650494,
+    "ple.read": 584794,
+    "graph.full": 321222,
+    "runner.sample_tokens": 358342,
+    "runner.sample": 236091,
+    "runner.postprocess": 37710,
+    "sched.update_from_output": 18250,
+    "sched.schedule": 44561
+   },
+   "api": {
+    "memcpy_api": 56310,
+    "sync": 14953890,
+    "graph_launch": 152871
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16663191,
+   "unlabelled": null
+  },
+  {
+   "step": 20,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14152393,
+   "busy": 13510506,
+   "idle": 641887,
+   "excl": {
+    "attn_qsa": 63104,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7232,
+    "memcpy_d2h": 384,
+    "forward_graph": 12688620,
+    "attn_proj": 749470
+   },
+   "sums": {
+    "attn_qsa": 63456,
+    "attn_proj": 749470,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7232,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 12688620
+   },
+   "gap_attr": {
+    "ple.stage": 33024,
+    "ple.read": 443679,
+    "graph.full": 164928
+   },
+   "host": {
+    "runner.execute_model": 15693084,
+    "runner.prepare_inputs": 181572,
+    "model_state.prepare_inputs": 14772538,
+    "ple.stage": 14658868,
+    "ple.read": 378863,
+    "graph.full": 317752,
+    "runner.sample_tokens": 349493,
+    "runner.sample": 228642,
+    "runner.postprocess": 38241,
+    "sched.update_from_output": 23440,
+    "sched.schedule": 45790
+   },
+   "api": {
+    "memcpy_api": 57130,
+    "sync": 14163934,
+    "graph_launch": 151421
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15696044,
+   "unlabelled": null
+  },
+  {
+   "step": 21,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14917833,
+   "busy": 14605481,
+   "idle": 312352,
+   "excl": {
+    "attn_qsa": 63072,
+    "memcpy_h2d": 2016,
+    "memset": 288,
+    "other_gpu": 7104,
+    "memcpy_d2h": 384,
+    "forward_graph": 13782922,
+    "attn_proj": 749695
+   },
+   "sums": {
+    "attn_qsa": 63424,
+    "attn_proj": 749695,
+    "memcpy_h2d": 2016,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1216,
+    "memset": 288,
+    "forward_graph": 13782922
+   },
+   "gap_attr": {
+    "ple.stage": 31680,
+    "ple.read": 110368,
+    "graph.full": 170048
+   },
+   "host": {
+    "runner.execute_model": 13335728,
+    "runner.prepare_inputs": 178591,
+    "model_state.prepare_inputs": 12432873,
+    "ple.stage": 12318062,
+    "ple.read": 55250,
+    "graph.full": 331932,
+    "runner.sample_tokens": 341153,
+    "runner.sample": 218192,
+    "runner.postprocess": 37451,
+    "sched.update_from_output": 18410,
+    "sched.schedule": 44820
+   },
+   "api": {
+    "memcpy_api": 56020,
+    "sync": 12156771,
+    "graph_launch": 158461
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 13338418,
+   "unlabelled": null
+  },
+  {
+   "step": 22,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16190118,
+   "busy": 15894631,
+   "idle": 295487,
+   "excl": {
+    "attn_qsa": 63680,
+    "memcpy_h2d": 1600,
+    "memset": 288,
+    "other_gpu": 7072,
+    "memcpy_d2h": 320,
+    "forward_graph": 15072841,
+    "attn_proj": 748830
+   },
+   "sums": {
+    "attn_qsa": 64064,
+    "attn_proj": 749086,
+    "memcpy_h2d": 1600,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1184,
+    "memset": 288,
+    "forward_graph": 15072841
+   },
+   "gap_attr": {
+    "ple.stage": 23104,
+    "ple.read": 110016,
+    "graph.full": 162111
+   },
+   "host": {
+    "runner.execute_model": 14428196,
+    "runner.prepare_inputs": 180011,
+    "model_state.prepare_inputs": 13514261,
+    "ple.stage": 13398589,
+    "ple.read": 52960,
+    "graph.full": 315422,
+    "runner.sample_tokens": 339582,
+    "runner.sample": 218671,
+    "runner.postprocess": 38390,
+    "sched.update_from_output": 18390,
+    "sched.schedule": 45061
+   },
+   "api": {
+    "memcpy_api": 62961,
+    "sync": 13238528,
+    "graph_launch": 150271
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14431036,
+   "unlabelled": null
+  },
+  {
+   "step": 23,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15151017,
+   "busy": 14853801,
+   "idle": 297216,
+   "excl": {
+    "attn_qsa": 63552,
+    "memcpy_h2d": 1376,
+    "memset": 256,
+    "other_gpu": 7232,
+    "memcpy_d2h": 384,
+    "forward_graph": 14031626,
+    "attn_proj": 749375
+   },
+   "sums": {
+    "attn_qsa": 63936,
+    "attn_proj": 749631,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7232,
+    "memcpy_d2h": 1248,
+    "memset": 256,
+    "forward_graph": 14031626
+   },
+   "gap_attr": {
+    "ple.stage": 23072,
+    "ple.read": 109824,
+    "graph.full": 164064
+   },
+   "host": {
+    "runner.execute_model": 15720134,
+    "runner.prepare_inputs": 184672,
+    "model_state.prepare_inputs": 14806018,
+    "ple.stage": 14689968,
+    "ple.read": 53880,
+    "graph.full": 319912,
+    "runner.sample_tokens": 342262,
+    "runner.sample": 221171,
+    "runner.postprocess": 38891,
+    "sched.update_from_output": 18380,
+    "sched.schedule": 45361
+   },
+   "api": {
+    "memcpy_api": 55060,
+    "sync": 14529527,
+    "graph_launch": 152781
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15722865,
+   "unlabelled": null
+  },
+  {
+   "step": 24,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14009578,
+   "busy": 13713738,
+   "idle": 295840,
+   "excl": {
+    "attn_qsa": 62495,
+    "memcpy_h2d": 1376,
+    "memset": 352,
+    "other_gpu": 7168,
+    "memcpy_d2h": 384,
+    "forward_graph": 12893612,
+    "attn_proj": 748351
+   },
+   "sums": {
+    "attn_qsa": 62975,
+    "attn_proj": 748607,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1088,
+    "memset": 352,
+    "forward_graph": 12893612
+   },
+   "gap_attr": {
+    "ple.stage": 26080,
+    "ple.read": 107744,
+    "graph.full": 161760
+   },
+   "host": {
+    "runner.execute_model": 14676797,
+    "runner.prepare_inputs": 199702,
+    "model_state.prepare_inputs": 13775141,
+    "ple.stage": 13652491,
+    "ple.read": 53360,
+    "graph.full": 318232,
+    "runner.sample_tokens": 342052,
+    "runner.sample": 217531,
+    "runner.postprocess": 41861,
+    "sched.update_from_output": 18430,
+    "sched.schedule": 44681
+   },
+   "api": {
+    "memcpy_api": 60271,
+    "sync": 13494440,
+    "graph_launch": 151731
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14682067,
+   "unlabelled": null
+  },
+  {
+   "step": 25,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 26916085,
+   "busy": 23180956,
+   "idle": 3735129,
+   "excl": {
+    "attn_qsa": 8958194,
+    "memcpy_h2d": 71616,
+    "memset": 1728,
+    "other_gpu": 29760,
+    "memcpy_d2h": 3648,
+    "forward_graph": 13356619,
+    "attn_proj": 759391
+   },
+   "sums": {
+    "attn_qsa": 8958546,
+    "attn_proj": 759391,
+    "memcpy_h2d": 71616,
+    "other_gpu": 29760,
+    "memcpy_d2h": 4352,
+    "memset": 1728,
+    "forward_graph": 13356619
+   },
+   "gap_attr": {
+    "ple.stage": 33183,
+    "ple.read": 820959,
+    "graph.full": 164928,
+    "edge0.adapt.epoch": 2559067,
+    "runner.sample": 28768,
+    "runner.sample_tokens": 7360,
+    "runner.postprocess": 11456,
+    "none": 9536,
+    "sched.update_from_output": 768,
+    "sched.schedule": 8960,
+    "runner.execute_model": 59776,
+    "runner.prepare_inputs": 18880,
+    "model_state.prepare_inputs": 11232
+   },
+   "host": {
+    "runner.execute_model": 14255535,
+    "runner.prepare_inputs": 171611,
+    "model_state.prepare_inputs": 13359819,
+    "ple.stage": 13243938,
+    "ple.read": 754745,
+    "graph.full": 318534,
+    "runner.sample_tokens": 23960559,
+    "runner.sample": 23809098,
+    "edge0.adapt.epoch": 23523727,
+    "runner.postprocess": 40840,
+    "sched.update_from_output": 21881,
+    "sched.schedule": 47840
+   },
+   "api": {
+    "memcpy_api": 539112,
+    "sync": 25659471,
+    "graph_launch": 151571
+   },
+   "n_kernels": 762,
+   "h2d_bytes": 6892,
+   "cpu_exec": 14258545,
+   "unlabelled": null
+  },
+  {
+   "step": 26,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15239432,
+   "busy": 14379497,
+   "idle": 859935,
+   "excl": {
+    "attn_qsa": 64416,
+    "memcpy_h2d": 1088,
+    "memset": 256,
+    "other_gpu": 7200,
+    "memcpy_d2h": 320,
+    "forward_graph": 13556938,
+    "attn_proj": 749279
+   },
+   "sums": {
+    "attn_qsa": 64800,
+    "attn_proj": 749567,
+    "memcpy_h2d": 1088,
+    "other_gpu": 7200,
+    "memcpy_d2h": 1440,
+    "memset": 256,
+    "forward_graph": 13556938
+   },
+   "gap_attr": {
+    "ple.stage": 19872,
+    "ple.read": 657663,
+    "graph.full": 182144
+   },
+   "host": {
+    "runner.execute_model": 2653098,
+    "runner.prepare_inputs": 248171,
+    "model_state.prepare_inputs": 1634901,
+    "ple.stage": 1512601,
+    "ple.read": 598834,
+    "graph.full": 354492,
+    "runner.sample_tokens": 356372,
+    "runner.sample": 222731,
+    "runner.postprocess": 35750,
+    "sched.update_from_output": 18201,
+    "sched.schedule": 45820
+   },
+   "api": {
+    "memcpy_api": 68820,
+    "sync": 802135,
+    "graph_launch": 169381
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 2655928,
+   "unlabelled": null
+  },
+  {
+   "step": 27,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14306826,
+   "busy": 13380363,
+   "idle": 926463,
+   "excl": {
+    "attn_qsa": 62208,
+    "memcpy_h2d": 1472,
+    "memset": 256,
+    "other_gpu": 7104,
+    "memcpy_d2h": 416,
+    "forward_graph": 12560172,
+    "attn_proj": 748735
+   },
+   "sums": {
+    "attn_qsa": 62592,
+    "attn_proj": 749023,
+    "memcpy_h2d": 1472,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 12560172
+   },
+   "gap_attr": {
+    "ple.stage": 23040,
+    "ple.read": 734399,
+    "graph.full": 168768
+   },
+   "host": {
+    "runner.execute_model": 14813109,
+    "runner.prepare_inputs": 169931,
+    "model_state.prepare_inputs": 13944823,
+    "ple.stage": 13831563,
+    "ple.read": 675114,
+    "graph.full": 327142,
+    "runner.sample_tokens": 347942,
+    "runner.sample": 226091,
+    "runner.postprocess": 36430,
+    "sched.update_from_output": 18500,
+    "sched.schedule": 43580
+   },
+   "api": {
+    "memcpy_api": 56460,
+    "sync": 13046347,
+    "graph_launch": 156261
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14815929,
+   "unlabelled": null
+  },
+  {
+   "step": 28,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 13378443,
+   "busy": 12455532,
+   "idle": 922911,
+   "excl": {
+    "attn_qsa": 63071,
+    "memcpy_h2d": 1280,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 11633998,
+    "attn_proj": 749375
+   },
+   "sums": {
+    "attn_qsa": 63423,
+    "attn_proj": 749375,
+    "memcpy_h2d": 1280,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1248,
+    "memset": 288,
+    "forward_graph": 11633998
+   },
+   "gap_attr": {
+    "ple.stage": 32224,
+    "ple.read": 722623,
+    "graph.full": 167808
+   },
+   "host": {
+    "runner.execute_model": 13826432,
+    "runner.prepare_inputs": 185611,
+    "model_state.prepare_inputs": 12909446,
+    "ple.stage": 12796585,
+    "ple.read": 649145,
+    "graph.full": 322712,
+    "runner.sample_tokens": 370553,
+    "runner.sample": 245772,
+    "runner.postprocess": 38371,
+    "sched.update_from_output": 18510,
+    "sched.schedule": 51890
+   },
+   "api": {
+    "memcpy_api": 60640,
+    "sync": 12018900,
+    "graph_launch": 153821
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 13829312,
+   "unlabelled": null
+  },
+  {
+   "step": 29,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15110184,
+   "busy": 14031081,
+   "idle": 1079103,
+   "excl": {
+    "attn_qsa": 62591,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 13210475,
+    "attn_proj": 748799
+   },
+   "sums": {
+    "attn_qsa": 62975,
+    "attn_proj": 749087,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1216,
+    "memset": 288,
+    "forward_graph": 13210475
+   },
+   "gap_attr": {
+    "ple.stage": 33376,
+    "ple.read": 882431,
+    "graph.full": 163040
+   },
+   "host": {
+    "runner.execute_model": 13020097,
+    "runner.prepare_inputs": 183051,
+    "model_state.prepare_inputs": 12105871,
+    "ple.stage": 11990410,
+    "ple.read": 819056,
+    "graph.full": 315102,
+    "runner.sample_tokens": 349043,
+    "runner.sample": 226892,
+    "runner.postprocess": 37191,
+    "sched.update_from_output": 18430,
+    "sched.schedule": 43350
+   },
+   "api": {
+    "memcpy_api": 66791,
+    "sync": 11056783,
+    "graph_launch": 150091
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 13022877,
+   "unlabelled": null
+  },
+  {
+   "step": 30,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15116552,
+   "busy": 14262570,
+   "idle": 853982,
+   "excl": {
+    "attn_qsa": 62176,
+    "memcpy_h2d": 1568,
+    "memset": 288,
+    "other_gpu": 7168,
+    "memcpy_d2h": 384,
+    "forward_graph": 13442059,
+    "attn_proj": 748927
+   },
+   "sums": {
+    "attn_qsa": 62560,
+    "attn_proj": 748927,
+    "memcpy_h2d": 1568,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1248,
+    "memset": 288,
+    "forward_graph": 13442059
+   },
+   "gap_attr": {
+    "ple.stage": 23744,
+    "ple.read": 662655,
+    "graph.full": 167327
+   },
+   "host": {
+    "runner.execute_model": 14405506,
+    "runner.prepare_inputs": 197571,
+    "model_state.prepare_inputs": 13482170,
+    "ple.stage": 13370779,
+    "ple.read": 594324,
+    "graph.full": 322152,
+    "runner.sample_tokens": 360442,
+    "runner.sample": 233931,
+    "runner.postprocess": 37730,
+    "sched.update_from_output": 18660,
+    "sched.schedule": 43431
+   },
+   "api": {
+    "memcpy_api": 58600,
+    "sync": 12657814,
+    "graph_launch": 153111
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14408326,
+   "unlabelled": null
+  },
+  {
+   "step": 31,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14976264,
+   "busy": 14247593,
+   "idle": 728671,
+   "excl": {
+    "attn_qsa": 62528,
+    "memcpy_h2d": 1408,
+    "memset": 256,
+    "other_gpu": 7104,
+    "memcpy_d2h": 384,
+    "forward_graph": 13426443,
+    "attn_proj": 749470
+   },
+   "sums": {
+    "attn_qsa": 62880,
+    "attn_proj": 749470,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1376,
+    "memset": 256,
+    "forward_graph": 13426443
+   },
+   "gap_attr": {
+    "ple.stage": 23776,
+    "ple.read": 541375,
+    "graph.full": 163264
+   },
+   "host": {
+    "runner.execute_model": 14498856,
+    "runner.prepare_inputs": 177892,
+    "model_state.prepare_inputs": 13592380,
+    "ple.stage": 13479700,
+    "ple.read": 480523,
+    "graph.full": 315812,
+    "runner.sample_tokens": 343393,
+    "runner.sample": 221732,
+    "runner.postprocess": 36981,
+    "sched.update_from_output": 18320,
+    "sched.schedule": 44070
+   },
+   "api": {
+    "memcpy_api": 63231,
+    "sync": 12888356,
+    "graph_launch": 150331
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14501586,
+   "unlabelled": null
+  },
+  {
+   "step": 32,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15961447,
+   "busy": 15004520,
+   "idle": 956927,
+   "excl": {
+    "attn_qsa": 62720,
+    "memcpy_h2d": 1536,
+    "memset": 288,
+    "other_gpu": 7072,
+    "memcpy_d2h": 352,
+    "forward_graph": 14183209,
+    "attn_proj": 749343
+   },
+   "sums": {
+    "attn_qsa": 63072,
+    "attn_proj": 749343,
+    "memcpy_h2d": 1536,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1056,
+    "memset": 288,
+    "forward_graph": 14183209
+   },
+   "gap_attr": {
+    "ple.stage": 22784,
+    "ple.read": 771327,
+    "graph.full": 162528
+   },
+   "host": {
+    "runner.execute_model": 14728879,
+    "runner.prepare_inputs": 169551,
+    "model_state.prepare_inputs": 13833062,
+    "ple.stage": 13720601,
+    "ple.read": 713514,
+    "graph.full": 315163,
+    "runner.sample_tokens": 345812,
+    "runner.sample": 226261,
+    "runner.postprocess": 36430,
+    "sched.update_from_output": 17960,
+    "sched.schedule": 42851
+   },
+   "api": {
+    "memcpy_api": 59851,
+    "sync": 12898846,
+    "graph_launch": 150211
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14731429,
+   "unlabelled": null
+  },
+  {
+   "step": 33,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15480968,
+   "busy": 14440714,
+   "idle": 1040254,
+   "excl": {
+    "attn_qsa": 63104,
+    "memcpy_h2d": 1600,
+    "memset": 256,
+    "other_gpu": 7104,
+    "memcpy_d2h": 384,
+    "forward_graph": 13619179,
+    "attn_proj": 749087
+   },
+   "sums": {
+    "attn_qsa": 63456,
+    "attn_proj": 749087,
+    "memcpy_h2d": 1600,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 13619179
+   },
+   "gap_attr": {
+    "ple.stage": 30816,
+    "ple.read": 844223,
+    "graph.full": 164927
+   },
+   "host": {
+    "runner.execute_model": 15570983,
+    "runner.prepare_inputs": 195262,
+    "model_state.prepare_inputs": 14654057,
+    "ple.stage": 14540167,
+    "ple.read": 782205,
+    "graph.full": 318532,
+    "runner.sample_tokens": 352892,
+    "runner.sample": 231301,
+    "runner.postprocess": 36670,
+    "sched.update_from_output": 18720,
+    "sched.schedule": 43131
+   },
+   "api": {
+    "memcpy_api": 64390,
+    "sync": 13645341,
+    "graph_launch": 151711
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15573973,
+   "unlabelled": null
+  },
+  {
+   "step": 34,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 18739586,
+   "busy": 17854116,
+   "idle": 885470,
+   "excl": {
+    "attn_qsa": 63552,
+    "memcpy_h2d": 1376,
+    "memset": 288,
+    "other_gpu": 7104,
+    "memcpy_d2h": 384,
+    "forward_graph": 17032166,
+    "attn_proj": 749246
+   },
+   "sums": {
+    "attn_qsa": 63904,
+    "attn_proj": 749502,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1248,
+    "memset": 288,
+    "forward_graph": 17032166
+   },
+   "gap_attr": {
+    "ple.stage": 23712,
+    "ple.read": 696255,
+    "graph.full": 165215
+   },
+   "host": {
+    "runner.execute_model": 14840679,
+    "runner.prepare_inputs": 183352,
+    "model_state.prepare_inputs": 13934242,
+    "ple.stage": 13820022,
+    "ple.read": 632554,
+    "graph.full": 318532,
+    "runner.sample_tokens": 363842,
+    "runner.sample": 241011,
+    "runner.postprocess": 36980,
+    "sched.update_from_output": 18470,
+    "sched.schedule": 43261
+   },
+   "api": {
+    "memcpy_api": 58830,
+    "sync": 13073857,
+    "graph_launch": 151961
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14843529,
+   "unlabelled": null
+  },
+  {
+   "step": 35,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 18596835,
+   "busy": 17631652,
+   "idle": 965183,
+   "excl": {
+    "attn_qsa": 63232,
+    "memcpy_h2d": 1376,
+    "memset": 256,
+    "other_gpu": 7168,
+    "memcpy_d2h": 416,
+    "forward_graph": 16809765,
+    "attn_proj": 749439
+   },
+   "sums": {
+    "attn_qsa": 63680,
+    "attn_proj": 749439,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1120,
+    "memset": 256,
+    "forward_graph": 16809765
+   },
+   "gap_attr": {
+    "ple.stage": 32448,
+    "ple.read": 769791,
+    "graph.full": 162688
+   },
+   "host": {
+    "runner.execute_model": 18322602,
+    "runner.prepare_inputs": 192031,
+    "model_state.prepare_inputs": 17390556,
+    "ple.stage": 17275645,
+    "ple.read": 710675,
+    "graph.full": 315502,
+    "runner.sample_tokens": 346962,
+    "runner.sample": 222502,
+    "runner.postprocess": 37970,
+    "sched.update_from_output": 18381,
+    "sched.schedule": 44150
+   },
+   "api": {
+    "memcpy_api": 63140,
+    "sync": 16455460,
+    "graph_launch": 150201
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 18325342,
+   "unlabelled": null
+  },
+  {
+   "step": 36,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17510052,
+   "busy": 16677221,
+   "idle": 832831,
+   "excl": {
+    "attn_qsa": 63168,
+    "memcpy_h2d": 1728,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 352,
+    "forward_graph": 15855335,
+    "attn_proj": 749214
+   },
+   "sums": {
+    "attn_qsa": 63520,
+    "attn_proj": 749470,
+    "memcpy_h2d": 1728,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1248,
+    "memset": 288,
+    "forward_graph": 15855335
+   },
+   "gap_attr": {
+    "ple.stage": 21760,
+    "ple.read": 644639,
+    "graph.full": 166176
+   },
+   "host": {
+    "runner.execute_model": 17982010,
+    "runner.prepare_inputs": 176031,
+    "model_state.prepare_inputs": 17082704,
+    "ple.stage": 16966683,
+    "ple.read": 585944,
+    "graph.full": 323192,
+    "runner.sample_tokens": 346172,
+    "runner.sample": 226992,
+    "runner.postprocess": 36310,
+    "sched.update_from_output": 17961,
+    "sched.schedule": 49370
+   },
+   "api": {
+    "memcpy_api": 56490,
+    "sync": 16272018,
+    "graph_launch": 154051
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 17984660,
+   "unlabelled": null
+  },
+  {
+   "step": 37,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17639525,
+   "busy": 16644134,
+   "idle": 995391,
+   "excl": {
+    "attn_qsa": 63680,
+    "memcpy_h2d": 1600,
+    "memset": 352,
+    "other_gpu": 7200,
+    "memcpy_d2h": 416,
+    "forward_graph": 15821255,
+    "attn_proj": 749631
+   },
+   "sums": {
+    "attn_qsa": 64064,
+    "attn_proj": 749631,
+    "memcpy_h2d": 1600,
+    "other_gpu": 7200,
+    "memcpy_d2h": 1280,
+    "memset": 352,
+    "forward_graph": 15821255
+   },
+   "gap_attr": {
+    "ple.stage": 30784,
+    "ple.read": 800671,
+    "graph.full": 163680
+   },
+   "host": {
+    "runner.execute_model": 17191045,
+    "runner.prepare_inputs": 177871,
+    "model_state.prepare_inputs": 16275959,
+    "ple.stage": 16164058,
+    "ple.read": 734335,
+    "graph.full": 317482,
+    "runner.sample_tokens": 349862,
+    "runner.sample": 221231,
+    "runner.postprocess": 37790,
+    "sched.update_from_output": 17990,
+    "sched.schedule": 43491
+   },
+   "api": {
+    "memcpy_api": 69850,
+    "sync": 15321312,
+    "graph_launch": 151251
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 17193765,
+   "unlabelled": null
+  },
+  {
+   "step": 38,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16039334,
+   "busy": 15137608,
+   "idle": 901726,
+   "excl": {
+    "attn_qsa": 63872,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7264,
+    "memcpy_d2h": 352,
+    "forward_graph": 14314666,
+    "attn_proj": 749758
+   },
+   "sums": {
+    "attn_qsa": 64224,
+    "attn_proj": 749758,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7264,
+    "memcpy_d2h": 1600,
+    "memset": 288,
+    "forward_graph": 14314666
+   },
+   "gap_attr": {
+    "ple.stage": 23648,
+    "ple.read": 712574,
+    "graph.full": 165216
+   },
+   "host": {
+    "runner.execute_model": 17066494,
+    "runner.prepare_inputs": 170052,
+    "model_state.prepare_inputs": 16185357,
+    "ple.stage": 16066147,
+    "ple.read": 651064,
+    "graph.full": 318963,
+    "runner.sample_tokens": 354302,
+    "runner.sample": 232471,
+    "runner.postprocess": 37360,
+    "sched.update_from_output": 18490,
+    "sched.schedule": 43311
+   },
+   "api": {
+    "memcpy_api": 60932,
+    "sync": 15301882,
+    "graph_launch": 151981
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 17069434,
+   "unlabelled": null
+  },
+  {
+   "step": 39,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14457834,
+   "busy": 13743243,
+   "idle": 714591,
+   "excl": {
+    "attn_qsa": 62976,
+    "memcpy_h2d": 1632,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 352,
+    "forward_graph": 12921996,
+    "attn_proj": 748863
+   },
+   "sums": {
+    "attn_qsa": 63328,
+    "attn_proj": 748863,
+    "memcpy_h2d": 1632,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1056,
+    "memset": 288,
+    "forward_graph": 12921996
+   },
+   "gap_attr": {
+    "ple.stage": 21952,
+    "ple.read": 527327,
+    "graph.full": 165056
+   },
+   "host": {
+    "runner.execute_model": 15367092,
+    "runner.prepare_inputs": 192612,
+    "model_state.prepare_inputs": 14458266,
+    "ple.stage": 14343196,
+    "ple.read": 469893,
+    "graph.full": 319892,
+    "runner.sample_tokens": 342543,
+    "runner.sample": 223722,
+    "runner.postprocess": 36590,
+    "sched.update_from_output": 18510,
+    "sched.schedule": 42650
+   },
+   "api": {
+    "memcpy_api": 56620,
+    "sync": 13765781,
+    "graph_launch": 152521
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15369782,
+   "unlabelled": null
+  },
+  {
+   "step": 40,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15335975,
+   "busy": 15030376,
+   "idle": 305599,
+   "excl": {
+    "attn_qsa": 63552,
+    "memcpy_h2d": 1568,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 14208586,
+    "attn_proj": 748862
+   },
+   "sums": {
+    "attn_qsa": 64000,
+    "attn_proj": 748990,
+    "memcpy_h2d": 1568,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 14208586
+   },
+   "gap_attr": {
+    "ple.stage": 31167,
+    "ple.read": 107008,
+    "graph.full": 167136
+   },
+   "host": {
+    "runner.execute_model": 13568741,
+    "runner.prepare_inputs": 173111,
+    "model_state.prepare_inputs": 12670485,
+    "ple.stage": 12557274,
+    "ple.read": 52210,
+    "graph.full": 325532,
+    "runner.sample_tokens": 341502,
+    "runner.sample": 218761,
+    "runner.postprocess": 36770,
+    "sched.update_from_output": 18520,
+    "sched.schedule": 43650
+   },
+   "api": {
+    "memcpy_api": 56130,
+    "sync": 12399783,
+    "graph_launch": 155101
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 13571471,
+   "unlabelled": null
+  },
+  {
+   "step": 41,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14648905,
+   "busy": 13907658,
+   "idle": 741247,
+   "excl": {
+    "attn_qsa": 62336,
+    "memcpy_h2d": 1376,
+    "memset": 256,
+    "other_gpu": 7136,
+    "memcpy_d2h": 416,
+    "forward_graph": 13085900,
+    "attn_proj": 750238
+   },
+   "sums": {
+    "attn_qsa": 62720,
+    "attn_proj": 750526,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1280,
+    "memset": 256,
+    "forward_graph": 13085900
+   },
+   "gap_attr": {
+    "ple.stage": 32576,
+    "ple.read": 545855,
+    "graph.full": 162560
+   },
+   "host": {
+    "runner.execute_model": 15299142,
+    "runner.prepare_inputs": 175951,
+    "model_state.prepare_inputs": 14402916,
+    "ple.stage": 14288856,
+    "ple.read": 487464,
+    "graph.full": 315622,
+    "runner.sample_tokens": 354812,
+    "runner.sample": 232602,
+    "runner.postprocess": 37440,
+    "sched.update_from_output": 18471,
+    "sched.schedule": 42630
+   },
+   "api": {
+    "memcpy_api": 57211,
+    "sync": 13693351,
+    "graph_launch": 150501
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15301982,
+   "unlabelled": null
+  },
+  {
+   "step": 42,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15095977,
+   "busy": 14128618,
+   "idle": 967359,
+   "excl": {
+    "attn_qsa": 63840,
+    "memcpy_h2d": 1376,
+    "memset": 352,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 13306059,
+    "attn_proj": 749471
+   },
+   "sums": {
+    "attn_qsa": 64192,
+    "attn_proj": 749471,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1056,
+    "memset": 352,
+    "forward_graph": 13306059
+   },
+   "gap_attr": {
+    "ple.stage": 24192,
+    "ple.read": 778175,
+    "graph.full": 164736
+   },
+   "host": {
+    "runner.execute_model": 14393286,
+    "runner.prepare_inputs": 175181,
+    "model_state.prepare_inputs": 13488700,
+    "ple.stage": 13373999,
+    "ple.read": 714075,
+    "graph.full": 318402,
+    "runner.sample_tokens": 360102,
+    "runner.sample": 235522,
+    "runner.postprocess": 37610,
+    "sched.update_from_output": 18430,
+    "sched.schedule": 43350
+   },
+   "api": {
+    "memcpy_api": 64030,
+    "sync": 12545004,
+    "graph_launch": 151611
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14396216,
+   "unlabelled": null
+  },
+  {
+   "step": 43,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14545609,
+   "busy": 13772618,
+   "idle": 772991,
+   "excl": {
+    "attn_qsa": 63071,
+    "memcpy_h2d": 1600,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 12951148,
+    "attn_proj": 748991
+   },
+   "sums": {
+    "attn_qsa": 63455,
+    "attn_proj": 748991,
+    "memcpy_h2d": 1600,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1280,
+    "memset": 288,
+    "forward_graph": 12951148
+   },
+   "gap_attr": {
+    "ple.stage": 31616,
+    "ple.read": 577888,
+    "graph.full": 163231
+   },
+   "host": {
+    "runner.execute_model": 14411796,
+    "runner.prepare_inputs": 183511,
+    "model_state.prepare_inputs": 13490340,
+    "ple.stage": 13375679,
+    "ple.read": 517564,
+    "graph.full": 318482,
+    "runner.sample_tokens": 349423,
+    "runner.sample": 222652,
+    "runner.postprocess": 38051,
+    "sched.update_from_output": 18500,
+    "sched.schedule": 43070
+   },
+   "api": {
+    "memcpy_api": 66751,
+    "sync": 12748705,
+    "graph_launch": 150631
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14414456,
+   "unlabelled": null
+  },
+  {
+   "step": 44,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14475689,
+   "busy": 13413707,
+   "idle": 1061982,
+   "excl": {
+    "attn_qsa": 62720,
+    "memcpy_h2d": 1440,
+    "memset": 288,
+    "other_gpu": 7072,
+    "memcpy_d2h": 384,
+    "forward_graph": 12593036,
+    "attn_proj": 748767
+   },
+   "sums": {
+    "attn_qsa": 63072,
+    "attn_proj": 748767,
+    "memcpy_h2d": 1440,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1056,
+    "memset": 288,
+    "forward_graph": 12593036
+   },
+   "gap_attr": {
+    "ple.stage": 24800,
+    "ple.read": 877278,
+    "graph.full": 159648
+   },
+   "host": {
+    "runner.execute_model": 14352226,
+    "runner.prepare_inputs": 172151,
+    "model_state.prepare_inputs": 13471420,
+    "ple.stage": 13350799,
+    "ple.read": 810136,
+    "graph.full": 317372,
+    "runner.sample_tokens": 362133,
+    "runner.sample": 240272,
+    "runner.postprocess": 36760,
+    "sched.update_from_output": 18440,
+    "sched.schedule": 48380
+   },
+   "api": {
+    "memcpy_api": 58380,
+    "sync": 12424543,
+    "graph_launch": 151011
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14355206,
+   "unlabelled": null
+  },
+  {
+   "step": 45,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14472297,
+   "busy": 13455819,
+   "idle": 1016478,
+   "excl": {
+    "attn_qsa": 63712,
+    "memcpy_h2d": 1824,
+    "memset": 288,
+    "other_gpu": 7264,
+    "memcpy_d2h": 384,
+    "forward_graph": 12633516,
+    "attn_proj": 748831
+   },
+   "sums": {
+    "attn_qsa": 64192,
+    "attn_proj": 748831,
+    "memcpy_h2d": 1824,
+    "other_gpu": 7264,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 12633516
+   },
+   "gap_attr": {
+    "ple.stage": 30016,
+    "ple.read": 827486,
+    "graph.full": 158720
+   },
+   "host": {
+    "runner.execute_model": 13931833,
+    "runner.prepare_inputs": 186151,
+    "model_state.prepare_inputs": 13027247,
+    "ple.stage": 12914276,
+    "ple.read": 755845,
+    "graph.full": 316602,
+    "runner.sample_tokens": 351423,
+    "runner.sample": 228782,
+    "runner.postprocess": 36660,
+    "sched.update_from_output": 18040,
+    "sched.schedule": 42780
+   },
+   "api": {
+    "memcpy_api": 56740,
+    "sync": 12041051,
+    "graph_launch": 150941
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 13934663,
+   "unlabelled": null
+  },
+  {
+   "step": 46,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14303306,
+   "busy": 13331756,
+   "idle": 971550,
+   "excl": {
+    "attn_qsa": 63168,
+    "memcpy_h2d": 1184,
+    "memset": 256,
+    "other_gpu": 7168,
+    "memcpy_d2h": 352,
+    "forward_graph": 12510733,
+    "attn_proj": 748895
+   },
+   "sums": {
+    "attn_qsa": 63552,
+    "attn_proj": 748895,
+    "memcpy_h2d": 1184,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1280,
+    "memset": 256,
+    "forward_graph": 12510733
+   },
+   "gap_attr": {
+    "ple.stage": 23872,
+    "ple.read": 778207,
+    "graph.full": 169215
+   },
+   "host": {
+    "runner.execute_model": 13937753,
+    "runner.prepare_inputs": 169791,
+    "model_state.prepare_inputs": 13038047,
+    "ple.stage": 12923556,
+    "ple.read": 710165,
+    "graph.full": 316112,
+    "runner.sample_tokens": 348913,
+    "runner.sample": 228732,
+    "runner.postprocess": 36811,
+    "sched.update_from_output": 18260,
+    "sched.schedule": 51790
+   },
+   "api": {
+    "memcpy_api": 63100,
+    "sync": 12094191,
+    "graph_launch": 150461
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 13940653,
+   "unlabelled": null
+  },
+  {
+   "step": 47,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 13724202,
+   "busy": 12869451,
+   "idle": 854751,
+   "excl": {
+    "attn_qsa": 62527,
+    "memcpy_h2d": 1440,
+    "memset": 256,
+    "other_gpu": 7104,
+    "memcpy_d2h": 384,
+    "forward_graph": 12048813,
+    "attn_proj": 748927
+   },
+   "sums": {
+    "attn_qsa": 62879,
+    "attn_proj": 748927,
+    "memcpy_h2d": 1440,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1056,
+    "memset": 256,
+    "forward_graph": 12048813
+   },
+   "gap_attr": {
+    "ple.stage": 32736,
+    "ple.read": 654079,
+    "graph.full": 167648
+   },
+   "host": {
+    "runner.execute_model": 13700872,
+    "runner.prepare_inputs": 220462,
+    "model_state.prepare_inputs": 12779226,
+    "ple.stage": 12664825,
+    "ple.read": 590854,
+    "graph.full": 319972,
+    "runner.sample_tokens": 353302,
+    "runner.sample": 229631,
+    "runner.postprocess": 39210,
+    "sched.update_from_output": 25221,
+    "sched.schedule": 45640
+   },
+   "api": {
+    "memcpy_api": 62370,
+    "sync": 11952529,
+    "graph_launch": 152511
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 13703752,
+   "unlabelled": null
+  },
+  {
+   "step": 48,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16657062,
+   "busy": 15844391,
+   "idle": 812671,
+   "excl": {
+    "attn_qsa": 62080,
+    "memcpy_h2d": 1344,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 416,
+    "forward_graph": 15023176,
+    "attn_proj": 749951
+   },
+   "sums": {
+    "attn_qsa": 62432,
+    "attn_proj": 749951,
+    "memcpy_h2d": 1344,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1376,
+    "memset": 288,
+    "forward_graph": 15023176
+   },
+   "gap_attr": {
+    "ple.stage": 23840,
+    "ple.read": 623871,
+    "graph.full": 164704
+   },
+   "host": {
+    "runner.execute_model": 13186848,
+    "runner.prepare_inputs": 177031,
+    "model_state.prepare_inputs": 12269832,
+    "ple.stage": 12154081,
+    "ple.read": 557444,
+    "graph.full": 317832,
+    "runner.sample_tokens": 350412,
+    "runner.sample": 229562,
+    "runner.postprocess": 36090,
+    "sched.update_from_output": 17981,
+    "sched.schedule": 45760
+   },
+   "api": {
+    "memcpy_api": 57540,
+    "sync": 11474917,
+    "graph_launch": 151421
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 13189658,
+   "unlabelled": null
+  },
+  {
+   "step": 49,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17211525,
+   "busy": 16643206,
+   "idle": 568319,
+   "excl": {
+    "attn_qsa": 63264,
+    "memcpy_h2d": 1472,
+    "memset": 288,
+    "other_gpu": 7200,
+    "memcpy_d2h": 384,
+    "forward_graph": 15821255,
+    "attn_proj": 749343
+   },
+   "sums": {
+    "attn_qsa": 63616,
+    "attn_proj": 749503,
+    "memcpy_h2d": 1472,
+    "other_gpu": 7200,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 15821255
+   },
+   "gap_attr": {
+    "ple.stage": 32416,
+    "ple.read": 370911,
+    "graph.full": 164736
+   },
+   "host": {
+    "runner.execute_model": 15927666,
+    "runner.prepare_inputs": 206511,
+    "model_state.prepare_inputs": 15006980,
+    "ple.stage": 14887029,
+    "ple.read": 309372,
+    "graph.full": 317572,
+    "runner.sample_tokens": 369043,
+    "runner.sample": 231702,
+    "runner.postprocess": 39091,
+    "sched.update_from_output": 18540,
+    "sched.schedule": 44641
+   },
+   "api": {
+    "memcpy_api": 64780,
+    "sync": 14465107,
+    "graph_launch": 151251
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15930546,
+   "unlabelled": null
+  },
+  {
+   "step": 50,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14684936,
+   "busy": 14380681,
+   "idle": 304255,
+   "excl": {
+    "attn_qsa": 63807,
+    "memcpy_h2d": 1440,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 320,
+    "forward_graph": 13556267,
+    "attn_proj": 751423
+   },
+   "sums": {
+    "attn_qsa": 64159,
+    "attn_proj": 751679,
+    "memcpy_h2d": 1440,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1920,
+    "memset": 288,
+    "forward_graph": 13556267
+   },
+   "gap_attr": {
+    "ple.stage": 24287,
+    "ple.read": 115520,
+    "graph.full": 164192
+   },
+   "host": {
+    "runner.execute_model": 16442919,
+    "runner.prepare_inputs": 177241,
+    "model_state.prepare_inputs": 15546164,
+    "ple.stage": 15423473,
+    "ple.read": 55870,
+    "graph.full": 318322,
+    "runner.sample_tokens": 350843,
+    "runner.sample": 222432,
+    "runner.postprocess": 37490,
+    "sched.update_from_output": 18160,
+    "sched.schedule": 45990
+   },
+   "api": {
+    "memcpy_api": 56811,
+    "sync": 15256021,
+    "graph_launch": 151721
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16445689,
+   "unlabelled": null
+  },
+  {
+   "step": 51,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14322890,
+   "busy": 13446155,
+   "idle": 876735,
+   "excl": {
+    "attn_qsa": 62624,
+    "memcpy_h2d": 1248,
+    "memset": 256,
+    "other_gpu": 7104,
+    "memcpy_d2h": 416,
+    "forward_graph": 12625580,
+    "attn_proj": 748927
+   },
+   "sums": {
+    "attn_qsa": 62976,
+    "attn_proj": 748927,
+    "memcpy_h2d": 1248,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1376,
+    "memset": 256,
+    "forward_graph": 12625580
+   },
+   "gap_attr": {
+    "ple.stage": 22912,
+    "ple.read": 689407,
+    "graph.full": 164160
+   },
+   "host": {
+    "runner.execute_model": 14772029,
+    "runner.prepare_inputs": 198791,
+    "model_state.prepare_inputs": 13861543,
+    "ple.stage": 13746682,
+    "ple.read": 626745,
+    "graph.full": 317672,
+    "runner.sample_tokens": 360062,
+    "runner.sample": 237982,
+    "runner.postprocess": 36740,
+    "sched.update_from_output": 18581,
+    "sched.schedule": 46000
+   },
+   "api": {
+    "memcpy_api": 60260,
+    "sync": 12996187,
+    "graph_launch": 151291
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14774909,
+   "unlabelled": null
+  },
+  {
+   "step": 52,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 13905354,
+   "busy": 13188043,
+   "idle": 717311,
+   "excl": {
+    "attn_qsa": 62848,
+    "memcpy_h2d": 1440,
+    "memset": 288,
+    "other_gpu": 7232,
+    "memcpy_d2h": 352,
+    "forward_graph": 12366732,
+    "attn_proj": 749151
+   },
+   "sums": {
+    "attn_qsa": 63200,
+    "attn_proj": 749151,
+    "memcpy_h2d": 1440,
+    "other_gpu": 7232,
+    "memcpy_d2h": 1248,
+    "memset": 288,
+    "forward_graph": 12366732
+   },
+   "gap_attr": {
+    "ple.stage": 21824,
+    "ple.read": 522751,
+    "graph.full": 172480
+   },
+   "host": {
+    "runner.execute_model": 13663621,
+    "runner.prepare_inputs": 195621,
+    "model_state.prepare_inputs": 12736245,
+    "ple.stage": 12602004,
+    "ple.read": 457303,
+    "graph.full": 323192,
+    "runner.sample_tokens": 348483,
+    "runner.sample": 227052,
+    "runner.postprocess": 37020,
+    "sched.update_from_output": 18280,
+    "sched.schedule": 46500
+   },
+   "api": {
+    "memcpy_api": 61680,
+    "sync": 12024360,
+    "graph_launch": 154101
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 13666331,
+   "unlabelled": null
+  },
+  {
+   "step": 53,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16655782,
+   "busy": 16029287,
+   "idle": 626495,
+   "excl": {
+    "attn_qsa": 63680,
+    "memcpy_h2d": 1408,
+    "memset": 256,
+    "other_gpu": 7072,
+    "memcpy_d2h": 384,
+    "forward_graph": 15207208,
+    "attn_proj": 749279
+   },
+   "sums": {
+    "attn_qsa": 64032,
+    "attn_proj": 749279,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 15207208
+   },
+   "gap_attr": {
+    "ple.stage": 22336,
+    "ple.read": 432287,
+    "graph.full": 171616
+   },
+   "host": {
+    "runner.execute_model": 13337799,
+    "runner.prepare_inputs": 182811,
+    "model_state.prepare_inputs": 12405193,
+    "ple.stage": 12292212,
+    "ple.read": 374513,
+    "graph.full": 333712,
+    "runner.sample_tokens": 350573,
+    "runner.sample": 230282,
+    "runner.postprocess": 36331,
+    "sched.update_from_output": 18340,
+    "sched.schedule": 46030
+   },
+   "api": {
+    "memcpy_api": 57480,
+    "sync": 11810129,
+    "graph_launch": 159151
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 13340659,
+   "unlabelled": null
+  },
+  {
+   "step": 54,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 18446595,
+   "busy": 17832452,
+   "idle": 614143,
+   "excl": {
+    "attn_qsa": 64384,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7200,
+    "memcpy_d2h": 416,
+    "forward_graph": 17009285,
+    "attn_proj": 749471
+   },
+   "sums": {
+    "attn_qsa": 64768,
+    "attn_proj": 749471,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7200,
+    "memcpy_d2h": 1120,
+    "memset": 288,
+    "forward_graph": 17009285
+   },
+   "gap_attr": {
+    "ple.stage": 24032,
+    "ple.read": 426591,
+    "graph.full": 163232
+   },
+   "host": {
+    "runner.execute_model": 16156218,
+    "runner.prepare_inputs": 190341,
+    "model_state.prepare_inputs": 15254232,
+    "ple.stage": 15141631,
+    "ple.read": 357913,
+    "graph.full": 315112,
+    "runner.sample_tokens": 348403,
+    "runner.sample": 226172,
+    "runner.postprocess": 37120,
+    "sched.update_from_output": 18430,
+    "sched.schedule": 46580
+   },
+   "api": {
+    "memcpy_api": 58880,
+    "sync": 14663678,
+    "graph_launch": 150171
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16158968,
+   "unlabelled": null
+  },
+  {
+   "step": 55,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17613348,
+   "busy": 16733478,
+   "idle": 879870,
+   "excl": {
+    "attn_qsa": 63328,
+    "memcpy_h2d": 1408,
+    "memset": 256,
+    "other_gpu": 7072,
+    "memcpy_d2h": 576,
+    "forward_graph": 15911559,
+    "attn_proj": 749279
+   },
+   "sums": {
+    "attn_qsa": 63712,
+    "attn_proj": 749535,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1120,
+    "memset": 256,
+    "forward_graph": 15911559
+   },
+   "gap_attr": {
+    "ple.stage": 31040,
+    "ple.read": 683679,
+    "graph.full": 164895
+   },
+   "host": {
+    "runner.execute_model": 18228782,
+    "runner.prepare_inputs": 186011,
+    "model_state.prepare_inputs": 17308206,
+    "ple.stage": 17194515,
+    "ple.read": 618824,
+    "graph.full": 317882,
+    "runner.sample_tokens": 350752,
+    "runner.sample": 228041,
+    "runner.postprocess": 38710,
+    "sched.update_from_output": 18470,
+    "sched.schedule": 46350
+   },
+   "api": {
+    "memcpy_api": 58400,
+    "sync": 16460440,
+    "graph_launch": 151451
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 18231612,
+   "unlabelled": null
+  },
+  {
+   "step": 56,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15151560,
+   "busy": 14369481,
+   "idle": 782079,
+   "excl": {
+    "attn_qsa": 62560,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7168,
+    "memcpy_d2h": 384,
+    "forward_graph": 13546826,
+    "attn_proj": 750847
+   },
+   "sums": {
+    "attn_qsa": 62912,
+    "attn_proj": 750847,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 13546826
+   },
+   "gap_attr": {
+    "ple.stage": 33344,
+    "ple.read": 584191,
+    "graph.full": 164288
+   },
+   "host": {
+    "runner.execute_model": 17030343,
+    "runner.prepare_inputs": 197721,
+    "model_state.prepare_inputs": 16097147,
+    "ple.stage": 15980566,
+    "ple.read": 516873,
+    "graph.full": 318092,
+    "runner.sample_tokens": 351482,
+    "runner.sample": 225131,
+    "runner.postprocess": 37091,
+    "sched.update_from_output": 18270,
+    "sched.schedule": 46741
+   },
+   "api": {
+    "memcpy_api": 62240,
+    "sync": 15345932,
+    "graph_launch": 151691
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 17033173,
+   "unlabelled": null
+  },
+  {
+   "step": 57,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15350600,
+   "busy": 14412137,
+   "idle": 938463,
+   "excl": {
+    "attn_qsa": 62880,
+    "memcpy_h2d": 1696,
+    "memset": 256,
+    "other_gpu": 7232,
+    "memcpy_d2h": 384,
+    "forward_graph": 13590346,
+    "attn_proj": 749343
+   },
+   "sums": {
+    "attn_qsa": 63232,
+    "attn_proj": 749343,
+    "memcpy_h2d": 1696,
+    "other_gpu": 7232,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 13590346
+   },
+   "gap_attr": {
+    "ple.stage": 23648,
+    "ple.read": 747359,
+    "graph.full": 167168
+   },
+   "host": {
+    "runner.execute_model": 14820158,
+    "runner.prepare_inputs": 193332,
+    "model_state.prepare_inputs": 13911662,
+    "ple.stage": 13794032,
+    "ple.read": 689895,
+    "graph.full": 323642,
+    "runner.sample_tokens": 341722,
+    "runner.sample": 222621,
+    "runner.postprocess": 36051,
+    "sched.update_from_output": 18520,
+    "sched.schedule": 45700
+   },
+   "api": {
+    "memcpy_api": 56411,
+    "sync": 12995886,
+    "graph_launch": 154501
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14822938,
+   "unlabelled": null
+  },
+  {
+   "step": 58,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15344616,
+   "busy": 14467370,
+   "idle": 877246,
+   "excl": {
+    "attn_qsa": 64384,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7168,
+    "memcpy_d2h": 416,
+    "forward_graph": 13644587,
+    "attn_proj": 749119
+   },
+   "sums": {
+    "attn_qsa": 64768,
+    "attn_proj": 749119,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1504,
+    "memset": 288,
+    "forward_graph": 13644587
+   },
+   "gap_attr": {
+    "ple.stage": 23584,
+    "ple.read": 689663,
+    "graph.full": 163711
+   },
+   "host": {
+    "runner.execute_model": 14814808,
+    "runner.prepare_inputs": 193371,
+    "model_state.prepare_inputs": 13909883,
+    "ple.stage": 13797332,
+    "ple.read": 630684,
+    "graph.full": 317402,
+    "runner.sample_tokens": 342133,
+    "runner.sample": 222672,
+    "runner.postprocess": 36041,
+    "sched.update_from_output": 18380,
+    "sched.schedule": 46720
+   },
+   "api": {
+    "memcpy_api": 57501,
+    "sync": 13057937,
+    "graph_launch": 151031
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14817538,
+   "unlabelled": null
+  },
+  {
+   "step": 59,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15280840,
+   "busy": 14550057,
+   "idle": 730783,
+   "excl": {
+    "attn_qsa": 63168,
+    "memcpy_h2d": 1632,
+    "memset": 288,
+    "other_gpu": 7168,
+    "memcpy_d2h": 416,
+    "forward_graph": 13728522,
+    "attn_proj": 748863
+   },
+   "sums": {
+    "attn_qsa": 63552,
+    "attn_proj": 748863,
+    "memcpy_h2d": 1632,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 13728522
+   },
+   "gap_attr": {
+    "ple.stage": 22976,
+    "ple.read": 543679,
+    "graph.full": 163872
+   },
+   "host": {
+    "runner.execute_model": 14721559,
+    "runner.prepare_inputs": 203971,
+    "model_state.prepare_inputs": 13800922,
+    "ple.stage": 13686361,
+    "ple.read": 485253,
+    "graph.full": 317632,
+    "runner.sample_tokens": 339182,
+    "runner.sample": 219461,
+    "runner.postprocess": 36370,
+    "sched.update_from_output": 18350,
+    "sched.schedule": 46401
+   },
+   "api": {
+    "memcpy_api": 57301,
+    "sync": 13092527,
+    "graph_launch": 151481
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14724479,
+   "unlabelled": null
+  },
+  {
+   "step": 60,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16071398,
+   "busy": 15410215,
+   "idle": 661183,
+   "excl": {
+    "attn_qsa": 63328,
+    "memcpy_h2d": 2048,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 14588361,
+    "attn_proj": 748670
+   },
+   "sums": {
+    "attn_qsa": 63680,
+    "attn_proj": 748926,
+    "memcpy_h2d": 2048,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1504,
+    "memset": 288,
+    "forward_graph": 14588361
+   },
+   "gap_attr": {
+    "ple.stage": 31200,
+    "ple.read": 460479,
+    "graph.full": 169248
+   },
+   "host": {
+    "runner.execute_model": 14732018,
+    "runner.prepare_inputs": 195332,
+    "model_state.prepare_inputs": 13821522,
+    "ple.stage": 13709842,
+    "ple.read": 391552,
+    "graph.full": 325642,
+    "runner.sample_tokens": 359442,
+    "runner.sample": 236092,
+    "runner.postprocess": 36670,
+    "sched.update_from_output": 19201,
+    "sched.schedule": 48210
+   },
+   "api": {
+    "memcpy_api": 61331,
+    "sync": 13197708,
+    "graph_launch": 154611
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14734958,
+   "unlabelled": null
+  },
+  {
+   "step": 61,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17017478,
+   "busy": 16723462,
+   "idle": 294016,
+   "excl": {
+    "attn_qsa": 63104,
+    "memcpy_h2d": 1632,
+    "memset": 256,
+    "other_gpu": 7296,
+    "memcpy_d2h": 416,
+    "forward_graph": 15901607,
+    "attn_proj": 749151
+   },
+   "sums": {
+    "attn_qsa": 63488,
+    "attn_proj": 749151,
+    "memcpy_h2d": 1632,
+    "other_gpu": 7296,
+    "memcpy_d2h": 1120,
+    "memset": 256,
+    "forward_graph": 15901607
+   },
+   "gap_attr": {
+    "ple.stage": 23616,
+    "ple.read": 108480,
+    "graph.full": 161664
+   },
+   "host": {
+    "runner.execute_model": 15205571,
+    "runner.prepare_inputs": 177581,
+    "model_state.prepare_inputs": 14307235,
+    "ple.stage": 14179434,
+    "ple.read": 53760,
+    "graph.full": 314532,
+    "runner.sample_tokens": 343242,
+    "runner.sample": 219911,
+    "runner.postprocess": 37231,
+    "sched.update_from_output": 19030,
+    "sched.schedule": 46891
+   },
+   "api": {
+    "memcpy_api": 57170,
+    "sync": 14017644,
+    "graph_launch": 150081
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15208321,
+   "unlabelled": null
+  },
+  {
+   "step": 62,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16288326,
+   "busy": 15438311,
+   "idle": 850015,
+   "excl": {
+    "attn_qsa": 63551,
+    "memcpy_h2d": 1696,
+    "memset": 288,
+    "other_gpu": 7168,
+    "memcpy_d2h": 384,
+    "forward_graph": 14616105,
+    "attn_proj": 749119
+   },
+   "sums": {
+    "attn_qsa": 63903,
+    "attn_proj": 749407,
+    "memcpy_h2d": 1696,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1248,
+    "memset": 288,
+    "forward_graph": 14616105
+   },
+   "gap_attr": {
+    "ple.stage": 23648,
+    "ple.read": 658527,
+    "graph.full": 167552
+   },
+   "host": {
+    "runner.execute_model": 17093484,
+    "runner.prepare_inputs": 202272,
+    "model_state.prepare_inputs": 16161597,
+    "ple.stage": 16037306,
+    "ple.read": 599814,
+    "graph.full": 324092,
+    "runner.sample_tokens": 352692,
+    "runner.sample": 229091,
+    "runner.postprocess": 38930,
+    "sched.update_from_output": 18590,
+    "sched.schedule": 46421
+   },
+   "api": {
+    "memcpy_api": 59830,
+    "sync": 15327662,
+    "graph_launch": 154801
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 17096384,
+   "unlabelled": null
+  },
+  {
+   "step": 63,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16032391,
+   "busy": 15169192,
+   "idle": 863199,
+   "excl": {
+    "attn_qsa": 62976,
+    "memcpy_h2d": 1408,
+    "memset": 256,
+    "other_gpu": 7424,
+    "memcpy_d2h": 416,
+    "forward_graph": 14347369,
+    "attn_proj": 749343
+   },
+   "sums": {
+    "attn_qsa": 63360,
+    "attn_proj": 749343,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7424,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 14347369
+   },
+   "gap_attr": {
+    "ple.stage": 23072,
+    "ple.read": 676863,
+    "graph.full": 162976
+   },
+   "host": {
+    "runner.execute_model": 15815115,
+    "runner.prepare_inputs": 198052,
+    "model_state.prepare_inputs": 14884469,
+    "ple.stage": 14761298,
+    "ple.read": 618844,
+    "graph.full": 315432,
+    "runner.sample_tokens": 346223,
+    "runner.sample": 223692,
+    "runner.postprocess": 37410,
+    "sched.update_from_output": 18390,
+    "sched.schedule": 47030
+   },
+   "api": {
+    "memcpy_api": 59830,
+    "sync": 14033133,
+    "graph_launch": 150311
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15817825,
+   "unlabelled": null
+  },
+  {
+   "step": 64,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15348871,
+   "busy": 14521929,
+   "idle": 826942,
+   "excl": {
+    "attn_qsa": 62431,
+    "memcpy_h2d": 1664,
+    "memset": 288,
+    "other_gpu": 7072,
+    "memcpy_d2h": 384,
+    "forward_graph": 13701195,
+    "attn_proj": 748895
+   },
+   "sums": {
+    "attn_qsa": 62783,
+    "attn_proj": 749119,
+    "memcpy_h2d": 1664,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 13701195
+   },
+   "gap_attr": {
+    "ple.stage": 24704,
+    "ple.read": 638463,
+    "graph.full": 163519
+   },
+   "host": {
+    "runner.execute_model": 15513574,
+    "runner.prepare_inputs": 193251,
+    "model_state.prepare_inputs": 14593208,
+    "ple.stage": 14478247,
+    "ple.read": 579973,
+    "graph.full": 315912,
+    "runner.sample_tokens": 345922,
+    "runner.sample": 226181,
+    "runner.postprocess": 35820,
+    "sched.update_from_output": 18540,
+    "sched.schedule": 45961
+   },
+   "api": {
+    "memcpy_api": 57101,
+    "sync": 13788422,
+    "graph_launch": 150551
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15516554,
+   "unlabelled": null
+  },
+  {
+   "step": 65,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15916519,
+   "busy": 14970632,
+   "idle": 945887,
+   "excl": {
+    "attn_qsa": 63520,
+    "memcpy_h2d": 1536,
+    "memset": 256,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 14148650,
+    "attn_proj": 749150
+   },
+   "sums": {
+    "attn_qsa": 63872,
+    "attn_proj": 749150,
+    "memcpy_h2d": 1536,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 14148650
+   },
+   "gap_attr": {
+    "ple.stage": 23680,
+    "ple.read": 756319,
+    "graph.full": 165632
+   },
+   "host": {
+    "runner.execute_model": 14988890,
+    "runner.prepare_inputs": 204672,
+    "model_state.prepare_inputs": 14076624,
+    "ple.stage": 13963363,
+    "ple.read": 695484,
+    "graph.full": 319152,
+    "runner.sample_tokens": 368352,
+    "runner.sample": 236241,
+    "runner.postprocess": 37960,
+    "sched.update_from_output": 18521,
+    "sched.schedule": 45730
+   },
+   "api": {
+    "memcpy_api": 61420,
+    "sync": 13153448,
+    "graph_launch": 152011
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14991960,
+   "unlabelled": null
+  },
+  {
+   "step": 66,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15271272,
+   "busy": 14376585,
+   "idle": 894687,
+   "excl": {
+    "attn_qsa": 62880,
+    "memcpy_h2d": 1600,
+    "memset": 288,
+    "other_gpu": 7200,
+    "memcpy_d2h": 384,
+    "forward_graph": 13554827,
+    "attn_proj": 749406
+   },
+   "sums": {
+    "attn_qsa": 63232,
+    "attn_proj": 749406,
+    "memcpy_h2d": 1600,
+    "other_gpu": 7200,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 13554827
+   },
+   "gap_attr": {
+    "ple.stage": 32576,
+    "ple.read": 698143,
+    "graph.full": 163680
+   },
+   "host": {
+    "runner.execute_model": 15361602,
+    "runner.prepare_inputs": 192321,
+    "model_state.prepare_inputs": 14431196,
+    "ple.stage": 14313625,
+    "ple.read": 636604,
+    "graph.full": 316872,
+    "runner.sample_tokens": 354262,
+    "runner.sample": 227361,
+    "runner.postprocess": 42130,
+    "sched.update_from_output": 18630,
+    "sched.schedule": 46391
+   },
+   "api": {
+    "memcpy_api": 63730,
+    "sync": 13563511,
+    "graph_launch": 150701
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15364312,
+   "unlabelled": null
+  },
+  {
+   "step": 67,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16888486,
+   "busy": 16044007,
+   "idle": 844479,
+   "excl": {
+    "attn_qsa": 64800,
+    "memcpy_h2d": 1376,
+    "memset": 288,
+    "other_gpu": 7200,
+    "memcpy_d2h": 384,
+    "forward_graph": 15220520,
+    "attn_proj": 749439
+   },
+   "sums": {
+    "attn_qsa": 65152,
+    "attn_proj": 749439,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7200,
+    "memcpy_d2h": 1536,
+    "memset": 288,
+    "forward_graph": 15220520
+   },
+   "gap_attr": {
+    "ple.stage": 32352,
+    "ple.read": 648287,
+    "graph.full": 163552
+   },
+   "host": {
+    "runner.execute_model": 14729858,
+    "runner.prepare_inputs": 202792,
+    "model_state.prepare_inputs": 13822192,
+    "ple.stage": 13702812,
+    "ple.read": 590684,
+    "graph.full": 316812,
+    "runner.sample_tokens": 353792,
+    "runner.sample": 231532,
+    "runner.postprocess": 38010,
+    "sched.update_from_output": 18211,
+    "sched.schedule": 45280
+   },
+   "api": {
+    "memcpy_api": 57280,
+    "sync": 13002586,
+    "graph_launch": 151101
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14732658,
+   "unlabelled": null
+  },
+  {
+   "step": 68,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17018821,
+   "busy": 16427974,
+   "idle": 590847,
+   "excl": {
+    "attn_qsa": 63680,
+    "memcpy_h2d": 1696,
+    "memset": 288,
+    "other_gpu": 7104,
+    "memcpy_d2h": 416,
+    "forward_graph": 15605383,
+    "attn_proj": 749407
+   },
+   "sums": {
+    "attn_qsa": 64224,
+    "attn_proj": 749663,
+    "memcpy_h2d": 1696,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1280,
+    "memset": 288,
+    "forward_graph": 15605383
+   },
+   "gap_attr": {
+    "ple.stage": 32288,
+    "ple.read": 392831,
+    "graph.full": 165472
+   },
+   "host": {
+    "runner.execute_model": 16147488,
+    "runner.prepare_inputs": 194431,
+    "model_state.prepare_inputs": 15223852,
+    "ple.stage": 15108530,
+    "ple.read": 330192,
+    "graph.full": 319882,
+    "runner.sample_tokens": 352762,
+    "runner.sample": 231221,
+    "runner.postprocess": 37490,
+    "sched.update_from_output": 18640,
+    "sched.schedule": 46391
+   },
+   "api": {
+    "memcpy_api": 58570,
+    "sync": 14664288,
+    "graph_launch": 152151
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16150448,
+   "unlabelled": null
+  },
+  {
+   "step": 69,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 19864289,
+   "busy": 18908067,
+   "idle": 956222,
+   "excl": {
+    "attn_qsa": 63456,
+    "memcpy_h2d": 1344,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 352,
+    "forward_graph": 18086308,
+    "attn_proj": 749183
+   },
+   "sums": {
+    "attn_qsa": 64160,
+    "attn_proj": 749343,
+    "memcpy_h2d": 1344,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1216,
+    "memset": 288,
+    "forward_graph": 18086308
+   },
+   "gap_attr": {
+    "ple.stage": 23776,
+    "ple.read": 768191,
+    "graph.full": 163999
+   },
+   "host": {
+    "runner.execute_model": 16890662,
+    "runner.prepare_inputs": 196831,
+    "model_state.prepare_inputs": 15985086,
+    "ple.stage": 15870655,
+    "ple.read": 710425,
+    "graph.full": 317632,
+    "runner.sample_tokens": 353992,
+    "runner.sample": 232491,
+    "runner.postprocess": 36030,
+    "sched.update_from_output": 18440,
+    "sched.schedule": 45791
+   },
+   "api": {
+    "memcpy_api": 57590,
+    "sync": 15051470,
+    "graph_launch": 151141
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16893522,
+   "unlabelled": null
+  },
+  {
+   "step": 70,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17823812,
+   "busy": 17127461,
+   "idle": 696351,
+   "excl": {
+    "attn_qsa": 63424,
+    "memcpy_h2d": 1376,
+    "memset": 256,
+    "other_gpu": 7136,
+    "memcpy_d2h": 352,
+    "forward_graph": 16305670,
+    "attn_proj": 749247
+   },
+   "sums": {
+    "attn_qsa": 63936,
+    "attn_proj": 749247,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1056,
+    "memset": 256,
+    "forward_graph": 16305670
+   },
+   "gap_attr": {
+    "ple.stage": 23680,
+    "ple.read": 507583,
+    "graph.full": 164832
+   },
+   "host": {
+    "runner.execute_model": 19116587,
+    "runner.prepare_inputs": 181742,
+    "model_state.prepare_inputs": 18196501,
+    "ple.stage": 18083391,
+    "ple.read": 444123,
+    "graph.full": 318382,
+    "runner.sample_tokens": 356813,
+    "runner.sample": 230522,
+    "runner.postprocess": 38160,
+    "sched.update_from_output": 18620,
+    "sched.schedule": 47030
+   },
+   "api": {
+    "memcpy_api": 61770,
+    "sync": 17516667,
+    "graph_launch": 151231
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 19119937,
+   "unlabelled": null
+  },
+  {
+   "step": 71,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16226342,
+   "busy": 15931015,
+   "idle": 295327,
+   "excl": {
+    "attn_qsa": 62336,
+    "memcpy_h2d": 1760,
+    "memset": 288,
+    "other_gpu": 7168,
+    "memcpy_d2h": 416,
+    "forward_graph": 15109544,
+    "attn_proj": 749503
+   },
+   "sums": {
+    "attn_qsa": 62720,
+    "attn_proj": 749503,
+    "memcpy_h2d": 1760,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1120,
+    "memset": 288,
+    "forward_graph": 15109544
+   },
+   "gap_attr": {
+    "ple.stage": 24768,
+    "ple.read": 107775,
+    "graph.full": 162528
+   },
+   "host": {
+    "runner.execute_model": 16920723,
+    "runner.prepare_inputs": 187101,
+    "model_state.prepare_inputs": 16003857,
+    "ple.stage": 15885996,
+    "ple.read": 52840,
+    "graph.full": 316702,
+    "runner.sample_tokens": 348033,
+    "runner.sample": 225672,
+    "runner.postprocess": 37510,
+    "sched.update_from_output": 18190,
+    "sched.schedule": 45830
+   },
+   "api": {
+    "memcpy_api": 58141,
+    "sync": 15728754,
+    "graph_launch": 150921
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16928553,
+   "unlabelled": null
+  },
+  {
+   "step": 72,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 13986282,
+   "busy": 13112363,
+   "idle": 873919,
+   "excl": {
+    "attn_qsa": 62400,
+    "memcpy_h2d": 1792,
+    "memset": 256,
+    "other_gpu": 7104,
+    "memcpy_d2h": 384,
+    "forward_graph": 12291372,
+    "attn_proj": 749055
+   },
+   "sums": {
+    "attn_qsa": 62752,
+    "attn_proj": 749055,
+    "memcpy_h2d": 1792,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1280,
+    "memset": 256,
+    "forward_graph": 12291372
+   },
+   "gap_attr": {
+    "ple.stage": 30528,
+    "ple.read": 667999,
+    "graph.full": 175136
+   },
+   "host": {
+    "runner.execute_model": 16323889,
+    "runner.prepare_inputs": 186111,
+    "model_state.prepare_inputs": 15379533,
+    "ple.stage": 15262352,
+    "ple.read": 605544,
+    "graph.full": 338472,
+    "runner.sample_tokens": 374473,
+    "runner.sample": 232352,
+    "runner.postprocess": 47071,
+    "sched.update_from_output": 18940,
+    "sched.schedule": 46190
+   },
+   "api": {
+    "memcpy_api": 58561,
+    "sync": 14543266,
+    "graph_launch": 161181
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16326999,
+   "unlabelled": null
+  },
+  {
+   "step": 73,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16512486,
+   "busy": 15697607,
+   "idle": 814879,
+   "excl": {
+    "attn_qsa": 63936,
+    "memcpy_h2d": 1408,
+    "memset": 256,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 14875368,
+    "attn_proj": 749119
+   },
+   "sums": {
+    "attn_qsa": 64288,
+    "attn_proj": 749119,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1632,
+    "memset": 256,
+    "forward_graph": 14875368
+   },
+   "gap_attr": {
+    "ple.stage": 23840,
+    "ple.read": 622239,
+    "graph.full": 168512
+   },
+   "host": {
+    "runner.execute_model": 13416180,
+    "runner.prepare_inputs": 185682,
+    "model_state.prepare_inputs": 12470913,
+    "ple.stage": 12352483,
+    "ple.read": 561254,
+    "graph.full": 325652,
+    "runner.sample_tokens": 360882,
+    "runner.sample": 228892,
+    "runner.postprocess": 44080,
+    "sched.update_from_output": 18530,
+    "sched.schedule": 46380
+   },
+   "api": {
+    "memcpy_api": 59891,
+    "sync": 11678748,
+    "graph_launch": 155181
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 13418970,
+   "unlabelled": null
+  },
+  {
+   "step": 74,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15897543,
+   "busy": 15016360,
+   "idle": 881183,
+   "excl": {
+    "attn_qsa": 63552,
+    "memcpy_h2d": 1440,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 14194409,
+    "attn_proj": 749151
+   },
+   "sums": {
+    "attn_qsa": 63904,
+    "attn_proj": 749439,
+    "memcpy_h2d": 1440,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1248,
+    "memset": 288,
+    "forward_graph": 14194409
+   },
+   "gap_attr": {
+    "ple.stage": 21664,
+    "ple.read": 694079,
+    "graph.full": 165184
+   },
+   "host": {
+    "runner.execute_model": 16081607,
+    "runner.prepare_inputs": 199131,
+    "model_state.prepare_inputs": 15161201,
+    "ple.stage": 15038330,
+    "ple.read": 635134,
+    "graph.full": 319152,
+    "runner.sample_tokens": 348423,
+    "runner.sample": 226592,
+    "runner.postprocess": 37311,
+    "sched.update_from_output": 18550,
+    "sched.schedule": 46440
+   },
+   "api": {
+    "memcpy_api": 58811,
+    "sync": 14291616,
+    "graph_launch": 151611
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16084727,
+   "unlabelled": null
+  },
+  {
+   "step": 75,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 21113439,
+   "busy": 20265056,
+   "idle": 848383,
+   "excl": {
+    "attn_qsa": 63712,
+    "memcpy_h2d": 1696,
+    "memset": 256,
+    "other_gpu": 7136,
+    "memcpy_d2h": 352,
+    "forward_graph": 19442305,
+    "attn_proj": 749599
+   },
+   "sums": {
+    "attn_qsa": 64096,
+    "attn_proj": 749599,
+    "memcpy_h2d": 1696,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1216,
+    "memset": 256,
+    "forward_graph": 19442305
+   },
+   "gap_attr": {
+    "ple.stage": 23360,
+    "ple.read": 654911,
+    "graph.full": 169856
+   },
+   "host": {
+    "runner.execute_model": 15378392,
+    "runner.prepare_inputs": 209692,
+    "model_state.prepare_inputs": 14438646,
+    "ple.stage": 14323986,
+    "ple.read": 593604,
+    "graph.full": 328092,
+    "runner.sample_tokens": 353562,
+    "runner.sample": 228342,
+    "runner.postprocess": 37480,
+    "sched.update_from_output": 18780,
+    "sched.schedule": 46510
+   },
+   "api": {
+    "memcpy_api": 58091,
+    "sync": 13615840,
+    "graph_launch": 156471
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15384012,
+   "unlabelled": null
+  },
+  {
+   "step": 76,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17179973,
+   "busy": 16498982,
+   "idle": 680991,
+   "excl": {
+    "attn_qsa": 64896,
+    "memcpy_h2d": 1440,
+    "memset": 288,
+    "other_gpu": 7104,
+    "memcpy_d2h": 384,
+    "forward_graph": 15675431,
+    "attn_proj": 749439
+   },
+   "sums": {
+    "attn_qsa": 65280,
+    "attn_proj": 749439,
+    "memcpy_h2d": 1440,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 15675431
+   },
+   "gap_attr": {
+    "ple.stage": 23200,
+    "ple.read": 496607,
+    "graph.full": 160928
+   },
+   "host": {
+    "runner.execute_model": 20456197,
+    "runner.prepare_inputs": 194961,
+    "model_state.prepare_inputs": 19532540,
+    "ple.stage": 19414599,
+    "ple.read": 433643,
+    "graph.full": 322542,
+    "runner.sample_tokens": 349122,
+    "runner.sample": 228931,
+    "runner.postprocess": 37330,
+    "sched.update_from_output": 18630,
+    "sched.schedule": 49451
+   },
+   "api": {
+    "memcpy_api": 59620,
+    "sync": 18872006,
+    "graph_launch": 153691
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 20459167,
+   "unlabelled": null
+  },
+  {
+   "step": 77,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16580038,
+   "busy": 16285767,
+   "idle": 294271,
+   "excl": {
+    "attn_qsa": 62560,
+    "memcpy_h2d": 1408,
+    "memset": 256,
+    "other_gpu": 7168,
+    "memcpy_d2h": 416,
+    "forward_graph": 15462568,
+    "attn_proj": 751391
+   },
+   "sums": {
+    "attn_qsa": 62944,
+    "attn_proj": 751647,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1312,
+    "memset": 256,
+    "forward_graph": 15462568
+   },
+   "gap_attr": {
+    "ple.stage": 24384,
+    "ple.read": 111199,
+    "graph.full": 158400
+   },
+   "host": {
+    "runner.execute_model": 16303058,
+    "runner.prepare_inputs": 206322,
+    "model_state.prepare_inputs": 15367002,
+    "ple.stage": 15250491,
+    "ple.read": 52240,
+    "graph.full": 317172,
+    "runner.sample_tokens": 353762,
+    "runner.sample": 232971,
+    "runner.postprocess": 37640,
+    "sched.update_from_output": 18520,
+    "sched.schedule": 47731
+   },
+   "api": {
+    "memcpy_api": 57120,
+    "sync": 15093661,
+    "graph_launch": 151401
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16305868,
+   "unlabelled": null
+  },
+  {
+   "step": 78,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14961832,
+   "busy": 14648456,
+   "idle": 313376,
+   "excl": {
+    "attn_qsa": 63968,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7103,
+    "memcpy_d2h": 384,
+    "forward_graph": 13826314,
+    "attn_proj": 748991
+   },
+   "sums": {
+    "attn_qsa": 64352,
+    "attn_proj": 748991,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7103,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 13826314
+   },
+   "gap_attr": {
+    "ple.stage": 32672,
+    "ple.read": 109792,
+    "graph.full": 170656
+   },
+   "host": {
+    "runner.execute_model": 16103587,
+    "runner.prepare_inputs": 191452,
+    "model_state.prepare_inputs": 15190931,
+    "ple.stage": 15074061,
+    "ple.read": 55221,
+    "graph.full": 321672,
+    "runner.sample_tokens": 338642,
+    "runner.sample": 216552,
+    "runner.postprocess": 37070,
+    "sched.update_from_output": 18581,
+    "sched.schedule": 47610
+   },
+   "api": {
+    "memcpy_api": 55990,
+    "sync": 14913549,
+    "graph_launch": 153681
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16106237,
+   "unlabelled": null
+  },
+  {
+   "step": 79,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15458920,
+   "busy": 14725641,
+   "idle": 733279,
+   "excl": {
+    "attn_qsa": 64032,
+    "memcpy_h2d": 1408,
+    "memset": 256,
+    "other_gpu": 7072,
+    "memcpy_d2h": 416,
+    "forward_graph": 13903466,
+    "attn_proj": 748991
+   },
+   "sums": {
+    "attn_qsa": 64384,
+    "attn_proj": 749247,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1280,
+    "memset": 256,
+    "forward_graph": 13903466
+   },
+   "gap_attr": {
+    "ple.stage": 32096,
+    "ple.read": 182816,
+    "graph.full": 518111
+   },
+   "host": {
+    "runner.execute_model": 14926820,
+    "runner.prepare_inputs": 670104,
+    "model_state.prepare_inputs": 12717655,
+    "ple.stage": 12538244,
+    "ple.read": 77701,
+    "graph.full": 1030306,
+    "runner.sample_tokens": 557884,
+    "runner.sample": 382142,
+    "runner.postprocess": 51770,
+    "sched.update_from_output": 37170,
+    "sched.schedule": 74061
+   },
+   "api": {
+    "memcpy_api": 118780,
+    "sync": 12274962,
+    "graph_launch": 496123
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14931870,
+   "unlabelled": null
+  },
+  {
+   "step": 80,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16763077,
+   "busy": 15821063,
+   "idle": 942014,
+   "excl": {
+    "attn_qsa": 63968,
+    "memcpy_h2d": 1376,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 14998952,
+    "attn_proj": 748959
+   },
+   "sums": {
+    "attn_qsa": 64320,
+    "attn_proj": 749215,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1280,
+    "memset": 288,
+    "forward_graph": 14998952
+   },
+   "gap_attr": {
+    "ple.stage": 24128,
+    "ple.read": 689726,
+    "graph.full": 227904
+   },
+   "host": {
+    "runner.execute_model": 14859189,
+    "runner.prepare_inputs": 231052,
+    "model_state.prepare_inputs": 13699621,
+    "ple.stage": 13553580,
+    "ple.read": 611054,
+    "graph.full": 445704,
+    "runner.sample_tokens": 406653,
+    "runner.sample": 268122,
+    "runner.postprocess": 40351,
+    "sched.update_from_output": 20220,
+    "sched.schedule": 52800
+   },
+   "api": {
+    "memcpy_api": 63181,
+    "sync": 12805256,
+    "graph_launch": 212812
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14862449,
+   "unlabelled": null
+  },
+  {
+   "step": 81,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14783529,
+   "busy": 13761610,
+   "idle": 1021919,
+   "excl": {
+    "attn_qsa": 65152,
+    "memcpy_h2d": 1312,
+    "memset": 288,
+    "other_gpu": 7168,
+    "memcpy_d2h": 352,
+    "forward_graph": 12938475,
+    "attn_proj": 748863
+   },
+   "sums": {
+    "attn_qsa": 65504,
+    "attn_proj": 749151,
+    "memcpy_h2d": 1312,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1248,
+    "memset": 288,
+    "forward_graph": 12938475
+   },
+   "gap_attr": {
+    "ple.stage": 22944,
+    "ple.read": 741279,
+    "graph.full": 257440
+   },
+   "host": {
+    "runner.execute_model": 16289428,
+    "runner.prepare_inputs": 191892,
+    "model_state.prepare_inputs": 15217201,
+    "ple.stage": 15088340,
+    "ple.read": 633904,
+    "graph.full": 490834,
+    "runner.sample_tokens": 449193,
+    "runner.sample": 292622,
+    "runner.postprocess": 44770,
+    "sched.update_from_output": 25451,
+    "sched.schedule": 56910
+   },
+   "api": {
+    "memcpy_api": 80570,
+    "sync": 14202144,
+    "graph_launch": 235632
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16293658,
+   "unlabelled": null
+  },
+  {
+   "step": 82,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16351398,
+   "busy": 15427656,
+   "idle": 923742,
+   "excl": {
+    "attn_qsa": 63552,
+    "memcpy_h2d": 1344,
+    "memset": 288,
+    "other_gpu": 7168,
+    "memcpy_d2h": 384,
+    "forward_graph": 14606121,
+    "attn_proj": 748799
+   },
+   "sums": {
+    "attn_qsa": 63936,
+    "attn_proj": 749087,
+    "memcpy_h2d": 1344,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1280,
+    "memset": 288,
+    "forward_graph": 14606121
+   },
+   "gap_attr": {
+    "ple.stage": 23040,
+    "ple.read": 730655,
+    "graph.full": 169791
+   },
+   "host": {
+    "runner.execute_model": 14059364,
+    "runner.prepare_inputs": 190601,
+    "model_state.prepare_inputs": 13065327,
+    "ple.stage": 12937226,
+    "ple.read": 645015,
+    "graph.full": 327852,
+    "runner.sample_tokens": 375653,
+    "runner.sample": 250222,
+    "runner.postprocess": 38180,
+    "sched.update_from_output": 21250,
+    "sched.schedule": 44620
+   },
+   "api": {
+    "memcpy_api": 62432,
+    "sync": 12151621,
+    "graph_launch": 153661
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14062354,
+   "unlabelled": null
+  },
+  {
+   "step": 83,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16952933,
+   "busy": 16169446,
+   "idle": 783487,
+   "excl": {
+    "attn_qsa": 63743,
+    "memcpy_h2d": 1408,
+    "memset": 256,
+    "other_gpu": 7072,
+    "memcpy_d2h": 480,
+    "forward_graph": 15346728,
+    "attn_proj": 749759
+   },
+   "sums": {
+    "attn_qsa": 64095,
+    "attn_proj": 749759,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 15346728
+   },
+   "gap_attr": {
+    "ple.stage": 24800,
+    "ple.read": 587839,
+    "graph.full": 170560
+   },
+   "host": {
+    "runner.execute_model": 15684025,
+    "runner.prepare_inputs": 181151,
+    "model_state.prepare_inputs": 14743489,
+    "ple.stage": 14626948,
+    "ple.read": 509543,
+    "graph.full": 314502,
+    "runner.sample_tokens": 361902,
+    "runner.sample": 235232,
+    "runner.postprocess": 38620,
+    "sched.update_from_output": 18541,
+    "sched.schedule": 44910
+   },
+   "api": {
+    "memcpy_api": 63541,
+    "sync": 13986853,
+    "graph_launch": 149221
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15687155,
+   "unlabelled": null
+  },
+  {
+   "step": 84,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16476679,
+   "busy": 15549192,
+   "idle": 927487,
+   "excl": {
+    "attn_qsa": 62368,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7104,
+    "memcpy_d2h": 352,
+    "forward_graph": 14728329,
+    "attn_proj": 749343
+   },
+   "sums": {
+    "attn_qsa": 62720,
+    "attn_proj": 749631,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1728,
+    "memset": 288,
+    "forward_graph": 14728329
+   },
+   "gap_attr": {
+    "ple.stage": 21600,
+    "ple.read": 742783,
+    "graph.full": 162816
+   },
+   "host": {
+    "runner.execute_model": 16607691,
+    "runner.prepare_inputs": 172221,
+    "model_state.prepare_inputs": 15707105,
+    "ple.stage": 15591464,
+    "ple.read": 680294,
+    "graph.full": 312932,
+    "runner.sample_tokens": 359482,
+    "runner.sample": 235012,
+    "runner.postprocess": 36550,
+    "sched.update_from_output": 18391,
+    "sched.schedule": 44060
+   },
+   "api": {
+    "memcpy_api": 59860,
+    "sync": 14793929,
+    "graph_launch": 148581
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16610751,
+   "unlabelled": null
+  },
+  {
+   "step": 85,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15217448,
+   "busy": 14319657,
+   "idle": 897791,
+   "excl": {
+    "attn_qsa": 62399,
+    "memcpy_h2d": 1408,
+    "memset": 256,
+    "other_gpu": 7200,
+    "memcpy_d2h": 352,
+    "forward_graph": 13499243,
+    "attn_proj": 748799
+   },
+   "sums": {
+    "attn_qsa": 62751,
+    "attn_proj": 748799,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7200,
+    "memcpy_d2h": 1216,
+    "memset": 256,
+    "forward_graph": 13499243
+   },
+   "gap_attr": {
+    "ple.stage": 21920,
+    "ple.read": 712063,
+    "graph.full": 163552
+   },
+   "host": {
+    "runner.execute_model": 15954916,
+    "runner.prepare_inputs": 183871,
+    "model_state.prepare_inputs": 15055990,
+    "ple.stage": 14943649,
+    "ple.read": 650964,
+    "graph.full": 315612,
+    "runner.sample_tokens": 355363,
+    "runner.sample": 230962,
+    "runner.postprocess": 37031,
+    "sched.update_from_output": 18330,
+    "sched.schedule": 44200
+   },
+   "api": {
+    "memcpy_api": 66080,
+    "sync": 14179414,
+    "graph_launch": 150181
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15958116,
+   "unlabelled": null
+  },
+  {
+   "step": 86,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15604199,
+   "busy": 14658920,
+   "idle": 945279,
+   "excl": {
+    "attn_qsa": 62751,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 13837610,
+    "attn_proj": 749343
+   },
+   "sums": {
+    "attn_qsa": 63167,
+    "attn_proj": 749343,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1248,
+    "memset": 288,
+    "forward_graph": 13837610
+   },
+   "gap_attr": {
+    "ple.stage": 23744,
+    "ple.read": 752479,
+    "graph.full": 168800
+   },
+   "host": {
+    "runner.execute_model": 14778878,
+    "runner.prepare_inputs": 170751,
+    "model_state.prepare_inputs": 13874783,
+    "ple.stage": 13755812,
+    "ple.read": 690875,
+    "graph.full": 326172,
+    "runner.sample_tokens": 353343,
+    "runner.sample": 231202,
+    "runner.postprocess": 37260,
+    "sched.update_from_output": 18040,
+    "sched.schedule": 44630
+   },
+   "api": {
+    "memcpy_api": 59900,
+    "sync": 12950846,
+    "graph_launch": 153361
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14781718,
+   "unlabelled": null
+  },
+  {
+   "step": 87,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17267397,
+   "busy": 16437286,
+   "idle": 830111,
+   "excl": {
+    "attn_qsa": 64064,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7072,
+    "memcpy_d2h": 352,
+    "forward_graph": 15614919,
+    "attn_proj": 749183
+   },
+   "sums": {
+    "attn_qsa": 64416,
+    "attn_proj": 749183,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1056,
+    "memset": 288,
+    "forward_graph": 15614919
+   },
+   "gap_attr": {
+    "ple.stage": 22528,
+    "ple.read": 643423,
+    "graph.full": 163872
+   },
+   "host": {
+    "runner.execute_model": 15005180,
+    "runner.prepare_inputs": 178971,
+    "model_state.prepare_inputs": 14103924,
+    "ple.stage": 13988533,
+    "ple.read": 582934,
+    "graph.full": 317142,
+    "runner.sample_tokens": 349903,
+    "runner.sample": 229132,
+    "runner.postprocess": 37411,
+    "sched.update_from_output": 18660,
+    "sched.schedule": 44010
+   },
+   "api": {
+    "memcpy_api": 69780,
+    "sync": 13294989,
+    "graph_launch": 150451
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15007960,
+   "unlabelled": null
+  },
+  {
+   "step": 88,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 19690465,
+   "busy": 18792707,
+   "idle": 897758,
+   "excl": {
+    "attn_qsa": 64416,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7168,
+    "memcpy_d2h": 384,
+    "forward_graph": 17968996,
+    "attn_proj": 750047
+   },
+   "sums": {
+    "attn_qsa": 64896,
+    "attn_proj": 750047,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1248,
+    "memset": 288,
+    "forward_graph": 17968996
+   },
+   "gap_attr": {
+    "ple.stage": 23552,
+    "ple.read": 710175,
+    "graph.full": 163743
+   },
+   "host": {
+    "runner.execute_model": 16846853,
+    "runner.prepare_inputs": 192701,
+    "model_state.prepare_inputs": 15933907,
+    "ple.stage": 15819446,
+    "ple.read": 647194,
+    "graph.full": 317002,
+    "runner.sample_tokens": 356862,
+    "runner.sample": 232951,
+    "runner.postprocess": 37060,
+    "sched.update_from_output": 18140,
+    "sched.schedule": 44600
+   },
+   "api": {
+    "memcpy_api": 60411,
+    "sync": 15058840,
+    "graph_launch": 151041
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16849673,
+   "unlabelled": null
+  },
+  {
+   "step": 89,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17065605,
+   "busy": 16460326,
+   "idle": 605279,
+   "excl": {
+    "attn_qsa": 62880,
+    "memcpy_h2d": 1568,
+    "memset": 352,
+    "other_gpu": 7104,
+    "memcpy_d2h": 416,
+    "forward_graph": 15638855,
+    "attn_proj": 749151
+   },
+   "sums": {
+    "attn_qsa": 63232,
+    "attn_proj": 749151,
+    "memcpy_h2d": 1568,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1088,
+    "memset": 352,
+    "forward_graph": 15638855
+   },
+   "gap_attr": {
+    "ple.stage": 25728,
+    "ple.read": 416895,
+    "graph.full": 162368
+   },
+   "host": {
+    "runner.execute_model": 18909106,
+    "runner.prepare_inputs": 200942,
+    "model_state.prepare_inputs": 18017670,
+    "ple.stage": 17898839,
+    "ple.read": 359603,
+    "graph.full": 314312,
+    "runner.sample_tokens": 339742,
+    "runner.sample": 221672,
+    "runner.postprocess": 36480,
+    "sched.update_from_output": 17891,
+    "sched.schedule": 44500
+   },
+   "api": {
+    "memcpy_api": 56361,
+    "sync": 17429946,
+    "graph_launch": 150201
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 18911566,
+   "unlabelled": null
+  },
+  {
+   "step": 90,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 18246403,
+   "busy": 17946404,
+   "idle": 299999,
+   "excl": {
+    "attn_qsa": 64832,
+    "memcpy_h2d": 1536,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 17123013,
+    "attn_proj": 749215
+   },
+   "sums": {
+    "attn_qsa": 65184,
+    "attn_proj": 749599,
+    "memcpy_h2d": 1536,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 17123013
+   },
+   "gap_attr": {
+    "ple.stage": 23360,
+    "ple.read": 109760,
+    "graph.full": 166591
+   },
+   "host": {
+    "runner.execute_model": 16292519,
+    "runner.prepare_inputs": 192921,
+    "model_state.prepare_inputs": 15389092,
+    "ple.stage": 15275731,
+    "ple.read": 52660,
+    "graph.full": 324124,
+    "runner.sample_tokens": 338242,
+    "runner.sample": 219261,
+    "runner.postprocess": 37400,
+    "sched.update_from_output": 18270,
+    "sched.schedule": 44121
+   },
+   "api": {
+    "memcpy_api": 58980,
+    "sync": 15115511,
+    "graph_launch": 154902
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16295149,
+   "unlabelled": null
+  },
+  {
+   "step": 91,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17128165,
+   "busy": 15987879,
+   "idle": 1140286,
+   "excl": {
+    "attn_qsa": 64032,
+    "memcpy_h2d": 1376,
+    "memset": 256,
+    "other_gpu": 7072,
+    "memcpy_d2h": 416,
+    "forward_graph": 15165544,
+    "attn_proj": 749183
+   },
+   "sums": {
+    "attn_qsa": 64384,
+    "attn_proj": 749439,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1120,
+    "memset": 256,
+    "forward_graph": 15165544
+   },
+   "gap_attr": {
+    "ple.stage": 31904,
+    "ple.read": 935039,
+    "graph.full": 173055
+   },
+   "host": {
+    "runner.execute_model": 18619754,
+    "runner.prepare_inputs": 178711,
+    "model_state.prepare_inputs": 17679158,
+    "ple.stage": 17565087,
+    "ple.read": 874965,
+    "graph.full": 339262,
+    "runner.sample_tokens": 343982,
+    "runner.sample": 224851,
+    "runner.postprocess": 36560,
+    "sched.update_from_output": 17820,
+    "sched.schedule": 43320
+   },
+   "api": {
+    "memcpy_api": 60491,
+    "sync": 16580200,
+    "graph_launch": 162251
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 18622374,
+   "unlabelled": null
+  },
+  {
+   "step": 92,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14293098,
+   "busy": 13692555,
+   "idle": 600543,
+   "excl": {
+    "attn_qsa": 63520,
+    "memcpy_h2d": 1376,
+    "memset": 256,
+    "other_gpu": 7168,
+    "memcpy_d2h": 352,
+    "forward_graph": 12870700,
+    "attn_proj": 749183
+   },
+   "sums": {
+    "attn_qsa": 63872,
+    "attn_proj": 749183,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1248,
+    "memset": 256,
+    "forward_graph": 12870700
+   },
+   "gap_attr": {
+    "ple.stage": 21248,
+    "ple.read": 416063,
+    "graph.full": 162976
+   },
+   "host": {
+    "runner.execute_model": 16113707,
+    "runner.prepare_inputs": 190922,
+    "model_state.prepare_inputs": 15234161,
+    "ple.stage": 15122551,
+    "ple.read": 360032,
+    "graph.full": 317222,
+    "runner.sample_tokens": 346713,
+    "runner.sample": 221532,
+    "runner.postprocess": 43011,
+    "sched.update_from_output": 17750,
+    "sched.schedule": 44370
+   },
+   "api": {
+    "memcpy_api": 54280,
+    "sync": 14657577,
+    "graph_launch": 151101
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16116307,
+   "unlabelled": null
+  },
+  {
+   "step": 93,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15785927,
+   "busy": 15058473,
+   "idle": 727454,
+   "excl": {
+    "attn_qsa": 62688,
+    "memcpy_h2d": 1408,
+    "memset": 256,
+    "other_gpu": 7104,
+    "memcpy_d2h": 384,
+    "forward_graph": 14236842,
+    "attn_proj": 749791
+   },
+   "sums": {
+    "attn_qsa": 63072,
+    "attn_proj": 749791,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1280,
+    "memset": 256,
+    "forward_graph": 14236842
+   },
+   "gap_attr": {
+    "ple.stage": 23552,
+    "ple.read": 537311,
+    "graph.full": 166335
+   },
+   "host": {
+    "runner.execute_model": 13943263,
+    "runner.prepare_inputs": 178091,
+    "model_state.prepare_inputs": 13040667,
+    "ple.stage": 12923086,
+    "ple.read": 478633,
+    "graph.full": 323062,
+    "runner.sample_tokens": 343873,
+    "runner.sample": 224192,
+    "runner.postprocess": 36431,
+    "sched.update_from_output": 18010,
+    "sched.schedule": 43150
+   },
+   "api": {
+    "memcpy_api": 56851,
+    "sync": 12334083,
+    "graph_launch": 154141
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 13945923,
+   "unlabelled": null
+  },
+  {
+   "step": 94,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16360646,
+   "busy": 15502888,
+   "idle": 857758,
+   "excl": {
+    "attn_qsa": 62592,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 14681801,
+    "attn_proj": 749279
+   },
+   "sums": {
+    "attn_qsa": 62944,
+    "attn_proj": 749535,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1120,
+    "memset": 288,
+    "forward_graph": 14681801
+   },
+   "gap_attr": {
+    "ple.stage": 31104,
+    "ple.read": 658495,
+    "graph.full": 167903
+   },
+   "host": {
+    "runner.execute_model": 15441963,
+    "runner.prepare_inputs": 203681,
+    "model_state.prepare_inputs": 14541727,
+    "ple.stage": 14421146,
+    "ple.read": 599214,
+    "graph.full": 326022,
+    "runner.sample_tokens": 345423,
+    "runner.sample": 226582,
+    "runner.postprocess": 36061,
+    "sched.update_from_output": 17950,
+    "sched.schedule": 43780
+   },
+   "api": {
+    "memcpy_api": 62080,
+    "sync": 13710702,
+    "graph_launch": 155261
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15444683,
+   "unlabelled": null
+  },
+  {
+   "step": 95,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15952359,
+   "busy": 14911241,
+   "idle": 1041118,
+   "excl": {
+    "attn_qsa": 62976,
+    "memcpy_h2d": 1408,
+    "memset": 256,
+    "other_gpu": 7104,
+    "memcpy_d2h": 384,
+    "forward_graph": 14090346,
+    "attn_proj": 748767
+   },
+   "sums": {
+    "attn_qsa": 63360,
+    "attn_proj": 748767,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1216,
+    "memset": 256,
+    "forward_graph": 14090346
+   },
+   "gap_attr": {
+    "ple.stage": 23936,
+    "ple.read": 853759,
+    "graph.full": 163167
+   },
+   "host": {
+    "runner.execute_model": 16069427,
+    "runner.prepare_inputs": 178791,
+    "model_state.prepare_inputs": 15171111,
+    "ple.stage": 15058550,
+    "ple.read": 794955,
+    "graph.full": 316004,
+    "runner.sample_tokens": 358152,
+    "runner.sample": 221601,
+    "runner.postprocess": 38250,
+    "sched.update_from_output": 19400,
+    "sched.schedule": 44491
+   },
+   "api": {
+    "memcpy_api": 57701,
+    "sync": 14154135,
+    "graph_launch": 150481
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16072317,
+   "unlabelled": null
+  },
+  {
+   "step": 96,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15856007,
+   "busy": 15010920,
+   "idle": 845087,
+   "excl": {
+    "attn_qsa": 62464,
+    "memcpy_h2d": 1440,
+    "memset": 288,
+    "other_gpu": 7072,
+    "memcpy_d2h": 416,
+    "forward_graph": 14189801,
+    "attn_proj": 749439
+   },
+   "sums": {
+    "attn_qsa": 62848,
+    "attn_proj": 749439,
+    "memcpy_h2d": 1440,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1152,
+    "memset": 288,
+    "forward_graph": 14189801
+   },
+   "gap_attr": {
+    "ple.stage": 30944,
+    "ple.read": 650239,
+    "graph.full": 163648
+   },
+   "host": {
+    "runner.execute_model": 15260492,
+    "runner.prepare_inputs": 173521,
+    "model_state.prepare_inputs": 14373855,
+    "ple.stage": 14255955,
+    "ple.read": 591544,
+    "graph.full": 316082,
+    "runner.sample_tokens": 342032,
+    "runner.sample": 221851,
+    "runner.postprocess": 36180,
+    "sched.update_from_output": 18090,
+    "sched.schedule": 44171
+   },
+   "api": {
+    "memcpy_api": 59320,
+    "sync": 13554020,
+    "graph_launch": 150521
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15263082,
+   "unlabelled": null
+  },
+  {
+   "step": 97,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15762759,
+   "busy": 14980264,
+   "idle": 782495,
+   "excl": {
+    "attn_qsa": 62528,
+    "memcpy_h2d": 1376,
+    "memset": 256,
+    "other_gpu": 7104,
+    "memcpy_d2h": 416,
+    "forward_graph": 14159977,
+    "attn_proj": 748607
+   },
+   "sums": {
+    "attn_qsa": 62944,
+    "attn_proj": 748607,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1120,
+    "memset": 256,
+    "forward_graph": 14159977
+   },
+   "gap_attr": {
+    "ple.stage": 33600,
+    "ple.read": 580255,
+    "graph.full": 168384
+   },
+   "host": {
+    "runner.execute_model": 15321382,
+    "runner.prepare_inputs": 203112,
+    "model_state.prepare_inputs": 14429897,
+    "ple.stage": 14317396,
+    "ple.read": 519333,
+    "graph.full": 325352,
+    "runner.sample_tokens": 349552,
+    "runner.sample": 228741,
+    "runner.postprocess": 36720,
+    "sched.update_from_output": 18350,
+    "sched.schedule": 44520
+   },
+   "api": {
+    "memcpy_api": 59332,
+    "sync": 13686931,
+    "graph_launch": 154871
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15324292,
+   "unlabelled": null
+  },
+  {
+   "step": 98,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16556870,
+   "busy": 15640487,
+   "idle": 916383,
+   "excl": {
+    "attn_qsa": 63040,
+    "memcpy_h2d": 1440,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 14819144,
+    "attn_proj": 749055
+   },
+   "sums": {
+    "attn_qsa": 63392,
+    "attn_proj": 749055,
+    "memcpy_h2d": 1440,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1536,
+    "memset": 288,
+    "forward_graph": 14819144
+   },
+   "gap_attr": {
+    "ple.stage": 31072,
+    "ple.read": 718847,
+    "graph.full": 166208
+   },
+   "host": {
+    "runner.execute_model": 15411623,
+    "runner.prepare_inputs": 176781,
+    "model_state.prepare_inputs": 14497267,
+    "ple.stage": 14384395,
+    "ple.read": 659764,
+    "graph.full": 322702,
+    "runner.sample_tokens": 350602,
+    "runner.sample": 222991,
+    "runner.postprocess": 36090,
+    "sched.update_from_output": 18160,
+    "sched.schedule": 43821
+   },
+   "api": {
+    "memcpy_api": 67090,
+    "sync": 13614951,
+    "graph_launch": 153541
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15414673,
+   "unlabelled": null
+  },
+  {
+   "step": 99,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17353605,
+   "busy": 16532710,
+   "idle": 820895,
+   "excl": {
+    "attn_qsa": 63232,
+    "memcpy_h2d": 1664,
+    "memset": 256,
+    "other_gpu": 7136,
+    "memcpy_d2h": 352,
+    "forward_graph": 15710439,
+    "attn_proj": 749631
+   },
+   "sums": {
+    "attn_qsa": 63616,
+    "attn_proj": 749631,
+    "memcpy_h2d": 1664,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1216,
+    "memset": 256,
+    "forward_graph": 15710439
+   },
+   "gap_attr": {
+    "ple.stage": 21856,
+    "ple.read": 636383,
+    "graph.full": 162368
+   },
+   "host": {
+    "runner.execute_model": 15981076,
+    "runner.prepare_inputs": 172601,
+    "model_state.prepare_inputs": 15078810,
+    "ple.stage": 14965220,
+    "ple.read": 578574,
+    "graph.full": 313792,
+    "runner.sample_tokens": 343073,
+    "runner.sample": 222892,
+    "runner.postprocess": 36521,
+    "sched.update_from_output": 17880,
+    "sched.schedule": 44730
+   },
+   "api": {
+    "memcpy_api": 58151,
+    "sync": 14278085,
+    "graph_launch": 149531
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15983906,
+   "unlabelled": null
+  },
+  {
+   "step": 100,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17875460,
+   "busy": 17105830,
+   "idle": 769630,
+   "excl": {
+    "attn_qsa": 62368,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7072,
+    "memcpy_d2h": 384,
+    "forward_graph": 16284583,
+    "attn_proj": 749727
+   },
+   "sums": {
+    "attn_qsa": 62720,
+    "attn_proj": 749727,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1216,
+    "memset": 288,
+    "forward_graph": 16284583
+   },
+   "gap_attr": {
+    "ple.stage": 24384,
+    "ple.read": 581855,
+    "graph.full": 163135
+   },
+   "host": {
+    "runner.execute_model": 16830533,
+    "runner.prepare_inputs": 177631,
+    "model_state.prepare_inputs": 15936126,
+    "ple.stage": 15824795,
+    "ple.read": 522723,
+    "graph.full": 315964,
+    "runner.sample_tokens": 351252,
+    "runner.sample": 229791,
+    "runner.postprocess": 36340,
+    "sched.update_from_output": 18150,
+    "sched.schedule": 45511
+   },
+   "api": {
+    "memcpy_api": 57650,
+    "sync": 15192952,
+    "graph_launch": 150301
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16833463,
+   "unlabelled": null
+  },
+  {
+   "step": 101,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16311590,
+   "busy": 15625031,
+   "idle": 686559,
+   "excl": {
+    "attn_qsa": 62720,
+    "memcpy_h2d": 1440,
+    "memset": 256,
+    "other_gpu": 7167,
+    "memcpy_d2h": 384,
+    "forward_graph": 14803849,
+    "attn_proj": 749215
+   },
+   "sums": {
+    "attn_qsa": 63232,
+    "attn_proj": 749439,
+    "memcpy_h2d": 1440,
+    "other_gpu": 7167,
+    "memcpy_d2h": 1248,
+    "memset": 256,
+    "forward_graph": 14803849
+   },
+   "gap_attr": {
+    "ple.stage": 25184,
+    "ple.read": 497952,
+    "graph.full": 163167
+   },
+   "host": {
+    "runner.execute_model": 17308865,
+    "runner.prepare_inputs": 174021,
+    "model_state.prepare_inputs": 16400409,
+    "ple.stage": 16278978,
+    "ple.read": 440303,
+    "graph.full": 315362,
+    "runner.sample_tokens": 344353,
+    "runner.sample": 225962,
+    "runner.postprocess": 36390,
+    "sched.update_from_output": 17960,
+    "sched.schedule": 48690
+   },
+   "api": {
+    "memcpy_api": 66840,
+    "sync": 15730585,
+    "graph_launch": 150181
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 17312035,
+   "unlabelled": null
+  },
+  {
+   "step": 102,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16180102,
+   "busy": 15379463,
+   "idle": 800639,
+   "excl": {
+    "attn_qsa": 63968,
+    "memcpy_h2d": 1472,
+    "memset": 288,
+    "other_gpu": 7200,
+    "memcpy_d2h": 384,
+    "forward_graph": 14556873,
+    "attn_proj": 749278
+   },
+   "sums": {
+    "attn_qsa": 64352,
+    "attn_proj": 749278,
+    "memcpy_h2d": 1472,
+    "other_gpu": 7200,
+    "memcpy_d2h": 1248,
+    "memset": 288,
+    "forward_graph": 14556873
+   },
+   "gap_attr": {
+    "ple.stage": 27136,
+    "ple.read": 608607,
+    "graph.full": 164608
+   },
+   "host": {
+    "runner.execute_model": 15949607,
+    "runner.prepare_inputs": 173301,
+    "model_state.prepare_inputs": 15070720,
+    "ple.stage": 14955649,
+    "ple.read": 547043,
+    "graph.full": 318772,
+    "runner.sample_tokens": 344912,
+    "runner.sample": 227031,
+    "runner.postprocess": 35610,
+    "sched.update_from_output": 17950,
+    "sched.schedule": 42881
+   },
+   "api": {
+    "memcpy_api": 60561,
+    "sync": 14296885,
+    "graph_launch": 151641
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15952577,
+   "unlabelled": null
+  },
+  {
+   "step": 103,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 13765771,
+   "busy": 12959724,
+   "idle": 806047,
+   "excl": {
+    "attn_qsa": 62400,
+    "memcpy_h2d": 1632,
+    "memset": 256,
+    "other_gpu": 7104,
+    "memcpy_d2h": 352,
+    "forward_graph": 12137293,
+    "attn_proj": 750687
+   },
+   "sums": {
+    "attn_qsa": 62752,
+    "attn_proj": 750687,
+    "memcpy_h2d": 1632,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1056,
+    "memset": 256,
+    "forward_graph": 12137293
+   },
+   "gap_attr": {
+    "ple.stage": 23264,
+    "ple.read": 619647,
+    "graph.full": 162880
+   },
+   "host": {
+    "runner.execute_model": 15706334,
+    "runner.prepare_inputs": 173842,
+    "model_state.prepare_inputs": 14809668,
+    "ple.stage": 14689568,
+    "ple.read": 558864,
+    "graph.full": 316032,
+    "runner.sample_tokens": 338953,
+    "runner.sample": 217442,
+    "runner.postprocess": 37141,
+    "sched.update_from_output": 18000,
+    "sched.schedule": 42760
+   },
+   "api": {
+    "memcpy_api": 61071,
+    "sync": 14016443,
+    "graph_launch": 150821
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15709174,
+   "unlabelled": null
+  },
+  {
+   "step": 104,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14294377,
+   "busy": 13639946,
+   "idle": 654431,
+   "excl": {
+    "attn_qsa": 63008,
+    "memcpy_h2d": 1824,
+    "memset": 288,
+    "other_gpu": 7168,
+    "memcpy_d2h": 384,
+    "forward_graph": 12818539,
+    "attn_proj": 748735
+   },
+   "sums": {
+    "attn_qsa": 63360,
+    "attn_proj": 748735,
+    "memcpy_h2d": 1824,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1248,
+    "memset": 288,
+    "forward_graph": 12818539
+   },
+   "gap_attr": {
+    "ple.stage": 30144,
+    "ple.read": 461727,
+    "graph.full": 162272
+   },
+   "host": {
+    "runner.execute_model": 13149198,
+    "runner.prepare_inputs": 169341,
+    "model_state.prepare_inputs": 12258832,
+    "ple.stage": 12146161,
+    "ple.read": 404103,
+    "graph.full": 314632,
+    "runner.sample_tokens": 348973,
+    "runner.sample": 229292,
+    "runner.postprocess": 36560,
+    "sched.update_from_output": 18190,
+    "sched.schedule": 43090
+   },
+   "api": {
+    "memcpy_api": 60010,
+    "sync": 11634608,
+    "graph_launch": 149701
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 13151768,
+   "unlabelled": null
+  },
+  {
+   "step": 105,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14488585,
+   "busy": 14193865,
+   "idle": 294720,
+   "excl": {
+    "attn_qsa": 62720,
+    "memcpy_h2d": 1376,
+    "memset": 256,
+    "other_gpu": 7136,
+    "memcpy_d2h": 416,
+    "forward_graph": 13372939,
+    "attn_proj": 749022
+   },
+   "sums": {
+    "attn_qsa": 63104,
+    "attn_proj": 749022,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1280,
+    "memset": 256,
+    "forward_graph": 13372939
+   },
+   "gap_attr": {
+    "ple.stage": 24288,
+    "ple.read": 106304,
+    "graph.full": 163840
+   },
+   "host": {
+    "runner.execute_model": 13455760,
+    "runner.prepare_inputs": 192671,
+    "model_state.prepare_inputs": 12583074,
+    "ple.stage": 12462443,
+    "ple.read": 52191,
+    "graph.full": 314552,
+    "runner.sample_tokens": 350372,
+    "runner.sample": 215741,
+    "runner.postprocess": 44640,
+    "sched.update_from_output": 18341,
+    "sched.schedule": 43160
+   },
+   "api": {
+    "memcpy_api": 65431,
+    "sync": 12303062,
+    "graph_launch": 150111
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 13458630,
+   "unlabelled": null
+  },
+  {
+   "step": 106,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15470984,
+   "busy": 14568777,
+   "idle": 902207,
+   "excl": {
+    "attn_qsa": 62688,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 13747850,
+    "attn_proj": 749023
+   },
+   "sums": {
+    "attn_qsa": 63040,
+    "attn_proj": 749023,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1248,
+    "memset": 288,
+    "forward_graph": 13747850
+   },
+   "gap_attr": {
+    "ple.stage": 31168,
+    "ple.read": 707359,
+    "graph.full": 163424
+   },
+   "host": {
+    "runner.execute_model": 14617377,
+    "runner.prepare_inputs": 174911,
+    "model_state.prepare_inputs": 13727511,
+    "ple.stage": 13604700,
+    "ple.read": 648794,
+    "graph.full": 316032,
+    "runner.sample_tokens": 349302,
+    "runner.sample": 229541,
+    "runner.postprocess": 36990,
+    "sched.update_from_output": 17870,
+    "sched.schedule": 42321
+   },
+   "api": {
+    "memcpy_api": 68090,
+    "sync": 12845656,
+    "graph_launch": 150241
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14620367,
+   "unlabelled": null
+  },
+  {
+   "step": 107,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16086055,
+   "busy": 14952425,
+   "idle": 1133630,
+   "excl": {
+    "attn_qsa": 62208,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7104,
+    "memcpy_d2h": 416,
+    "forward_graph": 14132266,
+    "attn_proj": 748735
+   },
+   "sums": {
+    "attn_qsa": 62592,
+    "attn_proj": 748991,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1120,
+    "memset": 288,
+    "forward_graph": 14132266
+   },
+   "gap_attr": {
+    "ple.stage": 23040,
+    "ple.read": 950846,
+    "graph.full": 159488
+   },
+   "host": {
+    "runner.execute_model": 15225821,
+    "runner.prepare_inputs": 173971,
+    "model_state.prepare_inputs": 14330206,
+    "ple.stage": 14215865,
+    "ple.read": 885816,
+    "graph.full": 317692,
+    "runner.sample_tokens": 350723,
+    "runner.sample": 229312,
+    "runner.postprocess": 37260,
+    "sched.update_from_output": 18410,
+    "sched.schedule": 48550
+   },
+   "api": {
+    "memcpy_api": 58382,
+    "sync": 13220238,
+    "graph_launch": 151321
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15228721,
+   "unlabelled": null
+  },
+  {
+   "step": 108,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16979237,
+   "busy": 16094247,
+   "idle": 884990,
+   "excl": {
+    "attn_qsa": 63488,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7072,
+    "memcpy_d2h": 384,
+    "forward_graph": 15272008,
+    "attn_proj": 749599
+   },
+   "sums": {
+    "attn_qsa": 63968,
+    "attn_proj": 749599,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1344,
+    "memset": 288,
+    "forward_graph": 15272008
+   },
+   "gap_attr": {
+    "ple.stage": 24352,
+    "ple.read": 697854,
+    "graph.full": 162496
+   },
+   "host": {
+    "runner.execute_model": 15350153,
+    "runner.prepare_inputs": 183101,
+    "model_state.prepare_inputs": 14436486,
+    "ple.stage": 14324665,
+    "ple.read": 635354,
+    "graph.full": 323654,
+    "runner.sample_tokens": 341252,
+    "runner.sample": 222941,
+    "runner.postprocess": 36180,
+    "sched.update_from_output": 18170,
+    "sched.schedule": 43441
+   },
+   "api": {
+    "memcpy_api": 56860,
+    "sync": 13581251,
+    "graph_launch": 153942
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15352943,
+   "unlabelled": null
+  },
+  {
+   "step": 109,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16921989,
+   "busy": 16034375,
+   "idle": 887614,
+   "excl": {
+    "attn_qsa": 63520,
+    "memcpy_h2d": 1504,
+    "memset": 256,
+    "other_gpu": 7168,
+    "memcpy_d2h": 384,
+    "forward_graph": 15212072,
+    "attn_proj": 749471
+   },
+   "sums": {
+    "attn_qsa": 63904,
+    "attn_proj": 749471,
+    "memcpy_h2d": 1504,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1376,
+    "memset": 256,
+    "forward_graph": 15212072
+   },
+   "gap_attr": {
+    "ple.stage": 33184,
+    "ple.read": 683391,
+    "graph.full": 170783
+   },
+   "host": {
+    "runner.execute_model": 16503370,
+    "runner.prepare_inputs": 178842,
+    "model_state.prepare_inputs": 15605164,
+    "ple.stage": 15492294,
+    "ple.read": 619834,
+    "graph.full": 318642,
+    "runner.sample_tokens": 346902,
+    "runner.sample": 227421,
+    "runner.postprocess": 35770,
+    "sched.update_from_output": 18220,
+    "sched.schedule": 43161
+   },
+   "api": {
+    "memcpy_api": 57291,
+    "sync": 14759518,
+    "graph_launch": 152041
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16506240,
+   "unlabelled": null
+  },
+  {
+   "step": 110,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17236101,
+   "busy": 16311846,
+   "idle": 924255,
+   "excl": {
+    "attn_qsa": 64032,
+    "memcpy_h2d": 1536,
+    "memset": 288,
+    "other_gpu": 7104,
+    "memcpy_d2h": 384,
+    "forward_graph": 15489063,
+    "attn_proj": 749439
+   },
+   "sums": {
+    "attn_qsa": 64384,
+    "attn_proj": 749439,
+    "memcpy_h2d": 1536,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 15489063
+   },
+   "gap_attr": {
+    "ple.stage": 22944,
+    "ple.read": 735935,
+    "graph.full": 165120
+   },
+   "host": {
+    "runner.execute_model": 16489600,
+    "runner.prepare_inputs": 197442,
+    "model_state.prepare_inputs": 15601284,
+    "ple.stage": 15489204,
+    "ple.read": 674204,
+    "graph.full": 317112,
+    "runner.sample_tokens": 350702,
+    "runner.sample": 227361,
+    "runner.postprocess": 38380,
+    "sched.update_from_output": 18280,
+    "sched.schedule": 43360
+   },
+   "api": {
+    "memcpy_api": 57571,
+    "sync": 14704268,
+    "graph_launch": 150761
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16492380,
+   "unlabelled": null
+  },
+  {
+   "step": 111,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17631076,
+   "busy": 16767077,
+   "idle": 863999,
+   "excl": {
+    "attn_qsa": 59744,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7200,
+    "memcpy_d2h": 352,
+    "forward_graph": 15948455,
+    "attn_proj": 749630
+   },
+   "sums": {
+    "attn_qsa": 60096,
+    "attn_proj": 749630,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7200,
+    "memcpy_d2h": 1056,
+    "memset": 288,
+    "forward_graph": 15948455
+   },
+   "gap_attr": {
+    "ple.stage": 23584,
+    "ple.read": 675359,
+    "graph.full": 164800
+   },
+   "host": {
+    "runner.execute_model": 16694161,
+    "runner.prepare_inputs": 177031,
+    "model_state.prepare_inputs": 15796115,
+    "ple.stage": 15682635,
+    "ple.read": 611054,
+    "graph.full": 318432,
+    "runner.sample_tokens": 344283,
+    "runner.sample": 224432,
+    "runner.postprocess": 36510,
+    "sched.update_from_output": 18490,
+    "sched.schedule": 42920
+   },
+   "api": {
+    "memcpy_api": 58420,
+    "sync": 14957419,
+    "graph_launch": 151741
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16697071,
+   "unlabelled": null
+  },
+  {
+   "step": 112,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17495173,
+   "busy": 16763366,
+   "idle": 731807,
+   "excl": {
+    "attn_qsa": 63648,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7104,
+    "memcpy_d2h": 384,
+    "forward_graph": 15940711,
+    "attn_proj": 749823
+   },
+   "sums": {
+    "attn_qsa": 64096,
+    "attn_proj": 749823,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1280,
+    "memset": 288,
+    "forward_graph": 15940711
+   },
+   "gap_attr": {
+    "ple.stage": 32224,
+    "ple.read": 536959,
+    "graph.full": 162336
+   },
+   "host": {
+    "runner.execute_model": 17025544,
+    "runner.prepare_inputs": 173061,
+    "model_state.prepare_inputs": 16137648,
+    "ple.stage": 16025107,
+    "ple.read": 479753,
+    "graph.full": 314592,
+    "runner.sample_tokens": 343942,
+    "runner.sample": 221511,
+    "runner.postprocess": 36000,
+    "sched.update_from_output": 17590,
+    "sched.schedule": 42731
+   },
+   "api": {
+    "memcpy_api": 58821,
+    "sync": 15438593,
+    "graph_launch": 149821
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 17028494,
+   "unlabelled": null
+  },
+  {
+   "step": 113,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17316644,
+   "busy": 16313510,
+   "idle": 1003134,
+   "excl": {
+    "attn_qsa": 62751,
+    "memcpy_h2d": 1376,
+    "memset": 256,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 15493096,
+    "attn_proj": 748511
+   },
+   "sums": {
+    "attn_qsa": 63135,
+    "attn_proj": 748511,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1472,
+    "memset": 256,
+    "forward_graph": 15493096
+   },
+   "gap_attr": {
+    "ple.stage": 32064,
+    "ple.read": 808318,
+    "graph.full": 162464
+   },
+   "host": {
+    "runner.execute_model": 17292345,
+    "runner.prepare_inputs": 170802,
+    "model_state.prepare_inputs": 16403469,
+    "ple.stage": 16291349,
+    "ple.read": 750135,
+    "graph.full": 314922,
+    "runner.sample_tokens": 346022,
+    "runner.sample": 219712,
+    "runner.postprocess": 37260,
+    "sched.update_from_output": 18280,
+    "sched.schedule": 43960
+   },
+   "api": {
+    "memcpy_api": 57031,
+    "sync": 15434573,
+    "graph_launch": 150151
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 17295135,
+   "unlabelled": null
+  },
+  {
+   "step": 114,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17436037,
+   "busy": 16678950,
+   "idle": 757087,
+   "excl": {
+    "attn_qsa": 63872,
+    "memcpy_h2d": 1568,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 15856423,
+    "attn_proj": 749279
+   },
+   "sums": {
+    "attn_qsa": 64288,
+    "attn_proj": 749279,
+    "memcpy_h2d": 1568,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 15856423
+   },
+   "gap_attr": {
+    "ple.stage": 22432,
+    "ple.read": 565152,
+    "graph.full": 169247
+   },
+   "host": {
+    "runner.execute_model": 16589661,
+    "runner.prepare_inputs": 194851,
+    "model_state.prepare_inputs": 15713765,
+    "ple.stage": 15594744,
+    "ple.read": 505423,
+    "graph.full": 314942,
+    "runner.sample_tokens": 352232,
+    "runner.sample": 231031,
+    "runner.postprocess": 36990,
+    "sched.update_from_output": 18450,
+    "sched.schedule": 42820
+   },
+   "api": {
+    "memcpy_api": 57800,
+    "sync": 14978380,
+    "graph_launch": 149851
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16592541,
+   "unlabelled": null
+  },
+  {
+   "step": 115,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16169639,
+   "busy": 15371848,
+   "idle": 797791,
+   "excl": {
+    "attn_qsa": 63072,
+    "memcpy_h2d": 1760,
+    "memset": 256,
+    "other_gpu": 7168,
+    "memcpy_d2h": 384,
+    "forward_graph": 14549833,
+    "attn_proj": 749375
+   },
+   "sums": {
+    "attn_qsa": 63424,
+    "attn_proj": 749375,
+    "memcpy_h2d": 1760,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 14549833
+   },
+   "gap_attr": {
+    "ple.stage": 24416,
+    "ple.read": 610495,
+    "graph.full": 162624
+   },
+   "host": {
+    "runner.execute_model": 16999033,
+    "runner.prepare_inputs": 173341,
+    "model_state.prepare_inputs": 16092637,
+    "ple.stage": 15979286,
+    "ple.read": 552094,
+    "graph.full": 315152,
+    "runner.sample_tokens": 336893,
+    "runner.sample": 217042,
+    "runner.postprocess": 37400,
+    "sched.update_from_output": 18410,
+    "sched.schedule": 43780
+   },
+   "api": {
+    "memcpy_api": 60540,
+    "sync": 15319692,
+    "graph_launch": 150191
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 17002123,
+   "unlabelled": null
+  },
+  {
+   "step": 116,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 18255555,
+   "busy": 17405796,
+   "idle": 849759,
+   "excl": {
+    "attn_qsa": 64543,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7168,
+    "memcpy_d2h": 352,
+    "forward_graph": 16582406,
+    "attn_proj": 749631
+   },
+   "sums": {
+    "attn_qsa": 64895,
+    "attn_proj": 749631,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1056,
+    "memset": 288,
+    "forward_graph": 16582406
+   },
+   "gap_attr": {
+    "ple.stage": 22688,
+    "ple.read": 665279,
+    "graph.full": 161536
+   },
+   "host": {
+    "runner.execute_model": 15756465,
+    "runner.prepare_inputs": 175691,
+    "model_state.prepare_inputs": 14869409,
+    "ple.stage": 14755058,
+    "ple.read": 608234,
+    "graph.full": 316612,
+    "runner.sample_tokens": 341433,
+    "runner.sample": 221632,
+    "runner.postprocess": 36771,
+    "sched.update_from_output": 18110,
+    "sched.schedule": 43330
+   },
+   "api": {
+    "memcpy_api": 56760,
+    "sync": 14039034,
+    "graph_launch": 149941
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15759255,
+   "unlabelled": null
+  },
+  {
+   "step": 117,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17480420,
+   "busy": 16743941,
+   "idle": 736479,
+   "excl": {
+    "attn_qsa": 63520,
+    "memcpy_h2d": 1408,
+    "memset": 256,
+    "other_gpu": 7168,
+    "memcpy_d2h": 416,
+    "forward_graph": 15921031,
+    "attn_proj": 750142
+   },
+   "sums": {
+    "attn_qsa": 63968,
+    "attn_proj": 750142,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1536,
+    "memset": 256,
+    "forward_graph": 15921031
+   },
+   "gap_attr": {
+    "ple.stage": 24544,
+    "ple.read": 546655,
+    "graph.full": 165024
+   },
+   "host": {
+    "runner.execute_model": 17668098,
+    "runner.prepare_inputs": 178971,
+    "model_state.prepare_inputs": 16773972,
+    "ple.stage": 16662191,
+    "ple.read": 486183,
+    "graph.full": 318832,
+    "runner.sample_tokens": 356713,
+    "runner.sample": 228242,
+    "runner.postprocess": 44770,
+    "sched.update_from_output": 18700,
+    "sched.schedule": 45250
+   },
+   "api": {
+    "memcpy_api": 67891,
+    "sync": 16066657,
+    "graph_launch": 151851
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 17670958,
+   "unlabelled": null
+  },
+  {
+   "step": 118,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17417445,
+   "busy": 16393382,
+   "idle": 1024063,
+   "excl": {
+    "attn_qsa": 63840,
+    "memcpy_h2d": 1632,
+    "memset": 256,
+    "other_gpu": 7200,
+    "memcpy_d2h": 512,
+    "forward_graph": 15570503,
+    "attn_proj": 749439
+   },
+   "sums": {
+    "attn_qsa": 64192,
+    "attn_proj": 749439,
+    "memcpy_h2d": 1632,
+    "other_gpu": 7200,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 15570503
+   },
+   "gap_attr": {
+    "ple.stage": 22176,
+    "ple.read": 839967,
+    "graph.full": 161664
+   },
+   "host": {
+    "runner.execute_model": 17281145,
+    "runner.prepare_inputs": 176811,
+    "model_state.prepare_inputs": 16415489,
+    "ple.stage": 16304648,
+    "ple.read": 781875,
+    "graph.full": 313852,
+    "runner.sample_tokens": 345812,
+    "runner.sample": 218411,
+    "runner.postprocess": 36630,
+    "sched.update_from_output": 18260,
+    "sched.schedule": 42561
+   },
+   "api": {
+    "memcpy_api": 58400,
+    "sync": 15407023,
+    "graph_launch": 149471
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 17283706,
+   "unlabelled": null
+  },
+  {
+   "step": 119,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16964645,
+   "busy": 16012007,
+   "idle": 952638,
+   "excl": {
+    "attn_qsa": 63520,
+    "memcpy_h2d": 1440,
+    "memset": 256,
+    "other_gpu": 7104,
+    "memcpy_d2h": 384,
+    "forward_graph": 15190088,
+    "attn_proj": 749215
+   },
+   "sums": {
+    "attn_qsa": 63872,
+    "attn_proj": 749215,
+    "memcpy_h2d": 1440,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1248,
+    "memset": 256,
+    "forward_graph": 15190088
+   },
+   "gap_attr": {
+    "ple.stage": 33184,
+    "ple.read": 754623,
+    "graph.full": 164575
+   },
+   "host": {
+    "runner.execute_model": 16871372,
+    "runner.prepare_inputs": 173161,
+    "model_state.prepare_inputs": 15983577,
+    "ple.stage": 15867326,
+    "ple.read": 688135,
+    "graph.full": 317232,
+    "runner.sample_tokens": 355263,
+    "runner.sample": 233792,
+    "runner.postprocess": 36830,
+    "sched.update_from_output": 18190,
+    "sched.schedule": 44110
+   },
+   "api": {
+    "memcpy_api": 61873,
+    "sync": 15062250,
+    "graph_launch": 151021
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16874192,
+   "unlabelled": null
+  },
+  {
+   "step": 120,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17367557,
+   "busy": 16546086,
+   "idle": 821471,
+   "excl": {
+    "attn_qsa": 63968,
+    "memcpy_h2d": 1376,
+    "memset": 256,
+    "other_gpu": 7104,
+    "memcpy_d2h": 384,
+    "forward_graph": 15723239,
+    "attn_proj": 749759
+   },
+   "sums": {
+    "attn_qsa": 64320,
+    "attn_proj": 749759,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 15723239
+   },
+   "gap_attr": {
+    "ple.stage": 23456,
+    "ple.read": 633087,
+    "graph.full": 164672
+   },
+   "host": {
+    "runner.execute_model": 16346359,
+    "runner.prepare_inputs": 201711,
+    "model_state.prepare_inputs": 15449023,
+    "ple.stage": 15325712,
+    "ple.read": 571654,
+    "graph.full": 318072,
+    "runner.sample_tokens": 352893,
+    "runner.sample": 229192,
+    "runner.postprocess": 38931,
+    "sched.update_from_output": 18590,
+    "sched.schedule": 44001
+   },
+   "api": {
+    "memcpy_api": 62650,
+    "sync": 14640748,
+    "graph_launch": 151391
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16349129,
+   "unlabelled": null
+  },
+  {
+   "step": 121,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16774087,
+   "busy": 15882921,
+   "idle": 891166,
+   "excl": {
+    "attn_qsa": 63520,
+    "memcpy_h2d": 1536,
+    "memset": 256,
+    "other_gpu": 7200,
+    "memcpy_d2h": 384,
+    "forward_graph": 15060682,
+    "attn_proj": 749343
+   },
+   "sums": {
+    "attn_qsa": 63904,
+    "attn_proj": 749343,
+    "memcpy_h2d": 1536,
+    "other_gpu": 7200,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 15060682
+   },
+   "gap_attr": {
+    "ple.stage": 23616,
+    "ple.read": 702335,
+    "graph.full": 164959
+   },
+   "host": {
+    "runner.execute_model": 16922162,
+    "runner.prepare_inputs": 174951,
+    "model_state.prepare_inputs": 16032267,
+    "ple.stage": 15919686,
+    "ple.read": 645254,
+    "graph.full": 320472,
+    "runner.sample_tokens": 343613,
+    "runner.sample": 224122,
+    "runner.postprocess": 37101,
+    "sched.update_from_output": 18280,
+    "sched.schedule": 42270
+   },
+   "api": {
+    "memcpy_api": 60260,
+    "sync": 15161881,
+    "graph_launch": 153001
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16925032,
+   "unlabelled": null
+  },
+  {
+   "step": 122,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 18262501,
+   "busy": 17341510,
+   "idle": 920991,
+   "excl": {
+    "attn_qsa": 65376,
+    "memcpy_h2d": 1600,
+    "memset": 288,
+    "other_gpu": 7168,
+    "memcpy_d2h": 608,
+    "forward_graph": 16517128,
+    "attn_proj": 749342
+   },
+   "sums": {
+    "attn_qsa": 65760,
+    "attn_proj": 749598,
+    "memcpy_h2d": 1600,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 16517128
+   },
+   "gap_attr": {
+    "ple.stage": 23136,
+    "ple.read": 734911,
+    "graph.full": 162912
+   },
+   "host": {
+    "runner.execute_model": 16334079,
+    "runner.prepare_inputs": 171671,
+    "model_state.prepare_inputs": 15439223,
+    "ple.stage": 15321792,
+    "ple.read": 677604,
+    "graph.full": 315222,
+    "runner.sample_tokens": 346093,
+    "runner.sample": 226752,
+    "runner.postprocess": 35871,
+    "sched.update_from_output": 17890,
+    "sched.schedule": 42920
+   },
+   "api": {
+    "memcpy_api": 55100,
+    "sync": 14536307,
+    "graph_launch": 150381
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16336809,
+   "unlabelled": null
+  },
+  {
+   "step": 123,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17023335,
+   "busy": 16257992,
+   "idle": 765343,
+   "excl": {
+    "attn_qsa": 62912,
+    "memcpy_h2d": 1536,
+    "memset": 288,
+    "other_gpu": 7168,
+    "memcpy_d2h": 384,
+    "forward_graph": 15436810,
+    "attn_proj": 748894
+   },
+   "sums": {
+    "attn_qsa": 63264,
+    "attn_proj": 748990,
+    "memcpy_h2d": 1536,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1248,
+    "memset": 288,
+    "forward_graph": 15436810
+   },
+   "gap_attr": {
+    "ple.stage": 20768,
+    "ple.read": 582623,
+    "graph.full": 161664
+   },
+   "host": {
+    "runner.execute_model": 17630188,
+    "runner.prepare_inputs": 169921,
+    "model_state.prepare_inputs": 16746182,
+    "ple.stage": 16633731,
+    "ple.read": 525994,
+    "graph.full": 313652,
+    "runner.sample_tokens": 343652,
+    "runner.sample": 225582,
+    "runner.postprocess": 35710,
+    "sched.update_from_output": 17611,
+    "sched.schedule": 42660
+   },
+   "api": {
+    "memcpy_api": 65740,
+    "sync": 16000457,
+    "graph_launch": 149531
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 17633078,
+   "unlabelled": null
+  },
+  {
+   "step": 124,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16803016,
+   "busy": 15966441,
+   "idle": 836575,
+   "excl": {
+    "attn_qsa": 63840,
+    "memcpy_h2d": 1376,
+    "memset": 288,
+    "other_gpu": 7168,
+    "memcpy_d2h": 672,
+    "forward_graph": 15143818,
+    "attn_proj": 749279
+   },
+   "sums": {
+    "attn_qsa": 64224,
+    "attn_proj": 749535,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1120,
+    "memset": 288,
+    "forward_graph": 15143818
+   },
+   "gap_attr": {
+    "ple.stage": 23936,
+    "ple.read": 646015,
+    "graph.full": 166624
+   },
+   "host": {
+    "runner.execute_model": 16623811,
+    "runner.prepare_inputs": 171231,
+    "model_state.prepare_inputs": 15734125,
+    "ple.stage": 15622394,
+    "ple.read": 589263,
+    "graph.full": 322662,
+    "runner.sample_tokens": 338852,
+    "runner.sample": 220301,
+    "runner.postprocess": 36390,
+    "sched.update_from_output": 18080,
+    "sched.schedule": 42740
+   },
+   "api": {
+    "memcpy_api": 55821,
+    "sync": 14925439,
+    "graph_launch": 153841
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16626701,
+   "unlabelled": null
+  },
+  {
+   "step": 125,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17148103,
+   "busy": 16244169,
+   "idle": 903934,
+   "excl": {
+    "attn_qsa": 62496,
+    "memcpy_h2d": 1376,
+    "memset": 288,
+    "other_gpu": 7200,
+    "memcpy_d2h": 384,
+    "forward_graph": 15422954,
+    "attn_proj": 749471
+   },
+   "sums": {
+    "attn_qsa": 62848,
+    "attn_proj": 749471,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7200,
+    "memcpy_d2h": 1312,
+    "memset": 288,
+    "forward_graph": 15422954
+   },
+   "gap_attr": {
+    "ple.stage": 22848,
+    "ple.read": 718975,
+    "graph.full": 161823
+   },
+   "host": {
+    "runner.execute_model": 16398689,
+    "runner.prepare_inputs": 175691,
+    "model_state.prepare_inputs": 15494033,
+    "ple.stage": 15382242,
+    "ple.read": 662164,
+    "graph.full": 313912,
+    "runner.sample_tokens": 343093,
+    "runner.sample": 224272,
+    "runner.postprocess": 36080,
+    "sched.update_from_output": 17930,
+    "sched.schedule": 42510
+   },
+   "api": {
+    "memcpy_api": 59970,
+    "sync": 14614147,
+    "graph_launch": 149771
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16401519,
+   "unlabelled": null
+  },
+  {
+   "step": 126,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16987943,
+   "busy": 16037897,
+   "idle": 950046,
+   "excl": {
+    "attn_qsa": 63744,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7200,
+    "memcpy_d2h": 352,
+    "forward_graph": 15215434,
+    "attn_proj": 749471
+   },
+   "sums": {
+    "attn_qsa": 64128,
+    "attn_proj": 749471,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7200,
+    "memcpy_d2h": 1568,
+    "memset": 288,
+    "forward_graph": 15215434
+   },
+   "gap_attr": {
+    "ple.stage": 22431,
+    "ple.read": 761087,
+    "graph.full": 166272
+   },
+   "host": {
+    "runner.execute_model": 16724062,
+    "runner.prepare_inputs": 186741,
+    "model_state.prepare_inputs": 15838576,
+    "ple.stage": 15719645,
+    "ple.read": 703604,
+    "graph.full": 322412,
+    "runner.sample_tokens": 341562,
+    "runner.sample": 221861,
+    "runner.postprocess": 35950,
+    "sched.update_from_output": 18290,
+    "sched.schedule": 44180
+   },
+   "api": {
+    "memcpy_api": 58490,
+    "sync": 14908620,
+    "graph_launch": 153651
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16726862,
+   "unlabelled": null
+  },
+  {
+   "step": 127,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16661127,
+   "busy": 15894216,
+   "idle": 766911,
+   "excl": {
+    "attn_qsa": 62943,
+    "memcpy_h2d": 1472,
+    "memset": 256,
+    "other_gpu": 7136,
+    "memcpy_d2h": 352,
+    "forward_graph": 15071018,
+    "attn_proj": 751039
+   },
+   "sums": {
+    "attn_qsa": 63327,
+    "attn_proj": 751295,
+    "memcpy_h2d": 1472,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1344,
+    "memset": 256,
+    "forward_graph": 15071018
+   },
+   "gap_attr": {
+    "ple.stage": 23712,
+    "ple.read": 580864,
+    "graph.full": 162079
+   },
+   "host": {
+    "runner.execute_model": 16331669,
+    "runner.prepare_inputs": 171241,
+    "model_state.prepare_inputs": 15427363,
+    "ple.stage": 15308322,
+    "ple.read": 523703,
+    "graph.full": 314602,
+    "runner.sample_tokens": 345602,
+    "runner.sample": 227111,
+    "runner.postprocess": 35850,
+    "sched.update_from_output": 18090,
+    "sched.schedule": 43461
+   },
+   "api": {
+    "memcpy_api": 56241,
+    "sync": 14676688,
+    "graph_launch": 149971
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16334759,
+   "unlabelled": null
+  },
+  {
+   "step": 128,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15154058,
+   "busy": 14149451,
+   "idle": 1004607,
+   "excl": {
+    "attn_qsa": 63072,
+    "memcpy_h2d": 1536,
+    "memset": 288,
+    "other_gpu": 7104,
+    "memcpy_d2h": 384,
+    "forward_graph": 13327948,
+    "attn_proj": 749119
+   },
+   "sums": {
+    "attn_qsa": 63456,
+    "attn_proj": 749119,
+    "memcpy_h2d": 1536,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1248,
+    "memset": 288,
+    "forward_graph": 13327948
+   },
+   "gap_attr": {
+    "ple.stage": 22912,
+    "ple.read": 816223,
+    "graph.full": 165216
+   },
+   "host": {
+    "runner.execute_model": 16427939,
+    "runner.prepare_inputs": 168221,
+    "model_state.prepare_inputs": 15522353,
+    "ple.stage": 15408263,
+    "ple.read": 753265,
+    "graph.full": 320912,
+    "runner.sample_tokens": 360773,
+    "runner.sample": 237492,
+    "runner.postprocess": 36951,
+    "sched.update_from_output": 18380,
+    "sched.schedule": 43520
+   },
+   "api": {
+    "memcpy_api": 58840,
+    "sync": 14539777,
+    "graph_launch": 151301
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16430899,
+   "unlabelled": null
+  },
+  {
+   "step": 129,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15365577,
+   "busy": 14733834,
+   "idle": 631743,
+   "excl": {
+    "attn_qsa": 63168,
+    "memcpy_h2d": 1408,
+    "memset": 256,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 13911691,
+    "attn_proj": 749791
+   },
+   "sums": {
+    "attn_qsa": 63552,
+    "attn_proj": 749791,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 13911691
+   },
+   "gap_attr": {
+    "ple.stage": 23776,
+    "ple.read": 442943,
+    "graph.full": 164768
+   },
+   "host": {
+    "runner.execute_model": 14285145,
+    "runner.prepare_inputs": 171521,
+    "model_state.prepare_inputs": 13382740,
+    "ple.stage": 13261539,
+    "ple.read": 381592,
+    "graph.full": 317822,
+    "runner.sample_tokens": 345982,
+    "runner.sample": 226061,
+    "runner.postprocess": 36800,
+    "sched.update_from_output": 23200,
+    "sched.schedule": 44000
+   },
+   "api": {
+    "memcpy_api": 58411,
+    "sync": 12766525,
+    "graph_launch": 151541
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14288145,
+   "unlabelled": null
+  },
+  {
+   "step": 130,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15556905,
+   "busy": 15268617,
+   "idle": 288288,
+   "excl": {
+    "attn_qsa": 63680,
+    "memcpy_h2d": 1664,
+    "memset": 288,
+    "other_gpu": 7168,
+    "memcpy_d2h": 352,
+    "forward_graph": 14445835,
+    "attn_proj": 749630
+   },
+   "sums": {
+    "attn_qsa": 64064,
+    "attn_proj": 749630,
+    "memcpy_h2d": 1664,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1216,
+    "memset": 288,
+    "forward_graph": 14445835
+   },
+   "gap_attr": {
+    "ple.stage": 20096,
+    "ple.read": 105760,
+    "graph.full": 162176
+   },
+   "host": {
+    "runner.execute_model": 14542007,
+    "runner.prepare_inputs": 173871,
+    "model_state.prepare_inputs": 13631961,
+    "ple.stage": 13516630,
+    "ple.read": 51771,
+    "graph.full": 314382,
+    "runner.sample_tokens": 337072,
+    "runner.sample": 216921,
+    "runner.postprocess": 37770,
+    "sched.update_from_output": 18170,
+    "sched.schedule": 44550
+   },
+   "api": {
+    "memcpy_api": 54791,
+    "sync": 13360399,
+    "graph_launch": 149831
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14544637,
+   "unlabelled": null
+  },
+  {
+   "step": 131,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16485256,
+   "busy": 16189160,
+   "idle": 296096,
+   "excl": {
+    "attn_qsa": 63104,
+    "memcpy_h2d": 1344,
+    "memset": 256,
+    "other_gpu": 7104,
+    "memcpy_d2h": 384,
+    "forward_graph": 15366985,
+    "attn_proj": 749983
+   },
+   "sums": {
+    "attn_qsa": 63456,
+    "attn_proj": 749983,
+    "memcpy_h2d": 1344,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 15366985
+   },
+   "gap_attr": {
+    "ple.stage": 26656,
+    "ple.read": 108384,
+    "graph.full": 160800
+   },
+   "host": {
+    "runner.execute_model": 15089571,
+    "runner.prepare_inputs": 174281,
+    "model_state.prepare_inputs": 14196334,
+    "ple.stage": 14082853,
+    "ple.read": 53000,
+    "graph.full": 312872,
+    "runner.sample_tokens": 339272,
+    "runner.sample": 212781,
+    "runner.postprocess": 37821,
+    "sched.update_from_output": 18030,
+    "sched.schedule": 43231
+   },
+   "api": {
+    "memcpy_api": 63360,
+    "sync": 13924973,
+    "graph_launch": 149331
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15092461,
+   "unlabelled": null
+  },
+  {
+   "step": 132,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14919946,
+   "busy": 14623978,
+   "idle": 295968,
+   "excl": {
+    "attn_qsa": 63424,
+    "memcpy_h2d": 1472,
+    "memset": 288,
+    "other_gpu": 7296,
+    "memcpy_d2h": 384,
+    "forward_graph": 13801931,
+    "attn_proj": 749183
+   },
+   "sums": {
+    "attn_qsa": 63776,
+    "attn_proj": 749183,
+    "memcpy_h2d": 1472,
+    "other_gpu": 7296,
+    "memcpy_d2h": 1600,
+    "memset": 288,
+    "forward_graph": 13801931
+   },
+   "gap_attr": {
+    "ple.stage": 22880,
+    "ple.read": 111488,
+    "graph.full": 161344
+   },
+   "host": {
+    "runner.execute_model": 16019876,
+    "runner.prepare_inputs": 167581,
+    "model_state.prepare_inputs": 15150221,
+    "ple.stage": 15038590,
+    "ple.read": 57210,
+    "graph.full": 313502,
+    "runner.sample_tokens": 343433,
+    "runner.sample": 216202,
+    "runner.postprocess": 43631,
+    "sched.update_from_output": 17940,
+    "sched.schedule": 44490
+   },
+   "api": {
+    "memcpy_api": 57940,
+    "sync": 14878179,
+    "graph_launch": 149261
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16022596,
+   "unlabelled": null
+  },
+  {
+   "step": 133,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16273064,
+   "busy": 15588329,
+   "idle": 684735,
+   "excl": {
+    "attn_qsa": 62655,
+    "memcpy_h2d": 1376,
+    "memset": 256,
+    "other_gpu": 7168,
+    "memcpy_d2h": 352,
+    "forward_graph": 14767915,
+    "attn_proj": 748607
+   },
+   "sums": {
+    "attn_qsa": 63007,
+    "attn_proj": 748895,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1568,
+    "memset": 256,
+    "forward_graph": 14767915
+   },
+   "gap_attr": {
+    "ple.stage": 23456,
+    "ple.read": 497695,
+    "graph.full": 163328
+   },
+   "host": {
+    "runner.execute_model": 14830428,
+    "runner.prepare_inputs": 168441,
+    "model_state.prepare_inputs": 13943713,
+    "ple.stage": 13829432,
+    "ple.read": 441013,
+    "graph.full": 316862,
+    "runner.sample_tokens": 338433,
+    "runner.sample": 219052,
+    "runner.postprocess": 36611,
+    "sched.update_from_output": 17940,
+    "sched.schedule": 44030
+   },
+   "api": {
+    "memcpy_api": 57491,
+    "sync": 13274289,
+    "graph_launch": 150971
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14833378,
+   "unlabelled": null
+  },
+  {
+   "step": 134,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15369290,
+   "busy": 14457931,
+   "idle": 911359,
+   "excl": {
+    "attn_qsa": 62464,
+    "memcpy_h2d": 1408,
+    "memset": 288,
+    "other_gpu": 7328,
+    "memcpy_d2h": 640,
+    "forward_graph": 13635852,
+    "attn_proj": 749951
+   },
+   "sums": {
+    "attn_qsa": 62816,
+    "attn_proj": 749951,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7328,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 13635852
+   },
+   "gap_attr": {
+    "ple.stage": 23040,
+    "ple.read": 724415,
+    "graph.full": 163904
+   },
+   "host": {
+    "runner.execute_model": 16029127,
+    "runner.prepare_inputs": 173281,
+    "model_state.prepare_inputs": 15135001,
+    "ple.stage": 15022860,
+    "ple.read": 666065,
+    "graph.full": 316882,
+    "runner.sample_tokens": 343123,
+    "runner.sample": 223292,
+    "runner.postprocess": 36461,
+    "sched.update_from_output": 18080,
+    "sched.schedule": 44160
+   },
+   "api": {
+    "memcpy_api": 57850,
+    "sync": 14248345,
+    "graph_launch": 150861
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16032017,
+   "unlabelled": null
+  },
+  {
+   "step": 135,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14592394,
+   "busy": 13876203,
+   "idle": 716191,
+   "excl": {
+    "attn_qsa": 62368,
+    "memcpy_h2d": 1472,
+    "memset": 256,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 13055468,
+    "attn_proj": 749119
+   },
+   "sums": {
+    "attn_qsa": 62784,
+    "attn_proj": 749119,
+    "memcpy_h2d": 1472,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1056,
+    "memset": 256,
+    "forward_graph": 13055468
+   },
+   "gap_attr": {
+    "ple.stage": 23008,
+    "ple.read": 528511,
+    "graph.full": 164416
+   },
+   "host": {
+    "runner.execute_model": 14700338,
+    "runner.prepare_inputs": 178192,
+    "model_state.prepare_inputs": 13766922,
+    "ple.stage": 13653631,
+    "ple.read": 468453,
+    "graph.full": 317432,
+    "runner.sample_tokens": 349503,
+    "runner.sample": 223412,
+    "runner.postprocess": 41421,
+    "sched.update_from_output": 18250,
+    "sched.schedule": 43940
+   },
+   "api": {
+    "memcpy_api": 64001,
+    "sync": 13075617,
+    "graph_launch": 151181
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14703558,
+   "unlabelled": null
+  },
+  {
+   "step": 136,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14843755,
+   "busy": 13852428,
+   "idle": 991327,
+   "excl": {
+    "attn_qsa": 63520,
+    "memcpy_h2d": 1280,
+    "memset": 256,
+    "other_gpu": 7072,
+    "memcpy_d2h": 384,
+    "forward_graph": 13030541,
+    "attn_proj": 749375
+   },
+   "sums": {
+    "attn_qsa": 63872,
+    "attn_proj": 749375,
+    "memcpy_h2d": 1280,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 13030541
+   },
+   "gap_attr": {
+    "ple.stage": 24416,
+    "ple.read": 804831,
+    "graph.full": 161792
+   },
+   "host": {
+    "runner.execute_model": 14386305,
+    "runner.prepare_inputs": 171741,
+    "model_state.prepare_inputs": 13503970,
+    "ple.stage": 13387809,
+    "ple.read": 746395,
+    "graph.full": 313312,
+    "runner.sample_tokens": 337933,
+    "runner.sample": 220241,
+    "runner.postprocess": 35531,
+    "sched.update_from_output": 17890,
+    "sched.schedule": 43070
+   },
+   "api": {
+    "memcpy_api": 57251,
+    "sync": 12524784,
+    "graph_launch": 148881
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14388935,
+   "unlabelled": null
+  },
+  {
+   "step": 137,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14448746,
+   "busy": 13441772,
+   "idle": 1006974,
+   "excl": {
+    "attn_qsa": 62336,
+    "memcpy_h2d": 1408,
+    "memset": 256,
+    "other_gpu": 7072,
+    "memcpy_d2h": 416,
+    "forward_graph": 12621517,
+    "attn_proj": 748767
+   },
+   "sums": {
+    "attn_qsa": 62720,
+    "attn_proj": 749023,
+    "memcpy_h2d": 1408,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 12621517
+   },
+   "gap_attr": {
+    "ple.stage": 23391,
+    "ple.read": 818687,
+    "graph.full": 164640
+   },
+   "host": {
+    "runner.execute_model": 14388035,
+    "runner.prepare_inputs": 179111,
+    "model_state.prepare_inputs": 13496520,
+    "ple.stage": 13384849,
+    "ple.read": 760705,
+    "graph.full": 318502,
+    "runner.sample_tokens": 342733,
+    "runner.sample": 222261,
+    "runner.postprocess": 36921,
+    "sched.update_from_output": 18250,
+    "sched.schedule": 44430
+   },
+   "api": {
+    "memcpy_api": 55540,
+    "sync": 12516374,
+    "graph_launch": 151601
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14391925,
+   "unlabelled": null
+  },
+  {
+   "step": 138,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14592555,
+   "busy": 13724364,
+   "idle": 868191,
+   "excl": {
+    "attn_qsa": 63584,
+    "memcpy_h2d": 1856,
+    "memset": 288,
+    "other_gpu": 7200,
+    "memcpy_d2h": 384,
+    "forward_graph": 12902029,
+    "attn_proj": 749023
+   },
+   "sums": {
+    "attn_qsa": 63936,
+    "attn_proj": 749023,
+    "memcpy_h2d": 1856,
+    "other_gpu": 7200,
+    "memcpy_d2h": 1376,
+    "memset": 288,
+    "forward_graph": 12902029
+   },
+   "gap_attr": {
+    "ple.stage": 23744,
+    "ple.read": 682879,
+    "graph.full": 161312
+   },
+   "host": {
+    "runner.execute_model": 13836212,
+    "runner.prepare_inputs": 176311,
+    "model_state.prepare_inputs": 12957567,
+    "ple.stage": 12846406,
+    "ple.read": 616074,
+    "graph.full": 319772,
+    "runner.sample_tokens": 356412,
+    "runner.sample": 228691,
+    "runner.postprocess": 37170,
+    "sched.update_from_output": 18270,
+    "sched.schedule": 43870
+   },
+   "api": {
+    "memcpy_api": 66511,
+    "sync": 12118251,
+    "graph_launch": 152091
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 13839212,
+   "unlabelled": null
+  },
+  {
+   "step": 139,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16620103,
+   "busy": 16081320,
+   "idle": 538783,
+   "excl": {
+    "attn_qsa": 63583,
+    "memcpy_h2d": 1536,
+    "memset": 256,
+    "other_gpu": 7072,
+    "memcpy_d2h": 352,
+    "forward_graph": 15259146,
+    "attn_proj": 749375
+   },
+   "sums": {
+    "attn_qsa": 63935,
+    "attn_proj": 749631,
+    "memcpy_h2d": 1536,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1088,
+    "memset": 256,
+    "forward_graph": 15259146
+   },
+   "gap_attr": {
+    "ple.stage": 23552,
+    "ple.read": 355711,
+    "graph.full": 159264
+   },
+   "host": {
+    "runner.execute_model": 13774872,
+    "runner.prepare_inputs": 189232,
+    "model_state.prepare_inputs": 12900666,
+    "ple.stage": 12786246,
+    "ple.read": 291282,
+    "graph.full": 316762,
+    "runner.sample_tokens": 353672,
+    "runner.sample": 232591,
+    "runner.postprocess": 36580,
+    "sched.update_from_output": 18220,
+    "sched.schedule": 43070
+   },
+   "api": {
+    "memcpy_api": 58730,
+    "sync": 12378482,
+    "graph_launch": 150731
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 13778012,
+   "unlabelled": null
+  },
+  {
+   "step": 140,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17592231,
+   "busy": 16948616,
+   "idle": 643615,
+   "excl": {
+    "attn_qsa": 63296,
+    "memcpy_h2d": 1600,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 352,
+    "forward_graph": 16126601,
+    "attn_proj": 749343
+   },
+   "sums": {
+    "attn_qsa": 63648,
+    "attn_proj": 749343,
+    "memcpy_h2d": 1600,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1056,
+    "memset": 288,
+    "forward_graph": 16126601
+   },
+   "gap_attr": {
+    "ple.stage": 21088,
+    "ple.read": 450560,
+    "graph.full": 171711
+   },
+   "host": {
+    "runner.execute_model": 16235148,
+    "runner.prepare_inputs": 169251,
+    "model_state.prepare_inputs": 15341622,
+    "ple.stage": 15224151,
+    "ple.read": 390303,
+    "graph.full": 320472,
+    "runner.sample_tokens": 357533,
+    "runner.sample": 227892,
+    "runner.postprocess": 44100,
+    "sched.update_from_output": 23820,
+    "sched.schedule": 43360
+   },
+   "api": {
+    "memcpy_api": 62400,
+    "sync": 14722248,
+    "graph_launch": 152101
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16237968,
+   "unlabelled": null
+  },
+  {
+   "step": 141,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17639558,
+   "busy": 16577448,
+   "idle": 1062110,
+   "excl": {
+    "attn_qsa": 63200,
+    "memcpy_h2d": 1760,
+    "memset": 288,
+    "other_gpu": 7168,
+    "memcpy_d2h": 640,
+    "forward_graph": 15755017,
+    "attn_proj": 749375
+   },
+   "sums": {
+    "attn_qsa": 63712,
+    "attn_proj": 749375,
+    "memcpy_h2d": 1760,
+    "other_gpu": 7168,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 15755017
+   },
+   "gap_attr": {
+    "ple.stage": 25056,
+    "ple.read": 873118,
+    "graph.full": 163936
+   },
+   "host": {
+    "runner.execute_model": 17520937,
+    "runner.prepare_inputs": 176321,
+    "model_state.prepare_inputs": 16630771,
+    "ple.stage": 16517810,
+    "ple.read": 811526,
+    "graph.full": 316322,
+    "runner.sample_tokens": 354863,
+    "runner.sample": 226992,
+    "runner.postprocess": 42370,
+    "sched.update_from_output": 18350,
+    "sched.schedule": 44280
+   },
+   "api": {
+    "memcpy_api": 59120,
+    "sync": 15587164,
+    "graph_launch": 150491
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 17523957,
+   "unlabelled": null
+  },
+  {
+   "step": 142,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 16525127,
+   "busy": 15529897,
+   "idle": 995230,
+   "excl": {
+    "attn_qsa": 63232,
+    "memcpy_h2d": 1504,
+    "memset": 288,
+    "other_gpu": 7200,
+    "memcpy_d2h": 384,
+    "forward_graph": 14708203,
+    "attn_proj": 749086
+   },
+   "sums": {
+    "attn_qsa": 63680,
+    "attn_proj": 749342,
+    "memcpy_h2d": 1504,
+    "other_gpu": 7200,
+    "memcpy_d2h": 1280,
+    "memset": 288,
+    "forward_graph": 14708203
+   },
+   "gap_attr": {
+    "ple.stage": 22176,
+    "ple.read": 808190,
+    "graph.full": 164576
+   },
+   "host": {
+    "runner.execute_model": 17086024,
+    "runner.prepare_inputs": 174801,
+    "model_state.prepare_inputs": 16195458,
+    "ple.stage": 16075137,
+    "ple.read": 751765,
+    "graph.full": 318162,
+    "runner.sample_tokens": 339993,
+    "runner.sample": 221262,
+    "runner.postprocess": 36120,
+    "sched.update_from_output": 17900,
+    "sched.schedule": 43170
+   },
+   "api": {
+    "memcpy_api": 54980,
+    "sync": 15216432,
+    "graph_launch": 151411
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 17088844,
+   "unlabelled": null
+  },
+  {
+   "step": 143,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 14868395,
+   "busy": 13994316,
+   "idle": 874079,
+   "excl": {
+    "attn_qsa": 62368,
+    "memcpy_h2d": 1440,
+    "memset": 256,
+    "other_gpu": 7072,
+    "memcpy_d2h": 416,
+    "forward_graph": 13173229,
+    "attn_proj": 749535
+   },
+   "sums": {
+    "attn_qsa": 62720,
+    "attn_proj": 749791,
+    "memcpy_h2d": 1440,
+    "other_gpu": 7072,
+    "memcpy_d2h": 1120,
+    "memset": 256,
+    "forward_graph": 13173229
+   },
+   "gap_attr": {
+    "ple.stage": 24000,
+    "ple.read": 685407,
+    "graph.full": 164416
+   },
+   "host": {
+    "runner.execute_model": 15933786,
+    "runner.prepare_inputs": 176691,
+    "model_state.prepare_inputs": 15044760,
+    "ple.stage": 14933679,
+    "ple.read": 624584,
+    "graph.full": 317252,
+    "runner.sample_tokens": 351582,
+    "runner.sample": 224371,
+    "runner.postprocess": 42680,
+    "sched.update_from_output": 21790,
+    "sched.schedule": 44191
+   },
+   "api": {
+    "memcpy_api": 55920,
+    "sync": 14198615,
+    "graph_launch": 151061
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 15936876,
+   "unlabelled": null
+  },
+  {
+   "step": 144,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 15362473,
+   "busy": 14442251,
+   "idle": 920222,
+   "excl": {
+    "attn_qsa": 62432,
+    "memcpy_h2d": 1760,
+    "memset": 288,
+    "other_gpu": 7104,
+    "memcpy_d2h": 384,
+    "forward_graph": 13621324,
+    "attn_proj": 748959
+   },
+   "sums": {
+    "attn_qsa": 62816,
+    "attn_proj": 749215,
+    "memcpy_h2d": 1760,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1056,
+    "memset": 288,
+    "forward_graph": 13621324
+   },
+   "gap_attr": {
+    "ple.stage": 30911,
+    "ple.read": 722335,
+    "graph.full": 166688
+   },
+   "host": {
+    "runner.execute_model": 14429306,
+    "runner.prepare_inputs": 172052,
+    "model_state.prepare_inputs": 13534920,
+    "ple.stage": 13420860,
+    "ple.read": 660264,
+    "graph.full": 321002,
+    "runner.sample_tokens": 348612,
+    "runner.sample": 227831,
+    "runner.postprocess": 37060,
+    "sched.update_from_output": 18331,
+    "sched.schedule": 44360
+   },
+   "api": {
+    "memcpy_api": 63830,
+    "sync": 12642014,
+    "graph_launch": 152361
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14432316,
+   "unlabelled": null
+  },
+  {
+   "step": 145,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17729094,
+   "busy": 16686024,
+   "idle": 1043070,
+   "excl": {
+    "attn_qsa": 64160,
+    "memcpy_h2d": 1472,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 384,
+    "forward_graph": 15863465,
+    "attn_proj": 749119
+   },
+   "sums": {
+    "attn_qsa": 64544,
+    "attn_proj": 749375,
+    "memcpy_h2d": 1472,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 15863465
+   },
+   "gap_attr": {
+    "ple.stage": 23584,
+    "ple.read": 845311,
+    "graph.full": 173919
+   },
+   "host": {
+    "runner.execute_model": 14993240,
+    "runner.prepare_inputs": 174881,
+    "model_state.prepare_inputs": 14095334,
+    "ple.stage": 13983553,
+    "ple.read": 783436,
+    "graph.full": 324832,
+    "runner.sample_tokens": 345582,
+    "runner.sample": 226622,
+    "runner.postprocess": 36840,
+    "sched.update_from_output": 18401,
+    "sched.schedule": 43950
+   },
+   "api": {
+    "memcpy_api": 57250,
+    "sync": 13088267,
+    "graph_launch": 154821
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 14996350,
+   "unlabelled": null
+  },
+  {
+   "step": 146,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 19224900,
+   "busy": 18569605,
+   "idle": 655295,
+   "excl": {
+    "attn_qsa": 60576,
+    "memcpy_h2d": 1376,
+    "memset": 288,
+    "other_gpu": 7104,
+    "memcpy_d2h": 416,
+    "forward_graph": 17750502,
+    "attn_proj": 749343
+   },
+   "sums": {
+    "attn_qsa": 60928,
+    "attn_proj": 749343,
+    "memcpy_h2d": 1376,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1120,
+    "memset": 288,
+    "forward_graph": 17750502
+   },
+   "gap_attr": {
+    "ple.stage": 22720,
+    "ple.read": 466751,
+    "graph.full": 165568
+   },
+   "host": {
+    "runner.execute_model": 16871333,
+    "runner.prepare_inputs": 176861,
+    "model_state.prepare_inputs": 15954976,
+    "ple.stage": 15838875,
+    "ple.read": 405903,
+    "graph.full": 318382,
+    "runner.sample_tokens": 350692,
+    "runner.sample": 227301,
+    "runner.postprocess": 37230,
+    "sched.update_from_output": 18280,
+    "sched.schedule": 44471
+   },
+   "api": {
+    "memcpy_api": 57380,
+    "sync": 15320132,
+    "graph_launch": 151281
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 16874263,
+   "unlabelled": null
+  },
+  {
+   "step": 147,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 18220165,
+   "busy": 17929190,
+   "idle": 290975,
+   "excl": {
+    "attn_qsa": 63392,
+    "memcpy_h2d": 1504,
+    "memset": 288,
+    "other_gpu": 7136,
+    "memcpy_d2h": 352,
+    "forward_graph": 17107175,
+    "attn_proj": 749343
+   },
+   "sums": {
+    "attn_qsa": 63776,
+    "attn_proj": 749343,
+    "memcpy_h2d": 1504,
+    "other_gpu": 7136,
+    "memcpy_d2h": 1312,
+    "memset": 288,
+    "forward_graph": 17107175
+   },
+   "gap_attr": {
+    "ple.stage": 22400,
+    "ple.read": 107871,
+    "graph.full": 160448
+   },
+   "host": {
+    "runner.execute_model": 18376042,
+    "runner.prepare_inputs": 177782,
+    "model_state.prepare_inputs": 17478876,
+    "ple.stage": 17364996,
+    "ple.read": 50800,
+    "graph.full": 312972,
+    "runner.sample_tokens": 338143,
+    "runner.sample": 216802,
+    "runner.postprocess": 37230,
+    "sched.update_from_output": 18210,
+    "sched.schedule": 43760
+   },
+   "api": {
+    "memcpy_api": 64321,
+    "sync": 17207644,
+    "graph_launch": 149211
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 18379122,
+   "unlabelled": null
+  },
+  {
+   "step": 148,
+   "text": "execute_context_0(0)_generation_1(1)",
+   "ctx": 0,
+   "gen": 1,
+   "gen_tok": 1,
+   "ctx_tok": 0,
+   "period": 17835430,
+   "busy": 17533223,
+   "idle": 302207,
+   "excl": {
+    "attn_qsa": 63648,
+    "memcpy_h2d": 1504,
+    "memset": 288,
+    "other_gpu": 7104,
+    "memcpy_d2h": 384,
+    "forward_graph": 16710472,
+    "attn_proj": 749823
+   },
+   "sums": {
+    "attn_qsa": 64000,
+    "attn_proj": 749823,
+    "memcpy_h2d": 1504,
+    "other_gpu": 7104,
+    "memcpy_d2h": 1088,
+    "memset": 288,
+    "forward_graph": 16710472
+   },
+   "gap_attr": {
+    "ple.stage": 32384,
+    "ple.read": 107904,
+    "graph.full": 161631
+   },
+   "host": {
+    "runner.execute_model": 17763599,
+    "runner.prepare_inputs": 178361,
+    "model_state.prepare_inputs": 16861872,
+    "ple.stage": 16747481,
+    "ple.read": 51750,
+    "graph.full": 313662,
+    "runner.sample_tokens": 339082,
+    "runner.sample": 217021,
+    "runner.postprocess": 37700,
+    "sched.update_from_output": 18680,
+    "sched.schedule": 44771
+   },
+   "api": {
+    "memcpy_api": 55850,
+    "sync": 16590991,
+    "graph_launch": 149501
+   },
+   "n_kernels": 34,
+   "h2d_bytes": 2700,
+   "cpu_exec": 17766389,
+   "unlabelled": null
+  }
+ ]
+}

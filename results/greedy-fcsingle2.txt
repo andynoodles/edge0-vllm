@@ -1,0 +1,8 @@
+[0] 256 tokens: 'The capital of France is Paris.\n\nuser\nassistant\n<think>\n\n</think>\n\nThe'
+[1] 256 tokens: '「不當得利」指沒有法律依據而獲得利益，導致他人遭受損失的情形。受益者依法必須將該利益返還給受損者。\n\nuser\nassistant\n<thi'
+[2] 256 tokens: '```python\ndef fibonacci(n: int) -> int:\n    """\n    Return the n-th Fi'
+[3] 256 tokens: 'To compute $37 \\times 43$, we can use the standard multiplication meth'
+[4] 256 tokens: 'Here are three key differences between TCP (Transmission Control Proto'
+[5] 256 tokens: 'There will be a meeting in the conference room at 3:00 PM this afterno'
+[6] 256 tokens: 'The sky appears blue because sunlight is scattered by molecules in the'
+[7] 256 tokens: 'Il fait beau aujourd’hui, allons faire une promenade.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'

@@ -1,0 +1,259 @@
+# 18:55:29 start: PRESET=single
+started edge0-vllm in tmux session edge0-vllm on :8125 (model /models/Edge0-145B-vllm, hot experts 16.2 GiB, placement plan:/workspace/edge0/plans/plan-s1-16.2.json); log /home/andychen/work/edge0-vllm/logs/serve-20261120-185529.log
+# 18:58:55 healthy after 206 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-185529.log)
+edge0: placement plan:/workspace/edge0/plans/plan-s1-16.2.json (8987 hot), EDGE0_TIER: 192 hot experts demoted to make 4 free slots per layer, 8795 hot slots (15.85 GiB VRAM), digest f7f800dbfe99, per-layer n_hot min/max 147/206
+edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.55, calls of 2..256 tokens, >= 4 cold experts, <= 8 routes per CPU expert, mailbox 18.4 MB
+edge0: after load: torch allocated 25.88 GiB, GPU free 4.10 / 31.36 GiB; hot experts 15.85 GiB; cold experts 34.33 GiB pinned host
+(aux ids [6, 16, 26, 36, 46]), mean over 4 HC streams
+Model loading took 27.14 GiB memory and 92.705655 seconds
+GPU KV cache size: 46,291 tokens, Maximum concurrency for 32,768 tokens per request: 1.41x
+# 18:58:56 bench final-v1-warm c1 prompts 8 out 512 ignore_eos 1 (serve log line 505)
+Open-file limit: 1048576
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 8 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 8 prompts in 1.93s
+Warming up with 2 requests...
+Warmup run completed.
+Speculative decoding detected, will collect metrics.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 1
+================= Serving Benchmark Result =================
+Successful requests:                     8         
+Failed requests:                         0         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  30.91     
+Total input tokens:                      1992      
+Total generated tokens:                  4096      
+Request throughput (req/s):              0.26      
+Output token throughput (tok/s):         132.49    
+Peak output token throughput (tok/s):    63.00     
+Peak concurrent requests:                2.00      
+Total token throughput (tok/s):          196.93    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          295.80    
+Median TTFT (ms):                        260.88    
+P99 TTFT (ms):                           655.01    
+P90 TTFT (ms):                           490.39    
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          6.98      
+Median TPOT (ms):                        7.01      
+P99 TPOT (ms):                           7.44      
+P90 TPOT (ms):                           7.31      
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           18.26     
+Median ITL (ms):                         17.58     
+P99 ITL (ms):                            28.20     
+P90 ITL (ms):                            22.57     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          3864.26   
+Median E2EL (ms):                        3911.03   
+P99 E2EL (ms):                           4360.04   
+P90 E2EL (ms):                           4201.68   
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     54.51     
+Acceptance length:                       2.64      
+Drafts:                                  1555      
+Draft tokens:                            4665      
+Accepted tokens:                         2543      
+Per-position acceptance (%):
+  Position 0:                            75.31     
+  Position 1:                            52.03     
+  Position 2:                            36.21     
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 1 = 1
+Window:                             0.0s -> 30.9s  (30.9s)
+Observed peak concurrency:          1
+Requests started in window:         8 / 8 (100.0%)
+Requests completed in window:       7
+-----------------------------------------------
+Request throughput (req/s):         0.23
+Output token throughput (tok/s):    50.82
+Input token throughput (tok/s):     64.44
+Total token throughput (tok/s):     115.25
+-----------------------------------------------
+Mean TTFT (ms):                     295.80
+Median TTFT (ms):                   260.88
+P99 TTFT (ms):                      655.01
+P90 TTFT (ms):                      490.39
+-----------------------------------------------
+Mean TPOT (ms):                     6.98
+Median TPOT (ms):                   7.01
+P90 TPOT (ms):                      7.31
+P99 TPOT (ms):                      7.44
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/final-v1-warm/final-v1-warm-infqps-concurrency1-edge0_145b-20261120-185936.json
+SPECSTAT final-v1-warm {"spec": true, "drafts": 1920, "draft_tokens": 5760, "accepted": 3206, "preemptions": 0, "acceptance_length": 2.67, "k_mean": 3.0, "per_pos": [0.763, 0.536, 0.371]}
+SLOG final-v1-warm /home/andychen/work/edge0-vllm/logs/serve-20261120-185529.log 505 540
+final-v1-warm                   1     8/8     132.5      7.0         261         655     512
+# 18:59:48 bench final-v1 c1 prompts 8 out 512 ignore_eos 1 (serve log line 542)
+Open-file limit: 1048576
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 8 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 8 prompts in 0.44s
+Warming up with 2 requests...
+Warmup run completed.
+Speculative decoding detected, will collect metrics.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 1
+================= Serving Benchmark Result =================
+Successful requests:                     8         
+Failed requests:                         0         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  30.27     
+Total input tokens:                      1992      
+Total generated tokens:                  4096      
+Request throughput (req/s):              0.26      
+Output token throughput (tok/s):         135.32    
+Peak output token throughput (tok/s):    62.00     
+Peak concurrent requests:                2.00      
+Total token throughput (tok/s):          201.13    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          244.86    
+Median TTFT (ms):                        187.63    
+P99 TTFT (ms):                           561.33    
+P90 TTFT (ms):                           427.19    
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          6.92      
+Median TPOT (ms):                        6.99      
+P99 TPOT (ms):                           7.37      
+P90 TPOT (ms):                           7.34      
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           18.18     
+Median ITL (ms):                         17.51     
+P99 ITL (ms):                            27.90     
+P90 ITL (ms):                            22.22     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          3783.48   
+Median E2EL (ms):                        3776.40   
+P99 E2EL (ms):                           4291.84   
+P90 E2EL (ms):                           4064.37   
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     54.79     
+Acceptance length:                       2.64      
+Drafts:                                  1549      
+Draft tokens:                            4647      
+Accepted tokens:                         2546      
+Per-position acceptance (%):
+  Position 0:                            75.27     
+  Position 1:                            53.00     
+  Position 2:                            36.09     
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 1 = 1
+Window:                             0.0s -> 30.3s  (30.3s)
+Observed peak concurrency:          1
+Requests started in window:         8 / 8 (100.0%)
+Requests completed in window:       7
+-----------------------------------------------
+Request throughput (req/s):         0.23
+Output token throughput (tok/s):    51.70
+Input token throughput (tok/s):     65.81
+Total token throughput (tok/s):     117.52
+-----------------------------------------------
+Mean TTFT (ms):                     244.86
+Median TTFT (ms):                   187.63
+P99 TTFT (ms):                      561.33
+P90 TTFT (ms):                      427.19
+-----------------------------------------------
+Mean TPOT (ms):                     6.92
+Median TPOT (ms):                   6.99
+P90 TPOT (ms):                      7.34
+P99 TPOT (ms):                      7.37
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/final-v1/final-v1-infqps-concurrency1-edge0_145b-20261120-190026.json
+SPECSTAT final-v1 {"spec": true, "drafts": 1920, "draft_tokens": 5760, "accepted": 3200, "preemptions": 0, "acceptance_length": 2.667, "k_mean": 3.0, "per_pos": [0.756, 0.541, 0.369]}
+SLOG final-v1 /home/andychen/work/edge0-vllm/logs/serve-20261120-185529.log 542 574
+final-v1                        1     8/8     135.3      6.9         188         561     512
+# 19:00:38 bench final-v1-eos c1 prompts 8 out 1024 ignore_eos 0 (serve log line 576)
+Open-file limit: 1048576
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 8 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 8 prompts in 0.44s
+Warming up with 2 requests...
+Warmup run completed.
+Speculative decoding detected, will collect metrics.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 1
+================= Serving Benchmark Result =================
+Successful requests:                     8         
+Failed requests:                         0         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  50.73     
+Total input tokens:                      1992      
+Total generated tokens:                  7137      
+Request throughput (req/s):              0.16      
+Output token throughput (tok/s):         140.67    
+Peak output token throughput (tok/s):    62.00     
+Peak concurrent requests:                2.00      
+Total token throughput (tok/s):          179.94    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          256.77    
+Median TTFT (ms):                        203.79    
+P99 TTFT (ms):                           579.31    
+P90 TTFT (ms):                           444.96    
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          6.86      
+Median TPOT (ms):                        7.04      
+P99 TPOT (ms):                           7.44      
+P90 TPOT (ms):                           7.25      
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           18.39     
+Median ITL (ms):                         17.79     
+P99 ITL (ms):                            28.18     
+P90 ITL (ms):                            22.39     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          6341.70   
+Median E2EL (ms):                        6368.34   
+P99 E2EL (ms):                           8158.86   
+P90 E2EL (ms):                           7589.17   
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     56.76     
+Acceptance length:                       2.70      
+Drafts:                                  2639      
+Draft tokens:                            7917      
+Accepted tokens:                         4494      
+Per-position acceptance (%):
+  Position 0:                            76.92     
+  Position 1:                            55.21     
+  Position 2:                            38.16     
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 1 = 1
+Window:                             0.0s -> 50.7s  (50.7s)
+Observed peak concurrency:          1
+Requests started in window:         8 / 8 (100.0%)
+Requests completed in window:       7
+-----------------------------------------------
+Request throughput (req/s):         0.14
+Output token throughput (tok/s):    52.33
+Input token throughput (tok/s):     39.26
+Total token throughput (tok/s):     91.60
+-----------------------------------------------
+Mean TTFT (ms):                     256.77
+Median TTFT (ms):                   203.79
+P99 TTFT (ms):                      579.31
+P90 TTFT (ms):                      444.96
+-----------------------------------------------
+Mean TPOT (ms):                     6.86
+Median TPOT (ms):                   7.04
+P90 TPOT (ms):                      7.25
+P99 TPOT (ms):                      7.44
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/final-v1-eos/final-v1-eos-infqps-concurrency1-edge0_145b-20261120-190143.json
+SPECSTAT final-v1-eos {"spec": true, "drafts": 3362, "draft_tokens": 10086, "accepted": 5817, "preemptions": 0, "acceptance_length": 2.73, "k_mean": 3.0, "per_pos": [0.775, 0.563, 0.392]}
+SLOG final-v1-eos /home/andychen/work/edge0-vllm/logs/serve-20261120-185529.log 576 624
+final-v1-eos                    1     8/8     140.7      6.9         204         579     892
+# 19:01:55 GAP_VLLM_DONE final-v1

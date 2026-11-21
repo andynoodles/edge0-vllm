@@ -1,0 +1,206 @@
+# 03:45:23 start: EDGE0_DEV=1 EDGE0_CPU_EXPERTS=1 EDGE0_CPU_THREADS=8 EDGE0_CPU_FRAC=0.55
+started edge0-vllm in tmux session edge0-vllm on :8125 (model /models/Edge0-145B-vllm, hot experts 12.8 GiB, placement plan:/workspace/edge0/plans/plan-s1-12.8.json); log /home/andychen/work/edge0-vllm/logs/serve-20261120-034523.log
+# 03:48:14 healthy after 171 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-034523.log)
+edge0: placement plan:/workspace/edge0/plans/plan-s1-12.8.json (7101 hot), 7101 hot slots (12.80 GiB VRAM), digest cd2d551fd4a0, per-layer n_hot min/max 128/166
+edge0: after load: torch allocated 23.32 GiB, GPU free 6.64 / 31.36 GiB; hot experts 12.80 GiB; cold experts 31.50 GiB pinned host
+Model loading took 23.32 GiB memory and 89.974049 seconds
+Setting attention block size to 800 tokens to ensure that attention page size is >= mamba page size.
+Available KV cache memory: 4.61 GiB
+GPU KV cache size: 173,812 tokens, Maximum concurrency for 32,768 tokens per request: 5.30x
+Free memory on device (30.66/31.36 GiB) on startup. Desired GPU memory utilization is (0.96, 30.1 GiB). Actual usage is 24.62 GiB for consumed memory (weights + non-torch), 0.87 GiB for peak activation, and 0.11 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=
+GREEDY cpuexp-greedy-1 exit 0 -> results/greedy-cpuexp-greedy-1.json
+GPUMEM cpuexp-greedy-1 idle 31091 MiB
+# 03:48:58 bench cpuexp-greedy-1 conc 1 out 512 prompts 4
+Open-file limit: 1048576
+========================= Concurrency Sweep ==========================
+Sweeping --max-concurrency over 1 values: [1]
+
+--------------------- Run 1/1: max_concurrency=1 ---------------------
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 4 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 4 prompts in 1.94s
+Warming up with 2 requests...
+Warmup run completed.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 1
+================= Serving Benchmark Result =================
+Successful requests:                     4         
+Failed requests:                         0         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  40.19     
+Total input tokens:                      592       
+Total generated tokens:                  2048      
+Request throughput (req/s):              0.10      
+Output token throughput (tok/s):         50.96     
+Peak output token throughput (tok/s):    65.00     
+Peak concurrent requests:                2.00      
+Total token throughput (tok/s):          65.69     
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          226.01    
+Median TTFT (ms):                        170.56    
+P99 TTFT (ms):                           463.83    
+P90 TTFT (ms):                           398.95    
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          19.22     
+Median TPOT (ms):                        19.88     
+P99 TPOT (ms):                           21.19     
+P90 TPOT (ms):                           20.98     
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           19.18     
+Median ITL (ms):                         19.08     
+P99 ITL (ms):                            30.47     
+P90 ITL (ms):                            23.40     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          10046.78  
+Median E2EL (ms):                        10449.40  
+P99 E2EL (ms):                           10918.07  
+P90 E2EL (ms):                           10816.77  
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 1 = 1
+Window:                             0.0s -> 40.2s  (40.2s)
+Observed peak concurrency:          1
+Requests started in window:         4 / 4 (100.0%)
+Requests completed in window:       3
+-----------------------------------------------
+Request throughput (req/s):         0.07
+Output token throughput (tok/s):    51.06
+Input token throughput (tok/s):     14.73
+Total token throughput (tok/s):     65.79
+-----------------------------------------------
+Mean TTFT (ms):                     226.01
+Median TTFT (ms):                   170.56
+P99 TTFT (ms):                      463.83
+P90 TTFT (ms):                      398.95
+-----------------------------------------------
+Mean TPOT (ms):                     19.22
+Median TPOT (ms):                   19.88
+P90 TPOT (ms):                      20.98
+P99 TPOT (ms):                      21.19
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/cpuexp-greedy-1/cpuexp-greedy-1-infqps-concurrency1-edge0_145b-20261120-034858.json
+
+========================================================== Sweep Summary ==========================================================
+Max Concurrency           Req/s      Tok/s  Total tok/s   SS req/s SS out tok/s P50 TTFT(ms) P50 TPOT(ms) P90 TTFT(ms) P90 TPOT(ms)
+-------------------- ---------- ---------- ------------ ---------- ------------ ------------ ------------ ------------ ------------
+concurrency=1              0.10      50.96        65.69       0.07        51.06       170.56        19.88       398.95        20.98
+===================================================================================================================================
+Best throughput: 0.10 req/s at concurrency=1
+GPUMEM cpuexp-greedy-1 c1 peak 31265 MiB
+SPECSTAT cpuexp-greedy-1 c1 {"spec": false, "preemptions": 0}
+max running: cpuexp-greedy-1 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 2.5%
+# 03:50:07 start: EDGE0_DEV=1 SPEC_METHOD=dflash2 SPEC_K=3 EDGE0_CPU_EXPERTS=1 EDGE0_CPU_THREADS=8 EDGE0_CPU_FRAC=0.55
+started edge0-vllm in tmux session edge0-vllm on :8125 (model /models/Edge0-145B-vllm, hot experts 12.8 GiB, placement plan:/workspace/edge0/plans/plan-s1-12.8.json); log /home/andychen/work/edge0-vllm/logs/serve-20261120-035007.log
+# 03:53:48 healthy after 221 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-035007.log)
+edge0: placement plan:/workspace/edge0/plans/plan-s1-12.8.json (7101 hot), 7101 hot slots (12.80 GiB VRAM), digest cd2d551fd4a0, per-layer n_hot min/max 128/166
+edge0: after load: torch allocated 23.11 GiB, GPU free 6.85 / 31.36 GiB; hot experts 12.80 GiB; cold experts 31.50 GiB pinned host
+(aux ids [6, 16, 26, 36, 46]), mean over 4 HC streams
+Model loading took 24.36 GiB memory and 93.655474 seconds
+Setting attention block size to 832 tokens to ensure that attention page size is >= mamba page size.
+Available KV cache memory: 2.47 GiB
+GPU KV cache size: 62,060 tokens, Maximum concurrency for 32,768 tokens per request: 1.89x
+Free memory on device (30.66/31.36 GiB) on startup. Desired GPU memory utilization is (0.94, 29.48 GiB). Actual usage is 25.62 GiB for consumed memory (weights + non-torch), 1.39 GiB for peak activation, and 0.41 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory
+GREEDY cpuexp-greedy-2 exit 0 -> results/greedy-cpuexp-greedy-2.json
+GPUMEM cpuexp-greedy-2 idle 30633 MiB
+# 03:54:16 bench cpuexp-greedy-2 conc 1 out 512 prompts 4
+Open-file limit: 1048576
+========================= Concurrency Sweep ==========================
+Sweeping --max-concurrency over 1 values: [1]
+
+--------------------- Run 1/1: max_concurrency=1 ---------------------
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 4 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 4 prompts in 1.94s
+Warming up with 2 requests...
+Warmup run completed.
+Speculative decoding detected, will collect metrics.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 1
+================= Serving Benchmark Result =================
+Successful requests:                     4         
+Failed requests:                         0         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  25.38     
+Total input tokens:                      592       
+Total generated tokens:                  2048      
+Request throughput (req/s):              0.16      
+Output token throughput (tok/s):         80.68     
+Peak output token throughput (tok/s):    40.00     
+Peak concurrent requests:                2.00      
+Total token throughput (tok/s):          104.01    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          237.95    
+Median TTFT (ms):                        173.89    
+P99 TTFT (ms):                           481.36    
+P90 TTFT (ms):                           411.75    
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          11.95     
+Median TPOT (ms):                        12.49     
+P99 TPOT (ms):                           12.91     
+P90 TPOT (ms):                           12.86     
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           30.96     
+Median ITL (ms):                         30.84     
+P99 ITL (ms):                            55.93     
+P90 ITL (ms):                            37.64     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          6345.55   
+Median E2EL (ms):                        6668.89   
+P99 E2EL (ms):                           6743.31   
+P90 E2EL (ms):                           6735.72   
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     53.67     
+Acceptance length:                       2.61      
+Drafts:                                  785       
+Draft tokens:                            2355      
+Accepted tokens:                         1264      
+Per-position acceptance (%):
+  Position 0:                            76.69     
+  Position 1:                            51.97     
+  Position 2:                            32.36     
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 1 = 1
+Window:                             0.0s -> 25.4s  (25.4s)
+Observed peak concurrency:          1
+Requests started in window:         4 / 4 (100.0%)
+Requests completed in window:       3
+-----------------------------------------------
+Request throughput (req/s):         0.12
+Output token throughput (tok/s):    31.24
+Input token throughput (tok/s):     23.32
+Total token throughput (tok/s):     54.57
+-----------------------------------------------
+Mean TTFT (ms):                     237.95
+Median TTFT (ms):                   173.89
+P99 TTFT (ms):                      481.36
+P90 TTFT (ms):                      411.75
+-----------------------------------------------
+Mean TPOT (ms):                     11.95
+Median TPOT (ms):                   12.49
+P90 TPOT (ms):                      12.86
+P99 TPOT (ms):                      12.91
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/cpuexp-greedy-2/cpuexp-greedy-2-infqps-concurrency1-edge0_145b-20261120-035416.json
+
+========================================================== Sweep Summary ==========================================================
+Max Concurrency           Req/s      Tok/s  Total tok/s   SS req/s SS out tok/s P50 TTFT(ms) P50 TPOT(ms) P90 TTFT(ms) P90 TPOT(ms)
+-------------------- ---------- ---------- ------------ ---------- ------------ ------------ ------------ ------------ ------------
+concurrency=1              0.16      80.68       104.01       0.12        31.24       173.89        12.49       411.75        12.86
+===================================================================================================================================
+Best throughput: 0.16 req/s at concurrency=1
+GPUMEM cpuexp-greedy-2 c1 peak 30807 MiB
+SPECSTAT cpuexp-greedy-2 c1 {"spec": true, "drafts": 1159, "draft_tokens": 3477, "accepted": 1915, "preemptions": 0, "acceptance_length": 2.652, "k_mean": 3.0, "per_pos": [0.769, 0.54, 0.343]}
+max running: cpuexp-greedy-2 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 15.3%
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+cpuexp-greedy-1                 1     4/4      51.0     19.2         171         464     512
+cpuexp-greedy-2                 1     4/4      80.7     12.0         174         481     512
+# 03:54:56 RUNCFG_DONE

@@ -1,0 +1,26 @@
+# 00:39:36 free: 56 GiB available; Model name: AMD Ryzen 9 9950X 16-Core Processor
+# 00:39:36 1. CPU read alone
+threads 1: mean read 61.7 GB/s over 3.0 s (1 threads)
+threads 4: mean read 59.8 GB/s over 3.0 s (4 threads)
+threads 8: mean read 65.3 GB/s over 3.0 s (8 threads)
+threads 16: mean read 61.2 GB/s over 3.0 s (16 threads)
+threads 32: mean read 62.2 GB/s over 3.0 s (32 threads)
+# 00:39:53 2. GPU alone
+mean gpu-sm 50.4 GB/s over 6.0 s
+mean gpu-ce 57.5 GB/s over 6.0 s
+# 00:40:15 3. GPU SM zero-copy + CPU read concurrently
+threads 4 read: CPU 42.8 GB/s (read), GPU 31.4 GB/s over the same 3.5 s (7 GPU samples)
+threads 8 read: CPU 43.4 GB/s (read), GPU 31.0 GB/s over the same 3.5 s (7 GPU samples)
+threads 16 read: CPU 42.2 GB/s (read), GPU 31.0 GB/s over the same 3.5 s (7 GPU samples)
+threads 32 read: CPU 42.3 GB/s (read), GPU 30.0 GB/s over the same 3.5 s (7 GPU samples)
+# 00:41:33 4. CPU NVFP4 expert kernel (Strata nvfp4_avx512), 8 GiB pool, 24 experts per call
+threads 16 tokens/expert 1: 1795106496.619 expert 747.5 us/call 31.15 us/expert 62.1 GB/s
+threads 16 tokens/expert 2: 1795106499.943 expert 761.4 us/call 31.73 us/expert 61.0 GB/s
+threads 16 tokens/expert 4: 1795106503.269 expert 797.8 us/call 33.24 us/expert 58.2 GB/s
+threads 32 tokens/expert 1: 1795106506.657 expert 771.9 us/call 32.16 us/expert 60.2 GB/s
+threads 32 tokens/expert 2: 1795106510.037 expert 790.6 us/call 32.94 us/expert 58.7 GB/s
+threads 32 tokens/expert 4: 1795106513.423 expert 812.5 us/call 33.85 us/expert 57.2 GB/s
+# 00:41:53 4b. the same while the GPU reads over PCIe (SM zero-copy)
+threads 16 expert x1 token: CPU 41.4 GB/s (expert), GPU 31.0 GB/s over the same 3.5 s (7 GPU samples) | 1795106524.897 expert 1120.3 us/call 46.68 us/expert 41.5 GB/s
+threads 32 expert x1 token: CPU 2.6 GB/s (expert), GPU 47.9 GB/s over the same 3.6 s (7 GPU samples) | 1795106544.621 expert 17481.3 us/call 728.39 us/expert 2.7 GB/s
+# 00:42:33 DRAM_DONE

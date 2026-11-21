@@ -1,0 +1,138 @@
+edge0-strata: starting edge0_145b from /home/andychen/work/edge0/edge0-strata on cuda:0
+loading the model (the first start takes a minute or two) ...
+[strata] engine priority: nice +5 (this PC has built-in Radeon graphics that usually draw the desktop; STRATA_ENGINE_NICE=0 turns it off)
+ready: http://127.0.0.1:37481/v1  (OpenAI: /v1/chat/completions, Anthropic: /v1/messages, context 131072 tokens)
+       open http://127.0.0.1:37481/ in a browser to chat; close this window to stop the model
+edge0-strata: ready (pid 1660385, port 37481)
+Listening: http://0.0.0.0:8124 model=edge0_145b
+[strata] answering: 30 of max 1024 tokens, 81.2 tok/s, 1 s
+[strata] answering: 136 of max 1024 tokens, 98.7 tok/s, 2 s
+[strata] answering: 259 of max 1024 tokens, 108.5 tok/s, 3 s
+[strata] answering: 384 of max 1024 tokens, 112.9 tok/s, 4 s
+[strata] answering: 523 of max 1024 tokens, 118.4 tok/s, 5 s
+[strata] answering: 667 of max 1024 tokens, 123.0 tok/s, 6 s
+[strata] done: 755 tokens in 7 s (124.6 tok/s) (stop, cancel=False), expert cache 100.0% hit
+{"time":"2026-11-19T21:47:54.316Z","endpoint":"/v1/chat/completions","source":"127.0.0.1","http_status":200,"stream":true,"total_seconds":6.687133164,"stop_reason":"end_of_generation","input_tokens":243,"reused_tokens":0,"generated_tokens":755,"first_token_seconds":0.6217999999999999,"decode_tokens_per_second":124.6,"prefill_tokens_per_second":390.8,"decode_seconds":6.0608}
+[strata] answering: 131 of max 1024 tokens, 144.7 tok/s, 1 s
+[strata] answering: 277 of max 1024 tokens, 144.1 tok/s, 2 s
+[strata] answering: 412 of max 1024 tokens, 140.5 tok/s, 3 s
+[strata] answering: 547 of max 1024 tokens, 138.6 tok/s, 4 s
+[strata] done: 618 tokens in 5 s (138.6 tok/s) (stop, cancel=False), expert cache 100.0% hit
+{"time":"2026-11-19T21:47:58.858Z","endpoint":"/v1/chat/completions","source":"127.0.0.1","http_status":200,"stream":true,"total_seconds":4.541836599,"stop_reason":"end_of_generation","input_tokens":243,"reused_tokens":236,"generated_tokens":618,"first_token_seconds":0.0818,"decode_tokens_per_second":138.6,"prefill_tokens_per_second":85.6,"decode_seconds":4.458}
+[strata] answering: 133 of max 1024 tokens, 145.4 tok/s, 1 s
+[strata] answering: 273 of max 1024 tokens, 142.2 tok/s, 2 s
+[strata] answering: 419 of max 1024 tokens, 143.1 tok/s, 3 s
+[strata] answering: 550 of max 1024 tokens, 139.5 tok/s, 4 s
+[strata] answering: 687 of max 1024 tokens, 138.8 tok/s, 5 s
+[strata] answering: 820 of max 1024 tokens, 137.4 tok/s, 6 s
+[strata] done: 824 tokens in 6 s (137.0 tok/s) (stop, cancel=False), expert cache 100.0% hit
+{"time":"2026-11-19T21:48:04.959Z","endpoint":"/v1/chat/completions","source":"127.0.0.1","http_status":200,"stream":true,"total_seconds":6.099574337,"stop_reason":"end_of_generation","input_tokens":243,"reused_tokens":236,"generated_tokens":824,"first_token_seconds":0.0834,"decode_tokens_per_second":137.0,"prefill_tokens_per_second":83.9,"decode_seconds":6.0143}
+[strata] answering: 76 of max 1024 tokens, 106.0 tok/s, 1 s
+[strata] answering: 210 of max 1024 tokens, 121.9 tok/s, 2 s
+[strata] answering: 346 of max 1024 tokens, 126.7 tok/s, 3 s
+[strata] answering: 481 of max 1024 tokens, 128.8 tok/s, 4 s
+[strata] answering: 599 of max 1024 tokens, 126.3 tok/s, 5 s
+[strata] done: 650 tokens in 5 s (126.3 tok/s) (stop, cancel=False), expert cache 100.0% hit
+{"time":"2026-11-19T21:48:10.386Z","endpoint":"/v1/chat/completions","source":"127.0.0.1","http_status":200,"stream":true,"total_seconds":5.426333803,"stop_reason":"end_of_generation","input_tokens":27,"reused_tokens":0,"generated_tokens":650,"first_token_seconds":0.2762,"decode_tokens_per_second":126.3,"prefill_tokens_per_second":97.8,"decode_seconds":5.1481}
+[strata] answering: 35 of max 1024 tokens, 88.9 tok/s, 1 s
+[strata] answering: 145 of max 1024 tokens, 103.4 tok/s, 2 s
+[strata] answering: 277 of max 1024 tokens, 114.8 tok/s, 3 s
+[strata] answering: 404 of max 1024 tokens, 118.1 tok/s, 4 s
+[strata] answering: 546 of max 1024 tokens, 123.4 tok/s, 5 s
+[strata] answering: 671 of max 1024 tokens, 123.4 tok/s, 6 s
+[strata] done: 687 tokens in 6 s (123.3 tok/s) (stop, cancel=False), expert cache 100.0% hit
+{"time":"2026-11-19T21:48:16.572Z","endpoint":"/v1/chat/completions","source":"127.0.0.1","http_status":200,"stream":true,"total_seconds":6.186366979,"stop_reason":"end_of_generation","input_tokens":348,"reused_tokens":0,"generated_tokens":687,"first_token_seconds":0.6098,"decode_tokens_per_second":123.3,"prefill_tokens_per_second":570.7,"decode_seconds":5.5732}
+[strata] answering: 92 of max 1024 tokens, 120.6 tok/s, 1 s
+[strata] answering: 210 of max 1024 tokens, 118.4 tok/s, 2 s
+[strata] answering: 346 of max 1024 tokens, 124.3 tok/s, 3 s
+[strata] answering: 489 of max 1024 tokens, 128.8 tok/s, 4 s
+[strata] answering: 632 of max 1024 tokens, 131.5 tok/s, 5 s
+[strata] answering: 763 of max 1024 tokens, 131.4 tok/s, 6 s
+[strata] answering: 903 of max 1024 tokens, 132.6 tok/s, 7 s
+[strata] done: 1024 tokens in 8 s (133.2 tok/s) (length, cancel=False), expert cache 100.0% hit
+{"time":"2026-11-19T21:48:24.500Z","endpoint":"/v1/chat/completions","source":"127.0.0.1","http_status":200,"stream":true,"total_seconds":7.927431042,"stop_reason":"length","input_tokens":22,"reused_tokens":0,"generated_tokens":1024,"first_token_seconds":0.2358,"decode_tokens_per_second":133.2,"prefill_tokens_per_second":93.3,"decode_seconds":7.6894}
+[strata] answering: 92 of max 1024 tokens, 103.6 tok/s, 1 s
+[strata] answering: 226 of max 1024 tokens, 118.8 tok/s, 2 s
+[strata] answering: 357 of max 1024 tokens, 122.8 tok/s, 3 s
+[strata] answering: 503 of max 1024 tokens, 128.7 tok/s, 4 s
+[strata] answering: 639 of max 1024 tokens, 130.2 tok/s, 5 s
+[strata] answering: 779 of max 1024 tokens, 131.5 tok/s, 6 s
+[strata] answering: 934 of max 1024 tokens, 134.8 tok/s, 7 s
+[strata] done: 1024 tokens in 8 s (134.7 tok/s) (length, cancel=False), expert cache 100.0% hit
+{"time":"2026-11-19T21:48:34.790Z","endpoint":"/v1/chat/completions","source":"127.0.0.1","http_status":200,"stream":true,"total_seconds":7.705141106,"stop_reason":"length","input_tokens":243,"reused_tokens":236,"generated_tokens":1024,"first_token_seconds":0.1037,"decode_tokens_per_second":134.7,"prefill_tokens_per_second":67.5,"decode_seconds":7.5995}
+[strata] answering: 113 of max 1024 tokens, 124.3 tok/s, 1 s
+[strata] answering: 247 of max 1024 tokens, 129.1 tok/s, 2 s
+[strata] answering: 396 of max 1024 tokens, 135.4 tok/s, 3 s
+[strata] answering: 547 of max 1024 tokens, 139.0 tok/s, 4 s
+[strata] answering: 684 of max 1024 tokens, 138.1 tok/s, 5 s
+[strata] answering: 838 of max 1024 tokens, 140.5 tok/s, 6 s
+[strata] done: 915 tokens in 7 s (139.7 tok/s) (stop, cancel=False), expert cache 100.0% hit
+{"time":"2026-11-19T21:48:41.424Z","endpoint":"/v1/chat/completions","source":"127.0.0.1","http_status":200,"stream":true,"total_seconds":6.634269794,"stop_reason":"end_of_generation","input_tokens":243,"reused_tokens":236,"generated_tokens":915,"first_token_seconds":0.0833,"decode_tokens_per_second":139.7,"prefill_tokens_per_second":84.0,"decode_seconds":6.5488}
+[strata] answering: 133 of max 1024 tokens, 146.1 tok/s, 1 s
+[strata] answering: 264 of max 1024 tokens, 138.0 tok/s, 2 s
+[strata] answering: 405 of max 1024 tokens, 138.8 tok/s, 3 s
+[strata] answering: 543 of max 1024 tokens, 138.5 tok/s, 4 s
+[strata] answering: 687 of max 1024 tokens, 139.2 tok/s, 5 s
+[strata] done: 809 tokens in 6 s (140.2 tok/s) (stop, cancel=False), expert cache 100.0% hit
+{"time":"2026-11-19T21:48:47.285Z","endpoint":"/v1/chat/completions","source":"127.0.0.1","http_status":200,"stream":true,"total_seconds":5.859521882,"stop_reason":"end_of_generation","input_tokens":243,"reused_tokens":236,"generated_tokens":809,"first_token_seconds":0.0879,"decode_tokens_per_second":140.2,"prefill_tokens_per_second":79.6,"decode_seconds":5.7696000000000005}
+[strata] answering: 106 of max 1024 tokens, 119.8 tok/s, 1 s
+[strata] answering: 239 of max 1024 tokens, 125.8 tok/s, 2 s
+[strata] answering: 373 of max 1024 tokens, 127.9 tok/s, 3 s
+[strata] answering: 504 of max 1024 tokens, 128.6 tok/s, 4 s
+[strata] done: 525 tokens in 4 s (127.5 tok/s) (stop, cancel=False), expert cache 100.0% hit
+{"time":"2026-11-19T21:48:51.510Z","endpoint":"/v1/chat/completions","source":"127.0.0.1","http_status":200,"stream":true,"total_seconds":4.22497007,"stop_reason":"end_of_generation","input_tokens":27,"reused_tokens":20,"generated_tokens":525,"first_token_seconds":0.10479999999999999,"decode_tokens_per_second":127.5,"prefill_tokens_per_second":66.8,"decode_seconds":4.1181}
+[strata] answering: 92 of max 1024 tokens, 102.3 tok/s, 1 s
+[strata] answering: 215 of max 1024 tokens, 112.1 tok/s, 2 s
+[strata] answering: 349 of max 1024 tokens, 119.1 tok/s, 3 s
+[strata] answering: 481 of max 1024 tokens, 122.0 tok/s, 4 s
+[strata] answering: 608 of max 1024 tokens, 122.9 tok/s, 5 s
+[strata] done: 636 tokens in 5 s (122.3 tok/s) (stop, cancel=False), expert cache 100.0% hit
+{"time":"2026-11-19T21:48:56.804Z","endpoint":"/v1/chat/completions","source":"127.0.0.1","http_status":200,"stream":true,"total_seconds":5.293010278,"stop_reason":"end_of_generation","input_tokens":348,"reused_tokens":341,"generated_tokens":636,"first_token_seconds":0.0925,"decode_tokens_per_second":122.3,"prefill_tokens_per_second":75.7,"decode_seconds":5.1983999999999995}
+[strata] answering: 93 of max 1024 tokens, 103.3 tok/s, 1 s
+[strata] answering: 220 of max 1024 tokens, 115.8 tok/s, 2 s
+[strata] answering: 362 of max 1024 tokens, 124.5 tok/s, 3 s
+[strata] answering: 505 of max 1024 tokens, 129.0 tok/s, 4 s
+[strata] answering: 643 of max 1024 tokens, 130.7 tok/s, 5 s
+[strata] answering: 774 of max 1024 tokens, 130.7 tok/s, 6 s
+[strata] answering: 915 of max 1024 tokens, 131.8 tok/s, 7 s
+[strata] done: 1024 tokens in 8 s (131.9 tok/s) (length, cancel=False), expert cache 100.0% hit
+{"time":"2026-11-19T21:49:04.670Z","endpoint":"/v1/chat/completions","source":"127.0.0.1","http_status":200,"stream":true,"total_seconds":7.866113419,"stop_reason":"length","input_tokens":22,"reused_tokens":15,"generated_tokens":1024,"first_token_seconds":0.099,"decode_tokens_per_second":131.9,"prefill_tokens_per_second":70.7,"decode_seconds":7.7651}
+[strata] answering: 58 of max 1024 tokens, 96.0 tok/s, 1 s
+[strata] answering: 168 of max 1024 tokens, 104.3 tok/s, 2 s
+[strata] answering: 292 of max 1024 tokens, 111.8 tok/s, 3 s
+[strata] answering: 424 of max 1024 tokens, 117.1 tok/s, 4 s
+[strata] answering: 543 of max 1024 tokens, 117.3 tok/s, 5 s
+[strata] answering: 678 of max 1024 tokens, 120.2 tok/s, 6 s
+[strata] answering: 809 of max 1024 tokens, 121.8 tok/s, 7 s
+[strata] done: 828 tokens in 7 s (121.4 tok/s) (stop, cancel=False), expert cache 100.0% hit
+{"time":"2026-11-19T21:49:11.887Z","endpoint":"/v1/chat/completions","source":"127.0.0.1","http_status":200,"stream":true,"total_seconds":7.217401114,"stop_reason":"end_of_generation","input_tokens":102,"reused_tokens":0,"generated_tokens":828,"first_token_seconds":0.3926,"decode_tokens_per_second":121.4,"prefill_tokens_per_second":259.8,"decode_seconds":6.8225}
+[strata] answering: 31 of max 1024 tokens, 122.6 tok/s, 1 s
+[strata] answering: 167 of max 1024 tokens, 131.4 tok/s, 2 s
+[strata] answering: 292 of max 1024 tokens, 127.8 tok/s, 3 s
+[strata] answering: 424 of max 1024 tokens, 128.5 tok/s, 4 s
+[strata] answering: 558 of max 1024 tokens, 129.5 tok/s, 5 s
+[strata] answering: 691 of max 1024 tokens, 130.1 tok/s, 6 s
+[strata] answering: 838 of max 1024 tokens, 132.6 tok/s, 7 s
+[strata] answering: 990 of max 1024 tokens, 135.1 tok/s, 8 s
+[strata] done: 1024 tokens in 8 s (135.6 tok/s) (length, cancel=False), expert cache 100.0% hit
+{"time":"2026-11-19T21:49:20.176Z","endpoint":"/v1/chat/completions","source":"127.0.0.1","http_status":200,"stream":true,"total_seconds":8.288593342,"stop_reason":"length","input_tokens":434,"reused_tokens":0,"generated_tokens":1024,"first_token_seconds":0.7363,"decode_tokens_per_second":135.6,"prefill_tokens_per_second":589.4,"decode_seconds":7.5497}
+[strata] reading the prompt: 878 of 885 tokens, 1 s so far
+[strata] answering: 64 of max 1024 tokens, 72.9 tok/s, 2 s
+[strata] answering: 166 of max 1024 tokens, 87.1 tok/s, 3 s
+[strata] answering: 274 of max 1024 tokens, 93.9 tok/s, 4 s
+[strata] answering: 418 of max 1024 tokens, 106.5 tok/s, 5 s
+[strata] answering: 546 of max 1024 tokens, 110.7 tok/s, 6 s
+[strata] answering: 682 of max 1024 tokens, 114.8 tok/s, 7 s
+[strata] answering: 813 of max 1024 tokens, 117.1 tok/s, 8 s
+[strata] answering: 947 of max 1024 tokens, 119.2 tok/s, 9 s
+[strata] done: 1024 tokens in 10 s (119.4 tok/s) (length, cancel=False), expert cache 100.0% hit
+{"time":"2026-11-19T21:49:29.929Z","endpoint":"/v1/chat/completions","source":"127.0.0.1","http_status":200,"stream":true,"total_seconds":9.752727326,"stop_reason":"length","input_tokens":885,"reused_tokens":0,"generated_tokens":1024,"first_token_seconds":1.174,"decode_tokens_per_second":119.4,"prefill_tokens_per_second":753.8,"decode_seconds":8.5737}
+[strata] answering: 89 of max 1024 tokens, 128.3 tok/s, 1 s
+[strata] answering: 217 of max 1024 tokens, 127.8 tok/s, 2 s
+[strata] answering: 363 of max 1024 tokens, 133.8 tok/s, 3 s
+[strata] answering: 514 of max 1024 tokens, 137.7 tok/s, 4 s
+[strata] answering: 638 of max 1024 tokens, 134.8 tok/s, 5 s
+[strata] answering: 784 of max 1024 tokens, 136.3 tok/s, 6 s
+[strata] answering: 923 of max 1024 tokens, 136.7 tok/s, 7 s
+[strata] done: 1024 tokens in 8 s (136.5 tok/s) (length, cancel=False), expert cache 100.0% hit
+{"time":"2026-11-19T21:49:37.723Z","endpoint":"/v1/chat/completions","source":"127.0.0.1","http_status":200,"stream":true,"total_seconds":7.793794097,"stop_reason":"length","input_tokens":27,"reused_tokens":0,"generated_tokens":1024,"first_token_seconds":0.2913,"decode_tokens_per_second":136.5,"prefill_tokens_per_second":92.7,"decode_seconds":7.5003}

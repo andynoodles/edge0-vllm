@@ -1,0 +1,62 @@
+# 08:47:12 tier GPU tests
+.W1120 00:47:18.148000 1 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+use_cpu=False: 12 swaps, max rel 5.79e-05
+.use_cpu=True: 12 swaps, max rel 7.16e-05
+....use_cpu=False: 12 swaps, max rel 5.79e-05
+.use_cpu=True: 12 swaps, max rel 7.16e-05
+...
+10 passed in 24.30s
+# 08:47:38 FC_GATE_DONE
+# 08:48:07 tier GPU tests
+.W1120 00:48:13.038000 1 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+use_cpu=False: 12 swaps, max rel 5.79e-05
+.use_cpu=True: 12 swaps, max rel 7.16e-05
+...n_hot=512 T=1: rel err vs fp32 reference 4.27e-03
+.n_hot=0 T=1: rel err vs fp32 reference 4.27e-03
+.n_hot=200 T=1: rel err vs fp32 reference 4.27e-03
+.n_hot=512 T=7: rel err vs fp32 reference 4.39e-03
+.n_hot=0 T=7: rel err vs fp32 reference 4.39e-03
+.n_hot=200 T=7: rel err vs fp32 reference 4.39e-03
+.n_hot=512 T=64: rel err vs fp32 reference 4.46e-03
+.n_hot=0 T=64: rel err vs fp32 reference 4.46e-03
+.n_hot=200 T=64: rel err vs fp32 reference 4.46e-03
+...T=  1 distinct experts  10: all-hot 0.088 ms, all-cold 0.437 ms (44.3 GB/s effective zero-copy)
+T=  8 distinct experts  75: all-hot 0.151 ms, all-cold 2.782 ms (52.2 GB/s effective zero-copy)
+T= 32 distinct experts 234: all-hot 0.343 ms, all-cold 8.513 ms (53.2 GB/s effective zero-copy)
+T= 64 distinct experts 374: all-hot 0.510 ms, all-cold 13.557 ms (53.4 GB/s effective zero-copy)
+.......e=0 routes=1: h equal 1.0000 (rel 0.00e+00); y equal 1.0000, max ulp 0, rel cpu-gpu 0.00e+00; vs fp32 ref: cpu 4.220e-03 gpu 4.220e-03
+e=17 routes=1: h equal 1.0000 (rel 0.00e+00); y equal 1.0000, max ulp 0, rel cpu-gpu 0.00e+00; vs fp32 ref: cpu 3.632e-03 gpu 3.632e-03
+e=300 routes=1: h equal 1.0000 (rel 0.00e+00); y equal 1.0000, max ulp 0, rel cpu-gpu 0.00e+00; vs fp32 ref: cpu 4.118e-03 gpu 4.118e-03
+e=511 routes=1: h equal 1.0000 (rel 0.00e+00); y equal 1.0000, max ulp 0, rel cpu-gpu 0.00e+00; vs fp32 ref: cpu 4.272e-03 gpu 4.272e-03
+.e=0 routes=5: h equal 1.0000 (rel 0.00e+00); y equal 0.9999, max ulp 1, rel cpu-gpu 1.45e-05; vs fp32 ref: cpu 4.348e-03 gpu 4.348e-03
+e=17 routes=5: h equal 1.0000 (rel 0.00e+00); y equal 0.9997, max ulp 1, rel cpu-gpu 2.39e-06; vs fp32 ref: cpu 4.281e-03 gpu 4.281e-03
+e=300 routes=5: h equal 0.9997 (rel 1.38e-09); y equal 0.9999, max ulp 2, rel cpu-gpu 2.36e-08; vs fp32 ref: cpu 4.565e-03 gpu 4.565e-03
+e=511 routes=5: h equal 1.0000 (rel 0.00e+00); y equal 1.0000, max ulp 0, rel cpu-gpu 0.00e+00; vs fp32 ref: cpu 4.576e-03 gpu 4.576e-03
+.edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.50, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+pool job 0: 6 experts 21 routes in 227 us
+pool job 1: 6 experts 21 routes in 211 us
+pool job 2: 6 experts 21 routes in 208 us
+.edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.50, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+T=4 seed=0: split vs gpu-only rel 3.65e-06 (equal 1.000), vs ref 4.257e-03 (gpu-only 4.257e-03), cpu sel 12
+T=4 seed=1: split vs gpu-only rel 8.94e-06 (equal 1.000), vs ref 4.467e-03 (gpu-only 4.467e-03), cpu sel 13
+T=4 seed=2: split vs gpu-only rel 2.64e-05 (equal 1.000), vs ref 4.542e-03 (gpu-only 4.542e-03), cpu sel 14
+T=4 seed=3: split vs gpu-only rel 2.75e-05 (equal 1.000), vs ref 4.906e-03 (gpu-only 4.906e-03), cpu sel 12
+T=4 seed=4: split vs gpu-only rel 2.45e-05 (equal 1.000), vs ref 4.315e-03 (gpu-only 4.316e-03), cpu sel 14
+{'jobs': 6.0, 'experts': 78.0, 'routes': 80.0, 'cpu_s': 0.00404104, 'gpu_calls': 6.0, 'gpu_s': 0.005317856, 'wait_s': 2.8928e-05, 'timeouts': 0.0, 'frac': 0.5, 'g2_waits': 0.0, 'auto_updates': 0.0}
+.edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.50, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+T=16 seed=0: split vs gpu-only rel 1.44e-04 (equal 0.998), vs ref 4.263e-03 (gpu-only 4.263e-03), cpu sel 45
+T=16 seed=1: split vs gpu-only rel 3.70e-05 (equal 1.000), vs ref 4.354e-03 (gpu-only 4.354e-03), cpu sel 48
+T=16 seed=2: split vs gpu-only rel 2.55e-05 (equal 1.000), vs ref 4.485e-03 (gpu-only 4.485e-03), cpu sel 44
+T=16 seed=3: split vs gpu-only rel 2.06e-04 (equal 0.998), vs ref 4.343e-03 (gpu-only 4.343e-03), cpu sel 41
+T=16 seed=4: split vs gpu-only rel 8.44e-05 (equal 1.000), vs ref 4.431e-03 (gpu-only 4.431e-03), cpu sel 42
+{'jobs': 6.0, 'experts': 265.0, 'routes': 301.0, 'cpu_s': 0.013285156000000001, 'gpu_calls': 6.0, 'gpu_s': 0.017024608, 'wait_s': 3.1808000000000004e-05, 'timeouts': 0.0, 'frac': 0.5, 'g2_waits': 0.0, 'auto_updates': 0.0}
+.edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.50, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+T=32 seed=0: split vs gpu-only rel 9.92e-05 (equal 0.999), vs ref 4.351e-03 (gpu-only 4.351e-03), cpu sel 77
+T=32 seed=1: split vs gpu-only rel 6.16e-05 (equal 1.000), vs ref 4.442e-03 (gpu-only 4.441e-03), cpu sel 80
+T=32 seed=2: split vs gpu-only rel 5.07e-05 (equal 1.000), vs ref 4.131e-03 (gpu-only 4.131e-03), cpu sel 70
+T=32 seed=3: split vs gpu-only rel 1.56e-04 (equal 0.999), vs ref 4.256e-03 (gpu-only 4.256e-03), cpu sel 68
+T=32 seed=4: split vs gpu-only rel 4.94e-05 (equal 1.000), vs ref 4.350e-03 (gpu-only 4.351e-03), cpu sel 73
+{'jobs': 6.0, 'experts': 439.0, 'routes': 582.0, 'cpu_s': 0.022252862, 'gpu_calls': 6.0, 'gpu_s': 0.02707648, 'wait_s': 2.896e-05, 'timeouts': 0.0, 'frac': 0.5, 'g2_waits': 0.0, 'auto_updates': 0.0}
+.
+29 passed in 21.56s
+# 08:48:31 FC_GATE_DONE

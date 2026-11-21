@@ -1,0 +1,106 @@
+40 decode steps
+== cold_marlin: 5.474 ms/step
+     5.145 ms    96.0/step    53.60 us  (510, 1, 1)      Marlin
+     0.126 ms    48.0/step     2.63 us  (2, 1, 1)        moe_align_block_size_kernel
+     0.122 ms    48.0/step     2.55 us  (40, 1, 1)       act_and_mul_kernel
+     0.080 ms    48.0/step     1.66 us  (1, 1, 1)        count_and_sort_expert_tokens_kernel
+== hot_marlin: 4.250 ms/step
+     3.902 ms    96.0/step    40.64 us  (510, 1, 1)      Marlin
+     0.159 ms    48.0/step     3.32 us  (40, 1, 1)       act_and_mul_kernel
+     0.138 ms    48.0/step     2.89 us  (2, 1, 1)        moe_align_block_size_kernel
+     0.051 ms    48.0/step     1.06 us  (1, 1, 1)        count_and_sort_expert_tokens_kernel
+== moe_route: 2.793 ms/step
+     1.250 ms    48.0/step    26.04 us  (448, 1, 1)      _q8_gemv_kernel
+     0.555 ms    48.0/step    11.55 us  (1, 1, 1)        dispatch_kernel
+     0.241 ms   288.0/step     0.84 us  (1, 1, 1)        vectorized_elementwise_kernel
+     0.192 ms   192.0/step     1.00 us  (1, 1, 1)        elementwise_kernel
+     0.189 ms    48.0/step     3.94 us  (1, 1, 1)        topkGating
+     0.184 ms    96.0/step     1.92 us  (1, 1, 1)        _tier_count_kernel
+     0.073 ms    48.0/step     1.52 us  (1, 1, 1)        reduce_kernel
+     0.063 ms    48.0/step     1.32 us  (1, 1, 1)        _touch_count_kernel
+     0.046 ms    48.0/step     0.96 us  (1, 1, 1)        unrolled_elementwise_kernel
+== attn_proj: 2.354 ms/step
+     1.065 ms    34.0/step    31.33 us  (1, 1, 128)      kernel_cutlass_kernel_b12x_libdense_gemmDenseGemmKernel_object_at__CopyAtom_ThrID10_TVLayoutSrc11024
+     0.628 ms    46.0/step    13.66 us  (1, 4, 40)       kernel_cutlass_kernel_b12x_libdense_gemmDenseGemmKernel_object_at__CopyAtom_ThrID10_TVLayoutSrc11024
+     0.563 ms    12.0/step    46.88 us  (4, 28, 1)       nvjet_sm120_tst_mma_128x8x64_5_32x8x64_tmaAB_alignCD4_bz_TNNN
+     0.056 ms    34.0/step     1.64 us  (48, 1, 1)       kernel_cutlass_kernel_vllmmodel_executorkernelslinearcute_dsl_skinny_gemmCuteSkinnyGemm_object_at__t
+     0.042 ms    46.0/step     0.92 us  (40, 1, 1)       kernel_cutlass_kernel_b12xgemmblockscaled_reduceWeightOnlySplitKReduce_object_at__ptrf32gmemalign16_
+== shared_expert: 2.106 ms/step
+     1.183 ms    48.0/step    24.65 us  (80, 8, 1)       _q8_gemv_kernel
+     0.290 ms    48.0/step     6.05 us  (40, 8, 1)       _q8_gemv_kernel
+     0.256 ms    48.0/step     5.34 us  (80, 2, 1)       _q8_gemv_kernel
+     0.168 ms    96.0/step     1.75 us  (5, 4, 1)        _splitk_sum_kernel
+     0.069 ms    48.0/step     1.44 us  (2, 4, 1)        _splitk_sum_kernel
+     0.043 ms     1.0/step    42.87 us  (8, 5, 8)        nvjet_sm120_tst_mma_320x8x64_2_80x8x64_tmaAB_alignCD4_splitK_TNNN
+     0.020 ms     5.0/step     3.97 us  (20, 1, 1)       reduce_kernel
+     0.014 ms     1.0/step    14.24 us  (1, 4, 40)       kernel_cutlass_kernel_b12x_libdense_gemmDenseGemmKernel_object_at__CopyAtom_ThrID10_TVLayoutSrc11024
+     0.010 ms     1.0/step    10.02 us  (3, 1, 1)        ple_wait_copy_kernel
+     0.010 ms     1.0/step     9.60 us  (1, 48, 1)       gdn_decode_post_conv_mtp_kernel
+     0.007 ms     6.0/step     1.17 us  (4, 5, 1)        _hc_combine_kernel
+     0.007 ms     1.0/step     6.68 us  (324, 1, 1)      kernel_cutlass_kernel_vllmmodelsqwen4_expnvidiaopscute_dsl_hc_down_silu_fmaHcDownSiluFma_object_at__
+     0.006 ms     1.0/step     5.95 us  (1, 80, 1)       nvjet_sm120_tst_mma_128x8x64_5_32x8x64_tmaAB_alignCD4_bz_TNNN
+== hc_norm: 1.639 ms/step
+     0.701 ms    94.0/step     7.46 us  (324, 1, 1)      kernel_cutlass_kernel_vllmmodelsqwen4_expnvidiaopscute_dsl_hc_down_silu_fmaHcDownSiluFma_object_at__
+     0.557 ms    95.0/step     5.86 us  (1, 80, 1)       nvjet_sm120_tst_mma_128x8x64_5_32x8x64_tmaAB_alignCD4_bz_TNNN
+     0.267 ms    95.0/step     2.81 us  (16, 1, 1)       _hc_combine_norm_kernel
+     0.106 ms    95.0/step     1.11 us  (4, 5, 1)        _hc_gate_mix_kernel
+     0.006 ms     1.0/step     6.47 us  (8, 1, 16)       nvjet_sm120_tst_mma_64x8x128_5_16x8x128_tmaAB_alignCD4_splitK_TNNN
+== drafter: 1.416 ms/step
+     0.410 ms     1.0/step   410.46 us  (7760, 1, 1)     _q8_gemv_kernel
+     0.252 ms     5.0/step    50.36 us  (4, 30, 1)       nvjet_sm120_tst_mma_128x8x64_5_32x8x64_tmaAB_alignCD4_bz_TNNN
+     0.128 ms     5.0/step    25.67 us  (8, 2, 16)       nvjet_sm120_tst_mma_256x8x64_2_64x8x64_tmaAB_alignCD4_splitK_TNNN
+     0.113 ms     6.0/step    18.76 us  (8, 3, 6)        nvjet_sm120_tst_mma_128x8x64_5_32x8x64_tmaAB_alignCD4_splitK_TNNN
+     0.104 ms     5.0/step    20.89 us  (8, 3, 8)        nvjet_sm120_tst_mma_320x8x64_2_80x8x64_tmaAB_alignCD4_splitK_TNNN
+     0.103 ms     5.0/step    20.52 us  (1, 1, 32)       flash_fwd_splitkv_kernel
+     0.036 ms    10.0/step     3.64 us  (8, 2, 9)        nvjet_sm120_tst_mma_64x8x128_5_16x8x128_tmaAB_alignCD4_splitK_TNNN
+     0.034 ms     1.0/step    34.11 us  (8, 4, 5)        nvjet_sm120_tst_mma_320x8x64_2_80x8x64_tmaAB_alignCD4_splitK_TNNN
+     0.020 ms    20.0/step     1.01 us  (20, 1, 1)       _dflash2_grouped_conv_kernel
+     0.020 ms    10.0/step     1.97 us  (4, 1, 1)        fused_add_rms_norm_kernel
+     0.019 ms     1.0/step    19.41 us  (18, 1, 1)       RadixTopKKernel_Unified
+     0.016 ms    10.0/step     1.57 us  (4, 1, 1)        reshape_and_cache_flash_kernel
+     0.013 ms    11.0/step     1.22 us  (80, 1, 1)       splitKreduce_kernel
+     0.012 ms     5.0/step     2.39 us  (4, 1, 1)        rotary_embedding_kernel
+     0.012 ms     1.0/step    11.54 us  (8, 2, 1)        Kernel2
+     0.011 ms    10.0/step     1.14 us  (20, 1, 1)       splitKreduce_kernel
+     0.011 ms     1.0/step    10.85 us  (1, 243, 1)      _resample_kernel
+     0.009 ms     5.0/step     1.77 us  (4, 1, 1)        act_and_mul_kernel
+     0.009 ms     5.0/step     1.75 us  (128, 1, 1)      rms_norm_kernel
+     0.009 ms     1.0/step     8.55 us  (20, 1, 1)       indexSelectSmallIndex
+     0.008 ms     5.0/step     1.62 us  (32, 1, 1)       rms_norm_kernel
+     0.008 ms     1.0/step     7.71 us  (4, 31, 1)       _compute_local_logits_stats_kernel
+     0.006 ms     1.0/step     6.00 us  (1, 1, 1)        _prepare_dflash_inputs_kernel
+     0.006 ms     1.0/step     5.94 us  (1, 1, 1)        _gather_draft_sampled_kernel
+     0.005 ms     5.0/step     1.07 us  (192, 1, 1)      splitKreduce_kernel
+== attn_gdn: 0.421 ms/step
+     0.324 ms    34.0/step     9.52 us  (1, 48, 1)       gdn_decode_post_conv_mtp_kernel
+     0.098 ms    34.0/step     2.87 us  (1, 40, 1)       _causal_conv1d_update_kernel
+== lm_head_sample: 0.414 ms/step
+     0.412 ms     1.0/step   412.28 us  (7760, 1, 1)     _q8_gemv_kernel
+== router_gate: 0.228 ms/step
+     0.161 ms    48.0/step     3.34 us  (8, 1, 9)        nvjet_sm120_tss_mma_64x8x128_5_16x8x128_tmaAB_alignCD4_splitK_TNNN
+     0.067 ms    48.0/step     1.40 us  (16, 1, 1)       splitKreduce_kernel
+== attn_qsa: 0.180 ms/step
+     0.058 ms    12.0/step     4.83 us  (4, 2, 33)       _qsa_sparse_paged_gqa_splitk_kernel
+     0.042 ms    12.0/step     3.48 us  (109, 1, 1)      _qsa_prepare_kernel
+     0.029 ms    12.0/step     2.39 us  (1, 130, 1)      _qsa_mqa_paged_uniform_kernel
+     0.022 ms    12.0/step     1.86 us  (4, 24, 1)       _qsa_merge_splitk_kernel
+     0.014 ms    12.0/step     1.17 us  (4, 1, 1)        persistent_topk_kernel
+     0.012 ms    12.0/step     1.04 us  (4, 9, 1)        _expand_qsa_indices_kernel
+== other_gpu: 0.144 ms/step
+     0.030 ms     1.0/step    29.76 us  (1, 1, 128)      kernel_cutlass_kernel_b12x_libdense_gemmDenseGemmKernel_object_at__CopyAtom_ThrID10_TVLayoutSrc11024
+     0.023 ms     8.0/step     2.93 us  (1, 1, 1)        index_elementwise_kernel
+     0.013 ms     1.0/step    13.39 us  (1, 4, 40)       kernel_cutlass_kernel_b12x_libdense_gemmDenseGemmKernel_object_at__CopyAtom_ThrID10_TVLayoutSrc11024
+     0.013 ms    13.8/step     0.91 us  (1, 1, 1)        vectorized_elementwise_kernel
+     0.010 ms     1.0/step     9.79 us  (1, 48, 1)       gdn_decode_post_conv_mtp_kernel
+     0.007 ms     1.0/step     7.19 us  (20, 1, 1)       indexSelectSmallIndex
+     0.007 ms     1.0/step     6.63 us  (324, 1, 1)      kernel_cutlass_kernel_vllmmodelsqwen4_expnvidiaopscute_dsl_hc_down_silu_fmaHcDownSiluFma_object_at__
+     0.006 ms     1.0/step     5.84 us  (1, 80, 1)       nvjet_sm120_tst_mma_128x8x64_5_32x8x64_tmaAB_alignCD4_bz_TNNN
+== moe_gather: 0.143 ms/step
+     0.143 ms    48.0/step     2.98 us  (40, 1, 1)       gather_kernel
+== moe_combine: 0.118 ms/step
+     0.118 ms    48.0/step     2.46 us  (4, 8, 1)        _combine_routes_kernel
+== cpu_wait: 0.097 ms/step
+     0.097 ms    48.0/step     2.02 us  (1, 1, 1)        wait_kernel
+== latent_U: 0.031 ms/step
+     0.031 ms     1.0/step    30.92 us  (1, 1, 128)      kernel_cutlass_kernel_b12x_libdense_gemmDenseGemmKernel_object_at__CopyAtom_ThrID10_TVLayoutSrc11024
+== ple_gpu: 0.002 ms/step

@@ -1,0 +1,475 @@
+# 13:54:33 prof: node-level r2single
+# 13:54:35 start: PRESET=single EDGE0_NVTX=1 EDGE0_TRACE=bw NSYS=--trace=cuda,nvtx,osrt --cuda-graph-trace=node --capture-range=cudaProfilerApi --capture-range-end=repeat --trace-fork-before-exec=true --sample=none --cpuctxsw=none --force-overwrite=true -o /workspace/edge0/profiles/r2single/rep
+# 13:58:01 healthy after 206 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-135435.log)
+# 13:58:01 bench nsys-r2single-c1 conc 1 out 512 prompts 2, capture 150 iterations
+# 13:58:09 steady: running 1 waiting 0; start_profile
+# 13:58:26 capture 1: /tmp/nsys-report-9e21.qdstrm (15455385 B) -> /home/andychen/work/edge0-vllm/profiles/r2single/c1-k1.qdstrm (importing)
+# 13:58:26 capture 1 done: c1-k1.qdstrm 
+# 13:58:26 tokens during capture window+write: 1405 tokens in 17.2 s = 81.8 tok/s
+# 13:58:26 waiting for the host-side imports
+# 13:58:28 NSYS_DONE c1-k1.nsys-rep c1-k1.sqlite 
+r2single-warm                   1     8/8     116.4      7.9         257         906     512
+# 13:59:11 reusing the running server (REUSE=1)
+# 13:59:11 healthy after 0 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-135435.log)
+# 13:59:11 bench nsys-r2singlew-c1 conc 1 out 512 prompts 2, capture 150 iterations
+# 13:59:18 steady: running 1 waiting 0; start_profile
+# 13:59:34 capture 1: /tmp/nsys-report-3c72.qdstrm (15589087 B) -> /home/andychen/work/edge0-vllm/profiles/r2singlew/c1-k1.qdstrm (importing)
+# 13:59:34 capture 1 done: c1-k1.qdstrm 
+# 13:59:34 tokens during capture window+write: 1335 tokens in 16.5 s = 80.7 tok/s
+# 13:59:40 gpu metrics c1: 0 tokens in 6.1 s = 0.0 tok/s (running, no capture)
+# 13:59:49 waiting for the host-side imports
+# 13:59:49 NSYS_DONE c1-k1.nsys-rep c1-k1.sqlite gpum-c1.nsys-rep 
+GAP_NSYS_DONE r2single
+edge0 cpu-experts: 5327 jobs, 4.9 experts / 8.7 routes per job, CPU 249 us per job, GPU side 315 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+edge0 ple-defer: 308 steps, 91.5 ids / 85.5 rows per step, read 1517 us, event wait 15024 us, submit->ready 16630 us per step; GPU waited in 42% of 318 calls, 488 us per call; timeouts 0, errors 0, max queue 1
+edge0 trace bw: 11.9s 389 steps 2034 tok | per step: hot 1183 cold 156 distinct experts, cold 301.2 MB (9.85 GB/s if all in 11.9s) | worst layers cold/step: L0:12, L1:10, L2:8, L22:6, L18:6, L10:6
+edge0 trace bw (map at call time, decode calls): per layer-call cold 3.06 hot 23.80 distinct experts, routes from VRAM 91.0% (18576 layer-calls)
+edge0 tier: 11.9s 394 steps | per layer-step: cold 2.99 hot 23.33 distinct experts, routes from VRAM 91.1% | swaps 28.2 / step (total 11517, cap reached 82, stale counts 0, skipped 0) | host 0.43 + 0.84 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:3.07 <8:5.72 <16:4.34 <32:3.19 <64:2.98 <128:2.52 <256:3.06
+edge0 trace bw: 12.9s 385 steps 1802 tok | per step: hot 1058 cold 258 distinct experts, cold 499.9 MB (14.90 GB/s if all in 12.9s) | worst layers cold/step: L0:12, L2:10, L1:10, L4:10, L3:9, L7:9
+edge0 trace bw (map at call time, decode calls): per layer-call cold 2.77 hot 23.97 distinct experts, routes from VRAM 91.8% (18384 layer-calls)
+edge0 tier: 13.0s 384 steps | per layer-step: cold 2.78 hot 23.96 distinct experts, routes from VRAM 91.8% | swaps 25.8 / step (total 21434, cap reached 62, stale counts 0, skipped 0) | host 0.39 + 0.75 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:6.15 <8:4.85 <16:3.70 <32:2.89 <64:2.53 <128:2.44 <256:2.76
+edge0 trace bw: 10.0s 512 steps 2526 tok | per step: hot 1226 cold 108 distinct experts, cold 209.1 MB (10.70 GB/s if all in 10.0s) | worst layers cold/step: L0:10, L1:8, L2:6, L22:5, L18:5, L21:4
+edge0 trace bw (map at call time, decode calls): per layer-call cold 2.42 hot 24.60 distinct experts, routes from VRAM 93.0% (24480 layer-calls)
+edge0 tier: 10.0s 513 steps | per layer-step: cold 2.41 hot 24.59 distinct experts, routes from VRAM 93.0% | swaps 21.8 / step (total 32657, cap reached 43, stale counts 0, skipped 0) | host 0.37 + 0.65 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:5.67 <8:3.70 <16:2.89 <32:2.34 <64:2.34 <128:1.99 <256:2.51
+edge0 cpu-experts: 14693 jobs, 4.2 experts / 6.0 routes per job, CPU 211 us per job, GPU side 271 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+edge0 ple-defer: 1080 steps, 79.0 ids / 77.2 rows per step, read 837 us, event wait 15083 us, submit->ready 15958 us per step; GPU waited in 29% of 1080 calls, 191 us per call; timeouts 0, errors 0, max queue 1
+edge0 trace bw: 10.0s 454 steps 2183 tok | per step: hot 945 cold 370 distinct experts, cold 716.8 MB (32.50 GB/s if all in 10.0s) | worst layers cold/step: L0:12, L4:12, L1:11, L2:11, L3:11, L10:11
+edge0 trace bw (map at call time, decode calls): per layer-call cold 3.68 hot 23.05 distinct experts, routes from VRAM 88.8% (21696 layer-calls)
+edge0 tier: 10.0s 451 steps | per layer-step: cold 3.69 hot 23.05 distinct experts, routes from VRAM 88.8% | swaps 33.0 / step (total 47619, cap reached 162, stale counts 0, skipped 0) | host 0.44 + 1.02 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.85 <8:7.18 <16:5.16 <32:4.60 <64:4.17 <128:3.04 <256:3.36
+edge0 trace bw: 10.0s 424 steps 2242 tok | per step: hot 867 cold 421 distinct experts, cold 815.6 MB (34.53 GB/s if all in 10.0s) | worst layers cold/step: L0:17, L2:15, L1:15, L4:12, L7:12, L6:12
+edge0 trace bw (map at call time, decode calls): per layer-call cold 4.23 hot 21.45 distinct experts, routes from VRAM 86.7% (20208 layer-calls)
+edge0 tier: 10.0s 420 steps | per layer-step: cold 4.24 hot 21.44 distinct experts, routes from VRAM 86.6% | swaps 35.9 / step (total 62820, cap reached 176, stale counts 0, skipped 0) | host 0.48 + 1.15 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.53 <8:7.04 <16:6.89 <32:4.66 <64:3.80 <128:3.16 <256:4.29
+edge0 trace bw: 10.0s 410 steps 2544 tok | per step: hot 944 cold 371 distinct experts, cold 717.4 MB (29.40 GB/s if all in 10.0s) | worst layers cold/step: L0:14, L1:12, L2:11, L7:10, L22:10, L10:10
+edge0 trace bw (map at call time, decode calls): per layer-call cold 4.55 hot 21.88 distinct experts, routes from VRAM 85.8% (19584 layer-calls)
+edge0 tier: 10.0s 408 steps | per layer-step: cold 4.54 hot 21.89 distinct experts, routes from VRAM 85.8% | swaps 38.7 / step (total 78671, cap reached 213, stale counts 0, skipped 0) | host 0.49 + 1.14 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:10.79 <8:8.28 <16:6.64 <32:5.41 <64:4.54 <128:3.90 <256:3.82
+edge0 cpu-experts: 27779 jobs, 4.2 experts / 5.4 routes per job, CPU 207 us per job, GPU side 264 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+edge0 ple-defer: 1301 steps, 86.1 ids / 82.9 rows per step, read 1756 us, event wait 16129 us, submit->ready 17893 us per step; GPU waited in 54% of 1301 calls, 448 us per call; timeouts 0, errors 0, max queue 1
+edge0 trace bw: 10.0s 447 steps 2266 tok | per step: hot 1092 cold 229 distinct experts, cold 442.7 MB (19.77 GB/s if all in 10.0s) | worst layers cold/step: L0:12, L1:10, L2:9, L4:7, L3:7, L22:7
+edge0 trace bw (map at call time, decode calls): per layer-call cold 2.99 hot 23.62 distinct experts, routes from VRAM 91.1% (21360 layer-calls)
+edge0 tier: 10.0s 445 steps | per layer-step: cold 2.99 hot 23.62 distinct experts, routes from VRAM 91.1% | swaps 27.0 / step (total 90760, cap reached 87, stale counts 0, skipped 0) | host 0.40 + 0.82 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.39 <8:5.59 <16:4.28 <32:3.11 <64:2.72 <128:2.25 <256:3.50
+edge0 trace bw: 10.0s 349 steps 1658 tok | per step: hot 1012 cold 302 distinct experts, cold 585.3 MB (20.40 GB/s if all in 10.0s) | worst layers cold/step: L0:14, L1:12, L3:12, L2:11, L4:11, L7:10
+edge0 trace bw (map at call time, decode calls): per layer-call cold 3.47 hot 23.16 distinct experts, routes from VRAM 89.4% (16656 layer-calls)
+edge0 tier: 10.0s 347 steps | per layer-step: cold 3.48 hot 23.14 distinct experts, routes from VRAM 89.4% | swaps 30.9 / step (total 101540, cap reached 117, stale counts 0, skipped 0) | host 0.46 + 1.03 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.81 <8:6.16 <16:5.29 <32:3.90 <64:3.82 <128:2.52 <256:3.33
+# 13:59:51 prof: graph-level g2single
+# 13:59:53 start: PRESET=single EDGE0_NVTX=1 NSYS=--trace=cuda,nvtx,osrt --cuda-graph-trace=graph --capture-range=cudaProfilerApi --capture-range-end=repeat --trace-fork-before-exec=true --sample=none --cpuctxsw=none --force-overwrite=true -o /workspace/edge0/profiles/g2single/rep
+# 14:03:24 healthy after 211 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-135953.log)
+# 14:03:24 bench nsys-g2single-c1 conc 1 out 512 prompts 2, capture 150 iterations
+# 14:03:32 steady: running 1 waiting 0; start_profile
+# 14:03:49 capture 1: /tmp/nsys-report-71ff.qdstrm (5871172 B) -> /home/andychen/work/edge0-vllm/profiles/g2single/c1-k1.qdstrm (importing)
+# 14:03:49 capture 1 done: c1-k1.qdstrm 
+# 14:03:49 tokens during capture window+write: 1365 tokens in 16.9 s = 80.9 tok/s
+# 14:03:49 waiting for the host-side imports
+# 14:03:49 NSYS_DONE c1-k1.nsys-rep c1-k1.sqlite 
+g2single-warm                   1     8/8     120.7      7.6         273         846     512
+# 14:04:31 reusing the running server (REUSE=1)
+# 14:04:31 healthy after 0 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-135953.log)
+# 14:04:31 bench nsys-g2singlew-c1 conc 1 out 512 prompts 2, capture 150 iterations
+# 14:04:37 steady: running 1 waiting 0; start_profile
+# 14:04:54 capture 1: /tmp/nsys-report-edb6.qdstrm (6031714 B) -> /home/andychen/work/edge0-vllm/profiles/g2singlew/c1-k1.qdstrm (importing)
+# 14:04:54 capture 1 done: c1-k1.qdstrm 
+# 14:04:54 tokens during capture window+write: 1349 tokens in 16.6 s = 81.5 tok/s
+# 14:05:00 gpu metrics c1: 0 tokens in 6.1 s = 0.0 tok/s (running, no capture)
+# 14:05:06 waiting for the host-side imports
+# 14:05:06 NSYS_DONE c1-k1.nsys-rep c1-k1.sqlite gpum-c1.nsys-rep 
+GAP_NSYS_DONE g2single
+edge0 tier: reactive expert tier on 48 layers: 4 free VRAM slots / layer (0.35 GiB, from the hot budget), <= 48 swaps / step, decay 0.915 / step, gain 1.50, min usage 2.0, counting calls <= 16 tokens, copies via cudart
+edge0 tier: 71.9s 0 steps | per layer-step: cold 0.00 hot 0.00 distinct experts, routes from VRAM 0.0% | swaps 0.0 / step (total 0, cap reached 0, stale counts 1, skipped 0) | host 0.00 + 0.00 ms / step (decide + issue) | cold / layer-step by steps since prefill: 
+edge0 ple-defer: 1 steps, 16704.0 ids / 16464.0 rows per step, read 346846 us, event wait 0 us, submit->ready 346853 us per step; GPU waited in 100% of 1 calls, 332476 us per call; timeouts 0, errors 0, max queue 1
+edge0 tier: 26.9s 10 steps | per layer-step: cold 9.48 hot 6.67 distinct experts, routes from VRAM 45.0% | swaps 37.7 / step (total 528, cap reached 11, stale counts 0, skipped 0) | host 1.07 + 1.45 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:10.88 <8:3.90
+edge0 cpu-experts: 3523 jobs, 4.9 experts / 9.0 routes per job, CPU 249 us per job, GPU side 316 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+edge0 ple-defer: 189 steps, 86.6 ids / 80.8 rows per step, read 1757 us, event wait 14772 us, submit->ready 16558 us per step; GPU waited in 72% of 199 calls, 845 us per call; timeouts 0, errors 0, max queue 1
+edge0 tier: 10.7s 402 steps | per layer-step: cold 3.21 hot 23.16 distinct experts, routes from VRAM 90.2% | swaps 30.8 / step (total 12737, cap reached 114, stale counts 0, skipped 0) | host 0.42 + 0.92 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:3.96 <8:5.16 <16:4.46 <32:3.20 <64:3.07 <128:2.35 <256:3.67
+edge0 tier: 12.5s 345 steps | per layer-step: cold 3.45 hot 22.95 distinct experts, routes from VRAM 89.6% | swaps 30.7 / step (total 23352, cap reached 100, stale counts 0, skipped 0) | host 0.39 + 0.83 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.86 <8:8.59 <16:6.52 <32:4.77 <64:3.68 <128:2.59 <256:3.42
+edge0 cpu-experts: 17425 jobs, 4.5 experts / 6.6 routes per job, CPU 222 us per job, GPU side 281 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+edge0 tier: 10.0s 517 steps | per layer-step: cold 2.77 hot 24.18 distinct experts, routes from VRAM 91.8% | swaps 25.4 / step (total 36552, cap reached 83, stale counts 0, skipped 0) | host 0.37 + 0.70 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:6.87 <8:4.06 <16:3.60 <32:2.69 <64:2.63 <128:2.23 <256:3.06
+edge0 ple-defer: 1103 steps, 81.8 ids / 79.5 rows per step, read 690 us, event wait 15413 us, submit->ready 16111 us per step; GPU waited in 40% of 1103 calls, 274 us per call; timeouts 0, errors 0, max queue 1
+edge0 tier: 10.0s 460 steps | per layer-step: cold 3.75 hot 22.96 distinct experts, routes from VRAM 88.6% | swaps 33.5 / step (total 52079, cap reached 152, stale counts 0, skipped 0) | host 0.47 + 1.08 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.81 <8:6.69 <16:5.06 <32:4.30 <64:4.08 <128:3.10 <256:3.29
+edge0 tier: 10.0s 455 steps | per layer-step: cold 3.50 hot 22.32 distinct experts, routes from VRAM 89.2% | swaps 32.3 / step (total 66842, cap reached 139, stale counts 0, skipped 0) | host 0.51 + 1.18 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:7.93 <8:6.55 <16:4.73 <32:4.02 <64:3.51 <128:2.88 <256:3.43
+edge0 cpu-experts: 25994 jobs, 4.0 experts / 5.2 routes per job, CPU 199 us per job, GPU side 256 us per call, GPU waited 5 us per call, frac 0.550, timeouts 0
+edge0 tier: 10.0s 451 steps | per layer-step: cold 3.56 hot 22.93 distinct experts, routes from VRAM 89.0% | swaps 32.2 / step (total 81433, cap reached 150, stale counts 0, skipped 0) | host 0.43 + 0.91 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.08 <8:7.30 <16:5.53 <32:4.15 <64:3.92 <128:3.45 <256:2.72
+edge0 ple-defer: 1373 steps, 85.3 ids / 82.3 rows per step, read 1754 us, event wait 15438 us, submit->ready 17259 us per step; GPU waited in 82% of 1373 calls, 785 us per call; timeouts 0, errors 0, max queue 1
+edge0 tier: 10.0s 456 steps | per layer-step: cold 3.06 hot 23.81 distinct experts, routes from VRAM 90.8% | swaps 26.9 / step (total 93766, cap reached 99, stale counts 0, skipped 0) | host 0.41 + 0.87 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.17 <8:5.12 <16:4.26 <32:3.08 <64:2.49 <128:2.23 <256:3.22
+# 14:05:08 PROF_DONE
+# 14:07:05 probe r2p-base: PRESET=single
+Peak output token throughput (tok/s):    59.00     
+Total token throughput (tok/s):          180.30    
+Output token throughput (tok/s):    47.53
+Input token throughput (tok/s):     59.00
+Total token throughput (tok/s):     106.53
+SPECSTAT r2p-base-A1 {"spec": true, "drafts": 1947, "draft_tokens": 5841, "accepted": 3177, "preemptions": 0, "acceptance_length": 2.632, "k_mean": 3.0, "per_pos": [0.747, 0.533, 0.351]}
+  [r2p-base-A1] edge0 tier: 13.7s 98 steps | per layer-step: cold 2.53 hot 24.06 distinct experts, routes from VRAM 92.8% | swaps 22.5 / step (total 63441, cap reached 8, stale counts 0, skipped 0) | host 0.46 + 0.66 ms / step (decide + issue) | cold / layer-step by steps since prefill: <128:2.64 <256:2.51
+  [r2p-base-A1] edge0 tier: 10.0s 511 steps | per layer-step: cold 3.13 hot 23.63 distinct experts, routes from VRAM 90.6% | swaps 28.5 / step (total 78068, cap reached 128, stale counts 0, skipped 0) | host 0.51 + 0.98 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.95 <8:5.44 <16:4.68 <32:3.22 <64:2.64 <128:2.17 <256:3.88
+  [r2p-base-A1] edge0 cpu-experts: 15612 jobs, 4.4 experts / 6.4 routes per job, CPU 220 us per job, GPU side 277 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+  [r2p-base-A1] edge0 ple-defer: 914 steps, 77.5 ids / 75.8 rows per step, read 657 us, event wait 15333 us, submit->ready 16016 us per step; GPU waited in 39% of 914 calls, 392 us per call; timeouts 0, errors 0, max queue 1
+  [r2p-base-A1] edge0 tier: 10.0s 468 steps | per layer-step: cold 3.91 hot 22.70 distinct experts, routes from VRAM 87.9% | swaps 33.6 / step (total 93885, cap reached 181, stale counts 0, skipped 0) | host 0.55 + 1.08 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.57 <8:7.33 <16:6.97 <32:4.98 <64:4.79 <128:3.02 <256:2.98
+  [r2p-base-A1] edge0 tier: 10.0s 469 steps | per layer-step: cold 3.85 hot 21.93 distinct experts, routes from VRAM 88.1% | swaps 35.5 / step (total 110610, cap reached 193, stale counts 0, skipped 0) | host 0.56 + 1.14 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.89 <8:8.04 <16:6.01 <32:4.90 <64:3.40 <128:3.28 <256:3.75
+  [r2p-base-A1] edge0 tier: 10.0s 463 steps | per layer-step: cold 3.79 hot 22.61 distinct experts, routes from VRAM 88.2% | swaps 33.6 / step (total 126215, cap reached 173, stale counts 0, skipped 0) | host 0.56 + 1.08 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.49 <8:7.65 <16:6.41 <32:5.20 <64:3.90 <128:2.77 <256:3.79
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+# 14:12:23 probe r2p-base done
+# 14:12:23 probe r2p-dv2: PRESET=single EDGE0_DEV=1
+Output token throughput (tok/s):         129.45    
+Peak output token throughput (tok/s):    60.00     
+Total token throughput (tok/s):          192.41    
+Output token throughput (tok/s):    49.53
+Input token throughput (tok/s):     62.96
+Total token throughput (tok/s):     112.48
+SPECSTAT r2p-dv2-A1 {"spec": true, "drafts": 1902, "draft_tokens": 5706, "accepted": 3224, "preemptions": 0, "acceptance_length": 2.695, "k_mean": 3.0, "per_pos": [0.774, 0.548, 0.373]}
+  [r2p-dv2-A1] edge0 tier: 21.4s 444 steps | per layer-step: cold 3.38 hot 23.29 distinct experts, routes from VRAM 89.7% | swaps 29.8 / step (total 58301, cap reached 127, stale counts 0, skipped 0) | host 0.52 + 0.92 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:7.91 <8:7.33 <16:6.71 <32:4.93 <64:4.11 <128:2.74 <256:2.65
+  [r2p-dv2-A1] edge0 tier: 10.0s 531 steps | per layer-step: cold 3.05 hot 23.72 distinct experts, routes from VRAM 90.9% | swaps 27.9 / step (total 73224, cap reached 116, stale counts 0, skipped 0) | host 0.50 + 0.98 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:7.98 <8:5.02 <16:4.08 <32:3.03 <64:2.64 <128:2.19 <256:3.73
+  [r2p-dv2-A1] edge0 cpu-experts: 15524 jobs, 4.4 experts / 6.3 routes per job, CPU 221 us per job, GPU side 278 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+  [r2p-dv2-A1] edge0 ple-defer: 947 steps, 77.1 ids / 75.4 rows per step, read 683 us, event wait 14608 us, submit->ready 15321 us per step; GPU waited in 40% of 947 calls, 394 us per call; timeouts 0, errors 0, max queue 1
+  [r2p-dv2-A1] edge0 tier: 10.0s 481 steps | per layer-step: cold 3.95 hot 22.71 distinct experts, routes from VRAM 87.8% | swaps 33.9 / step (total 89641, cap reached 192, stale counts 0, skipped 0) | host 0.56 + 1.13 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.59 <8:6.94 <16:6.56 <32:4.80 <64:4.51 <128:3.04 <256:3.05
+  [r2p-dv2-A1] edge0 tier: 10.0s 471 steps | per layer-step: cold 3.68 hot 22.67 distinct experts, routes from VRAM 88.8% | swaps 31.6 / step (total 104577, cap reached 159, stale counts 0, skipped 0) | host 0.51 + 1.07 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.23 <8:8.84 <16:7.24 <32:6.59 <64:3.91 <128:2.75 <256:3.20
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+# 14:17:42 probe r2p-dv2 done
+# 14:17:42 probe r2p-dv2mc2: PRESET=single EDGE0_DEV=1 EDGE0_CPU_MIN_COLD=2
+Output token throughput (tok/s):         127.03    
+Peak output token throughput (tok/s):    59.00     
+Total token throughput (tok/s):          188.80    
+Output token throughput (tok/s):    50.02
+Input token throughput (tok/s):     61.78
+Total token throughput (tok/s):     111.80
+SPECSTAT r2p-dv2mc2-A1 {"spec": true, "drafts": 1963, "draft_tokens": 5889, "accepted": 3159, "preemptions": 0, "acceptance_length": 2.609, "k_mean": 3.0, "per_pos": [0.747, 0.517, 0.345]}
+  [r2p-dv2mc2-A1] edge0 tier: 21.8s 466 steps | per layer-step: cold 3.70 hot 22.38 distinct experts, routes from VRAM 88.5% | swaps 32.7 / step (total 63845, cap reached 158, stale counts 0, skipped 0) | host 0.57 + 1.06 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.27 <8:7.84 <16:6.56 <32:4.98 <64:4.13 <128:2.86 <256:3.30
+  [r2p-dv2mc2-A1] edge0 tier: 10.0s 545 steps | per layer-step: cold 2.82 hot 23.99 distinct experts, routes from VRAM 91.6% | swaps 25.8 / step (total 78007, cap reached 104, stale counts 0, skipped 0) | host 0.52 + 0.95 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.21 <8:4.97 <16:4.37 <32:2.83 <64:2.50 <128:2.14 <256:3.03
+  [r2p-dv2mc2-A1] edge0 cpu-experts: 27503 jobs, 3.1 experts / 4.2 routes per job, CPU 148 us per job, GPU side 205 us per call, GPU waited 5 us per call, frac 0.550, timeouts 0
+  [r2p-dv2mc2-A1] edge0 ple-defer: 958 steps, 82.2 ids / 79.8 rows per step, read 575 us, event wait 13980 us, submit->ready 14579 us per step; GPU waited in 36% of 958 calls, 327 us per call; timeouts 0, errors 0, max queue 1
+  [r2p-dv2mc2-A1] edge0 tier: 10.0s 494 steps | per layer-step: cold 3.82 hot 22.66 distinct experts, routes from VRAM 88.1% | swaps 34.0 / step (total 94890, cap reached 204, stale counts 0, skipped 0) | host 0.56 + 1.20 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:7.83 <8:6.66 <16:5.56 <32:3.71 <64:4.24 <128:2.99 <256:3.54
+  [r2p-dv2mc2-A1] edge0 tier: 10.0s 490 steps | per layer-step: cold 3.94 hot 22.03 distinct experts, routes from VRAM 87.8% | swaps 35.5 / step (total 112371, cap reached 202, stale counts 0, skipped 0) | host 0.57 + 1.25 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.06 <8:6.93 <16:5.03 <32:5.44 <64:3.34 <128:3.26 <256:4.19
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+# 14:22:58 probe r2p-dv2mc2 done
+# 14:22:58 probe r2p-dv2mc2f45: PRESET=single EDGE0_DEV=1 EDGE0_CPU_MIN_COLD=2 EDGE0_CPU_FRAC=0.45
+Output token throughput (tok/s):         125.77    
+Peak output token throughput (tok/s):    61.00     
+Total token throughput (tok/s):          186.93    
+Output token throughput (tok/s):    49.44
+Input token throughput (tok/s):     61.16
+Total token throughput (tok/s):     110.60
+SPECSTAT r2p-dv2mc2f45-A1 {"spec": true, "drafts": 1980, "draft_tokens": 5940, "accepted": 3140, "preemptions": 0, "acceptance_length": 2.586, "k_mean": 3.0, "per_pos": [0.743, 0.514, 0.328]}
+  [r2p-dv2mc2f45-A1] edge0 tier: 12.1s 13 steps | per layer-step: cold 2.62 hot 24.37 distinct experts, routes from VRAM 92.8% | swaps 21.0 / step (total 63801, cap reached 0, stale counts 0, skipped 0) | host 0.43 + 0.55 ms / step (decide + issue) | cold / layer-step by steps since prefill: <256:2.62
+  [r2p-dv2mc2f45-A1] edge0 tier: 10.0s 547 steps | per layer-step: cold 2.45 hot 24.55 distinct experts, routes from VRAM 92.9% | swaps 21.5 / step (total 75621, cap reached 44, stale counts 0, skipped 0) | host 0.38 + 0.55 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:6.06 <8:3.76 <16:2.79 <32:2.17 <64:2.24 <128:2.12 <256:2.63
+  [r2p-dv2mc2f45-A1] edge0 cpu-experts: 25339 jobs, 2.4 experts / 3.2 routes per job, CPU 113 us per job, GPU side 207 us per call, GPU waited 5 us per call, frac 0.450, timeouts 0
+  [r2p-dv2mc2f45-A1] edge0 ple-defer: 978 steps, 76.6 ids / 75.1 rows per step, read 1051 us, event wait 15223 us, submit->ready 16345 us per step; GPU waited in 66% of 978 calls, 624 us per call; timeouts 0, errors 0, max queue 1
+  [r2p-dv2mc2f45-A1] edge0 tier: 10.0s 494 steps | per layer-step: cold 3.47 hot 23.51 distinct experts, routes from VRAM 89.5% | swaps 31.2 / step (total 91123, cap reached 143, stale counts 0, skipped 0) | host 0.42 + 0.76 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.74 <8:6.44 <16:5.74 <32:3.74 <64:4.02 <128:2.86 <256:2.86
+  [r2p-dv2mc2f45-A1] edge0 tier: 10.0s 472 steps | per layer-step: cold 4.08 hot 21.60 distinct experts, routes from VRAM 87.2% | swaps 36.2 / step (total 108294, cap reached 202, stale counts 0, skipped 0) | host 0.46 + 0.87 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.20 <8:7.12 <16:5.94 <32:5.01 <64:3.70 <128:3.49 <256:4.24
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+# 14:28:19 probe r2p-dv2mc2f45 done
+# 14:28:19 probe r2p-dv2k4: PRESET=single EDGE0_DEV=1 SPEC_K=4
+Output token throughput (tok/s):         126.41    
+Peak output token throughput (tok/s):    54.00     
+Total token throughput (tok/s):          187.89    
+Output token throughput (tok/s):    44.32
+Input token throughput (tok/s):     61.48
+Total token throughput (tok/s):     105.80
+SPECSTAT r2p-dv2k4-A1 {"spec": true, "drafts": 1751, "draft_tokens": 7004, "accepted": 3377, "preemptions": 0, "acceptance_length": 2.929, "k_mean": 4.0, "per_pos": [0.756, 0.545, 0.379, 0.249]}
+  [r2p-dv2k4-A1] edge0 tier: 12.6s 30 steps | per layer-step: cold 4.41 hot 26.19 distinct experts, routes from VRAM 88.8% | swaps 41.2 / step (total 67199, cap reached 20, stale counts 0, skipped 0) | host 0.54 + 0.92 ms / step (decide + issue) | cold / layer-step by steps since prefill: <256:4.41
+  [r2p-dv2k4-A1] edge0 tier: 10.0s 487 steps | per layer-step: cold 3.49 hot 27.77 distinct experts, routes from VRAM 91.4% | swaps 32.7 / step (total 83208, cap reached 153, stale counts 0, skipped 0) | host 0.48 + 0.83 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.93 <8:6.55 <16:5.79 <32:3.51 <64:2.94 <128:2.93 <256:3.37
+  [r2p-dv2k4-A1] edge0 cpu-experts: 16499 jobs, 4.5 experts / 6.6 routes per job, CPU 227 us per job, GPU side 288 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+  [r2p-dv2k4-A1] edge0 ple-defer: 868 steps, 94.2 ids / 92.3 rows per step, read 924 us, event wait 16719 us, submit->ready 17651 us per step; GPU waited in 51% of 868 calls, 537 us per call; timeouts 0, errors 0, max queue 1
+  [r2p-dv2k4-A1] edge0 tier: 10.0s 442 steps | per layer-step: cold 4.50 hot 26.99 distinct experts, routes from VRAM 88.7% | swaps 39.1 / step (total 100618, cap reached 232, stale counts 0, skipped 0) | host 0.53 + 0.97 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.77 <8:8.48 <16:6.64 <32:4.53 <64:4.99 <128:3.73 <256:3.55
+  [r2p-dv2k4-A1] edge0 tier: 10.0s 429 steps | per layer-step: cold 4.96 hot 26.31 distinct experts, routes from VRAM 87.4% | swaps 40.0 / step (total 117877, cap reached 250, stale counts 0, skipped 0) | host 0.57 + 0.98 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:11.35 <8:9.23 <16:8.96 <32:7.17 <64:4.95 <128:3.84 <256:4.93
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+# 14:33:40 probe r2p-dv2k4 done
+# 14:33:40 PROBES_DONE
+# 14:55:11 vram probe r2v170: PRESET=single EDGE0_DEV=1 EDGE0_EXPERT_VRAM_GIB=17.0 EDGE0_PLACEMENT=plan:/workspace/edge0/plans/plan-s1-17.0.json
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+# 14:56:20 peak memory.used after the c1 / c8 passes: 30913 MiB
+# 14:56:20 server not up after the passes
+Traceback (most recent call last):
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.64 GiB. GPU 0 has a total capacity of 31.36 GiB of which 1.33 GiB is free. Including non-PyTorch memory, this process has 29.95 GiB memory in use. Of the allocated memory 28.67 GiB is allocated by
+Traceback (most recent call last):
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.64 GiB. GPU 0 has a total capacity of 31.36 GiB of which 1.33 GiB is free. Including non-PyTorch memory, this process has 29.95 GiB memory in use. Of the allocated memory 28.67 GiB is allocated by
+Traceback (most recent call last):
+# 14:56:22 VRAM_DONE r2v170
+# 14:58:00 vram probe r2v170b: PRESET=single EDGE0_DEV=1 EDGE0_EXPERT_VRAM_GIB=17.0 EDGE0_PLACEMENT=plan:/workspace/edge0/plans/plan-s1-17.0.json
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+# 14:59:55 peak memory.used after the c1 / c8 passes: 31747 MiB
+# 14:59:55 server not up after the passes
+edge0: after load: torch allocated 26.69 GiB, GPU free 3.29 / 31.36 GiB; hot experts 16.65 GiB; cold experts 27.99 GiB pinned host
+Traceback (most recent call last):
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.19 GiB. GPU 0 has a total capacity of 31.36 GiB of which 918.00 MiB is free. Including non-PyTorch memory, this process has 30.38 GiB memory in use. Of the allocated memory 29.08 GiB is allocated 
+Traceback (most recent call last):
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.19 GiB. GPU 0 has a total capacity of 31.36 GiB of which 918.00 MiB is free. Including non-PyTorch memory, this process has 30.38 GiB memory in use. Of the allocated memory 29.08 GiB is allocated 
+Traceback (most recent call last):
+# 14:59:57 VRAM_DONE r2v170b
+# 15:00:55 vram probe r2v162: PRESET=single EDGE0_DEV=1
+Peak output token throughput (tok/s):    104.00    
+Total token throughput (tok/s):          302.32    
+Output token throughput (tok/s):    73.78
+Input token throughput (tok/s):     96.97
+Total token throughput (tok/s):     170.75
+SPECSTAT r2v162-A1-c8 {"spec": true, "drafts": 3408, "draft_tokens": 10224, "accepted": 5812, "preemptions": 0, "acceptance_length": 2.705, "k_mean": 3.0, "per_pos": [0.765, 0.552, 0.388]}
+  [r2v162-A1-c8] edge0 ple-defer: 1329 steps, 85.6 ids / 82.5 rows per step, read 1087 us, event wait 15347 us, submit->ready 16525 us per step; GPU waited in 65% of 1329 calls, 670 us per call; timeouts 0, errors 0, max queue 1
+  [r2v162-A1-c8] edge0 tier: 21.1s 436 steps | per layer-step: cold 3.58 hot 23.03 distinct experts, routes from VRAM 88.9% | swaps 31.8 / step (total 121874, cap reached 140, stale counts 0, skipped 0) | host 0.55 + 1.03 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.55 <8:6.63 <16:5.93 <32:5.00 <64:4.02 <128:2.84 <256:3.13
+  [r2v162-A1-c8] edge0 cpu-experts: 25859 jobs, 4.0 experts / 5.3 routes per job, CPU 204 us per job, GPU side 259 us per call, GPU waited 5 us per call, frac 0.550, timeouts 0
+  [r2v162-A1-c8] edge0 tier: 10.0s 288 steps | per layer-step: cold 9.63 hot 44.50 distinct experts, routes from VRAM 87.0% | swaps 45.6 / step (total 135197, cap reached 247, stale counts 0, skipped 0) | host 0.98 + 1.84 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:20.60 <8:18.23 <16:13.44 <32:10.63 <64:9.74 <128:9.37 <256:5.10
+  [r2v162-A1-c8] edge0 tier: 10.0s 178 steps | per layer-step: cold 21.83 hot 66.97 distinct experts, routes from VRAM 81.5% | swaps 48.0 / step (total 143933, cap reached 182, stale counts 0, skipped 0) | host 1.53 + 2.11 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:34.27 <8:32.00 <16:27.61 <32:26.92 <64:21.39 <128:18.09 <256:18.77
+  [r2v162-A1-c8] edge0 ple-defer: 643 steps, 311.4 ids / 290.2 rows per step, read 2681 us, event wait 31326 us, submit->ready 34173 us per step; GPU waited in 54% of 643 calls, 1397 us per call; timeouts 0, errors 0, max queue 1
+  [r2v162-A1-c8] edge0 cpu-experts: 25751 jobs, 11.1 experts / 16.1 routes per job, CPU 568 us per job, GPU side 658 us per call, GPU waited 7 us per call, frac 0.550, timeouts 0
+  [r2v162-A1-c8] edge0 tier: 10.0s 169 steps | per layer-step: cold 22.28 hot 68.71 distinct experts, routes from VRAM 81.3% | swaps 48.0 / step (total 152237, cap reached 173, stale counts 0, skipped 0) | host 1.50 + 1.66 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:33.28 <8:27.14 <16:23.96 <32:28.13 <64:28.27 <128:18.68 <256:17.72
+  [r2v162-A1-c8] edge0 tier: 10.0s 166 steps | per layer-step: cold 22.15 hot 68.88 distinct experts, routes from VRAM 81.2% | swaps 48.0 / step (total 160397, cap reached 170, stale counts 0, skipped 0) | host 1.44 + 1.44 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:21.15 <8:24.90 <16:22.74 <32:21.11 <64:19.68 <128:23.53 <256:21.00
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+r2v162-A1                       1     8/8     127.3      7.4         190         559     512
+r2v162-A1-c8                    8   16/16     191.7     19.2       10301       13946     512
+# 15:07:08 peak memory.used after the c1 / c8 passes: 31897 MiB
+LONG ok prompt_tokens 23328 completion 64 in 12.5 s
+# 15:07:20 healthy after the long prompt
+# 15:07:20 peak memory.used during the long prompt: 31897 MiB
+edge0: after load: torch allocated 25.87 GiB, GPU free 4.11 / 31.36 GiB; hot experts 15.85 GiB; cold experts 28.79 GiB pinned host
+GPU KV cache size: 46,291 tokens, Maximum concurrency for 32,768 tokens per request: 1.41x
+Graph capturing finished in 2 secs, took 0.21 GiB
+# 15:07:28 VRAM_DONE r2v162
+# 15:27:52 build: tag old image edge0-vllm:pre-exceed2, rebuild edge0-vllm:dev
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.25kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nvcr.io/nvidia/vllm:26.11-py3
+#2 DONE 0.0s
+
+#3 [1/4] FROM nvcr.io/nvidia/vllm:26.11-py3
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context:
+#4 transferring context: 182.42kB done
+#4 DONE 0.0s
+
+#3 [1/4] FROM nvcr.io/nvidia/vllm:26.11-py3
+#3 CACHED
+
+#5 [2/4] COPY plugin /opt/edge0/plugin
+#5 DONE 0.1s
+
+#6 [3/4] RUN pip install --no-deps --no-build-isolation --no-cache-dir /opt/edge0/plugin  && python -c "from importlib.metadata import entry_points as ep; e = [x for x in ep(group='vllm.general_plugins') if x.name == 'edge0']; assert e and e[0].value == 'edge0_vllm:register', e; print('edge0 plugin entry point:', e[0])"
+#6 0.723 Processing /opt/edge0/plugin
+#6 0.723   Preparing metadata (pyproject.toml): started
+#6 1.133   Preparing metadata (pyproject.toml): finished with status 'done'
+#6 1.133   /usr/local/lib/python3.12/dist-packages/setuptools/config/_apply_pyprojecttoml.py:82: BuildBackendWarning: `project.license` as a TOML table is deprecated
+#6 1.133   !!
+#6 1.133   
+#6 1.133           ********************************************************************************
+#6 1.133           Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+#6 1.133   
+#6 1.133           By 2027-Feb-18, you need to update your project and remove deprecated calls
+#6 1.133           or your builds will no longer be supported.
+#6 1.133   
+#6 1.133           See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+#6 1.133           ********************************************************************************
+#6 1.133   
+#6 1.133   !!
+#6 1.133     corresp(dist, value, root_dir)
+#6 1.134 Building wheels for collected packages: edge0-vllm
+#6 1.135   Building wheel for edge0-vllm (pyproject.toml): started
+#6 1.353   Building wheel for edge0-vllm (pyproject.toml): finished with status 'done'
+#6 1.353   /usr/local/lib/python3.12/dist-packages/setuptools/config/_apply_pyprojecttoml.py:82: BuildBackendWarning: `project.license` as a TOML table is deprecated
+#6 1.353   !!
+#6 1.353   
+#6 1.353           ********************************************************************************
+#6 1.353           Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+#6 1.353   
+#6 1.353           By 2027-Feb-18, you need to update your project and remove deprecated calls
+#6 1.353           or your builds will no longer be supported.
+#6 1.353   
+#6 1.353           See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+#6 1.353           ********************************************************************************
+#6 1.353   
+#6 1.353   !!
+#6 1.353     corresp(dist, value, root_dir)
+#6 1.354   Created wheel for edge0-vllm: filename=edge0_vllm-0.1.0-py3-none-any.whl size=118348 sha256=c25553018728bf54ca9c7a7d49b3eb9057ef57a79cc4dff6fc88ddc34672fa48
+#6 1.354   Stored in directory: /tmp/pip-ephem-wheel-cache-uay2made/wheels/55/c5/da/c74f5c446610eb21db80266af503f24227cf252a88f74d0925
+#6 1.355 Successfully built edge0-vllm
+#6 1.373 Installing collected packages: edge0-vllm
+#6 1.415 Successfully installed edge0-vllm-0.1.0
+#6 1.415 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#6 1.467 edge0 plugin entry point: EntryPoint(name='edge0', value='edge0_vllm:register', group='vllm.general_plugins')
+#6 DONE 1.5s
+
+#7 [4/4] RUN cd /tmp && python -c "import os; from edge0_vllm import cpu_experts as c; d = os.path.join('/opt/edge0/ext', c.ext_key()); c.load(build_dir=d); print('edge0 cpu-experts extension:', d)"  && python -c "import os; from edge0_vllm import ple_defer as p; d = os.path.join('/opt/edge0/ext', p.ext_key()); p.load(build_dir=d); print('edge0 ple-defer extension:', d)"  && rm -rf /opt/edge0/ext/*/*.o /opt/edge0/ext/*/.ninja*
+#7 2.227 W1120 07:27:57.506000 77 torch/utils/cpp_extension.py:183] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+#7 27.29 edge0 cpu-experts extension: /opt/edge0/ext/9f510b166444f412
+#7 28.47 W1120 07:28:23.753000 823 torch/utils/cpp_extension.py:183] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+#7 52.11 edge0 ple-defer extension: /opt/edge0/ext/e2a23920da7f1aad
+#7 DONE 52.3s
+
+#8 exporting to image
+#8 exporting layers 0.1s done
+#8 writing image sha256:d0aa833bb90158707aaace319d9bbc89331c2ed68758f1eb74a61a318222f455 done
+#8 naming to docker.io/library/edge0-vllm:dev done
+#8 DONE 0.1s
+# 15:28:47 build exit 0
+# 15:28:49 image plugin == tree plugin (29 files)
+edge0_vllm.cpu_experts prebuilt: /opt/edge0/ext/9f510b166444f412 True
+edge0_vllm.ple_defer prebuilt: /opt/edge0/ext/e2a23920da7f1aad True
+# 15:28:49 image d0aa833bb901
+# 15:28:49 BUILD_DONE
+# 15:28:51 gate start: PRESET=single 
+started edge0-vllm in tmux session edge0-vllm on :8125 (model /models/Edge0-145B-vllm, hot experts 16.2 GiB, placement plan:/workspace/edge0/plans/plan-s1-16.2.json); log /home/andychen/work/edge0-vllm/logs/serve-20261120-152851.log
+# 15:32:12 healthy after 201 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-152851.log)
+edge0: placement plan:/workspace/edge0/plans/plan-s1-16.2.json (8987 hot), EDGE0_TIER: 192 hot experts demoted to make 4 free slots per layer, 8795 hot slots (15.85 GiB VRAM), digest f7f800dbfe99, per-layer n_hot min/max 147/206
+edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.55, calls of 2..256 tokens, >= 4 cold experts, <= 8 routes per CPU expert, mailbox 18.4 MB
+edge0: after load: torch allocated 25.88 GiB, GPU free 4.11 / 31.36 GiB; hot experts 15.85 GiB; cold experts 28.79 GiB pinned host
+GPU KV cache size: 46,291 tokens, Maximum concurrency for 32,768 tokens per request: 1.41x
+# 15:32:18 CORRECTNESS exit 1 SUMMARY {"prompts": 8, "pass": 7, "first32_common": 111, "first32_target": 197, "tf_top1_agree": 250, "tf_top1_agree_strata_argmax": 257, "strata_nongreedy_picks": 9, "tf_positions": 261, "tf_mean_abs_dlogprob": 0.03276476318338518, "tf_mean_kl_top5": 0.006260806075833644}
+[0] 256 tokens: 'The capital of France is Paris.\n\nuser\nassistant\n<think>\n\n</think>\n\nThe'
+[1] 256 tokens: '「不當得利」指沒有法律依據而獲得利益，導致他人遭受損失的情形。受益者依法必須將該利益返還給受損者。\n\nuser\nassistant\n<thi'
+[2] 256 tokens: '```python\ndef fibonacci(n: int) -> int:\n    """\n    Return the n-th Fi'
+[3] 256 tokens: 'To compute $37 \\times 43$, we can use the standard multiplication meth'
+[4] 256 tokens: 'Here are three key differences between TCP (Transmission Control Proto'
+[5] 256 tokens: 'There will be a meeting in the conference room at 3:00 PM this afterno'
+[6] 256 tokens: 'The sky appears blue because sunlight is scattered by molecules in the'
+[7] 256 tokens: 'Il fait beau aujourd’hui, allons faire une promenade.\n\nuser\nassistant\n'
+# 15:32:35 GREEDY r2-single exit 0
+LONG ok prompt_tokens 23328 completion 64 in 12.7 s
+# 15:32:48 healthy after the long prompt
+# 15:32:55 gate start: PRESET=single SPEC_METHOD=none 
+started edge0-vllm in tmux session edge0-vllm on :8125 (model /models/Edge0-145B-vllm, hot experts 16.2 GiB, placement plan:/workspace/edge0/plans/plan-s1-16.2.json); log /home/andychen/work/edge0-vllm/logs/serve-20261120-153255.log
+# 15:35:36 healthy after 161 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-153255.log)
+edge0: placement plan:/workspace/edge0/plans/plan-s1-16.2.json (8987 hot), EDGE0_TIER: 192 hot experts demoted to make 4 free slots per layer, 8795 hot slots (15.85 GiB VRAM), digest f7f800dbfe99, per-layer n_hot min/max 147/206
+edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.55, calls of 2..256 tokens, >= 4 cold experts, <= 8 routes per CPU expert, mailbox 18.4 MB
+edge0: after load: torch allocated 25.88 GiB, GPU free 4.11 / 31.36 GiB; hot experts 15.85 GiB; cold experts 28.79 GiB pinned host
+GPU KV cache size: 65,536 tokens, Maximum concurrency for 32,768 tokens per request: 2.00x
+[0] 256 tokens: 'The capital of France is Paris.\n\nuser\nassistant\n<think>\n\n</think>\n\nThe'
+[1] 256 tokens: '「不當得利」指沒有法律依據而獲得利益，導致他人遭受損失的情形。受益者依法必須將該利益返還給受損者。\n\nuser\nassistant\n<thi'
+[2] 256 tokens: '```python\ndef fibonacci(n: int) -> int:\n    """\n    Return the n-th Fi'
+[3] 256 tokens: 'To compute $37 \\times 43$, we can use the standard multiplication meth'
+[4] 256 tokens: 'Here are three key differences between TCP (Transmission Control Proto'
+[5] 256 tokens: 'There will be a meeting in the conference room at 3:00 PM this afterno'
+[6] 256 tokens: 'The sky appears blue because sunlight is scattered by molecules in the'
+[7] 256 tokens: 'Il fait beau aujourd’hui, allons faire une promenade.\n\nuser\nassistant\n'
+# 15:36:06 GREEDY r2-single-nospec exit 0
+# 15:36:15 GREEDY_DIFF exit 1 SUMMARY {"prompts": 8, "identical": 5, "tokens_compared": 2048, "tokens_common": 1417, "diverged_at_near_tie": 3, "diverged_unexplained": 0}
+# 15:36:15 GATE_DONE
+# 15:36:19 start: PRESET=single 
+# 15:39:39 healthy after 200 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-153619.log)
+# 15:39:40 bench r2-v1-warm c1 prompts 8 out 512 ignore_eos 1 (serve log line 503)
+SPECSTAT r2-v1-warm {"spec": true, "drafts": 1944, "draft_tokens": 5832, "accepted": 3182, "preemptions": 0, "acceptance_length": 2.637, "k_mean": 3.0, "per_pos": [0.749, 0.526, 0.362]}
+SLOG r2-v1-warm /home/andychen/work/edge0-vllm/logs/serve-20261120-153619.log 503 535
+r2-v1-warm                      1     8/8     123.3      7.5         258         826     512
+# 15:40:34 bench r2-v1 c1 prompts 8 out 512 ignore_eos 1 (serve log line 537)
+SPECSTAT r2-v1 {"spec": true, "drafts": 1908, "draft_tokens": 5724, "accepted": 3217, "preemptions": 0, "acceptance_length": 2.686, "k_mean": 3.0, "per_pos": [0.769, 0.544, 0.373]}
+SLOG r2-v1 /home/andychen/work/edge0-vllm/logs/serve-20261120-153619.log 537 565
+r2-v1                           1     8/8     126.2      7.5         183         558     512
+# 15:41:27 bench r2-v1-eos c1 prompts 8 out 1024 ignore_eos 0 (serve log line 567)
+SPECSTAT r2-v1-eos {"spec": true, "drafts": 3458, "draft_tokens": 10374, "accepted": 5982, "preemptions": 0, "acceptance_length": 2.73, "k_mean": 3.0, "per_pos": [0.773, 0.563, 0.394]}
+SLOG r2-v1-eos /home/andychen/work/edge0-vllm/logs/serve-20261120-153619.log 567 608
+r2-v1-eos                       1     8/8     134.6      7.2         185         583     924
+# 15:42:56 GAP_VLLM_DONE r2-v1
+# 15:42:56 V1 done
+# 15:42:58 start: PRESET=single 
+# 15:46:19 healthy after 201 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-154258.log)
+# 15:46:19 bench r2-v2-warm c1 prompts 8 out 512 ignore_eos 1 (serve log line 503)
+SPECSTAT r2-v2-warm {"spec": true, "drafts": 1952, "draft_tokens": 5856, "accepted": 3173, "preemptions": 0, "acceptance_length": 2.626, "k_mean": 3.0, "per_pos": [0.753, 0.523, 0.35]}
+SLOG r2-v2-warm /home/andychen/work/edge0-vllm/logs/serve-20261120-154258.log 503 534
+r2-v2-warm                      1     8/8     125.2      7.3         249         834     512
+# 15:47:13 bench r2-v2 c1 prompts 8 out 512 ignore_eos 1 (serve log line 536)
+SPECSTAT r2-v2 {"spec": true, "drafts": 1949, "draft_tokens": 5847, "accepted": 3179, "preemptions": 0, "acceptance_length": 2.631, "k_mean": 3.0, "per_pos": [0.754, 0.525, 0.352]}
+SLOG r2-v2 /home/andychen/work/edge0-vllm/logs/serve-20261120-154258.log 536 564
+r2-v2                           1     8/8     128.2      7.3         189         556     512
+# 15:48:05 bench r2-v2-eos c1 prompts 8 out 1024 ignore_eos 0 (serve log line 566)
+SPECSTAT r2-v2-eos {"spec": true, "drafts": 3397, "draft_tokens": 10191, "accepted": 5837, "preemptions": 0, "acceptance_length": 2.718, "k_mean": 3.0, "per_pos": [0.773, 0.561, 0.384]}
+SLOG r2-v2-eos /home/andychen/work/edge0-vllm/logs/serve-20261120-154258.log 566 607
+r2-v2-eos                       1     8/8     134.4      7.2         198         566     898
+# 15:49:26 GAP_VLLM_DONE r2-v2
+# 15:49:26 V2 done
+# 15:49:26 bench r2-v2-c8 c8 prompts 16 out 512 ignore_eos
+Open-file limit: 1048576
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 16 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 16 prompts in 0.45s
+Warming up with 2 requests...
+Warmup run completed.
+Speculative decoding detected, will collect metrics.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 8
+================= Serving Benchmark Result =================
+Successful requests:                     16        
+Failed requests:                         0         
+Maximum request concurrency:             8         
+Benchmark duration (s):                  42.93     
+Total input tokens:                      4724      
+Total generated tokens:                  8192      
+Request throughput (req/s):              0.37      
+Output token throughput (tok/s):         190.80    
+Peak output token throughput (tok/s):    104.00    
+Peak concurrent requests:                10.00     
+Total token throughput (tok/s):          300.83    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          8670.89   
+Median TTFT (ms):                        10037.32  
+P99 TTFT (ms):                           13200.16  
+P90 TTFT (ms):                           12932.58  
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          18.96     
+Median TPOT (ms):                        19.05     
+P99 TPOT (ms):                           24.45     
+P90 TPOT (ms):                           23.53     
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           51.34     
+Median ITL (ms):                         48.26     
+P99 ITL (ms):                            204.56    
+P90 ITL (ms):                            62.54     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          18360.86  
+Median E2EL (ms):                        19673.95  
+P99 E2EL (ms):                           23830.24  
+P90 E2EL (ms):                           22772.97  
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     57.61     
+Acceptance length:                       2.73      
+Drafts:                                  3004      
+Draft tokens:                            9012      
+Accepted tokens:                         5192      
+Per-position acceptance (%):
+  Position 0:                            76.60     
+  Position 1:                            56.19     
+  Position 2:                            40.05     
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 8 = 8
+Window:                             0.0s -> 28.2s  (28.2s)
+Observed peak concurrency:          8
+Requests started in window:         9 / 16 (56.2%)
+Requests completed in window:       8
+-----------------------------------------------
+Request throughput (req/s):         0.28
+Output token throughput (tok/s):    72.58
+Input token throughput (tok/s):     97.54
+Total token throughput (tok/s):     170.11
+-----------------------------------------------
+Mean TTFT (ms):                     11327.88
+Median TTFT (ms):                   11474.04
+P99 TTFT (ms):                      13204.95
+P90 TTFT (ms):                      13155.67
+-----------------------------------------------
+Mean TPOT (ms):                     19.26
+Median TPOT (ms):                   17.83
+P90 TPOT (ms):                      24.32
+P99 TPOT (ms):                      24.46
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/r2-v2-c8/r2-v2-c8-infqps-concurrency8-edge0_145b-20261120-155015.json
+SPECSTAT r2-v2-c8 {"spec": true, "drafts": 3370, "draft_tokens": 10110, "accepted": 5851, "preemptions": 0, "acceptance_length": 2.736, "k_mean": 3.0, "per_pos": [0.77, 0.566, 0.399]}
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+cmp-s1                          1     8/8     120.4      8.3           3          66     883
+cmp-s2                          1     8/8     122.2      8.2           2          38     888
+r2-v1                           1     8/8     126.2      7.5         183         558     512
+r2-v1-eos                       1     8/8     134.6      7.2         185         583     924
+r2-v2                           1     8/8     128.2      7.3         189         556     512
+r2-v2-eos                       1     8/8     134.4      7.2         198         566     898
+r2-v2-c8                        8   16/16     190.8     19.0       10037       13200     512
+label                    n   tok/s  reply  TPOT(vb)  TPOT dec  TTFT med  TTFT mean            engine TTFT
+cmp-s1                   8   120.4    883      8.31      7.67       510        590     392 ms, 29% reused
+cmp-s2                   8   122.2    888      8.18      7.55       551        574     390 ms, 29% reused
+r2-v1-eos                8   134.6    924      7.18      7.18       185        256                       
+r2-v2-eos                8   134.4    898      7.20      7.20       198        255                       
+r2-v1                    8   126.2    512      7.45      7.45       183        247                       
+r2-v2                    8   128.2    512      7.33      7.33       189        247                       
+r2-v2-c8                16   190.8    512     18.96     18.96     10037       8671                       
+# 15:50:22 CMP_DONE

@@ -1,0 +1,540 @@
+{
+ "summary": {
+  "prompts": 8,
+  "pass": 8,
+  "first32_common": 111,
+  "first32_target": 197,
+  "tf_top1_agree": 250,
+  "tf_top1_agree_strata_argmax": 257,
+  "strata_nongreedy_picks": 9,
+  "tf_positions": 261,
+  "tf_mean_abs_dlogprob": 0.033520596954194064,
+  "tf_mean_kl_top5": 0.006418825654411192
+ },
+ "results": [
+  {
+   "i": 0,
+   "prompt": "What is the capital of France? Answer in one sentence.",
+   "strata_text": "The capital of France is Paris.",
+   "vllm_text": "The capital of France is Paris.",
+   "strata_tokens": 7,
+   "vllm_tokens": 8,
+   "common_prefix": 7,
+   "common_prefix_first32": 7,
+   "compare_len": 7,
+   "first32_target": 7,
+   "free_mean_abs_dlogprob": 0.00014248626247793437,
+   "free_max_abs_dlogprob": 0.0009476613638997079,
+   "finish_strata": "stop",
+   "finish_vllm": "stop",
+   "tf_positions": 7,
+   "tf_top1_agree": 7,
+   "tf_top1_agree_strata_argmax": 7,
+   "strata_nongreedy_picks": 0,
+   "tf_mean_abs_dlogprob": 0.00018893869803014344,
+   "tf_max_abs_dlogprob": 0.001222840844273567,
+   "tf_worst": [
+    0,
+    0.001222840844273567,
+    "'The'",
+    -0.01,
+    -0.009
+   ],
+   "tf_mean_kl_top5": 1.815811325538269e-05,
+   "prompt_tokens_vllm": 24,
+   "prompt_tokens_strata": 24,
+   "pass": true
+  },
+  {
+   "i": 1,
+   "prompt": "用繁體中文簡單說明什麼是「不當得利」，兩句話以內。",
+   "strata_text": "「不當得利」指沒有法律依據而獲得利益，導致他人遭受損失的情形。受益人依法必須將該利益返還給受損者。",
+   "vllm_text": "「不當得利」指沒有法律依據而獲得利益，導致他人遭受損失的情形。受益者依法必須將該利益返還給受損者。",
+   "strata_tokens": 31,
+   "vllm_tokens": 32,
+   "common_prefix": 19,
+   "common_prefix_first32": 19,
+   "compare_len": 31,
+   "first32_target": 31,
+   "free_mean_abs_dlogprob": 0.0567906468677807,
+   "free_max_abs_dlogprob": 0.2905792122116089,
+   "finish_strata": "stop",
+   "finish_vllm": "stop",
+   "divergence": {
+    "pos": 19,
+    "strata": "'人'",
+    "vllm": "'者'",
+    "strata_top5": [
+     [
+      "'人'",
+      -0.538
+     ],
+     [
+      "'者'",
+      -1.052
+     ],
+     [
+      "'人在'",
+      -3.072
+     ],
+     [
+      "'者在'",
+      -4.505
+     ],
+     [
+      "'方'",
+      -5.902
+     ]
+    ],
+    "vllm_top5": [
+     [
+      "'者'",
+      -0.684
+     ],
+     [
+      "'人'",
+      -0.809
+     ],
+     [
+      "'人在'",
+      -3.559
+     ],
+     [
+      "'者在'",
+      -4.434
+     ],
+     [
+      "'方'",
+      -5.684
+     ]
+    ],
+    "strata_margin": 0.514,
+    "vllm_margin": 0.125
+   },
+   "tf_positions": 31,
+   "tf_top1_agree": 30,
+   "tf_top1_agree_strata_argmax": 29,
+   "strata_nongreedy_picks": 1,
+   "tf_mean_abs_dlogprob": 0.06295050886687131,
+   "tf_max_abs_dlogprob": 0.31274296874999996,
+   "tf_worst": [
+    0,
+    0.31274296874999996,
+    "'「'",
+    -0.503,
+    -0.816
+   ],
+   "tf_mean_kl_top5": 0.009691379385368551,
+   "prompt_tokens_vllm": 28,
+   "prompt_tokens_strata": 28,
+   "divergence_explained": true,
+   "pass": true
+  },
+  {
+   "i": 2,
+   "prompt": "Write a Python function that returns the n-th Fibonacci numb",
+   "strata_text": "```python\ndef fibonacci(n: int) -> int:\n    \"\"\"\n    Return the n-th Fibonacci number using an iterative approach.\n    \n    The Fibonacci sequence is defined as:\n        F(0) = 0\n",
+   "vllm_text": "```python\ndef fibonacci(n: int) -> int:\n    \"\"\"\n    Return the n-th Fibonacci number iteratively.\n    \n    The Fibonacci sequence is defined as:\n    F(0) = 0, F(",
+   "strata_tokens": 48,
+   "vllm_tokens": 48,
+   "common_prefix": 23,
+   "common_prefix_first32": 23,
+   "compare_len": 48,
+   "first32_target": 32,
+   "free_mean_abs_dlogprob": 0.0020019792551972493,
+   "free_max_abs_dlogprob": 0.0241197602825165,
+   "finish_strata": "length",
+   "finish_vllm": "length",
+   "divergence": {
+    "pos": 23,
+    "strata": "' using'",
+    "vllm": "' iter'",
+    "strata_top5": [
+     [
+      "' iter'",
+      -0.682
+     ],
+     [
+      "' using'",
+      -0.708
+     ],
+     [
+      "' ('",
+      -6.423
+     ],
+     [
+      "' computed'",
+      -8.34
+     ],
+     [
+      "'.'",
+      -9.945
+     ]
+    ],
+    "vllm_top5": [
+     [
+      "' iter'",
+      -0.578
+     ],
+     [
+      "' using'",
+      -0.828
+     ],
+     [
+      "' ('",
+      -6.578
+     ],
+     [
+      "' computed'",
+      -8.203
+     ],
+     [
+      "' calculated'",
+      -10.265
+     ]
+    ],
+    "strata_margin": 0.026,
+    "vllm_margin": 0.25
+   },
+   "tf_positions": 48,
+   "tf_top1_agree": 46,
+   "tf_top1_agree_strata_argmax": 48,
+   "strata_nongreedy_picks": 2,
+   "tf_mean_abs_dlogprob": 0.012024439809429037,
+   "tf_max_abs_dlogprob": 0.16556880077362068,
+   "tf_worst": [
+    39,
+    0.16556880077362068,
+    "'       '",
+    -1.393,
+    -1.227
+   ],
+   "tf_mean_kl_top5": 0.001175324731981536,
+   "prompt_tokens_vllm": 26,
+   "prompt_tokens_strata": 26,
+   "divergence_explained": true,
+   "pass": true
+  },
+  {
+   "i": 3,
+   "prompt": "Compute 37 * 43 and show the steps briefly.",
+   "strata_text": "To compute $37 \\times 43$, we can use the standard multiplication method or break it down using the distributive property. Here is a brief step-by-step calculation:\n\n**Method: Standard Vertical Multiplication**\n\n1",
+   "vllm_text": "To compute $37 \\times 43$, we can use the standard multiplication method or the difference of squares identity. Here is the step-by-step calculation using standard multiplication:\n\n**Step 1: Multiply 37 by the",
+   "strata_tokens": 48,
+   "vllm_tokens": 48,
+   "common_prefix": 19,
+   "common_prefix_first32": 19,
+   "compare_len": 48,
+   "first32_target": 32,
+   "free_mean_abs_dlogprob": 0.02311453146643706,
+   "free_max_abs_dlogprob": 0.16244000279045107,
+   "finish_strata": "length",
+   "finish_vllm": "length",
+   "divergence": {
+    "pos": 19,
+    "strata": "' break'",
+    "vllm": "' the'",
+    "strata_top5": [
+     [
+      "' the'",
+      -0.451
+     ],
+     [
+      "' break'",
+      -1.924
+     ],
+     [
+      "' a'",
+      -2.354
+     ],
+     [
+      "' algebra'",
+      -2.777
+     ],
+     [
+      "' decom'",
+      -4.211
+     ]
+    ],
+    "vllm_top5": [
+     [
+      "' the'",
+      -0.515
+     ],
+     [
+      "' break'",
+      -1.515
+     ],
+     [
+      "' a'",
+      -2.515
+     ],
+     [
+      "' algebra'",
+      -3.39
+     ],
+     [
+      "' decom'",
+      -4.015
+     ]
+    ],
+    "strata_margin": 1.474,
+    "vllm_margin": 1.0
+   },
+   "tf_positions": 48,
+   "tf_top1_agree": 46,
+   "tf_top1_agree_strata_argmax": 48,
+   "strata_nongreedy_picks": 2,
+   "tf_mean_abs_dlogprob": 0.03344195878839878,
+   "tf_max_abs_dlogprob": 0.39787938713073734,
+   "tf_worst": [
+    19,
+    0.39787938713073734,
+    "' break'",
+    -1.924,
+    -1.527
+   ],
+   "tf_mean_kl_top5": 0.004494449910146011,
+   "prompt_tokens_vllm": 26,
+   "prompt_tokens_strata": 26,
+   "divergence_explained": true,
+   "pass": true
+  },
+  {
+   "i": 4,
+   "prompt": "List three differences between TCP and UDP.",
+   "strata_text": "Here are three key differences between **TCP** (Transmission Control Protocol) and **UDP** (User Datagram Protocol):\n\n### 1. Connection Establishment\n*   **TCP**: Is **connection-oriented**. It requires a three-way handshake (",
+   "vllm_text": "Here are three key differences between TCP (Transmission Control Protocol) and UDP (User Datagram Protocol):\n\n### 1. Connection State\n*   **TCP** is **connection-oriented**. It establishes a reliable connection between the sender and receiver using",
+   "strata_tokens": 48,
+   "vllm_tokens": 48,
+   "common_prefix": 6,
+   "common_prefix_first32": 6,
+   "compare_len": 48,
+   "first32_target": 32,
+   "free_mean_abs_dlogprob": 0.006643584348904593,
+   "free_max_abs_dlogprob": 0.030410795818328867,
+   "finish_strata": "length",
+   "finish_vllm": "length",
+   "divergence": {
+    "pos": 6,
+    "strata": "' **'",
+    "vllm": "' TCP'",
+    "strata_top5": [
+     [
+      "' TCP'",
+      -0.239
+     ],
+     [
+      "' **'",
+      -1.587
+     ],
+     [
+      "' Transmission'",
+      -5.11
+     ],
+     [
+      "' the'",
+      -7.225
+     ],
+     [
+      "' Transport'",
+      -8.48
+     ]
+    ],
+    "vllm_top5": [
+     [
+      "' TCP'",
+      -0.263
+     ],
+     [
+      "' **'",
+      -1.513
+     ],
+     [
+      "' Transmission'",
+      -4.638
+     ],
+     [
+      "' the'",
+      -7.326
+     ],
+     [
+      "' Transport'",
+      -8.201
+     ]
+    ],
+    "strata_margin": 1.348,
+    "vllm_margin": 1.25
+   },
+   "tf_positions": 48,
+   "tf_top1_agree": 45,
+   "tf_top1_agree_strata_argmax": 47,
+   "strata_nongreedy_picks": 2,
+   "tf_mean_abs_dlogprob": 0.01540193575702279,
+   "tf_max_abs_dlogprob": 0.21033138463592538,
+   "tf_worst": [
+    29,
+    0.21033138463592538,
+    "' Establishment'",
+    -1.246,
+    -1.456
+   ],
+   "tf_mean_kl_top5": 0.0011745332900866894,
+   "prompt_tokens_vllm": 20,
+   "prompt_tokens_strata": 20,
+   "divergence_explained": true,
+   "pass": true
+  },
+  {
+   "i": 5,
+   "prompt": "請把這句話翻譯成英文：今天下午三點在會議室開會。",
+   "strata_text": "There will be a meeting in the conference room at 3:00 PM this afternoon.",
+   "vllm_text": "There will be a meeting in the conference room at 3:00 PM this afternoon.",
+   "strata_tokens": 19,
+   "vllm_tokens": 20,
+   "common_prefix": 19,
+   "common_prefix_first32": 19,
+   "compare_len": 19,
+   "first32_target": 19,
+   "free_mean_abs_dlogprob": 0.018596109637658467,
+   "free_max_abs_dlogprob": 0.1283313636627197,
+   "finish_strata": "stop",
+   "finish_vllm": "stop",
+   "tf_positions": 19,
+   "tf_top1_agree": 19,
+   "tf_top1_agree_strata_argmax": 19,
+   "strata_nongreedy_picks": 0,
+   "tf_mean_abs_dlogprob": 0.019920868032724,
+   "tf_max_abs_dlogprob": 0.16616374300384518,
+   "tf_worst": [
+    0,
+    0.16616374300384518,
+    "'There'",
+    -0.906,
+    -0.74
+   ],
+   "tf_mean_kl_top5": 0.007899549444574714,
+   "prompt_tokens_vllm": 28,
+   "prompt_tokens_strata": 28,
+   "pass": true
+  },
+  {
+   "i": 6,
+   "prompt": "Explain in two sentences why the sky is blue.",
+   "strata_text": "The sky appears blue because sunlight scatters off molecules in the Earth's atmosphere, a phenomenon known as Rayleigh scattering. Since shorter wavelengths of light, such as blue and violet, scatter more efficiently than longer wavelengths like red, our eyes perceive",
+   "vllm_text": "The sky appears blue because sunlight is scattered by molecules in the Earth's atmosphere, a phenomenon known as Rayleigh scattering. Since shorter wavelengths of light, such as blue, are scattered more efficiently than longer wavelengths like red, our eyes perceive the",
+   "strata_tokens": 48,
+   "vllm_tokens": 48,
+   "common_prefix": 6,
+   "common_prefix_first32": 6,
+   "compare_len": 48,
+   "first32_target": 32,
+   "free_mean_abs_dlogprob": 0.03647971346748435,
+   "free_max_abs_dlogprob": 0.11326373273181917,
+   "finish_strata": "length",
+   "finish_vllm": "length",
+   "divergence": {
+    "pos": 6,
+    "strata": "' sc'",
+    "vllm": "' is'",
+    "strata_top5": [
+     [
+      "' is'",
+      -0.712
+     ],
+     [
+      "' sc'",
+      -1.47
+     ],
+     [
+      "' interacts'",
+      -1.98
+     ],
+     [
+      "','",
+      -2.915
+     ],
+     [
+      "' contains'",
+      -3.364
+     ]
+    ],
+    "vllm_top5": [
+     [
+      "' is'",
+      -0.881
+     ],
+     [
+      "' sc'",
+      -1.256
+     ],
+     [
+      "' interacts'",
+      -2.006
+     ],
+     [
+      "','",
+      -2.881
+     ],
+     [
+      "' contains'",
+      -3.131
+     ]
+    ],
+    "strata_margin": 0.758,
+    "vllm_margin": 0.375
+   },
+   "tf_positions": 48,
+   "tf_top1_agree": 45,
+   "tf_top1_agree_strata_argmax": 47,
+   "strata_nongreedy_picks": 2,
+   "tf_mean_abs_dlogprob": 0.06671456511816701,
+   "tf_max_abs_dlogprob": 0.5962588630142212,
+   "tf_worst": [
+    33,
+    0.5962588630142212,
+    "' and'",
+    -1.209,
+    -1.806
+   ],
+   "tf_mean_kl_top5": 0.01757472617074937,
+   "prompt_tokens_vllm": 23,
+   "prompt_tokens_strata": 23,
+   "divergence_explained": true,
+   "pass": true
+  },
+  {
+   "i": 7,
+   "prompt": "Translate to French: The weather is nice today, let's go for",
+   "strata_text": "Il fait beau aujourd’hui, allons faire une promenade.",
+   "vllm_text": "Il fait beau aujourd’hui, allons faire une promenade.",
+   "strata_tokens": 12,
+   "vllm_tokens": 13,
+   "common_prefix": 12,
+   "common_prefix_first32": 12,
+   "compare_len": 12,
+   "first32_target": 12,
+   "free_mean_abs_dlogprob": 0.021520804995731526,
+   "free_max_abs_dlogprob": 0.12012635845756531,
+   "finish_strata": "stop",
+   "finish_vllm": "stop",
+   "tf_positions": 12,
+   "tf_top1_agree": 12,
+   "tf_top1_agree_strata_argmax": 12,
+   "strata_nongreedy_picks": 0,
+   "tf_mean_abs_dlogprob": 0.024467649329902367,
+   "tf_max_abs_dlogprob": 0.16912688989257812,
+   "tf_worst": [
+    4,
+    0.16912688989257812,
+    "'’hui'",
+    -0.355,
+    -0.524
+   ],
+   "tf_mean_kl_top5": 0.004379045972744649,
+   "prompt_tokens_vllm": 29,
+   "prompt_tokens_strata": 29,
+   "pass": true
+  }
+ ]
+}

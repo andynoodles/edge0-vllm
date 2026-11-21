@@ -1,0 +1,27 @@
+# 08:54:44 probe fcbase: EDGE0_DEV=1 SPEC_METHOD=dflash2 SPEC_K=3 EDGE0_CPU_EXPERTS=1 EDGE0_CPU_THREADS=8 EDGE0_CPU_FRAC=0.55 EDGE0_TRACE=bw
+  [fcbase-A1] edge0 trace bw: 10.2s 372 steps 1855 tok | per step: hot 912 cold 387 distinct experts, cold 748.6 MB (27.28 GB/s if all in 10.2s) | worst layers cold/step: L0:17, L2:14, L1:13, L4:11, L7:11, L10:11
+  [fcbase-A1] edge0 trace bw (map at call time, decode calls): per layer-call cold 7.99 hot 18.42 distinct experts, routes from VRAM 72.2% (17808 layer-calls)
+  [fcbase-A1] edge0 adapt: epoch 29 (3.0s, 100 counted steps): cold share of decode touches 30.1%, 507 candidates, 64 swaps (total 1856) in 30.3 ms; predicted cold share now 26.8%
+  [fcbase-A1] edge0 adapt: epoch 30 (3.0s, 109 counted steps): cold share of decode touches 31.6%, 424 candidates, 64 swaps (total 1920) in 28.9 ms; predicted cold share now 26.9%
+  [fcbase-A1] edge0 adapt: epoch 31 (3.0s, 111 counted steps): cold share of decode touches 29.4%, 363 candidates, 64 swaps (total 1984) in 28.3 ms; predicted cold share now 26.8%
+  [fcbase-A1] edge0 cpu-experts: 41370 jobs, 5.2 experts / 7.3 routes per job, CPU 255 us per job, GPU side 287 us per call, GPU waited 7 us per call, frac 0.550, timeouts 0
+  [fcbase-A1] edge0 trace bw: 10.0s 351 steps 1422 tok | per step: hot 853 cold 416 distinct experts, cold 804.8 MB (28.22 GB/s if all in 10.0s) | worst layers cold/step: L0:16, L2:14, L1:13, L7:13, L4:13, L5:12
+  [fcbase-A1] edge0 trace bw (map at call time, decode calls): per layer-call cold 9.08 hot 17.36 distinct experts, routes from VRAM 68.3% (16848 layer-calls)
+  [fcbase-A1] edge0 adapt: epoch 32 (3.0s, 94 counted steps): cold share of decode touches 49.6%, 319 candidates, 64 swaps (total 2048) in 35.3 ms; predicted cold share now 27.9%
+  [fcbase-A1] edge0 adapt: epoch 33 (3.0s, 112 counted steps): cold share of decode touches 29.4%, 259 candidates, 64 swaps (total 2112) in 29.8 ms; predicted cold share now 27.8%
+  [fcbase-A1] edge0 adapt: epoch 34 (3.0s, 114 counted steps): cold share of decode touches 29.4%, 202 candidates, 64 swaps (total 2176) in 31.5 ms; predicted cold share now 27.7%
+  [fcbase-A1] edge0 adapt: epoch 35 (3.0s, 96 counted steps): cold share of decode touches 29.8%, 136 candidates, 64 swaps (total 2240) in 41.9 ms; predicted cold share now 27.6%
+  [fcbase-A1] edge0 trace bw: 10.0s 357 steps 1956 tok | per step: hot 934 cold 381 distinct experts, cold 737.0 MB (26.28 GB/s if all in 10.0s) | worst layers cold/step: L0:17, L2:13, L1:13, L7:11, L5:11, L22:10
+  [fcbase-A1] edge0 trace bw (map at call time, decode calls): per layer-call cold 7.85 hot 18.73 distinct experts, routes from VRAM 71.9% (17088 layer-calls)
+  [fcbase-A1] edge0 adapt: epoch 36 (3.0s, 114 counted steps): cold share of decode touches 26.9%, 139 candidates, 64 swaps (total 2304) in 29.5 ms; predicted cold share now 27.3%
+  [fcbase-A1] edge0 adapt: epoch 37 (3.0s, 92 counted steps): cold share of decode touches 29.0%, 101 candidates, 64 swaps (total 2368) in 32.5 ms; predicted cold share now 27.3%
+  [fcbase-A1] edge0 adapt: epoch 38 (3.0s, 104 counted steps): cold share of decode touches 36.1%, 160 candidates, 64 swaps (total 2432) in 31.9 ms; predicted cold share now 27.6%
+  [fcbase-A1] edge0 trace bw: 10.0s 347 steps 2292 tok | per step: hot 933 cold 399 distinct experts, cold 772.5 MB (26.77 GB/s if all in 10.0s) | worst layers cold/step: L0:17, L2:13, L1:13, L7:12, L5:12, L4:11
+  [fcbase-A1] edge0 trace bw (map at call time, decode calls): per layer-call cold 8.21 hot 18.58 distinct experts, routes from VRAM 70.1% (16608 layer-calls)
+  [fcbase-A1] edge0 adapt: epoch 39 (3.0s, 115 counted steps): cold share of decode touches 28.7%, 154 candidates, 64 swaps (total 2496) in 30.1 ms; predicted cold share now 27.5%
+  [fcbase-A1] edge0 adapt: epoch 40 (3.0s, 113 counted steps): cold share of decode touches 28.8%, 188 candidates, 64 swaps (total 2560) in 33.2 ms; predicted cold share now 27.2%
+fcbase-A1                       1     8/8      91.2     10.5         182         589     512
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+fcbase-A1                       1     8/8      91.2     10.5         182         589     512
+# 09:00:50 FCAB_DONE fcbase
+# 09:00:52 FCPROBE_DONE fcbase

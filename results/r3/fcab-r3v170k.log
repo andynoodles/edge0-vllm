@@ -1,0 +1,226 @@
+# 17:42:18 start: PRESET=single EDGE0_DEV=1 EDGE0_TIER_EARLY=1 EDGE0_TIER_COPY=batch EDGE0_TIER_SPARE=64 EDGE0_DFLASH_SHARE_VOCAB=1 EDGE0_EXPERT_VRAM_GIB=17.0 EDGE0_PLACEMENT=plan:/workspace/edge0/plans/plan-s1-17.0.json KV_BYTES=1449551462
+started edge0-vllm in tmux session edge0-vllm on :8125 (model /models/Edge0-145B-vllm, hot experts 17.0 GiB, placement plan:/workspace/edge0/plans/plan-s1-17.0.json); log /home/andychen/work/edge0-vllm/logs/serve-20261120-174218.log
+# 17:45:45 healthy after 207 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-174218.log)
+edge0: placement plan:/workspace/edge0/plans/plan-s1-17.0.json (9431 hot), EDGE0_TIER: 192 hot experts demoted to make 4 free slots per layer, 9239 hot slots (16.65 GiB VRAM), digest 95153d837adf, per-layer n_hot min/max 151/218
+edge0 tier: reactive expert tier on 48 layers: 4 free VRAM slots / layer (0.35 GiB, from the hot budget), <= 48 swaps / step, decay 0.915 / step, gain 1.50, min usage 2.0, counting calls <= 16 tokens, copies via batch, EARLY (decided at the next step's staging, flipped before its launch); shadow copies on, 3264 spare host slots
+edge0: after load: torch allocated 26.68 GiB, GPU free 3.29 / 31.36 GiB; hot experts 16.65 GiB; cold experts 33.53 GiB pinned host
+Model loading took 27.94 GiB memory and 94.536338 seconds
+Initial free memory 30.66 GiB, reserved 1.35 GiB memory for KV Cache as specified by kv_cache_memory_bytes config and skipped memory profiling. This does not respect the gpu_memory_utilization config. Only use kv_cache_memory_bytes config when you want manual control of KV cache memory size. If OOM'ed, check the difference of initial free memory between the current run and the previous run where k
+GPU KV cache size: 35,368 tokens, Maximum concurrency for 32,768 tokens per request: 1.08x
+# 17:45:45 bench r3v170k-A1-warm c1 prompts 8 out 512
+Open-file limit: 1048576
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 8 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 8 prompts in 1.94s
+Warming up with 2 requests...
+Warmup run completed.
+Speculative decoding detected, will collect metrics.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 1
+Failed requests during benchmark run detected (capping to 10):
+Error 0: HTTP 500 Internal Server Error: {"error":{"message":"The server had an error while processing your request.","type":"InternalServerError","param":null,"code":500}}
+================= Serving Benchmark Result =================
+Successful requests:                     7         
+Failed requests:                         1         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  23.45     
+Total input tokens:                      1977      
+Total generated tokens:                  3073      
+Request throughput (req/s):              0.30      
+Output token throughput (tok/s):         131.04    
+Peak output token throughput (tok/s):    61.00     
+Peak concurrent requests:                2.00      
+Total token throughput (tok/s):          215.34    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          239.69    
+Median TTFT (ms):                        173.01    
+P99 TTFT (ms):                           488.58    
+P90 TTFT (ms):                           461.03    
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          6.99      
+Median TPOT (ms):                        7.08      
+P99 TPOT (ms):                           7.42      
+P90 TPOT (ms):                           7.35      
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           18.37     
+Median ITL (ms):                         17.97     
+P99 ITL (ms):                            26.76     
+P90 ITL (ms):                            21.66     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          3349.94   
+Median E2EL (ms):                        3698.84   
+P99 E2EL (ms):                           4149.69   
+P90 E2EL (ms):                           4143.74   
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     54.97     
+Acceptance length:                       2.65      
+Drafts:                                  1160      
+Draft tokens:                            3480      
+Accepted tokens:                         1913      
+Per-position acceptance (%):
+  Position 0:                            77.84     
+  Position 1:                            52.84     
+  Position 2:                            34.22     
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 1 = 1
+Window:                             0.0s -> 23.4s  (23.4s)
+Observed peak concurrency:          1
+Requests started in window:         7 / 7 (100.0%)
+Requests completed in window:       6
+-----------------------------------------------
+Request throughput (req/s):         0.26
+Output token throughput (tok/s):    49.98
+Input token throughput (tok/s):     84.31
+Total token throughput (tok/s):     134.29
+-----------------------------------------------
+Mean TTFT (ms):                     239.69
+Median TTFT (ms):                   173.01
+P99 TTFT (ms):                      488.58
+P90 TTFT (ms):                      461.03
+-----------------------------------------------
+Mean TPOT (ms):                     6.99
+Median TPOT (ms):                   7.08
+P90 TPOT (ms):                      7.35
+P99 TPOT (ms):                      7.42
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/r3v170k-A1-warm/r3v170k-A1-warm-infqps-concurrency1-edge0_145b-20261120-174618.json
+SPECSTAT r3v170k-A1-warm {"spec": false, "preemptions": 0}
+SLOG r3v170k-A1-warm /home/andychen/work/edge0-vllm/logs/serve-20261120-174218.log 506 699
+  [r3v170k-A1-warm] edge0 tier: 25.7s 12 steps | per layer-step: cold 8.99 hot 8.84 distinct experts, routes from VRAM 53.7% | swaps 41.1 / step (total 576, cap reached 12, stale counts 0, skipped 0) | host 0.80 + 0.80 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:13.34 <8:8.99 <16:4.65
+  [r3v170k-A1-warm] edge0 tier: EARLY: host waited 0.13 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 2309 us / flip on the GPU (10 of 11 flips > 20 us); copies via batch; write-backs 41.1 / step (576 of 576 swaps; shadows on, 576 held, 0 stolen)
+  [r3v170k-A1-warm] edge0 cpu-experts: 4078 jobs, 4.9 experts / 8.9 routes per job, CPU 248 us per job, GPU side 303 us per call, GPU waited 7 us per call, frac 0.550, timeouts 0
+  [r3v170k-A1-warm] edge0 ple-defer: 252 steps, 96.5 ids / 90.3 rows per step, read 1647 us, event wait 1105 us, submit->ready 2757 us per step; GPU waited in 57% of 262 calls, 730 us per call; timeouts 0, errors 0, max queue 1
+  [r3v170k-A1-warm] edge0 tier: 10.0s 556 steps | per layer-step: cold 2.35 hot 24.18 distinct experts, routes from VRAM 93.1% | swaps 23.3 / step (total 13402, cap reached 73, stale counts 0, skipped 0) | host 0.26 + 0.35 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:2.89 <8:3.83 <16:3.15 <32:2.37 <64:2.29 <128:1.94 <256:2.58
+  [r3v170k-A1-warm] edge0 tier: EARLY: host waited 13.96 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 210 us / flip on the GPU (126 of 548 flips > 20 us); copies via batch; write-backs 12.0 / step (6622 of 12826 swaps; shadows on, 3264 held, 3934 stolen)
+  [r3v170k-A1-warm] edge0 tier: 10.0s 500 steps | per layer-step: cold 3.17 hot 23.16 distinct experts, routes from VRAM 90.5% | swaps 31.5 / step (total 29227, cap reached 147, stale counts 0, skipped 0) | host 0.27 + 0.44 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:6.85 <8:4.92 <16:4.56 <32:2.95 <64:3.81 <128:2.83 <256:2.54
+  [r3v170k-A1-warm] edge0 tier: EARLY: host waited 14.93 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 288 us / flip on the GPU (230 of 501 flips > 20 us); copies via batch; write-backs 14.0 / step (7036 of 15825 swaps; shadows on, 3264 held, 10970 stolen)
+r3v170k-A1-warm                 1     7/8     131.0      7.0         173         489     439
+# 17:46:29 bench r3v170k-A1 c1 prompts 8 out 512
+Open-file limit: 1048576
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 8 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 8 prompts in 0.43s
+Warming up with 2 requests...
+Warmup run completed.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 1
+Failed requests during benchmark run detected (capping to 10):
+Error 0: error sending request for url (http://127.0.0.1:8125/v1/chat/completions)
+Error 1: error sending request for url (http://127.0.0.1:8125/v1/chat/completions)
+Error 2: error sending request for url (http://127.0.0.1:8125/v1/chat/completions)
+Error 3: error sending request for url (http://127.0.0.1:8125/v1/chat/completions)
+Error 4: error sending request for url (http://127.0.0.1:8125/v1/chat/completions)
+Error 5: error sending request for url (http://127.0.0.1:8125/v1/chat/completions)
+Error 6: error sending request for url (http://127.0.0.1:8125/v1/chat/completions)
+Error 7: error sending request for url (http://127.0.0.1:8125/v1/chat/completions)
+================= Serving Benchmark Result =================
+Successful requests:                     0         
+Failed requests:                         8         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  0.00      
+Total input tokens:                      0         
+Total generated tokens:                  0         
+Request throughput (req/s):              0.00      
+Output token throughput (tok/s):         0.00      
+Peak output token throughput (tok/s):    0.00      
+Peak concurrent requests:                0.00      
+Total token throughput (tok/s):          0.00      
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          0.00      
+Median TTFT (ms):                        0.00      
+P99 TTFT (ms):                           0.00      
+P90 TTFT (ms):                           0.00      
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          0.00      
+Median TPOT (ms):                        0.00      
+P99 TPOT (ms):                           0.00      
+P90 TPOT (ms):                           0.00      
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           0.00      
+Median ITL (ms):                         0.00      
+P99 ITL (ms):                            0.00      
+P90 ITL (ms):                            0.00      
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          0.00      
+Median E2EL (ms):                        0.00      
+P99 E2EL (ms):                           0.00      
+P90 E2EL (ms):                           0.00      
+============================================================
+Results saved to /home/andychen/work/edge0-bench/results/r3v170k-A1/r3v170k-A1-infqps-concurrency1-edge0_145b-20261120-174629.json
+SPECSTAT r3v170k-A1 {"spec": false, "preemptions": 0}
+SLOG r3v170k-A1 /home/andychen/work/edge0-vllm/logs/serve-20261120-174218.log 699 699
+r3v170k-A1                      1     0/8       0.0      0.0           0           0       0
+# 17:46:40 bench r3v170k-A1-c8 c8 prompts 16 out 512
+Open-file limit: 1048576
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 16 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 16 prompts in 0.43s
+Warming up with 2 requests...
+Warmup run completed.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 8
+Failed requests during benchmark run detected (capping to 10):
+Error 0: error sending request for url (http://127.0.0.1:8125/v1/chat/completions)
+Error 1: error sending request for url (http://127.0.0.1:8125/v1/chat/completions)
+Error 2: error sending request for url (http://127.0.0.1:8125/v1/chat/completions)
+Error 3: error sending request for url (http://127.0.0.1:8125/v1/chat/completions)
+Error 4: error sending request for url (http://127.0.0.1:8125/v1/chat/completions)
+Error 5: error sending request for url (http://127.0.0.1:8125/v1/chat/completions)
+Error 6: error sending request for url (http://127.0.0.1:8125/v1/chat/completions)
+Error 7: error sending request for url (http://127.0.0.1:8125/v1/chat/completions)
+Error 8: error sending request for url (http://127.0.0.1:8125/v1/chat/completions)
+Error 9: error sending request for url (http://127.0.0.1:8125/v1/chat/completions)
+================= Serving Benchmark Result =================
+Successful requests:                     0         
+Failed requests:                         16        
+Maximum request concurrency:             8         
+Benchmark duration (s):                  0.00      
+Total input tokens:                      0         
+Total generated tokens:                  0         
+Request throughput (req/s):              0.00      
+Output token throughput (tok/s):         0.00      
+Peak output token throughput (tok/s):    0.00      
+Peak concurrent requests:                0.00      
+Total token throughput (tok/s):          0.00      
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          0.00      
+Median TTFT (ms):                        0.00      
+P99 TTFT (ms):                           0.00      
+P90 TTFT (ms):                           0.00      
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          0.00      
+Median TPOT (ms):                        0.00      
+P99 TPOT (ms):                           0.00      
+P90 TPOT (ms):                           0.00      
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           0.00      
+Median ITL (ms):                         0.00      
+P99 ITL (ms):                            0.00      
+P90 ITL (ms):                            0.00      
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          0.00      
+Median E2EL (ms):                        0.00      
+P99 E2EL (ms):                           0.00      
+P90 E2EL (ms):                           0.00      
+============================================================
+Results saved to /home/andychen/work/edge0-bench/results/r3v170k-A1-c8/r3v170k-A1-c8-infqps-concurrency8-edge0_145b-20261120-174641.json
+SPECSTAT r3v170k-A1-c8 {"spec": false, "preemptions": 0}
+SLOG r3v170k-A1-c8 /home/andychen/work/edge0-vllm/logs/serve-20261120-174218.log 699 699
+r3v170k-A1-c8                   8    0/16       0.0      0.0           0           0       0
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+r3v170k-A1                      1     0/8       0.0      0.0           0           0       0
+r3v170k-A1-c8                   8    0/16       0.0      0.0           0           0       0
+# 17:46:52 FCAB_DONE r3v170k

@@ -1,0 +1,32 @@
+# 02:01:08 start: EDGE0_DEV=1 EDGE0_CPU_EXPERTS=1 EDGE0_CPU_THREADS=8 EDGE0_CPU_FRAC=0.55 EDGE0_CPU_MIN_TOKENS=1
+started edge0-vllm in tmux session edge0-vllm on :8125 (model /models/Edge0-145B-vllm, hot experts 12.8 GiB, placement plan:/workspace/edge0/plans/plan-s1-12.8.json); log /home/andychen/work/edge0-vllm/logs/serve-20261120-020108.log
+# 02:03:54 healthy after 166 s (log /home/andychen/work/edge0-vllm/logs/serve-20261120-020108.log)
+Initializing a V1 LLM engine (v0.33.0+121396e7.dev) with config: model='/models/Edge0-145B-vllm', speculative_config=None, tokenizer='/models/Edge0-145B-vllm', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1,
+edge0: placement plan:/workspace/edge0/plans/plan-s1-12.8.json (7101 hot), 7101 hot slots (12.80 GiB VRAM), digest cd2d551fd4a0, per-layer n_hot min/max 128/166
+edge0: built 48 latent MoE layers: 7101 hot slots in VRAM (12.80 GiB), 17475 cold slots in host memory (31.50 GiB, host_register), dense=q8 moe_impl=marlin split=True
+edge0: embed_tokens (248320, 2560) -> pinned host memory (1.18 GiB)
+edge0 adapt: adaptive cache on 48 layers: epoch 3.0s, <= 64 swaps/epoch, half-life 10 epochs, margin 0.25, z 3.0, counting decode calls <= 32 tokens, min 30 steps/epoch
+edge0: after load: torch allocated 23.33 GiB, GPU free 6.64 / 31.36 GiB; hot experts 12.80 GiB; cold experts 31.50 GiB pinned host
+Model loading took 23.33 GiB memory and 88.625167 seconds
+Setting attention block size to 800 tokens to ensure that attention page size is >= mamba page size.
+Graph capturing finished in 10 secs, took 0.26 GiB
+Available KV cache memory: 4.61 GiB
+GPU KV cache size: 173,812 tokens, Maximum concurrency for 32,768 tokens per request: 5.30x
+kv cache group sizes (32768, 32768, 32768, 32768, 4, 800)
+Graph capturing finished in 3 secs, took 0.11 GiB
+Free memory on device (30.66/31.36 GiB) on startup. Desired GPU memory utilization is (0.96, 30.1 GiB). Actual usage is 24.62 GiB for consumed memory (weights + non-torch), 0.87 GiB for peak activation, and 0.11 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=4671744000` (4.35 GiB) to fit into requested memory, or `--kv-cache-memory=5268908032` (4.91 GiB) to
+init engine (profile, create kv cache, warmup model) took 46.59 s
+# 02:03:54 correctness
+compare exit 0
+[7] "Translate to French: The weather is nice today, let's go for"
+   free: common prefix 12/12 (first32: 12/12), mean|dlp| 0.0261, finish strata=stop vllm=stop
+   teacher-forced: vllm top1 == strata token 12/12, == strata argmax 12/12 (strata picked a non-argmax token 0x), mean|dlp| 0.0261, max 0.169 at (4, 0.16913499612426758, "'’hui'", -0.355, -0.524), KL(top5) 0.0044; prompt tokens vllm=29 strata=29
+   strata: 'Il fait beau aujourd’hui, allons faire une promenade.'
+   vllm  : 'Il fait beau aujourd’hui, allons faire une promenade.'
+SUMMARY {"prompts": 8, "pass": 8, "first32_common": 111, "first32_target": 197, "tf_top1_agree": 249, "tf_top1_agree_strata_argmax": 256, "strata_nongreedy_picks": 9, "tf_positions": 261, "tf_mean_abs_dlogprob": 0.03243220917364532, "tf_mean_kl_top5": 0.006307718518795757}
+# 02:04:02 quick bench c1,8
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+vllm-probe-cpuexp-all           1     4/4      53.5     17.8         178         476     256
+vllm-probe-cpuexp-all           8   32/32     127.3     56.7        1637        2269     256
+Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 130.4 tokens/s, Running: 8 reqs, Waiting: 0 reqs, GPU KV cache usage: 20.6%
+# 02:05:43 PROBE_DONE

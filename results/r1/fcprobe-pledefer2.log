@@ -1,0 +1,39 @@
+# 12:31:08 probe pledefer2: PRESET=single EDGE0_DEV=1 EDGE0_PLE_DEFER=1 EDGE0_PLE_LOG_S=10
+P90 TTFT (ms):                      440.90
+-----------------------------------------------
+Mean TPOT (ms):                     7.65
+Median TPOT (ms):                   7.60
+P90 TPOT (ms):                      8.16
+P99 TPOT (ms):                      8.19
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/pledefer2-A1/pledefer2-A1-infqps-concurrency1-edge0_145b-20261120-123607.json
+SPECSTAT pledefer2-A1 {"spec": true, "drafts": 1967, "draft_tokens": 5901, "accepted": 3154, "preemptions": 0, "acceptance_length": 2.603, "k_mean": 3.0, "per_pos": [0.747, 0.518, 0.339]}
+SLOG pledefer2-A1 /home/andychen/work/edge0-vllm/logs/serve-20261120-123110.log 540 573
+  [pledefer2-A1] edge0 ple-defer: 71 steps, 117.9 ids / 63.1 rows per step, read 1388 us, event wait 15728 us, submit->ready 17123 us per step; GPU waited in 93% of 71 calls, 816 us per call; timeouts 0, errors 0, max queue 1
+  [pledefer2-A1] edge0 tier: 13.0s 57 steps | per layer-step: cold 3.46 hot 23.15 distinct experts, routes from VRAM 89.7% | swaps 31.0 / step (total 64718, cap reached 15, stale counts 0, skipped 0) | host 0.56 + 0.94 ms / step (decide + issue) | cold / layer-step by steps since prefill: <256:3.46
+  [pledefer2-A1] edge0 ple-defer: 501 steps, 79.3 ids / 84.0 rows per step, read 895 us, event wait 15131 us, submit->ready 16075 us per step; GPU waited in 56% of 501 calls, 525 us per call; timeouts 0, errors 0, max queue 1
+  [pledefer2-A1] edge0 tier: 10.0s 505 steps | per layer-step: cold 3.07 hot 23.83 distinct experts, routes from VRAM 90.8% | swaps 27.8 / step (total 78847, cap reached 103, stale counts 0, skipped 0) | host 0.52 + 0.91 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:7.94 <8:5.05 <16:3.99 <32:2.99 <64:2.76 <128:2.52 <256:3.34
+  [pledefer2-A1] edge0 cpu-experts: 15126 jobs, 4.3 experts / 6.1 routes per job, CPU 214 us per job, GPU side 271 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+  [pledefer2-A1] edge0 ple-defer: 487 steps, 76.9 ids / 75.2 rows per step, read 1128 us, event wait 15713 us, submit->ready 16885 us per step; GPU waited in 74% of 487 calls, 668 us per call; timeouts 0, errors 0, max queue 1
+  [pledefer2-A1] edge0 tier: 10.0s 482 steps | per layer-step: cold 3.49 hot 23.23 distinct experts, routes from VRAM 89.5% | swaps 31.5 / step (total 94104, cap reached 133, stale counts 0, skipped 0) | host 0.55 + 1.00 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.47 <8:6.84 <16:4.71 <32:4.17 <64:4.18 <128:3.09 <256:2.91
+  [pledefer2-A1] edge0 ple-defer: 471 steps, 81.9 ids / 78.7 rows per step, read 882 us, event wait 16381 us, submit->ready 17328 us per step; GPU waited in 54% of 471 calls, 518 us per call; timeouts 0, errors 0, max queue 1
+  [pledefer2-A1] edge0 tier: 10.0s 471 steps | per layer-step: cold 3.89 hot 21.98 distinct experts, routes from VRAM 87.9% | swaps 35.3 / step (total 110799, cap reached 188, stale counts 0, skipped 0) | host 0.49 + 0.99 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.08 <8:6.28 <16:6.11 <32:4.81 <64:3.82 <128:3.01 <256:3.73
+  [pledefer2-A1] edge0 ple-defer: 470 steps, 94.9 ids / 91.0 rows per step, read 973 us, event wait 17090 us, submit->ready 18103 us per step; GPU waited in 60% of 470 calls, 544 us per call; timeouts 0, errors 0, max queue 1
+  [pledefer2-A1] edge0 tier: 10.0s 468 steps | per layer-step: cold 3.76 hot 22.76 distinct experts, routes from VRAM 88.4% | swaps 33.6 / step (total 126581, cap reached 172, stale counts 0, skipped 0) | host 0.41 + 0.80 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.32 <8:7.79 <16:6.43 <32:5.09 <64:3.98 <128:3.07 <256:3.43
+pledefer2-A1                    1     8/8     123.1      7.7         180         571     512
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+pledefer2-A1                    1     8/8     123.1      7.7         180         571     512
+# 12:36:18 FCAB_DONE pledefer2
+edge0 tier: reactive expert tier on 48 layers: 4 free VRAM slots / layer (0.35 GiB, from the hot budget), <= 48 swaps / step, decay 0.915 / step, gain 1.50, min usage 2.0, counting calls <= 16 tokens, copies via cudart
+edge0 tier: 70.1s 0 steps | per layer-step: cold 0.00 hot 0.00 distinct experts, routes from VRAM 0.0% | swaps 0.0 / step (total 0, cap reached 0, stale counts 1, skipped 0) | host 0.00 + 0.00 ms / step (decide + issue) | cold / layer-step by steps since prefill: 
+edge0 tier: 22.8s 10 steps | per layer-step: cold 9.28 hot 6.55 distinct experts, routes from VRAM 44.2% | swaps 37.7 / step (total 528, cap reached 11, stale counts 0, skipped 0) | host 1.49 + 1.54 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:10.63 <8:3.85
+edge0 tier: 10.0s 506 steps | per layer-step: cold 3.30 hot 23.04 distinct experts, routes from VRAM 90.0% | swaps 31.1 / step (total 16094, cap reached 139, stale counts 0, skipped 0) | host 0.37 + 0.72 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:4.31 <8:5.43 <16:4.74 <32:3.45 <64:3.04 <128:2.45 <256:4.19
+edge0 tier: 10.0s 454 steps | per layer-step: cold 4.01 hot 22.94 distinct experts, routes from VRAM 87.8% | swaps 34.9 / step (total 32028, cap reached 173, stale counts 0, skipped 0) | host 0.40 + 0.78 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.73 <8:7.62 <16:6.52 <32:4.58 <64:4.52 <128:3.35 <256:3.17
+edge0 tier: 10.0s 449 steps | per layer-step: cold 4.07 hot 21.62 distinct experts, routes from VRAM 87.3% | swaps 36.2 / step (total 48349, cap reached 185, stale counts 0, skipped 0) | host 0.42 + 0.87 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.57 <8:6.16 <16:5.72 <32:4.68 <64:4.02 <128:3.38 <256:4.14
+edge0 tier: 10.0s 453 steps | per layer-step: cold 3.52 hot 23.07 distinct experts, routes from VRAM 89.2% | swaps 32.1 / step (total 62950, cap reached 132, stale counts 0, skipped 0) | host 0.53 + 0.97 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.57 <8:8.35 <16:6.24 <32:4.49 <64:3.65 <128:3.04 <256:2.94
+edge0 tier: 13.0s 57 steps | per layer-step: cold 3.46 hot 23.15 distinct experts, routes from VRAM 89.7% | swaps 31.0 / step (total 64718, cap reached 15, stale counts 0, skipped 0) | host 0.56 + 0.94 ms / step (decide + issue) | cold / layer-step by steps since prefill: <256:3.46
+edge0 tier: 10.0s 505 steps | per layer-step: cold 3.07 hot 23.83 distinct experts, routes from VRAM 90.8% | swaps 27.8 / step (total 78847, cap reached 103, stale counts 0, skipped 0) | host 0.52 + 0.91 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:7.94 <8:5.05 <16:3.99 <32:2.99 <64:2.76 <128:2.52 <256:3.34
+edge0 tier: 10.0s 482 steps | per layer-step: cold 3.49 hot 23.23 distinct experts, routes from VRAM 89.5% | swaps 31.5 / step (total 94104, cap reached 133, stale counts 0, skipped 0) | host 0.55 + 1.00 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.47 <8:6.84 <16:4.71 <32:4.17 <64:4.18 <128:3.09 <256:2.91
+edge0 tier: 10.0s 471 steps | per layer-step: cold 3.89 hot 21.98 distinct experts, routes from VRAM 87.9% | swaps 35.3 / step (total 110799, cap reached 188, stale counts 0, skipped 0) | host 0.49 + 0.99 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.08 <8:6.28 <16:6.11 <32:4.81 <64:3.82 <128:3.01 <256:3.73
+edge0 tier: 10.0s 468 steps | per layer-step: cold 3.76 hot 22.76 distinct experts, routes from VRAM 88.4% | swaps 33.6 / step (total 126581, cap reached 172, stale counts 0, skipped 0) | host 0.41 + 0.80 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.32 <8:7.79 <16:6.43 <32:5.09 <64:3.98 <128:3.07 <256:3.43
+# 12:36:22 FCPROBE_DONE pledefer2

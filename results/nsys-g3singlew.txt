@@ -1,0 +1,64 @@
+== profiles/g3singlew/c1-k1.sqlite: 145 steps, gen tokens [(4, 145)], kernels/step 44, unlabelled None
+period 18.39 ms (median 17.88), GPU busy 17.95, idle 0.44 (2.4%), H2D 55.49 MB/step, execute_model CPU 14.87 ms
+exclusive GPU time per category (ms, % of period) | summed kernel time (ms):
+  attn_qsa            0.061   0.3%   sum    0.062
+  attn_proj           0.412   2.2%   sum    0.412
+  drafter             1.382   7.5%   sum    1.382
+  spec_reject         0.035   0.2%   sum    0.035
+  other_gpu           0.013   0.1%   sum    0.013
+  memcpy_h2d          2.793  15.2%   sum    2.793
+  memcpy_d2h          0.314   1.7%   sum    2.784
+  memset              0.001   0.0%   sum    0.001
+  forward_graph      12.943  70.4%   sum   16.060
+  GPU idle            0.439   2.4%
+GPU idle attributed to the engine thread's host range (ms):
+  graph.full                      0.378
+  ple.stage                       0.052
+  runner.execute_model            0.006
+  runner.prepare_inputs           0.002
+  model_state.prepare_inputs      0.001
+host ranges per step (ms, all engine threads):
+  runner.execute_model           14.868
+  model_state.prepare_inputs     12.980
+  ple.stage                      12.776
+  runner.sample_tokens            3.072
+  runner.sample                   2.587
+  graph.full                      0.796
+  spec.reject                     0.404
+  runner.prepare_inputs           0.320
+  spec.propose                    0.220
+  sched.schedule                  0.092
+  runner.postprocess              0.059
+  sched.update_from_output        0.049
+CUDA API per step (ms): {'graph_launch': 0.407, 'memcpy_api': 0.901, 'sync': 12.661}
+top kernels (category | name: ms per step):
+    16.060  forward_graph|graph:forward
+     2.793  memcpy_h2d|memcpy:HtoD
+     2.784  memcpy_d2h|memcpy:DtoH
+     1.374  drafter|graph:forward
+     0.412  attn_proj|_q8_gemv_kernel
+     0.028  attn_qsa|index_elementwise_kernel
+     0.013  other_gpu|memcpy:DtoD
+     0.011  spec_reject|_resample_kernel
+     0.008  spec_reject|_compute_local_logits_stats_kernel
+     0.007  attn_qsa|vectorized_elementwise_kernel
+     0.006  spec_reject|_gather_draft_sampled_kernel
+     0.006  drafter|_prepare_dflash_inputs_kernel
+     0.005  spec_reject|_rejection_kernel
+     0.004  attn_qsa|elementwise_kernel
+     0.003  attn_qsa|_post_update_kernel
+     0.003  attn_qsa|_gather_block_tables_kernel
+     0.003  attn_qsa|_build_qsa_metadata_kernel
+     0.002  attn_qsa|post_ids_kernel
+     0.002  spec_reject|_insert_resampled_kernel
+     0.002  attn_qsa|_compute_slot_mappings_kernel
+     0.002  attn_qsa|_combine_sampled_and_draft_tokens_kernel
+     0.002  attn_qsa|vectorized_gather_kernel
+     0.002  attn_qsa|_ple_ngram_ids_kernel
+     0.002  spec_reject|_get_num_sampled_and_rejected_kernel
+     0.002  spec_reject|vectorized_elementwise_kernel
+     0.001  drafter|CatArrayBatchedCopy_vectorized
+     0.001  memset|memset:?
+     0.001  attn_qsa|_prepare_pos_seq_lens_kernel
+     0.001  attn_qsa|_expand_idx_mapping_kernel
+     0.001  attn_qsa|unrolled_elementwise_kernel

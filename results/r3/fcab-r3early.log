@@ -1,0 +1,869 @@
+# 17:19:18 start: PRESET=single
+started edge0-vllm in tmux session edge0-vllm on :8125 (model /models/Edge0-145B-vllm, hot experts 16.2 GiB, placement plan:/workspace/edge0/plans/plan-s1-16.2.json); log /home/andychen/work/edge0-vllm/logs/serve-20261120-171918.log
+# 17:22:49 healthy after 211 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-171918.log)
+edge0: placement plan:/workspace/edge0/plans/plan-s1-16.2.json (8987 hot), EDGE0_TIER: 192 hot experts demoted to make 4 free slots per layer, 8795 hot slots (15.85 GiB VRAM), digest f7f800dbfe99, per-layer n_hot min/max 147/206
+edge0 tier: reactive expert tier on 48 layers: 4 free VRAM slots / layer (0.35 GiB, from the hot budget), <= 48 swaps / step, decay 0.915 / step, gain 1.50, min usage 2.0, counting calls <= 16 tokens, copies via cudart
+edge0: after load: torch allocated 25.88 GiB, GPU free 4.12 / 31.36 GiB; hot experts 15.85 GiB; cold experts 28.79 GiB pinned host
+Model loading took 27.13 GiB memory and 93.988056 seconds
+Initial free memory 30.66 GiB, reserved 1.75 GiB memory for KV Cache as specified by kv_cache_memory_bytes config and skipped memory profiling. This does not respect the gpu_memory_utilization config. Only use kv_cache_memory_bytes config when you want manual control of KV cache memory size. If OOM'ed, check the difference of initial free memory between the current run and the previous run where k
+GPU KV cache size: 46,291 tokens, Maximum concurrency for 32,768 tokens per request: 1.41x
+# 17:22:49 bench r3early-A1-warm c1 prompts 8 out 512
+Open-file limit: 1048576
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 8 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 8 prompts in 1.92s
+Warming up with 2 requests...
+Warmup run completed.
+Speculative decoding detected, will collect metrics.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 1
+================= Serving Benchmark Result =================
+Successful requests:                     8         
+Failed requests:                         0         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  33.13     
+Total input tokens:                      1992      
+Total generated tokens:                  4096      
+Request throughput (req/s):              0.24      
+Output token throughput (tok/s):         123.63    
+Peak output token throughput (tok/s):    61.00     
+Peak concurrent requests:                2.00      
+Total token throughput (tok/s):          183.76    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          339.21    
+Median TTFT (ms):                        252.43    
+P99 TTFT (ms):                           843.27    
+P90 TTFT (ms):                           613.46    
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          7.44      
+Median TPOT (ms):                        7.64      
+P99 TPOT (ms):                           8.13      
+P90 TPOT (ms):                           8.07      
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           19.34     
+Median ITL (ms):                         18.64     
+P99 ITL (ms):                            30.70     
+P90 ITL (ms):                            24.07     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          4141.23   
+Median E2EL (ms):                        4176.87   
+P99 E2EL (ms):                           4873.30   
+P90 E2EL (ms):                           4662.67   
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     53.97     
+Acceptance length:                       2.62      
+Drafts:                                  1565      
+Draft tokens:                            4695      
+Accepted tokens:                         2534      
+Per-position acceptance (%):
+  Position 0:                            73.55     
+  Position 1:                            52.72     
+  Position 2:                            35.65     
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 1 = 1
+Window:                             0.0s -> 33.1s  (33.1s)
+Observed peak concurrency:          1
+Requests started in window:         8 / 8 (100.0%)
+Requests completed in window:       7
+-----------------------------------------------
+Request throughput (req/s):         0.21
+Output token throughput (tok/s):    47.72
+Input token throughput (tok/s):     60.13
+Total token throughput (tok/s):     107.85
+-----------------------------------------------
+Mean TTFT (ms):                     339.21
+Median TTFT (ms):                   252.43
+P99 TTFT (ms):                      843.27
+P90 TTFT (ms):                      613.46
+-----------------------------------------------
+Mean TPOT (ms):                     7.44
+Median TPOT (ms):                   7.64
+P90 TPOT (ms):                      8.07
+P99 TPOT (ms):                      8.13
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/r3early-A1-warm/r3early-A1-warm-infqps-concurrency1-edge0_145b-20261120-172332.json
+SPECSTAT r3early-A1-warm {"spec": true, "drafts": 1937, "draft_tokens": 5811, "accepted": 3187, "preemptions": 0, "acceptance_length": 2.645, "k_mean": 3.0, "per_pos": [0.747, 0.537, 0.362]}
+SLOG r3early-A1-warm /home/andychen/work/edge0-vllm/logs/serve-20261120-171918.log 503 535
+  [r3early-A1-warm] edge0 tier: 24.6s 10 steps | per layer-step: cold 9.40 hot 6.70 distinct experts, routes from VRAM 45.0% | swaps 37.7 / step (total 528, cap reached 11, stale counts 0, skipped 0) | host 1.17 + 1.26 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:10.80 <8:3.79
+  [r3early-A1-warm] edge0 cpu-experts: 5361 jobs, 4.9 experts / 8.6 routes per job, CPU 249 us per job, GPU side 310 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+  [r3early-A1-warm] edge0 ple-defer: 301 steps, 91.1 ids / 85.9 rows per step, read 1559 us, event wait 14861 us, submit->ready 16471 us per step; GPU waited in 74% of 311 calls, 934 us per call; timeouts 0, errors 0, max queue 1
+  [r3early-A1-warm] edge0 tier: 10.0s 539 steps | per layer-step: cold 2.80 hot 23.57 distinct experts, routes from VRAM 91.6% | swaps 26.5 / step (total 14673, cap reached 106, stale counts 0, skipped 0) | host 0.40 + 0.66 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:3.68 <8:4.52 <16:3.94 <32:2.91 <64:2.69 <128:2.25 <256:3.12
+  [r3early-A1-warm] edge0 tier: 10.0s 466 steps | per layer-step: cold 3.97 hot 22.93 distinct experts, routes from VRAM 87.8% | swaps 34.5 / step (total 30857, cap reached 180, stale counts 0, skipped 0) | host 0.47 + 0.84 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.58 <8:7.05 <16:6.07 <32:4.29 <64:4.20 <128:3.08 <256:3.60
+  [r3early-A1-warm] edge0 tier: 10.0s 453 steps | per layer-step: cold 4.29 hot 22.24 distinct experts, routes from VRAM 86.7% | swaps 36.3 / step (total 47384, cap reached 207, stale counts 0, skipped 0) | host 0.49 + 0.88 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.01 <8:7.08 <16:6.17 <32:6.29 <64:4.01 <128:3.44 <256:4.33
+  [r3early-A1-warm] edge0 cpu-experts: 27512 jobs, 4.2 experts / 5.6 routes per job, CPU 211 us per job, GPU side 264 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+  [r3early-A1-warm] edge0 ple-defer: 1413 steps, 87.1 ids / 83.8 rows per step, read 1588 us, event wait 15758 us, submit->ready 17370 us per step; GPU waited in 81% of 1413 calls, 940 us per call; timeouts 0, errors 0, max queue 1
+  [r3early-A1-warm] edge0 tier: 10.0s 477 steps | per layer-step: cold 3.25 hot 23.31 distinct experts, routes from VRAM 90.0% | swaps 29.2 / step (total 61391, cap reached 123, stale counts 0, skipped 0) | host 0.49 + 0.86 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.33 <8:7.85 <16:6.18 <32:4.57 <64:3.62 <128:2.81 <256:2.59
+r3early-A1-warm                 1     8/8     123.6      7.4         252         843     512
+# 17:23:43 bench r3early-A1 c1 prompts 8 out 512
+Open-file limit: 1048576
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 8 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 8 prompts in 0.44s
+Warming up with 2 requests...
+Warmup run completed.
+Speculative decoding detected, will collect metrics.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 1
+================= Serving Benchmark Result =================
+Successful requests:                     8         
+Failed requests:                         0         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  32.64     
+Total input tokens:                      1992      
+Total generated tokens:                  4096      
+Request throughput (req/s):              0.25      
+Output token throughput (tok/s):         125.49    
+Peak output token throughput (tok/s):    62.00     
+Peak concurrent requests:                2.00      
+Total token throughput (tok/s):          186.52    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          246.36    
+Median TTFT (ms):                        173.56    
+P99 TTFT (ms):                           579.33    
+P90 TTFT (ms):                           449.13    
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          7.50      
+Median TPOT (ms):                        7.51      
+P99 TPOT (ms):                           8.83      
+P90 TPOT (ms):                           8.37      
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           19.17     
+Median ITL (ms):                         18.48     
+P99 ITL (ms):                            30.58     
+P90 ITL (ms):                            23.70     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          4080.00   
+Median E2EL (ms):                        3980.02   
+P99 E2EL (ms):                           5085.52   
+P90 E2EL (ms):                           4684.85   
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     52.45     
+Acceptance length:                       2.57      
+Drafts:                                  1592      
+Draft tokens:                            4776      
+Accepted tokens:                         2505      
+Per-position acceptance (%):
+  Position 0:                            74.50     
+  Position 1:                            50.00     
+  Position 2:                            32.85     
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 1 = 1
+Window:                             0.0s -> 32.6s  (32.6s)
+Observed peak concurrency:          1
+Requests started in window:         8 / 8 (100.0%)
+Requests completed in window:       7
+-----------------------------------------------
+Request throughput (req/s):         0.21
+Output token throughput (tok/s):    49.26
+Input token throughput (tok/s):     61.03
+Total token throughput (tok/s):     110.29
+-----------------------------------------------
+Mean TTFT (ms):                     246.36
+Median TTFT (ms):                   173.56
+P99 TTFT (ms):                      579.33
+P90 TTFT (ms):                      449.13
+-----------------------------------------------
+Mean TPOT (ms):                     7.50
+Median TPOT (ms):                   7.51
+P90 TPOT (ms):                      8.37
+P99 TPOT (ms):                      8.83
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/r3early-A1/r3early-A1-infqps-concurrency1-edge0_145b-20261120-172424.json
+SPECSTAT r3early-A1 {"spec": true, "drafts": 1963, "draft_tokens": 5889, "accepted": 3159, "preemptions": 0, "acceptance_length": 2.609, "k_mean": 3.0, "per_pos": [0.757, 0.517, 0.336]}
+SLOG r3early-A1 /home/andychen/work/edge0-vllm/logs/serve-20261120-171918.log 537 565
+  [r3early-A1] edge0 tier: 12.2s 15 steps | per layer-step: cold 2.06 hot 24.15 distinct experts, routes from VRAM 94.3% | swaps 16.6 / step (total 61640, cap reached 0, stale counts 0, skipped 0) | host 0.48 + 0.55 ms / step (decide + issue) | cold / layer-step by steps since prefill: <256:2.06
+  [r3early-A1] edge0 tier: 10.0s 542 steps | per layer-step: cold 2.74 hot 24.00 distinct experts, routes from VRAM 91.9% | swaps 24.8 / step (total 75131, cap reached 102, stale counts 0, skipped 0) | host 0.34 + 0.59 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:7.15 <8:4.32 <16:3.37 <32:2.52 <64:2.33 <128:2.11 <256:3.27
+  [r3early-A1] edge0 cpu-experts: 14628 jobs, 4.3 experts / 6.1 routes per job, CPU 214 us per job, GPU side 271 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+  [r3early-A1] edge0 ple-defer: 965 steps, 76.8 ids / 75.3 rows per step, read 867 us, event wait 15331 us, submit->ready 16262 us per step; GPU waited in 51% of 965 calls, 552 us per call; timeouts 0, errors 0, max queue 1
+  [r3early-A1] edge0 tier: 10.0s 491 steps | per layer-step: cold 3.64 hot 23.00 distinct experts, routes from VRAM 88.9% | swaps 32.1 / step (total 90972, cap reached 158, stale counts 0, skipped 0) | host 0.37 + 0.73 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.99 <8:6.63 <16:5.93 <32:4.20 <64:4.39 <128:3.05 <256:2.69
+  [r3early-A1] edge0 tier: 10.0s 490 steps | per layer-step: cold 3.62 hot 22.08 distinct experts, routes from VRAM 88.9% | swaps 32.4 / step (total 106922, cap reached 156, stale counts 0, skipped 0) | host 0.38 + 0.73 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.62 <8:6.75 <16:4.77 <32:4.46 <64:3.54 <128:3.38 <256:3.25
+r3early-A1                      1     8/8     125.5      7.5         174         579     512
+# 17:24:35 bench r3early-A1-c8 c8 prompts 16 out 512
+Open-file limit: 1048576
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 16 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 16 prompts in 0.45s
+Warming up with 2 requests...
+Warmup run completed.
+Speculative decoding detected, will collect metrics.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 8
+================= Serving Benchmark Result =================
+Successful requests:                     16        
+Failed requests:                         0         
+Maximum request concurrency:             8         
+Benchmark duration (s):                  43.17     
+Total input tokens:                      4724      
+Total generated tokens:                  8192      
+Request throughput (req/s):              0.37      
+Output token throughput (tok/s):         189.76    
+Peak output token throughput (tok/s):    108.00    
+Peak concurrent requests:                9.00      
+Total token throughput (tok/s):          299.18    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          8729.28   
+Median TTFT (ms):                        10086.41  
+P99 TTFT (ms):                           14300.09  
+P90 TTFT (ms):                           13288.83  
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          18.88     
+Median TPOT (ms):                        18.37     
+P99 TPOT (ms):                           26.54     
+P90 TPOT (ms):                           24.21     
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           49.74     
+Median ITL (ms):                         45.18     
+P99 ITL (ms):                            200.78    
+P90 ITL (ms):                            60.58     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          18376.72  
+Median E2EL (ms):                        20084.78  
+P99 E2EL (ms):                           24842.38  
+P90 E2EL (ms):                           22799.24  
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     55.18     
+Acceptance length:                       2.66      
+Drafts:                                  3087      
+Draft tokens:                            9261      
+Accepted tokens:                         5110      
+Per-position acceptance (%):
+  Position 0:                            74.12     
+  Position 1:                            53.39     
+  Position 2:                            38.03     
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 8 = 8
+Window:                             0.0s -> 27.4s  (27.4s)
+Observed peak concurrency:          8
+Requests started in window:         9 / 16 (56.2%)
+Requests completed in window:       8
+-----------------------------------------------
+Request throughput (req/s):         0.29
+Output token throughput (tok/s):    74.46
+Input token throughput (tok/s):     100.37
+Total token throughput (tok/s):     174.83
+-----------------------------------------------
+Mean TTFT (ms):                     11461.13
+Median TTFT (ms):                   10643.17
+P99 TTFT (ms):                      14377.50
+P90 TTFT (ms):                      13581.21
+-----------------------------------------------
+Mean TPOT (ms):                     19.56
+Median TPOT (ms):                   18.14
+P90 TPOT (ms):                      24.94
+P99 TPOT (ms):                      26.71
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/r3early-A1-c8/r3early-A1-c8-infqps-concurrency8-edge0_145b-20261120-172523.json
+SPECSTAT r3early-A1-c8 {"spec": true, "drafts": 3468, "draft_tokens": 10404, "accepted": 5751, "preemptions": 0, "acceptance_length": 2.658, "k_mean": 3.0, "per_pos": [0.742, 0.536, 0.38]}
+SLOG r3early-A1-c8 /home/andychen/work/edge0-vllm/logs/serve-20261120-171918.log 567 611
+  [r3early-A1-c8] edge0 ple-defer: 1264 steps, 86.7 ids / 83.4 rows per step, read 1134 us, event wait 16702 us, submit->ready 17879 us per step; GPU waited in 72% of 1264 calls, 688 us per call; timeouts 0, errors 0, max queue 1
+  [r3early-A1-c8] edge0 tier: 21.6s 446 steps | per layer-step: cold 4.19 hot 22.40 distinct experts, routes from VRAM 86.9% | swaps 33.9 / step (total 122120, cap reached 180, stale counts 0, skipped 0) | host 0.43 + 0.87 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:11.11 <8:8.72 <16:7.73 <32:6.55 <64:5.01 <128:2.96 <256:3.57
+  [r3early-A1-c8] edge0 cpu-experts: 25044 jobs, 4.1 experts / 5.3 routes per job, CPU 203 us per job, GPU side 258 us per call, GPU waited 5 us per call, frac 0.550, timeouts 0
+  [r3early-A1-c8] edge0 tier: 10.0s 311 steps | per layer-step: cold 8.83 hot 48.90 distinct experts, routes from VRAM 88.4% | swaps 43.3 / step (total 135702, cap reached 231, stale counts 0, skipped 0) | host 0.76 + 1.41 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:18.43 <8:17.52 <16:13.25 <32:10.55 <64:9.50 <128:8.11 <256:5.39
+  [r3early-A1-c8] edge0 tier: 10.0s 193 steps | per layer-step: cold 19.50 hot 71.02 distinct experts, routes from VRAM 83.8% | swaps 48.0 / step (total 145158, cap reached 197, stale counts 0, skipped 0) | host 1.27 + 1.89 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:22.62 <8:23.11 <16:21.96 <32:17.72 <64:18.41 <128:17.33 <256:20.40
+  [r3early-A1-c8] edge0 ple-defer: 672 steps, 305.5 ids / 282.8 rows per step, read 2802 us, event wait 31033 us, submit->ready 33998 us per step; GPU waited in 69% of 672 calls, 1508 us per call; timeouts 0, errors 0, max queue 1
+  [r3early-A1-c8] edge0 cpu-experts: 26863 jobs, 10.5 experts / 14.6 routes per job, CPU 529 us per job, GPU side 616 us per call, GPU waited 7 us per call, frac 0.550, timeouts 0
+  [r3early-A1-c8] edge0 tier: 10.0s 163 steps | per layer-step: cold 24.07 hot 68.43 distinct experts, routes from VRAM 79.9% | swaps 48.0 / step (total 153174, cap reached 167, stale counts 0, skipped 0) | host 1.54 + 1.61 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:27.82 <8:28.39 <16:25.32 <32:27.07 <64:27.42 <128:19.40 <256:17.26
+  [r3early-A1-c8] edge0 tier: 10.0s 164 steps | per layer-step: cold 23.97 hot 69.62 distinct experts, routes from VRAM 79.8% | swaps 48.0 / step (total 161190, cap reached 167, stale counts 0, skipped 0) | host 1.48 + 1.48 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:25.58 <8:25.80 <16:26.22 <32:23.88 <64:21.75 <128:24.05
+r3early-A1-c8                   8   16/16     189.8     18.9       10086       14300     512
+# 17:25:42 start: PRESET=single EDGE0_DEV=1 EDGE0_TIER_EARLY=1 EDGE0_TIER_COPY=batch EDGE0_TIER_SPARE=64
+started edge0-vllm in tmux session edge0-vllm on :8125 (model /models/Edge0-145B-vllm, hot experts 16.2 GiB, placement plan:/workspace/edge0/plans/plan-s1-16.2.json); log /home/andychen/work/edge0-vllm/logs/serve-20261120-172542.log
+# 17:29:08 healthy after 206 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-172542.log)
+edge0: placement plan:/workspace/edge0/plans/plan-s1-16.2.json (8987 hot), EDGE0_TIER: 192 hot experts demoted to make 4 free slots per layer, 8795 hot slots (15.85 GiB VRAM), digest f7f800dbfe99, per-layer n_hot min/max 147/206
+edge0 tier: reactive expert tier on 48 layers: 4 free VRAM slots / layer (0.35 GiB, from the hot budget), <= 48 swaps / step, decay 0.915 / step, gain 1.50, min usage 2.0, counting calls <= 16 tokens, copies via batch, EARLY (decided at the next step's staging, flipped before its launch); shadow copies on, 3264 spare host slots
+edge0: after load: torch allocated 25.87 GiB, GPU free 4.10 / 31.36 GiB; hot experts 15.85 GiB; cold experts 34.33 GiB pinned host
+Model loading took 27.13 GiB memory and 93.728560 seconds
+Initial free memory 30.66 GiB, reserved 1.75 GiB memory for KV Cache as specified by kv_cache_memory_bytes config and skipped memory profiling. This does not respect the gpu_memory_utilization config. Only use kv_cache_memory_bytes config when you want manual control of KV cache memory size. If OOM'ed, check the difference of initial free memory between the current run and the previous run where k
+GPU KV cache size: 46,291 tokens, Maximum concurrency for 32,768 tokens per request: 1.41x
+# 17:29:08 bench r3early-B2-warm c1 prompts 8 out 512
+Open-file limit: 1048576
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 8 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 8 prompts in 1.94s
+Warming up with 2 requests...
+Warmup run completed.
+Speculative decoding detected, will collect metrics.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 1
+================= Serving Benchmark Result =================
+Successful requests:                     8         
+Failed requests:                         0         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  31.69     
+Total input tokens:                      1992      
+Total generated tokens:                  4096      
+Request throughput (req/s):              0.25      
+Output token throughput (tok/s):         129.23    
+Peak output token throughput (tok/s):    61.00     
+Peak concurrent requests:                2.00      
+Total token throughput (tok/s):          192.08    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          333.29    
+Median TTFT (ms):                        251.14    
+P99 TTFT (ms):                           823.77    
+P90 TTFT (ms):                           609.61    
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          7.10      
+Median TPOT (ms):                        7.29      
+P99 TPOT (ms):                           8.05      
+P90 TPOT (ms):                           7.84      
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           18.55     
+Median ITL (ms):                         18.00     
+P99 ITL (ms):                            28.25     
+P90 ITL (ms):                            21.86     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          3961.72   
+Median E2EL (ms):                        4007.96   
+P99 E2EL (ms):                           4596.44   
+P90 E2EL (ms):                           4495.22   
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     54.46     
+Acceptance length:                       2.63      
+Drafts:                                  1557      
+Draft tokens:                            4671      
+Accepted tokens:                         2544      
+Per-position acceptance (%):
+  Position 0:                            75.14     
+  Position 1:                            51.77     
+  Position 2:                            36.48     
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 1 = 1
+Window:                             0.0s -> 31.7s  (31.7s)
+Observed peak concurrency:          1
+Requests started in window:         8 / 8 (100.0%)
+Requests completed in window:       7
+-----------------------------------------------
+Request throughput (req/s):         0.22
+Output token throughput (tok/s):    49.63
+Input token throughput (tok/s):     62.85
+Total token throughput (tok/s):     112.48
+-----------------------------------------------
+Mean TTFT (ms):                     333.29
+Median TTFT (ms):                   251.14
+P99 TTFT (ms):                      823.77
+P90 TTFT (ms):                      609.61
+-----------------------------------------------
+Mean TPOT (ms):                     7.10
+Median TPOT (ms):                   7.29
+P90 TPOT (ms):                      7.84
+P99 TPOT (ms):                      8.05
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/r3early-B2-warm/r3early-B2-warm-infqps-concurrency1-edge0_145b-20261120-172949.json
+SPECSTAT r3early-B2-warm {"spec": true, "drafts": 1935, "draft_tokens": 5805, "accepted": 3189, "preemptions": 0, "acceptance_length": 2.648, "k_mean": 3.0, "per_pos": [0.752, 0.528, 0.368]}
+SLOG r3early-B2-warm /home/andychen/work/edge0-vllm/logs/serve-20261120-172542.log 505 540
+  [r3early-B2-warm] edge0 tier: 21.6s 10 steps | per layer-step: cold 8.82 hot 7.47 distinct experts, routes from VRAM 49.7% | swaps 37.7 / step (total 528, cap reached 11, stale counts 0, skipped 0) | host 0.80 + 0.74 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:10.21 <8:3.28
+  [r3early-B2-warm] edge0 tier: EARLY: host waited 0.12 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 2309 us / flip on the GPU (9 of 10 flips > 20 us); copies via batch; write-backs 37.7 / step (528 of 528 swaps; shadows on, 528 held, 0 stolen)
+  [r3early-B2-warm] edge0 cpu-experts: 6892 jobs, 4.8 experts / 8.2 routes per job, CPU 237 us per job, GPU side 287 us per call, GPU waited 7 us per call, frac 0.550, timeouts 0
+  [r3early-B2-warm] edge0 ple-defer: 485 steps, 88.7 ids / 84.5 rows per step, read 1208 us, event wait 1177 us, submit->ready 2393 us per step; GPU waited in 56% of 495 calls, 564 us per call; timeouts 0, errors 0, max queue 1
+  [r3early-B2-warm] edge0 tier: 10.0s 550 steps | per layer-step: cold 2.67 hot 23.71 distinct experts, routes from VRAM 92.1% | swaps 26.8 / step (total 15150, cap reached 107, stale counts 0, skipped 0) | host 0.26 + 0.39 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:3.30 <8:4.30 <16:3.61 <32:2.62 <64:2.48 <128:2.11 <256:3.14
+  [r3early-B2-warm] edge0 tier: EARLY: host waited 14.11 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 259 us / flip on the GPU (175 of 543 flips > 20 us); copies via batch; write-backs 13.3 / step (7272 of 14622 swaps; shadows on, 3264 held, 4536 stolen)
+  [r3early-B2-warm] edge0 tier: 10.0s 482 steps | per layer-step: cold 3.79 hot 22.83 distinct experts, routes from VRAM 88.5% | swaps 35.4 / step (total 32318, cap reached 210, stale counts 0, skipped 0) | host 0.28 + 0.52 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.49 <8:6.36 <16:5.54 <32:3.73 <64:4.11 <128:3.16 <256:3.31
+  [r3early-B2-warm] edge0 tier: EARLY: host waited 15.31 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 412 us / flip on the GPU (281 of 482 flips > 20 us); copies via batch; write-backs 15.5 / step (7529 of 17168 swaps; shadows on, 3264 held, 12065 stolen)
+  [r3early-B2-warm] edge0 tier: 10.0s 492 steps | per layer-step: cold 3.36 hot 23.04 distinct experts, routes from VRAM 90.1% | swaps 30.8 / step (total 47518, cap reached 144, stale counts 0, skipped 0) | host 0.27 + 0.47 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.47 <8:6.07 <16:5.67 <32:4.56 <64:3.81 <128:3.48 <256:2.26
+  [r3early-B2-warm] edge0 tier: EARLY: host waited 14.72 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 316 us / flip on the GPU (224 of 493 flips > 20 us); copies via batch; write-backs 14.7 / step (7250 of 15200 swaps; shadows on, 3264 held, 19315 stolen)
+  [r3early-B2-warm] edge0 cpu-experts: 25627 jobs, 4.0 experts / 5.1 routes per job, CPU 193 us per job, GPU side 236 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+  [r3early-B2-warm] edge0 ple-defer: 1475 steps, 83.8 ids / 81.0 rows per step, read 1679 us, event wait 1098 us, submit->ready 2786 us per step; GPU waited in 78% of 1475 calls, 769 us per call; timeouts 0, errors 0, max queue 1
+r3early-B2-warm                 1     8/8     129.2      7.1         251         824     512
+# 17:30:00 bench r3early-B2 c1 prompts 8 out 512
+Open-file limit: 1048576
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 8 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 8 prompts in 0.44s
+Warming up with 2 requests...
+Warmup run completed.
+Speculative decoding detected, will collect metrics.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 1
+================= Serving Benchmark Result =================
+Successful requests:                     8         
+Failed requests:                         0         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  31.58     
+Total input tokens:                      1992      
+Total generated tokens:                  4096      
+Request throughput (req/s):              0.25      
+Output token throughput (tok/s):         129.71    
+Peak output token throughput (tok/s):    62.00     
+Peak concurrent requests:                2.00      
+Total token throughput (tok/s):          192.80    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          243.27    
+Median TTFT (ms):                        188.32    
+P99 TTFT (ms):                           559.85    
+P90 TTFT (ms):                           435.77    
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          7.25      
+Median TPOT (ms):                        7.39      
+P99 TPOT (ms):                           7.74      
+P90 TPOT (ms):                           7.68      
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           18.52     
+Median ITL (ms):                         18.02     
+P99 ITL (ms):                            28.30     
+P90 ITL (ms):                            21.69     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          3947.05   
+Median E2EL (ms):                        3964.91   
+P99 E2EL (ms):                           4467.91   
+P90 E2EL (ms):                           4343.22   
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     52.45     
+Acceptance length:                       2.57      
+Drafts:                                  1592      
+Draft tokens:                            4776      
+Accepted tokens:                         2505      
+Per-position acceptance (%):
+  Position 0:                            73.18     
+  Position 1:                            50.38     
+  Position 2:                            33.79     
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 1 = 1
+Window:                             0.0s -> 31.6s  (31.6s)
+Observed peak concurrency:          1
+Requests started in window:         8 / 8 (100.0%)
+Requests completed in window:       7
+-----------------------------------------------
+Request throughput (req/s):         0.22
+Output token throughput (tok/s):    50.92
+Input token throughput (tok/s):     63.08
+Total token throughput (tok/s):     114.01
+-----------------------------------------------
+Mean TTFT (ms):                     243.27
+Median TTFT (ms):                   188.32
+P99 TTFT (ms):                      559.85
+P90 TTFT (ms):                      435.77
+-----------------------------------------------
+Mean TPOT (ms):                     7.25
+Median TPOT (ms):                   7.39
+P90 TPOT (ms):                      7.68
+P99 TPOT (ms):                      7.74
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/r3early-B2/r3early-B2-infqps-concurrency1-edge0_145b-20261120-173039.json
+SPECSTAT r3early-B2 {"spec": true, "drafts": 1945, "draft_tokens": 5835, "accepted": 3177, "preemptions": 0, "acceptance_length": 2.633, "k_mean": 3.0, "per_pos": [0.748, 0.529, 0.357]}
+SLOG r3early-B2 /home/andychen/work/edge0-vllm/logs/serve-20261120-172542.log 542 574
+  [r3early-B2] edge0 tier: 20.6s 425 steps | per layer-step: cold 3.01 hot 23.47 distinct experts, routes from VRAM 91.0% | swaps 29.9 / step (total 60265, cap reached 108, stale counts 0, skipped 0) | host 0.27 + 0.44 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:7.66 <8:6.25 <16:4.91 <32:3.46 <64:3.23 <128:2.61 <256:2.59
+  [r3early-B2] edge0 tier: EARLY: host waited 14.56 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 225 us / flip on the GPU (160 of 426 flips > 20 us); copies via batch; write-backs 12.1 / step (5158 of 12747 swaps; shadows on, 3264 held, 24473 stolen)
+  [r3early-B2] edge0 tier: 10.0s 539 steps | per layer-step: cold 2.94 hot 23.87 distinct experts, routes from VRAM 91.4% | swaps 28.0 / step (total 75453, cap reached 126, stale counts 0, skipped 0) | host 0.26 + 0.40 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:7.96 <8:4.94 <16:3.72 <32:2.75 <64:2.51 <128:2.07 <256:3.55
+  [r3early-B2] edge0 tier: EARLY: host waited 14.07 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 198 us / flip on the GPU (186 of 537 flips > 20 us); copies via batch; write-backs 10.5 / step (5690 of 15188 swaps; shadows on, 3264 held, 30163 stolen)
+  [r3early-B2] edge0 cpu-experts: 15260 jobs, 4.3 experts / 5.9 routes per job, CPU 206 us per job, GPU side 250 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+  [r3early-B2] edge0 ple-defer: 957 steps, 82.5 ids / 80.0 rows per step, read 528 us, event wait 1160 us, submit->ready 1698 us per step; GPU waited in 29% of 957 calls, 224 us per call; timeouts 0, errors 0, max queue 1
+  [r3early-B2] edge0 tier: 10.0s 510 steps | per layer-step: cold 3.50 hot 23.16 distinct experts, routes from VRAM 89.6% | swaps 33.9 / step (total 92798, cap reached 184, stale counts 0, skipped 0) | host 0.27 + 0.48 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.92 <8:6.31 <16:5.69 <32:4.01 <64:4.17 <128:2.85 <256:2.83
+  [r3early-B2] edge0 tier: EARLY: host waited 15.16 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 341 us / flip on the GPU (272 of 510 flips > 20 us); copies via batch; write-backs 14.7 / step (7513 of 17345 swaps; shadows on, 3264 held, 37676 stolen)
+  [r3early-B2] edge0 tier: 10.2s 492 steps | per layer-step: cold 3.50 hot 22.54 distinct experts, routes from VRAM 89.4% | swaps 33.3 / step (total 109241, cap reached 155, stale counts 0, skipped 0) | host 0.27 + 0.48 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.03 <8:6.34 <16:5.43 <32:4.39 <64:2.91 <128:2.83 <256:3.61
+  [r3early-B2] edge0 tier: EARLY: host waited 15.21 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 318 us / flip on the GPU (248 of 492 flips > 20 us); copies via batch; write-backs 15.0 / step (7419 of 16443 swaps; shadows on, 3264 held, 45095 stolen)
+r3early-B2                      1     8/8     129.7      7.2         188         560     512
+# 17:30:50 bench r3early-B2-c8 c8 prompts 16 out 512
+Open-file limit: 1048576
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 16 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 16 prompts in 0.43s
+Warming up with 2 requests...
+Warmup run completed.
+Speculative decoding detected, will collect metrics.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 8
+================= Serving Benchmark Result =================
+Successful requests:                     16        
+Failed requests:                         0         
+Maximum request concurrency:             8         
+Benchmark duration (s):                  41.99     
+Total input tokens:                      4724      
+Total generated tokens:                  8192      
+Request throughput (req/s):              0.38      
+Output token throughput (tok/s):         195.12    
+Peak output token throughput (tok/s):    112.00    
+Peak concurrent requests:                10.00     
+Total token throughput (tok/s):          307.63    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          8403.18   
+Median TTFT (ms):                        10716.62  
+P99 TTFT (ms):                           12738.16  
+P90 TTFT (ms):                           11991.59  
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          19.02     
+Median TPOT (ms):                        18.95     
+P99 TPOT (ms):                           24.31     
+P90 TPOT (ms):                           22.85     
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           50.40     
+Median ITL (ms):                         46.75     
+P99 ITL (ms):                            197.73    
+P90 ITL (ms):                            59.53     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          18121.43  
+Median E2EL (ms):                        20447.93  
+P99 E2EL (ms):                           24007.40  
+P90 E2EL (ms):                           22634.81  
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     55.68     
+Acceptance length:                       2.67      
+Drafts:                                  3069      
+Draft tokens:                            9207      
+Accepted tokens:                         5126      
+Per-position acceptance (%):
+  Position 0:                            74.81     
+  Position 1:                            53.83     
+  Position 2:                            38.38     
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 8 = 8
+Window:                             0.0s -> 28.7s  (28.7s)
+Observed peak concurrency:          8
+Requests started in window:         9 / 16 (56.2%)
+Requests completed in window:       8
+-----------------------------------------------
+Request throughput (req/s):         0.28
+Output token throughput (tok/s):    74.20
+Input token throughput (tok/s):     125.38
+Total token throughput (tok/s):     199.58
+-----------------------------------------------
+Mean TTFT (ms):                     11289.19
+Median TTFT (ms):                   11648.60
+P99 TTFT (ms):                      12789.68
+P90 TTFT (ms):                      12259.78
+-----------------------------------------------
+Mean TPOT (ms):                     19.66
+Median TPOT (ms):                   20.30
+P90 TPOT (ms):                      23.24
+P99 TPOT (ms):                      24.43
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/r3early-B2-c8/r3early-B2-c8-infqps-concurrency8-edge0_145b-20261120-173138.json
+SPECSTAT r3early-B2-c8 {"spec": true, "drafts": 3451, "draft_tokens": 10353, "accepted": 5769, "preemptions": 0, "acceptance_length": 2.672, "k_mean": 3.0, "per_pos": [0.753, 0.54, 0.378]}
+SLOG r3early-B2-c8 /home/andychen/work/edge0-vllm/logs/serve-20261120-172542.log 576 626
+  [r3early-B2-c8] edge0 ple-defer: 1007 steps, 86.8 ids / 83.5 rows per step, read 1088 us, event wait 1118 us, submit->ready 2215 us per step; GPU waited in 60% of 1007 calls, 441 us per call; timeouts 0, errors 0, max queue 1
+  [r3early-B2-c8] edge0 tier: 19.8s 410 steps | per layer-step: cold 3.34 hot 22.94 distinct experts, routes from VRAM 89.9% | swaps 33.0 / step (total 122838, cap reached 141, stale counts 0, skipped 0) | host 0.27 + 0.46 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.38 <8:6.70 <16:5.30 <32:3.84 <64:3.51 <128:2.67 <256:3.08
+  [r3early-B2-c8] edge0 tier: EARLY: host waited 15.21 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 280 us / flip on the GPU (194 of 411 flips > 20 us); copies via batch; write-backs 14.0 / step (5764 of 13597 swaps; shadows on, 3264 held, 50859 stolen)
+  [r3early-B2-c8] edge0 cpu-experts: 18590 jobs, 4.1 experts / 5.5 routes per job, CPU 199 us per job, GPU side 242 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+  [r3early-B2-c8] edge0 tier: 10.0s 304 steps | per layer-step: cold 9.33 hot 51.17 distinct experts, routes from VRAM 88.6% | swaps 42.7 / step (total 135975, cap reached 217, stale counts 0, skipped 0) | host 0.32 + 0.69 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:21.13 <8:17.34 <16:15.82 <32:10.25 <64:9.71 <128:9.00 <256:5.19
+  [r3early-B2-c8] edge0 tier: EARLY: host waited 23.15 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 573 us / flip on the GPU (251 of 304 flips > 20 us); copies via batch; write-backs 14.8 / step (4571 of 13137 swaps; shadows on, 3264 held, 55430 stolen)
+  [r3early-B2-c8] edge0 tier: 10.0s 166 steps | per layer-step: cold 25.30 hot 67.22 distinct experts, routes from VRAM 78.7% | swaps 48.0 / step (total 144135, cap reached 170, stale counts 0, skipped 0) | host 0.38 + 0.88 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:30.51 <8:31.54 <16:29.99 <32:29.31 <64:26.10 <128:20.64 <256:22.13
+  [r3early-B2-c8] edge0 tier: EARLY: host waited 44.83 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 805 us / flip on the GPU (169 of 170 flips > 20 us); copies via batch; write-backs 18.1 / step (3082 of 8160 swaps; shadows on, 3264 held, 58512 stolen)
+  [r3early-B2-c8] edge0 ple-defer: 651 steps, 318.4 ids / 296.0 rows per step, read 2645 us, event wait 648 us, submit->ready 3319 us per step; GPU waited in 48% of 651 calls, 797 us per call; timeouts 0, errors 0, max queue 1
+  [r3early-B2-c8] edge0 cpu-experts: 26187 jobs, 11.5 experts / 16.0 routes per job, CPU 572 us per job, GPU side 635 us per call, GPU waited 7 us per call, frac 0.550, timeouts 0
+  [r3early-B2-c8] edge0 tier: 10.0s 173 steps | per layer-step: cold 23.28 hot 68.58 distinct experts, routes from VRAM 80.6% | swaps 48.0 / step (total 152631, cap reached 177, stale counts 0, skipped 0) | host 0.39 + 0.89 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:24.87 <8:22.65 <16:19.30 <32:20.71 <64:22.95 <128:27.33
+  [r3early-B2-c8] edge0 tier: EARLY: host waited 43.26 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 763 us / flip on the GPU (176 of 177 flips > 20 us); copies via batch; write-backs 18.8 / step (3319 of 8496 swaps; shadows on, 3264 held, 61831 stolen)
+  [r3early-B2-c8] edge0 tier: 10.0s 166 steps | per layer-step: cold 25.57 hot 68.36 distinct experts, routes from VRAM 78.7% | swaps 48.0 / step (total 160791, cap reached 170, stale counts 0, skipped 0) | host 0.38 + 0.88 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:28.35 <8:27.27 <16:29.51 <32:25.85 <64:17.80 <128:24.45
+  [r3early-B2-c8] edge0 tier: EARLY: host waited 45.82 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 795 us / flip on the GPU (170 of 170 flips > 20 us); copies via batch; write-backs 19.3 / step (3283 of 8160 swaps; shadows on, 3264 held, 65114 stolen)
+r3early-B2-c8                   8   16/16     195.1     19.0       10717       12738     512
+# 17:31:49 bench r3early-B3 c1 prompts 8 out 512
+Open-file limit: 1048576
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 8 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 8 prompts in 0.45s
+Warming up with 2 requests...
+Warmup run completed.
+Speculative decoding detected, will collect metrics.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 1
+================= Serving Benchmark Result =================
+Successful requests:                     8         
+Failed requests:                         0         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  31.14     
+Total input tokens:                      1992      
+Total generated tokens:                  4096      
+Request throughput (req/s):              0.26      
+Output token throughput (tok/s):         131.54    
+Peak output token throughput (tok/s):    61.00     
+Peak concurrent requests:                2.00      
+Total token throughput (tok/s):          195.51    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          242.87    
+Median TTFT (ms):                        189.66    
+P99 TTFT (ms):                           553.61    
+P90 TTFT (ms):                           422.15    
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          7.14      
+Median TPOT (ms):                        7.07      
+P99 TPOT (ms):                           8.14      
+P90 TPOT (ms):                           7.82      
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           18.58     
+Median ITL (ms):                         18.01     
+P99 ITL (ms):                            27.95     
+P90 ITL (ms):                            22.36     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          3892.31   
+Median E2EL (ms):                        3798.76   
+P99 E2EL (ms):                           4497.24   
+P90 E2EL (ms):                           4464.91   
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     54.06     
+Acceptance length:                       2.62      
+Drafts:                                  1563      
+Draft tokens:                            4689      
+Accepted tokens:                         2535      
+Per-position acceptance (%):
+  Position 0:                            74.66     
+  Position 1:                            52.08     
+  Position 2:                            35.44     
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 1 = 1
+Window:                             0.0s -> 31.1s  (31.1s)
+Observed peak concurrency:          1
+Requests started in window:         8 / 8 (100.0%)
+Requests completed in window:       7
+-----------------------------------------------
+Request throughput (req/s):         0.22
+Output token throughput (tok/s):    50.71
+Input token throughput (tok/s):     63.97
+Total token throughput (tok/s):     114.68
+-----------------------------------------------
+Mean TTFT (ms):                     242.87
+Median TTFT (ms):                   189.66
+P99 TTFT (ms):                      553.61
+P90 TTFT (ms):                      422.15
+-----------------------------------------------
+Mean TPOT (ms):                     7.14
+Median TPOT (ms):                   7.07
+P90 TPOT (ms):                      7.82
+P99 TPOT (ms):                      8.14
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/r3early-B3/r3early-B3-infqps-concurrency1-edge0_145b-20261120-173228.json
+SPECSTAT r3early-B3 {"spec": true, "drafts": 1938, "draft_tokens": 5814, "accepted": 3185, "preemptions": 0, "acceptance_length": 2.643, "k_mean": 3.0, "per_pos": [0.749, 0.531, 0.363]}
+SLOG r3early-B3 /home/andychen/work/edge0-vllm/logs/serve-20261120-172542.log 628 662
+  [r3early-B3] edge0 tier: 18.9s 185 steps | per layer-step: cold 15.93 hot 62.08 distinct experts, routes from VRAM 85.1% | swaps 48.0 / step (total 169671, cap reached 185, stale counts 0, skipped 0) | host 0.37 + 0.86 ms / step (decide + issue) | cold / layer-step by steps since prefill: <8:17.11 <16:22.72 <32:24.08 <64:22.66 <128:13.63 <256:11.89
+  [r3early-B3] edge0 tier: EARLY: host waited 32.41 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 753 us / flip on the GPU (185 of 185 flips > 20 us); copies via batch; write-backs 16.6 / step (3074 of 8880 swaps; shadows on, 3264 held, 68188 stolen)
+  [r3early-B3] edge0 ple-defer: 399 steps, 286.4 ids / 273.2 rows per step, read 3525 us, event wait 589 us, submit->ready 4142 us per step; GPU waited in 76% of 399 calls, 1419 us per call; timeouts 0, errors 0, max queue 1
+  [r3early-B3] edge0 cpu-experts: 17661 jobs, 11.4 experts / 15.2 routes per job, CPU 564 us per job, GPU side 628 us per call, GPU waited 7 us per call, frac 0.550, timeouts 0
+  [r3early-B3] edge0 tier: 10.0s 545 steps | per layer-step: cold 2.88 hot 23.87 distinct experts, routes from VRAM 91.6% | swaps 28.7 / step (total 185418, cap reached 121, stale counts 0, skipped 0) | host 0.26 + 0.41 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:6.88 <8:5.21 <16:4.02 <32:2.77 <64:2.62 <128:2.16 <256:3.29
+  [r3early-B3] edge0 tier: EARLY: host waited 14.02 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 210 us / flip on the GPU (198 of 544 flips > 20 us); copies via batch; write-backs 11.4 / step (6270 of 15747 swaps; shadows on, 3264 held, 74458 stolen)
+  [r3early-B3] edge0 tier: 10.0s 504 steps | per layer-step: cold 3.63 hot 22.91 distinct experts, routes from VRAM 89.1% | swaps 34.2 / step (total 202779, cap reached 197, stale counts 0, skipped 0) | host 0.27 + 0.49 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.72 <8:6.16 <16:5.83 <32:3.78 <64:4.39 <128:3.12 <256:2.73
+  [r3early-B3] edge0 tier: EARLY: host waited 15.23 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 364 us / flip on the GPU (272 of 504 flips > 20 us); copies via batch; write-backs 14.6 / step (7379 of 17361 swaps; shadows on, 3264 held, 81837 stolen)
+  [r3early-B3] edge0 tier: 10.2s 488 steps | per layer-step: cold 3.76 hot 22.28 distinct experts, routes from VRAM 88.6% | swaps 35.6 / step (total 220239, cap reached 189, stale counts 0, skipped 0) | host 0.27 + 0.52 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:7.76 <8:6.15 <16:4.57 <32:4.60 <64:3.08 <128:3.44 <256:3.80
+  [r3early-B3] edge0 tier: EARLY: host waited 15.32 ms / step for the forward's counts (hidden: the stream sync waits longer); next forward waited for the flip 396 us / flip on the GPU (292 of 488 flips > 20 us); copies via batch; write-backs 16.7 / step (8164 of 17460 swaps; shadows on, 3264 held, 90001 stolen)
+  [r3early-B3] edge0 ple-defer: 1525 steps, 87.9 ids / 84.5 rows per step, read 562 us, event wait 1106 us, submit->ready 1687 us per step; GPU waited in 30% of 1525 calls, 221 us per call; timeouts 0, errors 0, max queue 1
+  [r3early-B3] edge0 cpu-experts: 27136 jobs, 4.2 experts / 5.6 routes per job, CPU 202 us per job, GPU side 244 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+r3early-B3                      1     8/8     131.5      7.1         190         554     512
+# 17:32:47 start: PRESET=single
+started edge0-vllm in tmux session edge0-vllm on :8125 (model /models/Edge0-145B-vllm, hot experts 16.2 GiB, placement plan:/workspace/edge0/plans/plan-s1-16.2.json); log /home/andychen/work/edge0-vllm/logs/serve-20261120-173247.log
+# 17:36:18 healthy after 211 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-173247.log)
+edge0: placement plan:/workspace/edge0/plans/plan-s1-16.2.json (8987 hot), EDGE0_TIER: 192 hot experts demoted to make 4 free slots per layer, 8795 hot slots (15.85 GiB VRAM), digest f7f800dbfe99, per-layer n_hot min/max 147/206
+edge0 tier: reactive expert tier on 48 layers: 4 free VRAM slots / layer (0.35 GiB, from the hot budget), <= 48 swaps / step, decay 0.915 / step, gain 1.50, min usage 2.0, counting calls <= 16 tokens, copies via cudart
+edge0: after load: torch allocated 25.88 GiB, GPU free 4.10 / 31.36 GiB; hot experts 15.85 GiB; cold experts 28.79 GiB pinned host
+Model loading took 27.14 GiB memory and 94.002260 seconds
+Initial free memory 30.66 GiB, reserved 1.75 GiB memory for KV Cache as specified by kv_cache_memory_bytes config and skipped memory profiling. This does not respect the gpu_memory_utilization config. Only use kv_cache_memory_bytes config when you want manual control of KV cache memory size. If OOM'ed, check the difference of initial free memory between the current run and the previous run where k
+GPU KV cache size: 46,291 tokens, Maximum concurrency for 32,768 tokens per request: 1.41x
+# 17:36:18 bench r3early-A4-warm c1 prompts 8 out 512
+Open-file limit: 1048576
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 8 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 8 prompts in 1.94s
+Warming up with 2 requests...
+Warmup run completed.
+Speculative decoding detected, will collect metrics.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 1
+================= Serving Benchmark Result =================
+Successful requests:                     8         
+Failed requests:                         0         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  33.32     
+Total input tokens:                      1992      
+Total generated tokens:                  4096      
+Request throughput (req/s):              0.24      
+Output token throughput (tok/s):         122.92    
+Peak output token throughput (tok/s):    60.00     
+Peak concurrent requests:                2.00      
+Total token throughput (tok/s):          182.69    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          338.14    
+Median TTFT (ms):                        254.01    
+P99 TTFT (ms):                           843.87    
+P90 TTFT (ms):                           613.15    
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          7.49      
+Median TPOT (ms):                        7.38      
+P99 TPOT (ms):                           8.33      
+P90 TPOT (ms):                           8.20      
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           19.27     
+Median ITL (ms):                         18.62     
+P99 ITL (ms):                            29.60     
+P90 ITL (ms):                            23.41     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          4165.38   
+Median E2EL (ms):                        4065.57   
+P99 E2EL (ms):                           5006.57   
+P90 E2EL (ms):                           4811.95   
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     52.98     
+Acceptance length:                       2.59      
+Drafts:                                  1581      
+Draft tokens:                            4743      
+Accepted tokens:                         2513      
+Per-position acceptance (%):
+  Position 0:                            74.38     
+  Position 1:                            50.79     
+  Position 2:                            33.78     
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 1 = 1
+Window:                             0.0s -> 33.3s  (33.3s)
+Observed peak concurrency:          1
+Requests started in window:         8 / 8 (100.0%)
+Requests completed in window:       7
+-----------------------------------------------
+Request throughput (req/s):         0.21
+Output token throughput (tok/s):    47.92
+Input token throughput (tok/s):     59.78
+Total token throughput (tok/s):     107.70
+-----------------------------------------------
+Mean TTFT (ms):                     338.14
+Median TTFT (ms):                   254.01
+P99 TTFT (ms):                      843.87
+P90 TTFT (ms):                      613.15
+-----------------------------------------------
+Mean TPOT (ms):                     7.49
+Median TPOT (ms):                   7.38
+P90 TPOT (ms):                      8.20
+P99 TPOT (ms):                      8.33
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/r3early-A4-warm/r3early-A4-warm-infqps-concurrency1-edge0_145b-20261120-173701.json
+SPECSTAT r3early-A4-warm {"spec": true, "drafts": 1951, "draft_tokens": 5853, "accepted": 3170, "preemptions": 0, "acceptance_length": 2.625, "k_mean": 3.0, "per_pos": [0.753, 0.526, 0.346]}
+SLOG r3early-A4-warm /home/andychen/work/edge0-vllm/logs/serve-20261120-173247.log 503 535
+  [r3early-A4-warm] edge0 tier: 24.2s 10 steps | per layer-step: cold 9.28 hot 6.69 distinct experts, routes from VRAM 44.7% | swaps 37.7 / step (total 528, cap reached 11, stale counts 0, skipped 0) | host 1.64 + 1.71 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:10.65 <8:3.83
+  [r3early-A4-warm] edge0 cpu-experts: 5082 jobs, 4.7 experts / 8.4 routes per job, CPU 239 us per job, GPU side 302 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+  [r3early-A4-warm] edge0 ple-defer: 339 steps, 89.0 ids / 83.6 rows per step, read 1610 us, event wait 14853 us, submit->ready 16484 us per step; GPU waited in 84% of 349 calls, 916 us per call; timeouts 0, errors 0, max queue 1
+  [r3early-A4-warm] edge0 tier: 10.0s 538 steps | per layer-step: cold 2.84 hot 23.61 distinct experts, routes from VRAM 91.5% | swaps 26.7 / step (total 14740, cap reached 107, stale counts 0, skipped 0) | host 0.35 + 0.62 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:3.58 <8:4.66 <16:3.78 <32:2.98 <64:2.78 <128:2.27 <256:3.19
+  [r3early-A4-warm] edge0 tier: 10.0s 472 steps | per layer-step: cold 3.86 hot 23.00 distinct experts, routes from VRAM 88.1% | swaps 34.0 / step (total 30872, cap reached 178, stale counts 0, skipped 0) | host 0.38 + 0.74 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.49 <8:7.03 <16:6.01 <32:4.16 <64:4.69 <128:3.02 <256:3.15
+  [r3early-A4-warm] edge0 tier: 10.0s 460 steps | per layer-step: cold 4.12 hot 21.81 distinct experts, routes from VRAM 87.2% | swaps 36.2 / step (total 47583, cap reached 200, stale counts 0, skipped 0) | host 0.41 + 0.81 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:7.98 <8:6.64 <16:6.01 <32:4.94 <64:4.01 <128:3.10 <256:4.83
+  [r3early-A4-warm] edge0 cpu-experts: 28222 jobs, 4.1 experts / 5.5 routes per job, CPU 205 us per job, GPU side 259 us per call, GPU waited 5 us per call, frac 0.550, timeouts 0
+  [r3early-A4-warm] edge0 ple-defer: 1411 steps, 87.1 ids / 83.8 rows per step, read 1609 us, event wait 16383 us, submit->ready 18007 us per step; GPU waited in 83% of 1411 calls, 967 us per call; timeouts 0, errors 0, max queue 1
+  [r3early-A4-warm] edge0 tier: 10.0s 476 steps | per layer-step: cold 3.30 hot 23.19 distinct experts, routes from VRAM 89.9% | swaps 29.6 / step (total 61754, cap reached 118, stale counts 0, skipped 0) | host 0.41 + 0.71 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.96 <8:7.27 <16:4.97 <32:4.66 <64:3.12 <128:2.82 <256:2.96
+r3early-A4-warm                 1     8/8     122.9      7.5         254         844     512
+# 17:37:12 bench r3early-A4 c1 prompts 8 out 512
+Open-file limit: 1048576
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 8 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 8 prompts in 0.42s
+Warming up with 2 requests...
+Warmup run completed.
+Speculative decoding detected, will collect metrics.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 1
+================= Serving Benchmark Result =================
+Successful requests:                     8         
+Failed requests:                         0         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  31.66     
+Total input tokens:                      1992      
+Total generated tokens:                  4096      
+Request throughput (req/s):              0.25      
+Output token throughput (tok/s):         129.37    
+Peak output token throughput (tok/s):    62.00     
+Peak concurrent requests:                2.00      
+Total token throughput (tok/s):          192.29    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          239.49    
+Median TTFT (ms):                        174.83    
+P99 TTFT (ms):                           561.52    
+P90 TTFT (ms):                           429.42    
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          7.28      
+Median TPOT (ms):                        7.35      
+P99 TPOT (ms):                           7.81      
+P90 TPOT (ms):                           7.79      
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           18.96     
+Median ITL (ms):                         18.30     
+P99 ITL (ms):                            29.15     
+P90 ITL (ms):                            23.24     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          3957.58   
+Median E2EL (ms):                        3989.46   
+P99 E2EL (ms):                           4524.48   
+P90 E2EL (ms):                           4294.30   
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     54.17     
+Acceptance length:                       2.63      
+Drafts:                                  1561      
+Draft tokens:                            4683      
+Accepted tokens:                         2537      
+Per-position acceptance (%):
+  Position 0:                            75.14     
+  Position 1:                            52.15     
+  Position 2:                            35.23     
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 1 = 1
+Window:                             0.0s -> 31.7s  (31.7s)
+Observed peak concurrency:          1
+Requests started in window:         8 / 8 (100.0%)
+Requests completed in window:       7
+-----------------------------------------------
+Request throughput (req/s):         0.22
+Output token throughput (tok/s):    49.81
+Input token throughput (tok/s):     62.92
+Total token throughput (tok/s):     112.72
+-----------------------------------------------
+Mean TTFT (ms):                     239.49
+Median TTFT (ms):                   174.83
+P99 TTFT (ms):                      561.52
+P90 TTFT (ms):                      429.42
+-----------------------------------------------
+Mean TPOT (ms):                     7.28
+Median TPOT (ms):                   7.35
+P90 TPOT (ms):                      7.79
+P99 TPOT (ms):                      7.81
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/r3early-A4/r3early-A4-infqps-concurrency1-edge0_145b-20261120-173751.json
+SPECSTAT r3early-A4 {"spec": true, "drafts": 1937, "draft_tokens": 5811, "accepted": 3189, "preemptions": 0, "acceptance_length": 2.646, "k_mean": 3.0, "per_pos": [0.755, 0.533, 0.358]}
+SLOG r3early-A4 /home/andychen/work/edge0-vllm/logs/serve-20261120-173247.log 537 565
+  [r3early-A4] edge0 tier: 12.2s 19 steps | per layer-step: cold 2.44 hot 24.43 distinct experts, routes from VRAM 93.0% | swaps 19.6 / step (total 62127, cap reached 1, stale counts 0, skipped 0) | host 0.41 + 0.52 ms / step (decide + issue) | cold / layer-step by steps since prefill: <256:2.44
+  [r3early-A4] edge0 tier: 10.0s 538 steps | per layer-step: cold 2.89 hot 23.98 distinct experts, routes from VRAM 91.4% | swaps 25.7 / step (total 76004, cap reached 102, stale counts 0, skipped 0) | host 0.40 + 0.67 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:7.92 <8:4.99 <16:4.23 <32:2.92 <64:2.51 <128:2.14 <256:3.29
+  [r3early-A4] edge0 cpu-experts: 15373 jobs, 4.3 experts / 6.2 routes per job, CPU 216 us per job, GPU side 273 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+  [r3early-A4] edge0 ple-defer: 961 steps, 76.9 ids / 75.3 rows per step, read 700 us, event wait 15267 us, submit->ready 16018 us per step; GPU waited in 39% of 961 calls, 440 us per call; timeouts 0, errors 0, max queue 1
+  [r3early-A4] edge0 tier: 10.0s 483 steps | per layer-step: cold 3.97 hot 22.47 distinct experts, routes from VRAM 87.8% | swaps 35.0 / step (total 92999, cap reached 197, stale counts 0, skipped 0) | host 0.45 + 0.87 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.32 <8:6.93 <16:6.05 <32:4.02 <64:4.70 <128:3.33 <256:3.08
+  [r3early-A4] edge0 tier: 10.0s 484 steps | per layer-step: cold 3.83 hot 22.21 distinct experts, routes from VRAM 88.2% | swaps 34.4 / step (total 109713, cap reached 179, stale counts 0, skipped 0) | host 0.43 + 0.83 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.11 <8:6.23 <16:5.45 <32:5.33 <64:3.58 <128:2.92 <256:4.15
+r3early-A4                      1     8/8     129.4      7.3         175         562     512
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+r3early-A1                      1     8/8     125.5      7.5         174         579     512
+r3early-B2                      1     8/8     129.7      7.2         188         560     512
+r3early-B3                      1     8/8     131.5      7.1         190         554     512
+r3early-A4                      1     8/8     129.4      7.3         175         562     512
+r3early-A1-c8                   8   16/16     189.8     18.9       10086       14300     512
+r3early-B2-c8                   8   16/16     195.1     19.0       10717       12738     512
+# 17:38:10 FCAB_DONE r3early

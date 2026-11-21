@@ -1,0 +1,59 @@
+[0] 'What is the capital of France? Answer in one sentence.'
+   free: common prefix 7/7 (first32: 7/7), mean|dlp| 0.0000, finish strata=stop vllm=stop
+   teacher-forced: vllm top1 == strata token 7/7, == strata argmax 7/7 (strata picked a non-argmax token 0x), mean|dlp| 0.0002, max 0.001 at (0, 0.0009836104152798654, "'The'", -0.01, -0.011), KL(top5) 0.0000; prompt tokens vllm=24 strata=24
+   strata: 'The capital of France is Paris.'
+   vllm  : 'The capital of France is Paris.'
+[1] '用繁體中文簡單說明什麼是「不當得利」，兩句話以內。'
+   free: common prefix 19/31 (first32: 19/31), mean|dlp| 0.0623, finish strata=stop vllm=stop
+   diverge @19: strata '人' (margin 0.514) vs vllm '者' (margin 0.125)
+      strata top5 [("'人'", -0.538), ("'者'", -1.052), ("'人在'", -3.072), ("'者在'", -4.505), ("'方'", -5.902)]
+      vllm   top5 [("'者'", -0.682), ("'人'", -0.807), ("'人在'", -3.557), ("'者在'", -4.557), ("'方'", -5.682)]
+   teacher-forced: vllm top1 == strata token 30/31, == strata argmax 29/31 (strata picked a non-argmax token 1x), mean|dlp| 0.0639, max 0.310 at (5, 0.3096513033790589, "'沒有'", -1.102, -0.792), KL(top5) 0.0096; prompt tokens vllm=28 strata=28
+   strata: '「不當得利」指沒有法律依據而獲得利益，導致他人遭受損失的情形。受益人依法必須將該利益返還給受損者。'
+   vllm  : '「不當得利」指沒有法律依據而獲得利益，導致他人遭受損失的情形。受益者依法必須將該利益返還給受損者。'
+[2] 'Write a Python function that returns the n-th Fibonacci numb'
+   free: common prefix 23/48 (first32: 23/32), mean|dlp| 0.0045, finish strata=length vllm=length
+   diverge @23: strata ' using' (margin 0.026) vs vllm ' iter' (margin 0.25)
+      strata top5 [("' iter'", -0.682), ("' using'", -0.708), ("' ('", -6.423), ("' computed'", -8.34), ("'.'", -9.945)]
+      vllm   top5 [("' iter'", -0.578), ("' using'", -0.828), ("' ('", -6.578), ("' computed'", -8.203), ("' calculated'", -10.203)]
+   teacher-forced: vllm top1 == strata token 46/48, == strata argmax 48/48 (strata picked a non-argmax token 2x), mean|dlp| 0.0123, max 0.252 at (39, 0.25228163799285896, "'       '", -1.393, -1.141), KL(top5) 0.0012; prompt tokens vllm=26 strata=26
+   strata: '```python\ndef fibonacci(n: int) -> int:\n    """\n    Return the n-th Fibonacci number using an iterative approa'
+   vllm  : '```python\ndef fibonacci(n: int) -> int:\n    """\n    Return the n-th Fibonacci number iteratively.\n    \n    The'
+[3] 'Compute 37 * 43 and show the steps briefly.'
+   free: common prefix 19/48 (first32: 19/32), mean|dlp| 0.0224, finish strata=length vllm=length
+   diverge @19: strata ' break' (margin 1.474) vs vllm ' the' (margin 1.125)
+      strata top5 [("' the'", -0.451), ("' break'", -1.924), ("' a'", -2.354), ("' algebra'", -2.777), ("' decom'", -4.211)]
+      vllm   top5 [("' the'", -0.492), ("' break'", -1.617), ("' a'", -2.492), ("' algebra'", -3.242), ("' decom'", -3.992)]
+   teacher-forced: vllm top1 == strata token 46/48, == strata argmax 48/48 (strata picked a non-argmax token 2x), mean|dlp| 0.0256, max 0.304 at (19, 0.30405786155700687, "' break'", -1.924, -1.62), KL(top5) 0.0029; prompt tokens vllm=26 strata=26
+   strata: 'To compute $37 \\times 43$, we can use the standard multiplication method or break it down using the distributi'
+   vllm  : 'To compute $37 \\times 43$, we can use the standard multiplication method or the difference of squares identity'
+[4] 'List three differences between TCP and UDP.'
+   free: common prefix 6/48 (first32: 6/32), mean|dlp| 0.0066, finish strata=length vllm=length
+   diverge @6: strata ' **' (margin 1.348) vs vllm ' TCP' (margin 1.25)
+      strata top5 [("' TCP'", -0.239), ("' **'", -1.587), ("' Transmission'", -5.11), ("' the'", -7.225), ("' Transport'", -8.48)]
+      vllm   top5 [("' TCP'", -0.265), ("' **'", -1.515), ("' Transmission'", -4.515), ("' the'", -7.202), ("' Transport'", -8.015)]
+   teacher-forced: vllm top1 == strata token 45/48, == strata argmax 47/48 (strata picked a non-argmax token 2x), mean|dlp| 0.0165, max 0.278 at (29, 0.27795142362213143, "' Establishment'", -1.246, -1.524), KL(top5) 0.0014; prompt tokens vllm=20 strata=20
+   strata: 'Here are three key differences between **TCP** (Transmission Control Protocol) and **UDP** (User Datagram Prot'
+   vllm  : 'Here are three key differences between TCP (Transmission Control Protocol) and UDP (User Datagram Protocol):\n\n'
+[5] '請把這句話翻譯成英文：今天下午三點在會議室開會。'
+   free: common prefix 19/19 (first32: 19/19), mean|dlp| 0.0194, finish strata=stop vllm=stop
+   teacher-forced: vllm top1 == strata token 19/19, == strata argmax 19/19 (strata picked a non-argmax token 0x), mean|dlp| 0.0138, max 0.095 at (0, 0.09457510755920406, "'There'", -0.906, -0.812), KL(top5) 0.0068; prompt tokens vllm=28 strata=28
+   strata: 'There will be a meeting in the conference room at 3:00 PM this afternoon.'
+   vllm  : 'There will be a meeting in the conference room at 3:00 PM this afternoon.'
+[6] 'Explain in two sentences why the sky is blue.'
+   free: common prefix 6/48 (first32: 6/32), mean|dlp| 0.0344, finish strata=length vllm=length
+   diverge @6: strata ' sc' (margin 0.758) vs vllm ' is' (margin 0.25)
+      strata top5 [("' is'", -0.712), ("' sc'", -1.47), ("' interacts'", -1.98), ("','", -2.915), ("' contains'", -3.364)]
+      vllm   top5 [("' is'", -0.964), ("' sc'", -1.214), ("' interacts'", -1.839), ("','", -2.964), ("' contains'", -3.089)]
+   teacher-forced: vllm top1 == strata token 45/48, == strata argmax 47/48 (strata picked a non-argmax token 2x), mean|dlp| 0.0615, max 0.520 at (8, 0.5199489717063904, "' off'", -0.875, -0.355), KL(top5) 0.0164; prompt tokens vllm=23 strata=23
+   strata: "The sky appears blue because sunlight scatters off molecules in the Earth's atmosphere, a phenomenon known as "
+   vllm  : "The sky appears blue because sunlight is scattered by molecules in the Earth's atmosphere, a phenomenon known "
+[7] "Translate to French: The weather is nice today, let's go for"
+   free: common prefix 0/12 (first32: 0/12), mean|dlp| nan, finish strata=stop vllm=stop
+   diverge @0: strata 'Il' (margin 0.128) vs vllm 'Le' (margin 0.0)
+      strata top5 [("'Il'", -0.639), ("'Le'", -0.768), ("'Qu'", -6.234), ("'A'", -6.359), ("'La'", -7.467)]
+      vllm   top5 [("'Le'", -0.702), ("'Il'", -0.702), ("'A'", -5.952), ("'Qu'", -6.327), ("'La'", -7.702)]
+   teacher-forced: vllm top1 == strata token 12/12, == strata argmax 12/12 (strata picked a non-argmax token 0x), mean|dlp| 0.0250, max 0.169 at (4, 0.16913243312454224, "'’hui'", -0.355, -0.524), KL(top5) 0.0045; prompt tokens vllm=29 strata=29
+   strata: 'Il fait beau aujourd’hui, allons faire une promenade.'
+   vllm  : 'Le temps est beau aujourd’hui, allons faire une promenade.'
+SUMMARY {"prompts": 8, "pass": 7, "first32_common": 99, "first32_target": 197, "tf_top1_agree": 250, "tf_top1_agree_strata_argmax": 257, "strata_nongreedy_picks": 9, "tf_positions": 261, "tf_mean_abs_dlogprob": 0.031065979429302767, "tf_mean_kl_top5": 0.005870598412388896}

@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.venv*/
+
+# Local run output (raw server/bench logs, Nsight captures)
+logs/
+profiles/**/*.sqlite
+profiles/**/*.nsys-rep
+profiles/**/*.qdrep
+
+# Editors / OS
+.DS_Store
+*.swp
+.vscode/
+.idea/

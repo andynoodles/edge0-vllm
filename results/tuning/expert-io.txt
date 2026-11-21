@@ -1,0 +1,99 @@
+device                                                           NVIDIA GeForce RTX 5090 sm_120 170 SMs, 31.4 GiB
+W1119 08:49:54.419000 1 torch/_opaque_base.py:6] torch._opaque_base is deprecated, use torch._custom_class_base instead
+W1119 08:49:54.419000 1 torch/_library/opaque_object.py:294] register_opaque_type is deprecated, use register_custom_class instead
+W1119 08:49:54.419000 1 torch/_library/opaque_object.py:211] typ='value' is deprecated, use typ='constant' instead
+== bw: copy engine (cudaMemcpyAsync) from pinned host            
+H2D 1 record (1.85 MB)                                             55.4 GB/s  (    35.0 us)
+D2H 1 record (1.85 MB)                                             56.2 GB/s  (    34.5 us)
+H2D 32 MiB                                                         57.7 GB/s  (   581.7 us)
+D2H 32 MiB                                                         57.4 GB/s  (   585.0 us)
+H2D 1 GiB                                                          57.4 GB/s  ( 18697.7 us)
+D2H 1 GiB                                                          57.4 GB/s  ( 18701.2 us)
+copy-engine gather of 6 records (one memcpy each)                  56.1 GB/s (   207.0 us)
+copy-engine gather of 10 records (one memcpy each)                 55.6 GB/s (   348.1 us)
+copy-engine gather of 64 records (one memcpy each)                 56.0 GB/s (  2213.2 us)
+== bw: SM zero-copy gather kernel (host rows -> VRAM), one record = 1.85 MB 
+SM gather k=  6 block= 1024 (2838 programs)                        53.0 GB/s (   219.2 us)
+SM gather k=  6 block= 4096 (714 programs)                         52.6 GB/s (   220.9 us)
+SM gather k=  6 block=16384 (180 programs)                         53.0 GB/s (   219.2 us)
+SM gather k= 10 block= 1024 (4730 programs)                        53.4 GB/s (   362.4 us)
+SM gather k= 10 block= 4096 (1190 programs)                        53.4 GB/s (   362.3 us)
+SM gather k= 10 block=16384 (300 programs)                         53.0 GB/s (   364.9 us)
+SM gather k= 32 block= 1024 (15136 programs)                       53.6 GB/s (  1154.4 us)
+SM gather k= 32 block= 4096 (3808 programs)                        53.6 GB/s (  1154.4 us)
+SM gather k= 32 block=16384 (960 programs)                         53.6 GB/s (  1156.0 us)
+SM gather k=128 block= 1024 (60544 programs)                       53.7 GB/s (  4613.1 us)
+SM gather k=128 block= 4096 (15232 programs)                       53.7 GB/s (  4615.2 us)
+SM gather k=128 block=16384 (3840 programs)                        53.7 GB/s (  4613.9 us)
+SM gather k=400 block= 1024 (189200 programs)                      53.7 GB/s ( 14412.0 us)
+SM gather k=400 block= 4096 (47600 programs)                       53.7 GB/s ( 14423.5 us)
+SM gather k=400 block=16384 (12000 programs)                       53.7 GB/s ( 14413.7 us)
+== touch: op time (CUDA graph replay) vs distinct hot / cold experts 
+T=1  hot   0 cold  10                                               393.7 us
+T=1  hot   1 cold   9                                               349.3 us
+T=1  hot   2 cold   8                                               308.7 us
+T=1  hot   3 cold   7                                               274.5 us
+T=1  hot   4 cold   6                                               240.2 us
+T=1  hot   5 cold   5                                               203.8 us
+T=1  hot   6 cold   4                                               169.9 us
+T=1  hot   7 cold   3                                               137.0 us
+T=1  hot   8 cold   2                                               105.0 us
+T=1  hot   9 cold   1                                                77.9 us
+T=1  hot  10 cold   0                                                24.7 us
+T=8   hot  64 cold   0                                               84.9 us
+T=8   hot  64 cold   8                                              351.1 us
+T=8   hot  64 cold  16                                              631.1 us
+T=8   hot  48 cold  32                                             1180.1 us
+T=8   hot  16 cold  64                                             2384.4 us
+T=8   hot  10 cold   0 (hot only)                                    26.7 us
+T=8   hot  64 cold   0 (hot only)                                    85.0 us
+T=16  hot  64 cold   0                                               86.0 us
+T=16  hot  64 cold   8                                              351.1 us
+T=16  hot  64 cold  16                                              632.7 us
+T=16  hot  64 cold  32                                             1186.2 us
+T=16  hot  64 cold  64                                             2382.0 us
+T=16  hot  32 cold 128                                             4636.0 us
+T=16  hot  10 cold   0 (hot only)                                    28.7 us
+T=16  hot  64 cold   0 (hot only)                                    85.9 us
+T=16  hot 128 cold   0 (hot only)                                   172.2 us
+T=32  hot  64 cold   0                                               88.2 us
+T=32  hot  64 cold   8                                              397.8 us
+T=32  hot  64 cold  16                                              636.0 us
+T=32  hot  64 cold  32                                             1189.7 us
+T=32  hot  64 cold  64                                             2383.3 us
+T=32  hot  64 cold 128                                             4661.5 us
+T=32  hot  64 cold 256                                             9282.5 us
+T=32  hot  10 cold   0 (hot only)                                    36.7 us
+T=32  hot  64 cold   0 (hot only)                                    88.3 us
+T=32  hot 128 cold   0 (hot only)                                   173.8 us
+T=32  hot 256 cold   0 (hot only)                                   322.0 us
+T=64  hot  64 cold   0                                              101.2 us
+T=64  hot  64 cold   8                                              453.8 us
+T=64  hot  64 cold  16                                              649.4 us
+T=64  hot  64 cold  32                                             1192.7 us
+T=64  hot  64 cold  64                                             2386.9 us
+T=64  hot  64 cold 128                                             4662.1 us
+T=64  hot  64 cold 256                                             9273.7 us
+T=64  hot  10 cold   0 (hot only)                                    53.3 us
+T=64  hot  64 cold   0 (hot only)                                   101.1 us
+T=64  hot 128 cold   0 (hot only)                                   177.4 us
+T=64  hot 256 cold   0 (hot only)                                   326.3 us
+fit T=1: us = a + b*cold + c*hot                                 a=    4.1  b(cold)= 38.03  c(hot)=  2.69
+fit T=8: us = a + b*cold + c*hot                                 a=   30.4  b(cold)= 36.30  c(hot)=  0.53
+fit T=16: us = a + b*cold + c*hot                                a=    0.1  b(cold)= 35.86  c(hot)=  1.20
+fit T=32: us = a + b*cold + c*hot                                a=    5.7  b(cold)= 35.88  c(hot)=  1.23
+fit T=64: us = a + b*cold + c*hot                                a=   28.0  b(cold)= 35.77  c(hot)=  1.15
+== reread: T tokens all on the same 10 cold experts (routes per expert = T) 
+T=1    auto bsm=8                                                auto    379.9 us  bsm16    381.2 us  bsm64    387.8 us
+T=8    auto bsm=8                                                auto    381.5 us  bsm16    383.2 us  bsm64    388.9 us
+T=16   auto bsm=8                                                auto    741.5 us  bsm16    385.0 us  bsm64    389.6 us
+T=32   auto bsm=8                                                auto   1467.5 us  bsm16    743.5 us  bsm64    392.4 us
+T=64   auto bsm=8                                                auto   3903.5 us  bsm16   1471.4 us  bsm64    398.7 us
+T=128  auto bsm=8                                                auto   8303.6 us  bsm16   3857.6 us  bsm64    763.5 us
+T=256  auto bsm=8                                                auto  17475.4 us  bsm16   8383.8 us  bsm64   1799.2 us
+== ctas: decode-like mixed steps; split on/off; cold blocks_per_sm cap 
+T=1   hot   5 cold   5                                           split   203.5  seq   223.3  cold_bps1   203.3  cold_bps2   202.9
+T=16  hot  40 cold  70                                           split  2546.6  seq  2580.3  cold_bps1  2562.0  cold_bps2  2563.4
+T=32  hot  60 cold 110                                           split  4047.0  seq  4075.3  cold_bps1  4045.9  cold_bps2  4046.1
+T=64  hot  80 cold 150                                           split  5494.7  seq  5547.2  cold_bps1  5494.7  cold_bps2  5499.0
+written                                                          /workspace/edge0/logs/expert-io.json

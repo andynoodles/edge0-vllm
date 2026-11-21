@@ -1,0 +1,9 @@
+{"i": 0, "identical": true, "common_prefix": 256, "len": [256, 256], "nonargmax_a": 0, "nonargmax_b": 0}
+{"i": 1, "identical": true, "common_prefix": 256, "len": [256, 256], "nonargmax_a": 0, "nonargmax_b": 0}
+{"i": 2, "identical": true, "common_prefix": 256, "len": [256, 256], "nonargmax_a": 0, "nonargmax_b": 0}
+{"i": 3, "identical": true, "common_prefix": 256, "len": [256, 256], "nonargmax_a": 0, "nonargmax_b": 0}
+{"i": 4, "identical": false, "common_prefix": 69, "len": [256, 256], "margin_a": 0.0, "margin_b": 0.125, "gap_a": 0.0, "gap_b": 0.0, "near_tie": true, "nonargmax_a": 0, "nonargmax_b": 0}
+{"i": 5, "identical": false, "common_prefix": 21, "len": [256, 256], "margin_a": 0.125, "margin_b": 0.125, "gap_a": 0.0, "gap_b": 0.0, "near_tie": true, "nonargmax_a": 0, "nonargmax_b": 0}
+{"i": 6, "identical": true, "common_prefix": 256, "len": [256, 256], "nonargmax_a": 0, "nonargmax_b": 0}
+{"i": 7, "identical": false, "common_prefix": 20, "len": [256, 256], "margin_a": 0.125, "margin_b": 0.75, "gap_a": 0.0, "gap_b": 0.0, "near_tie": true, "nonargmax_a": 0, "nonargmax_b": 0}
+SUMMARY {"prompts": 8, "identical": 5, "tokens_compared": 2048, "tokens_common": 1390, "diverged_at_near_tie": 3, "diverged_unexplained": 0}

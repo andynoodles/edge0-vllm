@@ -1,0 +1,165 @@
+# 05:53:34 start: server.py direct, env [STRATA_DECODE_TIMING=1 STRATA_VERIFY_PROFILE=1], extra args [], engine log /home/andychen/work/edge0-vllm/logs/gap-strata-sprof.engine.log
+# 05:55:09 ready after 95 s
+# 05:55:09 bench sprof-warm c1 prompts 4 out 1024
+Open-file limit: 1048576
+========================= Concurrency Sweep ==========================
+Sweeping --max-concurrency over 1 values: [1]
+
+--------------------- Run 1/1: max_concurrency=1 ---------------------
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 4 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 4 prompts in 3.12s
+Warming up with 2 requests...
+Warmup run completed.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 1
+================= Serving Benchmark Result =================
+Successful requests:                     4         
+Failed requests:                         0         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  25.75     
+Total input tokens:                      592       
+Total generated tokens:                  3015      
+Request throughput (req/s):              0.16      
+Output token throughput (tok/s):         117.10    
+Peak output token throughput (tok/s):    135.00    
+Peak concurrent requests:                2.00      
+Total token throughput (tok/s):          140.09    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          17.16     
+Median TTFT (ms):                        4.36      
+P99 TTFT (ms):                           57.46     
+P90 TTFT (ms):                           42.81     
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          8.79      
+Median TPOT (ms):                        8.94      
+P99 TPOT (ms):                           9.73      
+P90 TPOT (ms):                           9.70      
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           9.26      
+Median ITL (ms):                         0.11      
+P99 ITL (ms):                            27.97     
+P90 ITL (ms):                            21.07     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          6436.64   
+Median E2EL (ms):                        6754.65   
+P99 E2EL (ms):                           7727.44   
+P90 E2EL (ms):                           7639.71   
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 1 = 1
+Window:                             0.0s -> 25.7s  (25.7s)
+Observed peak concurrency:          1
+Requests started in window:         4 / 4 (100.0%)
+Requests completed in window:       3
+-----------------------------------------------
+Request throughput (req/s):         0.12
+Output token throughput (tok/s):    107.82
+Input token throughput (tok/s):     22.99
+Total token throughput (tok/s):     130.81
+-----------------------------------------------
+Mean TTFT (ms):                     17.16
+Median TTFT (ms):                   4.36
+P99 TTFT (ms):                      57.46
+P90 TTFT (ms):                      42.81
+-----------------------------------------------
+Mean TPOT (ms):                     8.79
+Median TPOT (ms):                   8.94
+P90 TPOT (ms):                      9.70
+P99 TPOT (ms):                      9.73
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/sprof-warm/sprof-warm-infqps-concurrency1-edge0_145b-20261120-055509.json
+
+========================================================== Sweep Summary ==========================================================
+Max Concurrency           Req/s      Tok/s  Total tok/s   SS req/s SS out tok/s P50 TTFT(ms) P50 TPOT(ms) P90 TTFT(ms) P90 TPOT(ms)
+-------------------- ---------- ---------- ------------ ---------- ------------ ------------ ------------ ------------ ------------
+concurrency=1              0.16     117.10       140.09       0.12       107.82         4.36         8.94        42.81         9.70
+===================================================================================================================================
+Best throughput: 0.16 req/s at concurrency=1
+sprof-warm                      1     4/4     117.1      8.8           4          57     754
+# 05:55:51 bench sprof c1 prompts 8 out 1024
+Open-file limit: 1048576
+========================= Concurrency Sweep ==========================
+Sweeping --max-concurrency over 1 values: [1]
+
+--------------------- Run 1/1: max_concurrency=1 ---------------------
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 8 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 8 prompts in 1.90s
+Warming up with 2 requests...
+Warmup run completed.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 1
+================= Serving Benchmark Result =================
+Successful requests:                     8         
+Failed requests:                         0         
+Maximum request concurrency:             1         
+Benchmark duration (s):                  56.46     
+Total input tokens:                      1992      
+Total generated tokens:                  6579      
+Request throughput (req/s):              0.14      
+Output token throughput (tok/s):         116.53    
+Peak output token throughput (tok/s):    137.00    
+Peak concurrent requests:                2.00      
+Total token throughput (tok/s):          151.82    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          15.86     
+Median TTFT (ms):                        3.74      
+P99 TTFT (ms):                           77.76     
+P90 TTFT (ms):                           40.08     
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          8.58      
+Median TPOT (ms):                        8.44      
+P99 TPOT (ms):                           9.80      
+P90 TPOT (ms):                           9.44      
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           9.61      
+Median ITL (ms):                         0.05      
+P99 ITL (ms):                            29.71     
+P90 ITL (ms):                            20.98     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          7056.84   
+Median E2EL (ms):                        7181.59   
+P99 E2EL (ms):                           10029.79  
+P90 E2EL (ms):                           9005.86   
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 1 = 1
+Window:                             0.0s -> 56.5s  (56.5s)
+Observed peak concurrency:          1
+Requests started in window:         8 / 8 (100.0%)
+Requests completed in window:       7
+-----------------------------------------------
+Request throughput (req/s):         0.12
+Output token throughput (tok/s):    103.94
+Input token throughput (tok/s):     35.28
+Total token throughput (tok/s):     139.22
+-----------------------------------------------
+Mean TTFT (ms):                     15.86
+Median TTFT (ms):                   3.74
+P99 TTFT (ms):                      77.76
+P90 TTFT (ms):                      40.08
+-----------------------------------------------
+Mean TPOT (ms):                     8.58
+Median TPOT (ms):                   8.44
+P90 TPOT (ms):                      9.44
+P99 TPOT (ms):                      9.80
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/sprof/sprof-infqps-concurrency1-edge0_145b-20261120-055551.json
+
+========================================================== Sweep Summary ==========================================================
+Max Concurrency           Req/s      Tok/s  Total tok/s   SS req/s SS out tok/s P50 TTFT(ms) P50 TPOT(ms) P90 TTFT(ms) P90 TPOT(ms)
+-------------------- ---------- ---------- ------------ ---------- ------------ ------------ ------------ ------------ ------------
+concurrency=1              0.14     116.53       151.82       0.12       103.94         3.74         8.44        40.08         9.44
+===================================================================================================================================
+Best throughput: 0.14 req/s at concurrency=1
+sprof                           1     8/8     116.5      8.6           4          78     822
+# 05:57:06 GAP_STRATA_DONE log sprof

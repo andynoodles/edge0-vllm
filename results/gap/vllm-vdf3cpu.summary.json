@@ -1,0 +1,25 @@
+{
+ "trace_bw": {
+  "steps": 1861.0,
+  "tok_per_step": 5.362,
+  "hot_distinct_per_step": 922.9,
+  "cold_distinct_per_step": 389.5,
+  "cold_per_layer_step": 8.11,
+  "hot_per_layer_step": 19.23,
+  "flushes": 6,
+  "vram_share_of_distinct": 0.7032
+ },
+ "cpu_experts": {
+  "experts": 5.33,
+  "routes": 7.7,
+  "cpu_us": 263.87,
+  "gpu_us": 294.96,
+  "wait_us": 6.29,
+  "jobs": 72486.0
+ },
+ "adapt": {
+  "epochs": 17,
+  "swaps": 1088.0,
+  "cold_share_of_touches_pct": 30.35
+ }
+}

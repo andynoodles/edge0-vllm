@@ -1,0 +1,39 @@
+# 09:23:06 probe fcsinglecal: EDGE0_DEV=1 PRESET=single KV_BYTES= GPU_UTIL=0.96
+-----------------------------------------------
+Mean TTFT (ms):                     269.39
+Median TTFT (ms):                   199.90
+P99 TTFT (ms):                      610.83
+P90 TTFT (ms):                      474.11
+-----------------------------------------------
+Mean TPOT (ms):                     8.54
+Median TPOT (ms):                   8.53
+P90 TPOT (ms):                      9.08
+P99 TPOT (ms):                      9.61
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/fcsinglecal-A1/fcsinglecal-A1-infqps-concurrency1-edge0_145b-20261120-092822.json
+SPECSTAT fcsinglecal-A1 {"spec": true, "drafts": 1897, "draft_tokens": 5691, "accepted": 3220, "preemptions": 0, "acceptance_length": 2.697, "k_mean": 3.0, "per_pos": [0.785, 0.546, 0.366]}
+SLOG fcsinglecal-A1 /home/andychen/work/edge0-vllm/logs/serve-20261120-092308.log 540 571
+  [fcsinglecal-A1] edge0 tier: 20.1s 358 steps | per layer-step: cold 3.96 hot 22.45 distinct experts, routes from VRAM 88.0% | swaps 36.5 / step (total 75258, cap reached 154, stale counts 0, skipped 0) | host 0.44 + 0.93 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.52 <8:7.54 <16:6.29 <32:4.30 <64:4.31 <128:3.44 <256:3.95
+  [fcsinglecal-A1] edge0 cpu-experts: 16360 jobs, 4.5 experts / 6.4 routes per job, CPU 227 us per job, GPU side 285 us per call, GPU waited 6 us per call, frac 0.550, timeouts 0
+  [fcsinglecal-A1] edge0 tier: 10.0s 452 steps | per layer-step: cold 3.73 hot 23.28 distinct experts, routes from VRAM 88.8% | swaps 33.4 / step (total 90467, cap reached 138, stale counts 0, skipped 0) | host 0.43 + 0.86 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.71 <8:6.05 <16:5.12 <32:3.81 <64:3.19 <128:2.97 <256:4.03
+  [fcsinglecal-A1] edge0 tier: 10.0s 421 steps | per layer-step: cold 4.51 hot 21.87 distinct experts, routes from VRAM 86.2% | swaps 38.0 / step (total 106533, cap reached 204, stale counts 0, skipped 0) | host 0.49 + 1.01 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:11.26 <8:9.36 <16:6.98 <32:5.82 <64:5.22 <128:3.51 <256:4.09
+  [fcsinglecal-A1] edge0 tier: 10.0s 428 steps | per layer-step: cold 4.55 hot 21.12 distinct experts, routes from VRAM 85.7% | swaps 39.1 / step (total 123350, cap reached 222, stale counts 0, skipped 0) | host 0.48 + 1.03 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:11.72 <8:8.68 <16:7.48 <32:5.74 <64:4.39 <128:3.49 <256:4.39
+  [fcsinglecal-A1] edge0 cpu-experts: 30223 jobs, 4.5 experts / 5.8 routes per job, CPU 224 us per job, GPU side 280 us per call, GPU waited 5 us per call, frac 0.550, timeouts 0
+  [fcsinglecal-A1] edge0 tier: 10.0s 372 steps | per layer-step: cold 5.41 hot 20.96 distinct experts, routes from VRAM 83.0% | swaps 42.2 / step (total 139133, cap reached 245, stale counts 0, skipped 0) | host 0.54 + 1.15 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:11.64 <8:10.32 <16:9.08 <32:7.65 <64:5.33 <128:4.32 <256:4.77
+fcsinglecal-A1                  1     8/8     110.5      8.5         200         611     512
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+fcsinglecal-A1                  1     8/8     110.5      8.5         200         611     512
+# 09:28:33 FCAB_DONE fcsinglecal
+edge0 tier: reactive expert tier on 48 layers: 4 free VRAM slots / layer (0.35 GiB, from the hot budget), <= 48 swaps / step, decay 0.915 / step, gain 1.50, min usage 2.0, counting calls <= 16 tokens, copies via cudart
+edge0 tier: 77.9s 0 steps | per layer-step: cold 0.00 hot 0.00 distinct experts, routes from VRAM 0.0% | swaps 0.0 / step (total 0, cap reached 0, stale counts 1, skipped 0) | host 0.00 + 0.00 ms / step (decide + issue) | cold / layer-step by steps since prefill: 
+edge0 tier: 20.3s 17 steps | per layer-step: cold 5.42 hot 3.64 distinct experts, routes from VRAM 42.4% | swaps 37.7 / step (total 528, cap reached 11, stale counts 0, skipped 0) | host 0.74 + 1.41 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:5.59 <8:4.09
+edge0 tier: 10.0s 445 steps | per layer-step: cold 3.75 hot 22.79 distinct experts, routes from VRAM 88.6% | swaps 35.3 / step (total 16063, cap reached 154, stale counts 0, skipped 0) | host 0.39 + 0.87 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:4.38 <8:5.62 <16:5.30 <32:3.70 <64:3.59 <128:3.01 <256:4.19
+edge0 tier: 10.0s 410 steps | per layer-step: cold 4.40 hot 22.28 distinct experts, routes from VRAM 86.5% | swaps 38.5 / step (total 31913, cap reached 210, stale counts 0, skipped 0) | host 0.44 + 0.97 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:10.19 <8:8.84 <16:6.53 <32:5.50 <64:5.02 <128:3.40 <256:4.07
+edge0 tier: 10.0s 415 steps | per layer-step: cold 4.37 hot 21.44 distinct experts, routes from VRAM 86.5% | swaps 37.8 / step (total 47686, cap reached 191, stale counts 0, skipped 0) | host 0.47 + 0.99 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:11.53 <8:8.37 <16:7.58 <32:5.76 <64:4.52 <128:3.48 <256:3.87
+edge0 tier: 10.0s 355 steps | per layer-step: cold 5.17 hot 21.25 distinct experts, routes from VRAM 83.7% | swaps 40.5 / step (total 62151, cap reached 219, stale counts 0, skipped 0) | host 0.52 + 1.09 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.99 <8:9.03 <16:8.36 <32:7.07 <64:5.46 <128:3.59 <256:4.83
+edge0 tier: 20.1s 358 steps | per layer-step: cold 3.96 hot 22.45 distinct experts, routes from VRAM 88.0% | swaps 36.5 / step (total 75258, cap reached 154, stale counts 0, skipped 0) | host 0.44 + 0.93 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:8.52 <8:7.54 <16:6.29 <32:4.30 <64:4.31 <128:3.44 <256:3.95
+edge0 tier: 10.0s 452 steps | per layer-step: cold 3.73 hot 23.28 distinct experts, routes from VRAM 88.8% | swaps 33.4 / step (total 90467, cap reached 138, stale counts 0, skipped 0) | host 0.43 + 0.86 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:9.71 <8:6.05 <16:5.12 <32:3.81 <64:3.19 <128:2.97 <256:4.03
+edge0 tier: 10.0s 421 steps | per layer-step: cold 4.51 hot 21.87 distinct experts, routes from VRAM 86.2% | swaps 38.0 / step (total 106533, cap reached 204, stale counts 0, skipped 0) | host 0.49 + 1.01 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:11.26 <8:9.36 <16:6.98 <32:5.82 <64:5.22 <128:3.51 <256:4.09
+edge0 tier: 10.0s 428 steps | per layer-step: cold 4.55 hot 21.12 distinct experts, routes from VRAM 85.7% | swaps 39.1 / step (total 123350, cap reached 222, stale counts 0, skipped 0) | host 0.48 + 1.03 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:11.72 <8:8.68 <16:7.48 <32:5.74 <64:4.39 <128:3.49 <256:4.39
+edge0 tier: 10.0s 372 steps | per layer-step: cold 5.41 hot 20.96 distinct experts, routes from VRAM 83.0% | swaps 42.2 / step (total 139133, cap reached 245, stale counts 0, skipped 0) | host 0.54 + 1.15 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:11.64 <8:10.32 <16:9.08 <32:7.65 <64:5.33 <128:4.32 <256:4.77
+# 09:28:37 FCPROBE_DONE fcsinglecal

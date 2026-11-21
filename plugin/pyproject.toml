@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "edge0-vllm"
+version = "0.1.0"
+description = "vLLM general plugin serving Edge0-145B-NVFP4 (latent MoE, hot/cold expert pools, PLE from GGUF)"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+# torch, vllm, triton and numpy come from the nvcr.io/nvidia/vllm image; never let pip touch them.
+dependencies = []
+
+[project.entry-points."vllm.general_plugins"]
+edge0 = "edge0_vllm:register"
+
+[tool.setuptools.packages.find]
+include = ["edge0_vllm*"]
+
+[tool.setuptools.package-data]
+# EDGE0_CPU_EXPERTS: C++/CUDA sources, built by docker/Dockerfile (or JIT on first use)
+edge0_vllm = ["csrc/*.cpp", "csrc/*.cu", "csrc/*.h", "csrc/NOTICE"]

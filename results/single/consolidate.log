@@ -1,0 +1,296 @@
+# 11:00:46 build: tag old image, rebuild edge0-vllm:dev
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.08kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nvcr.io/nvidia/vllm:26.11-py3
+#2 DONE 0.0s
+
+#3 [1/4] FROM nvcr.io/nvidia/vllm:26.11-py3
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 190.87kB done
+#4 DONE 0.0s
+
+#3 [1/4] FROM nvcr.io/nvidia/vllm:26.11-py3
+#3 CACHED
+
+#5 [2/4] COPY plugin /opt/edge0/plugin
+#5 DONE 0.1s
+
+#6 [3/4] RUN pip install --no-deps --no-build-isolation --no-cache-dir /opt/edge0/plugin  && python -c "from importlib.metadata import entry_points as ep; e = [x for x in ep(group='vllm.general_plugins') if x.name == 'edge0']; assert e and e[0].value == 'edge0_vllm:register', e; print('edge0 plugin entry point:', e[0])"
+#6 0.729 Processing /opt/edge0/plugin
+#6 0.730   Preparing metadata (pyproject.toml): started
+#6 1.158   Preparing metadata (pyproject.toml): finished with status 'done'
+#6 1.158 Building wheels for collected packages: edge0-vllm
+#6 1.158   Building wheel for edge0-vllm (pyproject.toml): started
+#6 1.158   /usr/local/lib/python3.12/dist-packages/setuptools/config/_apply_pyprojecttoml.py:82: BuildBackendWarning: `project.license` as a TOML table is deprecated
+#6 1.158   !!
+#6 1.158   
+#6 1.158           ********************************************************************************
+#6 1.158           Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+#6 1.158   
+#6 1.158           By 2027-Feb-18, you need to update your project and remove deprecated calls
+#6 1.158           or your builds will no longer be supported.
+#6 1.158   
+#6 1.158           See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+#6 1.158           ********************************************************************************
+#6 1.158   
+#6 1.158   !!
+#6 1.158     corresp(dist, value, root_dir)
+#6 1.376   Building wheel for edge0-vllm (pyproject.toml): finished with status 'done'
+#6 1.377   /usr/local/lib/python3.12/dist-packages/setuptools/config/_apply_pyprojecttoml.py:82: BuildBackendWarning: `project.license` as a TOML table is deprecated
+#6 1.377   !!
+#6 1.377   
+#6 1.377           ********************************************************************************
+#6 1.377           Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+#6 1.377   
+#6 1.377           By 2027-Feb-18, you need to update your project and remove deprecated calls
+#6 1.377           or your builds will no longer be supported.
+#6 1.377   
+#6 1.377           See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+#6 1.377           ********************************************************************************
+#6 1.377   
+#6 1.377   !!
+#6 1.377     corresp(dist, value, root_dir)
+#6 1.377   Created wheel for edge0-vllm: filename=edge0_vllm-0.1.0-py3-none-any.whl size=105341 sha256=fe0ad01a35443d9a484fff9f0ed2b326a2baf8250e4db514cae1189928c42780
+#6 1.377   Stored in directory: /tmp/pip-ephem-wheel-cache-otnlv730/wheels/55/c5/da/c74f5c446610eb21db80266af503f24227cf252a88f74d0925
+#6 1.379 Successfully built edge0-vllm
+#6 1.395 Installing collected packages: edge0-vllm
+#6 1.435 Successfully installed edge0-vllm-0.1.0
+#6 1.435 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#6 1.488 edge0 plugin entry point: EntryPoint(name='edge0', value='edge0_vllm:register', group='vllm.general_plugins')
+#6 DONE 1.5s
+
+#7 [4/4] RUN cd /tmp && python -c "import os; from edge0_vllm import cpu_experts as c; d = os.path.join('/opt/edge0/ext', c.ext_key()); c.load(build_dir=d); print('edge0 cpu-experts extension:', d)"  && rm -rf /opt/edge0/ext/*/*.o /opt/edge0/ext/*/.ninja*
+#7 2.179 W1120 03:00:51.486000 76 torch/utils/cpp_extension.py:183] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+#7 27.06 edge0 cpu-experts extension: /opt/edge0/ext/09b2b7d0edff21f2
+#7 DONE 27.3s
+
+#8 exporting to image
+#8 exporting layers 0.1s done
+#8 writing image sha256:6048fe67b3ef7b3b5020b51b4f0e31afd71bec3504a2e7afda30e751e5d19040 done
+#8 naming to docker.io/library/edge0-vllm:dev done
+#8 DONE 0.1s
+# 11:01:16 build exit 0
+# 11:01:18 IMAGE PLUGIN DIFFERS FROM TREE
+1d0
+< 52995194474b15ff5219ca604a8f2672  edge0_vllm/__init__.py
+10a10
+> 52995194474b15ff5219ca604a8f2672  edge0_vllm/__init__.py
+21d20
+< 4617a645944f81716745538d9843f83e  edge0_vllm/q8.py
+22a22
+> 4617a645944f81716745538d9843f83e  edge0_vllm/q8.py
+installed plugin: /usr/local/lib/python3.12/dist-packages/edge0_vllm
+__init__.py __pycache__ adaptive.py config.py cpu_experts.py csrc draft.py expert_pool.py hostmem.py kernels.py latent_moe.py lmhead_q8.py loadcheck.py marlin_nvfp4.py model.py nvtx.py placement.py ple.py prefetch.py q8.py q8gemv.py quant.py runtime.py tier.py trace.py 
+/usr/local/lib/python3.12/dist-packages/edge0_vllm/config.py:21
+/usr/local/lib/python3.12/dist-packages/edge0_vllm/config.py:21
+/usr/local/lib/python3.12/dist-packages/edge0_vllm/expert_pool.py:4
+/usr/local/lib/python3.12/dist-packages/edge0_vllm/kernels.py:1
+# 11:01:18 BUILD_DONE
+# 11:01:40 start: PRESET=single
+started edge0-vllm in tmux session edge0-vllm on :8125 (model /models/Edge0-145B-vllm, hot experts 15.7 GiB, placement plan:/workspace/edge0/plans/plan-s1-15.7.json); log /home/andychen/work/edge0-vllm/logs/serve-20261120-110140.log
+# 11:05:01 healthy after 201 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-110140.log)
+edge0: placement plan:/workspace/edge0/plans/plan-s1-15.7.json (8710 hot), EDGE0_TIER: 192 hot experts demoted to make 4 free slots per layer, 8518 hot slots (15.35 GiB VRAM), digest 4c36d8acd5c9, per-layer n_hot min/max 144/199
+edge0: latent D / U skip unused routing groups for calls <= 8 tokens (EDGE0_DU_MASK=1)
+edge0: lm_head served as Q8_0 via b12x (248320 x 2560, 0.68 GB instead of 1.27 GB BF16; EDGE0_LMHEAD=q8)
+edge0 tier: reactive expert tier on 48 layers: 4 free VRAM slots / layer (0.35 GiB, from the hot budget), <= 48 swaps / step, decay 0.915 / step, gain 1.50, min usage 2.0, counting calls <= 16 tokens, copies via cudart
+edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.55, calls of 2..256 tokens, >= 4 cold experts, <= 8 routes per CPU expert, mailbox 18.4 MB
+edge0: after load: torch allocated 25.39 GiB, GPU free 4.58 / 31.36 GiB; hot experts 15.35 GiB; cold experts 29.29 GiB pinned host
+GPU KV cache size: 46,291 tokens, Maximum concurrency for 32,768 tokens per request: 1.41x
+# 11:05:07 CORRECTNESS exit 0 SUMMARY {"prompts": 8, "pass": 8, "first32_common": 111, "first32_target": 197, "tf_top1_agree": 249, "tf_top1_agree_strata_argmax": 256, "strata_nongreedy_picks": 9, "tf_positions": 261, "tf_mean_abs_dlogprob": 0.03128613057879785, "tf_mean_kl_top5": 0.005992350592902962}
+[0] 256 tokens: 'The capital of France is Paris.\n\nuser\nassistant\n<think>\n\n</think>\n\nThe'
+[1] 256 tokens: '「不當得利」指沒有法律依據而獲得利益，導致他人遭受損失的情形。受益者依法必須將該利益返還給受損者。\n\nuser\nassistant\n<thi'
+[2] 256 tokens: '```python\ndef fibonacci(n: int) -> int:\n    """\n    Return the n-th Fi'
+[3] 256 tokens: 'To compute $37 \\times 43$, we can use the standard multiplication meth'
+[4] 256 tokens: 'Here are three key differences between TCP (Transmission Control Proto'
+[5] 256 tokens: 'There will be a meeting in the conference room at 3:00 PM this afterno'
+[6] 256 tokens: 'The sky appears blue because sunlight is scattered by molecules in the'
+[7] 256 tokens: 'Il fait beau aujourd’hui, allons faire une promenade.\n\nuser\nassistant\n'
+# 11:05:26 GREEDY spec exit 0
+# 11:05:33 start: PRESET=single SPEC_METHOD=none
+started edge0-vllm in tmux session edge0-vllm on :8125 (model /models/Edge0-145B-vllm, hot experts 15.7 GiB, placement plan:/workspace/edge0/plans/plan-s1-15.7.json); log /home/andychen/work/edge0-vllm/logs/serve-20261120-110533.log
+# 11:08:14 healthy after 161 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-110533.log)
+edge0: placement plan:/workspace/edge0/plans/plan-s1-15.7.json (8710 hot), EDGE0_TIER: 192 hot experts demoted to make 4 free slots per layer, 8518 hot slots (15.35 GiB VRAM), digest 4c36d8acd5c9, per-layer n_hot min/max 144/199
+edge0: latent D / U skip unused routing groups for calls <= 8 tokens (EDGE0_DU_MASK=1)
+edge0: lm_head served as Q8_0 via b12x (248320 x 2560, 0.68 GB instead of 1.27 GB BF16; EDGE0_LMHEAD=q8)
+edge0 tier: reactive expert tier on 48 layers: 4 free VRAM slots / layer (0.35 GiB, from the hot budget), <= 48 swaps / step, decay 0.915 / step, gain 1.50, min usage 2.0, counting calls <= 16 tokens, copies via cudart
+edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.55, calls of 2..256 tokens, >= 4 cold experts, <= 8 routes per CPU expert, mailbox 18.4 MB
+edge0: after load: torch allocated 25.39 GiB, GPU free 4.58 / 31.36 GiB; hot experts 15.35 GiB; cold experts 29.29 GiB pinned host
+GPU KV cache size: 65,536 tokens, Maximum concurrency for 32,768 tokens per request: 2.00x
+[0] 256 tokens: 'The capital of France is Paris.\n\nuser\nassistant\n<think>\n\n</think>\n\nThe'
+[1] 256 tokens: '「不當得利」指沒有法律依據而獲得利益，導致他人遭受損失的情形。受益者依法必須將該利益返還給受損者。\n\nuser\nassistant\n<thi'
+[2] 256 tokens: '```python\ndef fibonacci(n: int) -> int:\n    """\n    Return the n-th Fi'
+[3] 256 tokens: 'To compute $37 \\times 43$, we can use the standard multiplication meth'
+[4] 256 tokens: 'Here are three key differences between TCP (Transmission Control Proto'
+[5] 256 tokens: 'There will be a meeting in the conference room at 3:00 PM this afterno'
+[6] 256 tokens: 'The sky appears blue because sunlight is scattered by molecules in the'
+[7] 256 tokens: 'Le temps est beau aujourd’hui, allons faire une promenade.\n\nuser\nassis'
+# 11:08:44 GREEDY nospec exit 0
+# 11:08:52 GREEDY_DIFF exit 1 SUMMARY {"prompts": 8, "identical": 4, "tokens_compared": 2048, "tokens_common": 1359, "diverged_at_near_tie": 4, "diverged_unexplained": 0}
+# 11:08:52 GATE_DONE
+# 11:09:35 start: ~/work/edge0-serve.sh
+# 11:11:20 ready after 105 s
+# 11:11:20 engine config: /tmp/edge0-strata-4c413a7a85cc7a79/config.json -> /home/andychen/work/edge0-vllm/results/gap/strata-config.json
+# 11:11:20 bench cons-s1-warm c1 prompts 4 out 1024
+cons-s1-warm                    1     4/4      38.0      7.9           1           2     222
+# 11:12:00 bench cons-s1 c1 prompts 8 out 1024
+cons-s1                         1     8/8      11.2      8.5           1          18      72
+# 11:13:09 GAP_STRATA_DONE ref cons-s1
+# 11:13:09 S1 done
+# 11:13:12 start: PRESET=single
+# 11:19:16 start: ~/work/edge0-serve.sh
+# 11:20:36 ready after 80 s
+# 11:20:36 engine config: /tmp/edge0-strata-befd305047e286d2/config.json -> /home/andychen/work/edge0-vllm/results/gap/strata-config.json
+# 11:20:36 DIRECT: benchmarking the engine server at http://127.0.0.1:42805
+# 11:20:36 bench cmp-s1-warm c1 prompts 4 out 1024 (http://127.0.0.1:42805)
+cmp-s1-warm                     1     4/4     121.2      8.4           7          47     762
+# 11:21:18 bench cmp-s1 c1 prompts 8 out 1024 (http://127.0.0.1:42805)
+cmp-s1                          1     8/8     120.4      8.3           3          66     883
+# 11:22:36 GAP_STRATA_DONE ref cmp-s1
+# 11:22:36 S1 done
+# 11:22:38 start: PRESET=single
+# 11:25:59 healthy after 201 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-112238.log)
+# 11:25:59 bench cmp-v1-warm c1 prompts 8 out 512 ignore_eos 1 (serve log line 500)
+SPECSTAT cmp-v1-warm {"spec": true, "drafts": 1898, "draft_tokens": 5694, "accepted": 3225, "preemptions": 0, "acceptance_length": 2.699, "k_mean": 3.0, "per_pos": [0.78, 0.551, 0.368]}
+SLOG cmp-v1-warm /home/andychen/work/edge0-vllm/logs/serve-20261120-112238.log 500 530
+cmp-v1-warm                     1     8/8     117.0      7.9         263         852     512
+# 11:26:56 bench cmp-v1 c1 prompts 8 out 512 ignore_eos 1 (serve log line 532)
+SPECSTAT cmp-v1 {"spec": true, "drafts": 1935, "draft_tokens": 5805, "accepted": 3188, "preemptions": 0, "acceptance_length": 2.648, "k_mean": 3.0, "per_pos": [0.756, 0.531, 0.361]}
+SLOG cmp-v1 /home/andychen/work/edge0-vllm/logs/serve-20261120-112238.log 532 561
+cmp-v1                          1     8/8     119.3      7.9         200         578     512
+# 11:27:51 bench cmp-v1-eos c1 prompts 8 out 1024 ignore_eos 0 (serve log line 563)
+SPECSTAT cmp-v1-eos {"spec": true, "drafts": 3255, "draft_tokens": 9765, "accepted": 5798, "preemptions": 0, "acceptance_length": 2.781, "k_mean": 3.0, "per_pos": [0.79, 0.578, 0.413]}
+SLOG cmp-v1-eos /home/andychen/work/edge0-vllm/logs/serve-20261120-112238.log 563 601
+cmp-v1-eos                      1     8/8     129.5      7.5         203         597     878
+# 11:29:19 GAP_VLLM_DONE cmp-v1
+# 11:29:19 V1 done
+# 11:29:21 start: PRESET=single
+# 11:32:47 healthy after 206 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-112921.log)
+# 11:32:47 bench cmp-v2-warm c1 prompts 8 out 512 ignore_eos 1 (serve log line 500)
+SPECSTAT cmp-v2-warm {"spec": true, "drafts": 1942, "draft_tokens": 5826, "accepted": 3180, "preemptions": 0, "acceptance_length": 2.637, "k_mean": 3.0, "per_pos": [0.755, 0.524, 0.358]}
+SLOG cmp-v2-warm /home/andychen/work/edge0-vllm/logs/serve-20261120-112921.log 500 531
+cmp-v2-warm                     1     8/8     114.7      8.1         281         855     512
+# 11:33:45 bench cmp-v2 c1 prompts 8 out 512 ignore_eos 1 (serve log line 533)
+SPECSTAT cmp-v2 {"spec": true, "drafts": 1970, "draft_tokens": 5910, "accepted": 3155, "preemptions": 0, "acceptance_length": 2.602, "k_mean": 3.0, "per_pos": [0.748, 0.519, 0.335]}
+SLOG cmp-v2 /home/andychen/work/edge0-vllm/logs/serve-20261120-112921.log 533 562
+cmp-v2                          1     8/8     118.3      8.0         201         594     512
+# 11:34:41 bench cmp-v2-eos c1 prompts 8 out 1024 ignore_eos 0 (serve log line 564)
+SPECSTAT cmp-v2-eos {"spec": true, "drafts": 3431, "draft_tokens": 10293, "accepted": 5983, "preemptions": 0, "acceptance_length": 2.744, "k_mean": 3.0, "per_pos": [0.781, 0.566, 0.397]}
+SLOG cmp-v2-eos /home/andychen/work/edge0-vllm/logs/serve-20261120-112921.log 564 604
+cmp-v2-eos                      1     8/8     128.6      7.5         206         590     921
+# 11:36:06 GAP_VLLM_DONE cmp-v2
+# 11:36:06 V2 done
+# 11:36:06 bench cmp-v2-c8 c8 prompts 16 out 512 ignore_eos
+Open-file limit: 1048576
+Loading tokenizer: /home/andychen/work/edge0-bench/tokenizer-qwen38
+Tokenizer: Local (vocab_size=248077)
+Tokenizer loaded successfully.
+Generating 16 prompts from ShareGPT (/home/andychen/work/edge0-bench/datasets/ShareGPT_V3_unfiltered_cleaned_split.json)...
+Generated 16 prompts in 0.44s
+Warming up with 2 requests...
+Warmup run completed.
+Speculative decoding detected, will collect metrics.
+Starting main benchmark run...
+Traffic request rate: inf
+Burstiness factor: 1 (Poisson process)
+Maximum request concurrency: 8
+================= Serving Benchmark Result =================
+Successful requests:                     16        
+Failed requests:                         0         
+Maximum request concurrency:             8         
+Benchmark duration (s):                  45.71     
+Total input tokens:                      4724      
+Total generated tokens:                  8192      
+Request throughput (req/s):              0.35      
+Output token throughput (tok/s):         179.23    
+Peak output token throughput (tok/s):    96.00     
+Peak concurrent requests:                10.00     
+Total token throughput (tok/s):          282.58    
+--------------------Time to First Token---------------------
+Mean TTFT (ms):                          9209.18   
+Median TTFT (ms):                        11687.41  
+P99 TTFT (ms):                           13660.86  
+P90 TTFT (ms):                           13383.10  
+----------Time per Output Token (excl. 1st token)-----------
+Mean TPOT (ms):                          20.87     
+Median TPOT (ms):                        21.01     
+P99 TPOT (ms):                           27.61     
+P90 TPOT (ms):                           25.18     
+--------------------Inter-token Latency---------------------
+Mean ITL (ms):                           55.13     
+Median ITL (ms):                         51.17     
+P99 ITL (ms):                            217.48    
+P90 ITL (ms):                            64.84     
+---------------------End-to-end Latency---------------------
+Mean E2EL (ms):                          19872.69  
+Median E2EL (ms):                        22140.81  
+P99 E2EL (ms):                           25681.72  
+P90 E2EL (ms):                           24912.89  
+---------------Speculative Decoding---------------
+Acceptance rate (%):                     55.40     
+Acceptance length:                       2.66      
+Drafts:                                  3079      
+Draft tokens:                            9237      
+Accepted tokens:                         5117      
+Per-position acceptance (%):
+  Position 0:                            74.18     
+  Position 1:                            53.69     
+  Position 2:                            38.32     
+============================================================
+============ Steady-State Metrics =============
+Concurrency threshold:              >= 0.95 * 8 = 8
+Window:                             0.0s -> 33.2s  (33.2s)
+Observed peak concurrency:          8
+Requests started in window:         9 / 16 (56.2%)
+Requests completed in window:       8
+-----------------------------------------------
+Request throughput (req/s):         0.24
+Output token throughput (tok/s):    69.76
+Input token throughput (tok/s):     108.67
+Total token throughput (tok/s):     178.43
+-----------------------------------------------
+Mean TTFT (ms):                     12406.84
+Median TTFT (ms):                   12591.47
+P99 TTFT (ms):                      13683.06
+P90 TTFT (ms):                      13454.73
+-----------------------------------------------
+Mean TPOT (ms):                     21.55
+Median TPOT (ms):                   22.71
+P90 TPOT (ms):                      26.28
+P99 TPOT (ms):                      27.75
+===============================================
+Results saved to /home/andychen/work/edge0-bench/results/cmp-v2-c8/cmp-v2-c8-infqps-concurrency8-edge0_145b-20261120-113658.json
+SPECSTAT cmp-v2-c8 {"spec": true, "drafts": 3452, "draft_tokens": 10356, "accepted": 5767, "preemptions": 0, "acceptance_length": 2.671, "k_mean": 3.0, "per_pos": [0.746, 0.542, 0.382]}
+cmp-v2-c8                       8   16/16     179.2     20.9       11687       13661     512
+# 11:37:09 start: ~/work/edge0-serve.sh
+# 11:38:39 ready after 90 s
+# 11:38:39 engine config: /tmp/edge0-strata-1df9e4327f2843c4/config.json -> /home/andychen/work/edge0-vllm/results/gap/strata-config.json
+# 11:38:39 DIRECT: benchmarking the engine server at http://127.0.0.1:39499
+# 11:38:39 bench cmp-s2-warm c1 prompts 4 out 1024 (http://127.0.0.1:39499)
+cmp-s2-warm                     1     4/4     121.1      8.3           1           3     696
+# 11:39:22 bench cmp-s2 c1 prompts 8 out 1024 (http://127.0.0.1:39499)
+cmp-s2                          1     8/8     122.2      8.2           2          38     888
+# 11:40:44 GAP_STRATA_DONE ref cmp-s2
+# 11:40:44 S2 done
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+cmp-s1                          1     8/8     120.4      8.3           3          66     883
+cmp-v1                          1     8/8     119.3      7.9         200         578     512
+cmp-v1-eos                      1     8/8     129.5      7.5         203         597     878
+cmp-v2                          1     8/8     118.3      8.0         201         594     512
+cmp-v2-eos                      1     8/8     128.6      7.5         206         590     921
+cmp-s2                          1     8/8     122.2      8.2           2          38     888
+cmp-v2-c8                       8   16/16     179.2     20.9       11687       13661     512
+label                    n   tok/s  reply  TPOT(vb)  TPOT dec  TTFT med  TTFT mean            engine TTFT
+cmp-s1                   8   120.4    883      8.31      7.67       510        590     392 ms, 29% reused
+cmp-s2                   8   122.2    888      8.18      7.55       551        574     390 ms, 29% reused
+cmp-v1-eos               8   129.5    878      7.50      7.50       203        266                       
+cmp-v2-eos               8   128.6    921      7.53      7.53       206        268                       
+cmp-v1                   8   119.3    512      7.90      7.90       200        252                       
+cmp-v2                   8   118.3    512      7.96      7.96       201        262                       
+cmp-v2-c8               16   179.2    512     20.87     20.87     11687       9209                       
+# 11:40:44 CMP_DONE

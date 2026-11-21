@@ -1,0 +1,286 @@
+# 18:52:00 strata final-s1
+# 18:52:03 start: ~/work/edge0-serve.sh
+# 18:53:23 ready after 80 s
+# 18:53:23 engine config: /tmp/edge0-strata-3f5f5b20ab1926d5/config.json -> /home/andychen/work/edge0-vllm/results/gap/strata-config.json
+# 18:53:23 DIRECT: benchmarking the engine server at http://127.0.0.1:36329
+# 18:53:23 bench final-s1-warm c1 prompts 4 out 1024 (http://127.0.0.1:36329)
+final-s1-warm                   1     4/4     123.3      8.3           1           6     740
+# 18:54:04 bench final-s1 c1 prompts 8 out 1024 (http://127.0.0.1:36329)
+final-s1                        1     8/8     120.9      8.3           2          64     869
+# 18:55:25 GAP_STRATA_DONE ref final-s1
+# 18:55:25 strata final-s1 done: final-s1                        1     8/8     120.9      8.3           2          64     869
+# 18:55:27 single1: bench/gap-vllm.sh final-v1 PRESET=single (KEEP=1)
+# 18:55:29 start: PRESET=single
+# 18:58:55 healthy after 206 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-185529.log)
+# 18:58:56 bench final-v1-warm c1 prompts 8 out 512 ignore_eos 1 (serve log line 505)
+SPECSTAT final-v1-warm {"spec": true, "drafts": 1920, "draft_tokens": 5760, "accepted": 3206, "preemptions": 0, "acceptance_length": 2.67, "k_mean": 3.0, "per_pos": [0.763, 0.536, 0.371]}
+SLOG final-v1-warm /home/andychen/work/edge0-vllm/logs/serve-20261120-185529.log 505 540
+final-v1-warm                   1     8/8     132.5      7.0         261         655     512
+# 18:59:48 bench final-v1 c1 prompts 8 out 512 ignore_eos 1 (serve log line 542)
+SPECSTAT final-v1 {"spec": true, "drafts": 1920, "draft_tokens": 5760, "accepted": 3200, "preemptions": 0, "acceptance_length": 2.667, "k_mean": 3.0, "per_pos": [0.756, 0.541, 0.369]}
+SLOG final-v1 /home/andychen/work/edge0-vllm/logs/serve-20261120-185529.log 542 574
+final-v1                        1     8/8     135.3      6.9         188         561     512
+# 19:00:38 bench final-v1-eos c1 prompts 8 out 1024 ignore_eos 0 (serve log line 576)
+SPECSTAT final-v1-eos {"spec": true, "drafts": 3362, "draft_tokens": 10086, "accepted": 5817, "preemptions": 0, "acceptance_length": 2.73, "k_mean": 3.0, "per_pos": [0.775, 0.563, 0.392]}
+SLOG final-v1-eos /home/andychen/work/edge0-vllm/logs/serve-20261120-185529.log 576 624
+final-v1-eos                    1     8/8     140.7      6.9         204         579     892
+# 19:01:55 GAP_VLLM_DONE final-v1
+MEM single 2026-11-20T19:01:55+08:00 serve log /home/andychen/work/edge0-vllm/logs/serve-20261120-185529.log
+MEM single nvidia-smi memory.used 31781 MiB, 32607 MiB
+MEM single free:                total        used        free      shared  buff/cache   available
+MEM single free: Mem:           61823       44915       14658          26        2959       16908
+MEM single free: Swap:           8191        2042        6149
+MEM single meminfo: MemTotal: 63307644 kB
+MEM single meminfo: MemAvailable: 17313936 kB
+MEM single meminfo: Cached: 2668784 kB
+MEM single meminfo: Unevictable: 12200 kB
+MEM single meminfo: Mlocked: 12200 kB
+MEM single meminfo: AnonPages: 42000972 kB
+MEM single meminfo: Shmem: 26992 kB
+MEM single log: edge0: settings dense=q8 expert_vram_gib=16.2 placement=plan:/workspace/edge0/plans/plan-s1-16.2.json cold_alloc=host_register split=True moe_impl=marlin ref_layers=4 embed_host=True trace=frozenset() trace_flush_s=10.0 trace_ring_tokens=65536 trace_dir=/root/.cache/edge0-vllm/traces log_dir=/root/.cache/edge0-vllm/logs ple_io=vllm ple_threads=16 moe_chunk_tokens=0 verify_load=False adapt=False ho
+MEM single log: edge0: placement plan:/workspace/edge0/plans/plan-s1-16.2.json (8987 hot), EDGE0_TIER: 192 hot experts demoted to make 4 free slots per layer, 8795 hot slots (15.85 GiB VRAM), digest f7f800dbfe99, per-layer n_hot min/max 147/206
+MEM single log: edge0: NCCL communicator created before weight allocation (0.49 GiB)
+MEM single log: edge0: built 48 latent MoE layers: 8795 hot slots in VRAM (16.20 GiB), 15781 cold slots in host memory (34.33 GiB, host_register), dense=q8 moe_impl=marlin split=True
+MEM single log: edge0: PLE layer 1 table = /data/edge0/ple-fp8.gguf @ 352 (320001536 rows x 160 B, in place)
+MEM single log: edge0: embed_tokens (248320, 2560) -> pinned host memory (1.18 GiB)
+MEM single log: edge0: lm_head served as Q8_0 via b12x (248320 x 2560, 0.68 GB instead of 1.27 GB BF16; EDGE0_LMHEAD=q8)
+MEM single log: edge0 tier: reactive expert tier on 48 layers: 4 free VRAM slots / layer (0.35 GiB, from the hot budget), <= 48 swaps / step, decay 0.915 / step, gain 1.50, min usage 2.0, counting calls <= 16 tokens, copies via batch, EARLY (decided at the next step's staging, flipped before its launch); shadow copies on, 3264 spare host slots
+MEM single log: edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.55, calls of 2..256 tokens, >= 4 cold experts, <= 8 routes per CPU expert, mailbox 18.4 MB
+MEM single log: edge0: after load: torch allocated 25.88 GiB, GPU free 4.10 / 31.36 GiB; hot experts 15.85 GiB; cold experts 34.33 GiB pinned host
+MEM single log: Model loading took 27.14 GiB memory and 92.705655 seconds
+MEM single log: edge0: MoE workspace for 1024 tokens x 10 routes per call: 130 MB
+MEM single log: GPU KV cache size: 46,291 tokens, Maximum concurrency for 32,768 tokens per request: 1.41x
+MEM single log: Graph capturing finished in 2 secs, took 0.21 GiB
+# 19:02:00 CORRECTNESS final-single exit 0 SUMMARY {"prompts": 8, "pass": 8, "first32_common": 111, "first32_target": 197, "tf_top1_agree": 250, "tf_top1_agree_strata_argmax": 257, "strata_nongreedy_picks": 9, "tf_positions": 261, "tf_mean_abs_dlogprob": 0.03243213735979923, "tf_mean_kl_top5": 0.006433645415151869}
+# 19:02:17 GREEDY final-single exit 0
+LONG ok prompt_tokens 23328 completion 64 in 12.4 s
+# 19:02:30 healthy after the long prompt
+GPUMEM vllm-final-single idle 31911 MiB
+# 19:02:30 bench vllm-final-single conc 1 out 1024 prompts 4 (serve log line 679)
+GPUMEM vllm-final-single c1 peak 31911 MiB
+SPECSTAT vllm-final-single c1 {"spec": true, "drafts": 2275, "draft_tokens": 6825, "accepted": 3868, "preemptions": 0, "acceptance_length": 2.7, "k_mean": 3.0, "per_pos": [0.764, 0.555, 0.382]}
+vllm-final-single               1     4/4     140.3      6.9         153         391    1024
+# 19:03:13 bench vllm-final-single conc 2 out 1024 prompts 8 (serve log line 712)
+GPUMEM vllm-final-single c2 peak 31911 MiB
+SPECSTAT vllm-final-single c2 {"spec": true, "drafts": 3795, "draft_tokens": 11385, "accepted": 6443, "preemptions": 0, "acceptance_length": 2.698, "k_mean": 3.0, "per_pos": [0.761, 0.559, 0.378]}
+vllm-final-single               2     8/8     188.6     10.1         476         914    1024
+# 19:04:06 bench vllm-final-single conc 4 out 1024 prompts 16 (serve log line 752)
+GPUMEM vllm-final-single c4 peak 31911 MiB
+SPECSTAT vllm-final-single c4 {"spec": true, "drafts": 6867, "draft_tokens": 20601, "accepted": 11560, "preemptions": 0, "acceptance_length": 2.683, "k_mean": 3.0, "per_pos": [0.75, 0.542, 0.392]}
+vllm-final-single               4   16/16     212.7     17.9         531         753    1024
+# 19:05:33 bench vllm-final-single conc 8 out 1024 prompts 32 (serve log line 817)
+GPUMEM vllm-final-single c8 peak 31915 MiB
+SPECSTAT vllm-final-single c8 {"spec": true, "drafts": 12886, "draft_tokens": 38658, "accepted": 21932, "preemptions": 0, "acceptance_length": 2.702, "k_mean": 3.0, "per_pos": [0.751, 0.552, 0.399]}
+vllm-final-single               8   32/32     214.1     18.1       18946       24117    1024
+# 19:08:15 bench vllm-final-single conc 16 out 1024 prompts 64 (serve log line 932)
+GPUMEM vllm-final-single c16 peak 31915 MiB
+SPECSTAT vllm-final-single c16 {"spec": true, "drafts": 24418, "draft_tokens": 73254, "accepted": 43159, "preemptions": 0, "acceptance_length": 2.768, "k_mean": 3.0, "per_pos": [0.763, 0.572, 0.433]}
+vllm-final-single              16   64/64     212.4     18.3       57734       64187    1024
+# 19:13:33 bench vllm-final-single conc 32 out 1024 prompts 128 (serve log line 1151)
+GPUMEM vllm-final-single c32 peak 31915 MiB
+SPECSTAT vllm-final-single c32 {"spec": true, "drafts": 47864, "draft_tokens": 143592, "accepted": 85251, "preemptions": 0, "acceptance_length": 2.781, "k_mean": 3.0, "per_pos": [0.761, 0.581, 0.439]}
+vllm-final-single              32 128/128     214.4     18.2      133639      144304    1024
+max running: vllm-final-single 4
+errors in serve log: 0
+edge0 tier: 10.0s 196 steps | per layer-step: cold 24.40 hot 69.95 distinct experts, routes from VRAM 80.5% | swaps 48.0 / step (total 1555546, cap reached 198, stale counts 0, skipped 0) | host 0.40 + 0.94 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:20.86 <8:26.97 <16:
+edge0 tier: 10.0s 196 steps | per layer-step: cold 24.39 hot 69.92 distinct experts, routes from VRAM 80.4% | swaps 48.0 / step (total 1565050, cap reached 198, stale counts 0, skipped 0) | host 0.45 + 1.16 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:26.23 <8:28.92 <16:
+edge0 cpu-experts: 29451 jobs, 13.0 experts / 17.0 routes per job, CPU 647 us per job, GPU side 709 us per call, GPU waited 8 us per call, frac 0.550, timeouts 0
+edge0 tier: 10.0s 221 steps | per layer-step: cold 21.36 hot 59.77 distinct experts, routes from VRAM 79.9% | swaps 48.0 / step (total 1575706, cap reached 222, stale counts 0, skipped 0) | host 0.44 + 1.14 ms / step (decide + issue) | cold / layer-step by steps since prefill: <4:37.19 <8:39.61 <16:
+MEM single-after-sweep 2026-11-20T19:23:54+08:00 serve log /home/andychen/work/edge0-vllm/logs/serve-20261120-185529.log
+MEM single-after-sweep nvidia-smi memory.used 31915 MiB, 32607 MiB
+MEM single-after-sweep free:                total        used        free      shared  buff/cache   available
+MEM single-after-sweep free: Mem:           61823       44992        5321          26       12219       16831
+MEM single-after-sweep free: Swap:           8191        2042        6149
+MEM single-after-sweep meminfo: MemTotal: 63307644 kB
+MEM single-after-sweep meminfo: MemAvailable: 17235072 kB
+MEM single-after-sweep meminfo: Cached: 12113164 kB
+MEM single-after-sweep meminfo: Unevictable: 12200 kB
+MEM single-after-sweep meminfo: Mlocked: 12200 kB
+MEM single-after-sweep meminfo: AnonPages: 42059572 kB
+MEM single-after-sweep meminfo: Shmem: 27016 kB
+MEM single-after-sweep log: edge0: settings dense=q8 expert_vram_gib=16.2 placement=plan:/workspace/edge0/plans/plan-s1-16.2.json cold_alloc=host_register split=True moe_impl=marlin ref_layers=4 embed_host=True trace=frozenset() trace_flush_s=10.0 trace_ring_tokens=65536 trace_dir=/root/.cache/edge0-vllm/traces log_dir=/root/.cache/edge0-vllm/logs ple_io=vllm ple_threads=16 moe_chunk_tokens=0 verify_load=False adapt=False ho
+MEM single-after-sweep log: edge0: placement plan:/workspace/edge0/plans/plan-s1-16.2.json (8987 hot), EDGE0_TIER: 192 hot experts demoted to make 4 free slots per layer, 8795 hot slots (15.85 GiB VRAM), digest f7f800dbfe99, per-layer n_hot min/max 147/206
+MEM single-after-sweep log: edge0: NCCL communicator created before weight allocation (0.49 GiB)
+MEM single-after-sweep log: edge0: built 48 latent MoE layers: 8795 hot slots in VRAM (16.20 GiB), 15781 cold slots in host memory (34.33 GiB, host_register), dense=q8 moe_impl=marlin split=True
+MEM single-after-sweep log: edge0: PLE layer 1 table = /data/edge0/ple-fp8.gguf @ 352 (320001536 rows x 160 B, in place)
+MEM single-after-sweep log: edge0: embed_tokens (248320, 2560) -> pinned host memory (1.18 GiB)
+MEM single-after-sweep log: edge0: lm_head served as Q8_0 via b12x (248320 x 2560, 0.68 GB instead of 1.27 GB BF16; EDGE0_LMHEAD=q8)
+MEM single-after-sweep log: edge0 tier: reactive expert tier on 48 layers: 4 free VRAM slots / layer (0.35 GiB, from the hot budget), <= 48 swaps / step, decay 0.915 / step, gain 1.50, min usage 2.0, counting calls <= 16 tokens, copies via batch, EARLY (decided at the next step's staging, flipped before its launch); shadow copies on, 3264 spare host slots
+MEM single-after-sweep log: edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.55, calls of 2..256 tokens, >= 4 cold experts, <= 8 routes per CPU expert, mailbox 18.4 MB
+MEM single-after-sweep log: edge0: after load: torch allocated 25.88 GiB, GPU free 4.10 / 31.36 GiB; hot experts 15.85 GiB; cold experts 34.33 GiB pinned host
+MEM single-after-sweep log: Model loading took 27.14 GiB memory and 92.705655 seconds
+MEM single-after-sweep log: edge0: MoE workspace for 1024 tokens x 10 routes per call: 130 MB
+MEM single-after-sweep log: GPU KV cache size: 46,291 tokens, Maximum concurrency for 32,768 tokens per request: 1.41x
+MEM single-after-sweep log: Graph capturing finished in 2 secs, took 0.21 GiB
+# 19:24:04 start: PRESET=single SPEC_METHOD=none
+started edge0-vllm in tmux session edge0-vllm on :8125 (model /models/Edge0-145B-vllm, hot experts 16.2 GiB, placement plan:/workspace/edge0/plans/plan-s1-16.2.json); log /home/andychen/work/edge0-vllm/logs/serve-20261120-192404.log
+# 19:26:50 healthy after 166 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-192404.log)
+# 19:27:19 GREEDY final-single-nospec exit 0
+# 19:27:27 GREEDY_DIFF exit 1 SUMMARY {"prompts": 8, "identical": 6, "tokens_compared": 2048, "tokens_common": 1649, "diverged_at_near_tie": 2, "diverged_unexplained": 0}
+# 19:27:29 start: PRESET=tuned
+started edge0-vllm in tmux session edge0-vllm on :8125 (model /models/Edge0-145B-vllm, hot experts 12.8 GiB, placement plan:/workspace/edge0/plans/plan-s1-12.8.json); log /home/andychen/work/edge0-vllm/logs/serve-20261120-192729.log
+# 19:30:20 healthy after 171 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-192729.log)
+MEM tuned 2026-11-20T19:30:20+08:00 serve log /home/andychen/work/edge0-vllm/logs/serve-20261120-192729.log
+MEM tuned nvidia-smi memory.used 30961 MiB, 32607 MiB
+MEM tuned free:                total        used        free      shared  buff/cache   available
+MEM tuned free: Mem:           61823       40495       20610          42        1443       21328
+MEM tuned free: Swap:           8191        3223        4968
+MEM tuned meminfo: MemTotal: 63307644 kB
+MEM tuned meminfo: MemAvailable: 21840520 kB
+MEM tuned meminfo: Cached: 1162032 kB
+MEM tuned meminfo: Unevictable: 12216 kB
+MEM tuned meminfo: Mlocked: 12216 kB
+MEM tuned meminfo: AnonPages: 37436148 kB
+MEM tuned meminfo: Shmem: 43340 kB
+MEM tuned log: edge0: settings dense=q8 expert_vram_gib=12.8 placement=plan:/workspace/edge0/plans/plan-s1-12.8.json cold_alloc=host_register split=True moe_impl=marlin ref_layers=4 embed_host=True trace=frozenset() trace_flush_s=10.0 trace_ring_tokens=65536 trace_dir=/root/.cache/edge0-vllm/traces log_dir=/root/.cache/edge0-vllm/logs ple_io=vllm ple_threads=16 moe_chunk_tokens=0 verify_load=False adapt=True hot
+MEM tuned log: edge0: placement plan:/workspace/edge0/plans/plan-s1-12.8.json (7101 hot), 7101 hot slots (12.80 GiB VRAM), digest cd2d551fd4a0, per-layer n_hot min/max 128/166
+MEM tuned log: edge0: NCCL communicator created before weight allocation (0.49 GiB)
+MEM tuned log: edge0: built 48 latent MoE layers: 7101 hot slots in VRAM (12.80 GiB), 17475 cold slots in host memory (31.50 GiB, host_register), dense=q8 moe_impl=marlin split=True
+MEM tuned log: edge0: PLE layer 1 table = /data/edge0/ple-fp8.gguf @ 352 (320001536 rows x 160 B, in place)
+MEM tuned log: edge0: embed_tokens (248320, 2560) -> pinned host memory (1.18 GiB)
+MEM tuned log: edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.55, calls of 2..256 tokens, >= 4 cold experts, <= 8 routes per CPU expert, mailbox 18.4 MB
+MEM tuned log: edge0: after load: torch allocated 23.33 GiB, GPU free 6.64 / 31.36 GiB; hot experts 12.80 GiB; cold experts 31.50 GiB pinned host
+MEM tuned log: Model loading took 23.33 GiB memory and 89.993374 seconds
+MEM tuned log: edge0: MoE workspace for 4096 tokens x 10 routes per call: 520 MB
+MEM tuned log: Graph capturing finished in 10 secs, took 0.26 GiB
+MEM tuned log: Available KV cache memory: 4.61 GiB
+MEM tuned log: GPU KV cache size: 173,812 tokens, Maximum concurrency for 32,768 tokens per request: 5.30x
+MEM tuned log: Graph capturing finished in 3 secs, took 0.11 GiB
+# 19:30:28 CORRECTNESS final-tuned exit 0 SUMMARY {"prompts": 8, "pass": 8, "first32_common": 111, "first32_target": 197, "tf_top1_agree": 250, "tf_top1_agree_strata_argmax": 257, "strata_nongreedy_picks": 9, "tf_positions": 261, "tf_mean_abs_dlogprob": 0.03364528077727796, "tf_mean_kl_top5": 0.0063343546540997634}
+LONG ok prompt_tokens 23328 completion 64 in 11.3 s
+# 19:30:39 healthy after the long prompt
+GPUMEM vllm-final-tuned idle 32043 MiB
+# 19:30:40 bench vllm-final-tuned conc 1 out 1024 prompts 4 (serve log line 514)
+GPUMEM vllm-final-tuned c1 peak 32043 MiB
+SPECSTAT vllm-final-tuned c1 {"spec": false, "preemptions": 0}
+vllm-final-tuned                1     4/4      54.8     18.0         185         497    1024
+# 19:32:32 bench vllm-final-tuned conc 2 out 1024 prompts 8 (serve log line 575)
+GPUMEM vllm-final-tuned c2 peak 32043 MiB
+SPECSTAT vllm-final-tuned c2 {"spec": false, "preemptions": 0}
+vllm-final-tuned                2     8/8      92.9     21.0         545         791    1024
+# 19:34:21 bench vllm-final-tuned conc 4 out 1024 prompts 16 (serve log line 643)
+GPUMEM vllm-final-tuned c4 peak 32043 MiB
+SPECSTAT vllm-final-tuned c4 {"spec": false, "preemptions": 0}
+vllm-final-tuned                4   16/16     112.8     34.6         865        1384    1024
+# 19:37:06 bench vllm-final-tuned conc 8 out 1024 prompts 32 (serve log line 741)
+GPUMEM vllm-final-tuned c8 peak 32045 MiB
+SPECSTAT vllm-final-tuned c8 {"spec": false, "preemptions": 0}
+vllm-final-tuned                8   32/32     136.3     57.6        1253        1577    1024
+# 19:41:28 bench vllm-final-tuned conc 16 out 1024 prompts 64 (serve log line 900)
+GPUMEM vllm-final-tuned c16 peak 32047 MiB
+SPECSTAT vllm-final-tuned c16 {"spec": false, "preemptions": 0}
+vllm-final-tuned               16   64/64     148.7    105.5        2302        2474    1024
+# 19:49:12 bench vllm-final-tuned conc 32 out 1024 prompts 128 (serve log line 1128)
+GPUMEM vllm-final-tuned c32 peak 32047 MiB
+SPECSTAT vllm-final-tuned c32 {"spec": false, "preemptions": 0}
+vllm-final-tuned               32 128/128     180.3    174.6        3108        3874    1024
+max running: vllm-final-tuned 32
+errors in serve log: 0
+edge0 cpu-experts: 8880 jobs, 55.8 experts / 69.5 routes per job, CPU 2843 us per job, GPU side 3017 us per call, GPU waited 9 us per call, frac 0.550, timeouts 0
+edge0 adapt: epoch 435 (6.1s, 38 counted steps): cold share of decode touches 49.7%, 62 candidates, 62 swaps (total 25567) in 159.5 ms; predicted cold share now 49.5%
+edge0 adapt: epoch 436 (6.2s, 39 counted steps): cold share of decode touches 49.4%, 47 candidates, 47 swaps (total 25614) in 166.2 ms; predicted cold share now 49.4%
+edge0 adapt: epoch 437 (6.2s, 38 counted steps): cold share of decode touches 50.3%, 50 candidates, 50 swaps (total 25664) in 47.4 ms; predicted cold share now 49.4%
+MEM tuned-after-sweep 2026-11-20T20:01:42+08:00 serve log /home/andychen/work/edge0-vllm/logs/serve-20261120-192729.log
+MEM tuned-after-sweep nvidia-smi memory.used 32047 MiB, 32607 MiB
+MEM tuned-after-sweep free:                total        used        free      shared  buff/cache   available
+MEM tuned-after-sweep free: Mem:           61823       40583       12823          42        9141       21240
+MEM tuned-after-sweep free: Swap:           8191        3215        4976
+MEM tuned-after-sweep meminfo: MemTotal: 63307644 kB
+MEM tuned-after-sweep meminfo: MemAvailable: 21750588 kB
+MEM tuned-after-sweep meminfo: Cached: 8957200 kB
+MEM tuned-after-sweep meminfo: Unevictable: 12216 kB
+MEM tuned-after-sweep meminfo: Mlocked: 12216 kB
+MEM tuned-after-sweep meminfo: AnonPages: 37562188 kB
+MEM tuned-after-sweep meminfo: Shmem: 43348 kB
+MEM tuned-after-sweep log: edge0: settings dense=q8 expert_vram_gib=12.8 placement=plan:/workspace/edge0/plans/plan-s1-12.8.json cold_alloc=host_register split=True moe_impl=marlin ref_layers=4 embed_host=True trace=frozenset() trace_flush_s=10.0 trace_ring_tokens=65536 trace_dir=/root/.cache/edge0-vllm/traces log_dir=/root/.cache/edge0-vllm/logs ple_io=vllm ple_threads=16 moe_chunk_tokens=0 verify_load=False adapt=True hot
+MEM tuned-after-sweep log: edge0: placement plan:/workspace/edge0/plans/plan-s1-12.8.json (7101 hot), 7101 hot slots (12.80 GiB VRAM), digest cd2d551fd4a0, per-layer n_hot min/max 128/166
+MEM tuned-after-sweep log: edge0: NCCL communicator created before weight allocation (0.49 GiB)
+MEM tuned-after-sweep log: edge0: built 48 latent MoE layers: 7101 hot slots in VRAM (12.80 GiB), 17475 cold slots in host memory (31.50 GiB, host_register), dense=q8 moe_impl=marlin split=True
+MEM tuned-after-sweep log: edge0: PLE layer 1 table = /data/edge0/ple-fp8.gguf @ 352 (320001536 rows x 160 B, in place)
+MEM tuned-after-sweep log: edge0: embed_tokens (248320, 2560) -> pinned host memory (1.18 GiB)
+MEM tuned-after-sweep log: edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.55, calls of 2..256 tokens, >= 4 cold experts, <= 8 routes per CPU expert, mailbox 18.4 MB
+MEM tuned-after-sweep log: edge0: after load: torch allocated 23.33 GiB, GPU free 6.64 / 31.36 GiB; hot experts 12.80 GiB; cold experts 31.50 GiB pinned host
+MEM tuned-after-sweep log: Model loading took 23.33 GiB memory and 89.993374 seconds
+MEM tuned-after-sweep log: edge0: MoE workspace for 4096 tokens x 10 routes per call: 520 MB
+MEM tuned-after-sweep log: Graph capturing finished in 10 secs, took 0.26 GiB
+MEM tuned-after-sweep log: Available KV cache memory: 4.61 GiB
+MEM tuned-after-sweep log: GPU KV cache size: 173,812 tokens, Maximum concurrency for 32,768 tokens per request: 5.30x
+MEM tuned-after-sweep log: Graph capturing finished in 3 secs, took 0.11 GiB
+# 20:01:51 strata final-s2
+# 20:01:54 start: ~/work/edge0-serve.sh
+# 20:03:40 ready after 106 s
+# 20:03:40 engine config: /tmp/edge0-strata-9565edcb6f31776/config.json -> /home/andychen/work/edge0-vllm/results/gap/strata-config.json
+# 20:03:40 DIRECT: benchmarking the engine server at http://127.0.0.1:35739
+# 20:03:40 bench final-s2-warm c1 prompts 4 out 1024 (http://127.0.0.1:35739)
+final-s2-warm                   1     4/4     122.3      8.3           1           2     732
+# 20:04:19 bench final-s2 c1 prompts 8 out 1024 (http://127.0.0.1:35739)
+final-s2                        1     8/8     123.1      8.2           1          25     856
+# 20:05:35 GAP_STRATA_DONE ref final-s2
+# 20:05:35 strata final-s2 done: final-s2                        1     8/8     123.1      8.2           1          25     856
+# 20:05:37 restore: bench/gap-vllm.sh final-v2 PRESET=single (KEEP=1: left running)
+# 20:05:39 start: PRESET=single
+# 20:09:10 healthy after 211 s (/home/andychen/work/edge0-vllm/logs/serve-20261120-200539.log)
+# 20:09:10 bench final-v2-warm c1 prompts 8 out 512 ignore_eos 1 (serve log line 505)
+SPECSTAT final-v2-warm {"spec": true, "drafts": 1908, "draft_tokens": 5724, "accepted": 3223, "preemptions": 0, "acceptance_length": 2.689, "k_mean": 3.0, "per_pos": [0.761, 0.556, 0.372]}
+SLOG final-v2-warm /home/andychen/work/edge0-vllm/logs/serve-20261120-200539.log 505 540
+final-v2-warm                   1     8/8     130.2      7.1         257         725     512
+# 20:10:03 bench final-v2 c1 prompts 8 out 512 ignore_eos 1 (serve log line 542)
+SPECSTAT final-v2 {"spec": true, "drafts": 1932, "draft_tokens": 5796, "accepted": 3189, "preemptions": 0, "acceptance_length": 2.651, "k_mean": 3.0, "per_pos": [0.748, 0.534, 0.369]}
+SLOG final-v2 /home/andychen/work/edge0-vllm/logs/serve-20261120-200539.log 542 574
+final-v2                        1     8/8     134.2      7.0         190         551     512
+# 20:10:53 bench final-v2-eos c1 prompts 8 out 1024 ignore_eos 0 (serve log line 576)
+SPECSTAT final-v2-eos {"spec": true, "drafts": 3331, "draft_tokens": 9993, "accepted": 5821, "preemptions": 0, "acceptance_length": 2.748, "k_mean": 3.0, "per_pos": [0.778, 0.572, 0.398]}
+SLOG final-v2-eos /home/andychen/work/edge0-vllm/logs/serve-20261120-200539.log 576 624
+final-v2-eos                    1     8/8     140.2      6.9         206         579     888
+# 20:12:10 GAP_VLLM_DONE final-v2
+# 20:12:10 PRESET=single running on :8125
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+strata-solo                     1     4/4     121.2      8.3           6         122     686
+strata-solo                     2     8/8     110.1     16.1           6         234     811
+strata-solo                     4   16/16     116.7     36.6           3          38     820
+strata-solo                     8   32/32     113.2     63.4           4          40     799
+strata-batch8                   1     4/4      85.3      8.5           1           2     644
+strata-batch8                   2     8/8      32.4     15.2           1           5     257
+strata-batch8                   4   16/16      44.5     38.5           7         431     419
+strata-batch8                   8   32/32      67.4     86.9           4         122     607
+strata-batch8                  16   64/64      77.0    188.7           7        5022     711
+strata-batch8                  32 128/128      81.4    197.5           3     1003526     735
+vllm-base                       1     4/4      40.1     24.5         373         865    1024
+vllm-base                       2     8/8      53.5     36.5         996        1245    1024
+vllm-base                       4   16/16      64.3     60.9        1374        1990    1024
+vllm-base                       8   32/32      74.3    106.2        1558        1781    1024
+vllm-base                      16   64/64      69.0    184.3        2712      194086    1024
+vllm-base                      32 128/128      70.1    181.7      195563      388845    1024
+vllm-tuned                      1     4/4      54.9     18.0         215         471    1024
+vllm-tuned                      2     8/8      82.0     23.8         622        1031    1024
+vllm-tuned                      4   16/16      95.8     40.7         921        1692    1024
+vllm-tuned                      8   32/32     105.3     74.8        1299        1454    1024
+vllm-tuned                     16   64/64     118.4    132.9        2287        3009    1024
+vllm-tuned                     32 128/128     142.0    222.3        3468        4946    1024
+vllm-final-tuned                1     4/4      54.8     18.0         185         497    1024
+vllm-final-tuned                2     8/8      92.9     21.0         545         791    1024
+vllm-final-tuned                4   16/16     112.8     34.6         865        1384    1024
+vllm-final-tuned                8   32/32     136.3     57.6        1253        1577    1024
+vllm-final-tuned               16   64/64     148.7    105.5        2302        2474    1024
+vllm-final-tuned               32 128/128     180.3    174.6        3108        3874    1024
+vllm-final-single               1     4/4     140.3      6.9         153         391    1024
+vllm-final-single               2     8/8     188.6     10.1         476         914    1024
+vllm-final-single               4   16/16     212.7     17.9         531         753    1024
+vllm-final-single               8   32/32     214.1     18.1       18946       24117    1024
+vllm-final-single              16   64/64     212.4     18.3       57734       64187    1024
+vllm-final-single              32 128/128     214.4     18.2      133639      144304    1024
+label                        conc      ok out tok/s  TPOT ms med TTFT ms p99 TTFT ms out len
+final-s1                        1     8/8     120.9      8.3           2          64     869
+final-v1                        1     8/8     135.3      6.9         188         561     512
+final-v1-eos                    1     8/8     140.7      6.9         204         579     892
+final-v2                        1     8/8     134.2      7.0         190         551     512
+final-v2-eos                    1     8/8     140.2      6.9         206         579     888
+final-s2                        1     8/8     123.1      8.2           1          25     856
+label                    n   tok/s  reply  TPOT(vb)  TPOT dec  TTFT med  TTFT mean            engine TTFT
+final-s1                 8   120.9    869      8.26      7.61       592        566     392 ms, 28% reused
+final-s2                 8   123.1    856      8.16      7.44       532        638     362 ms, 29% reused
+final-v1-eos             8   140.7    892      6.86      6.86       204        257                       
+final-v2-eos             8   140.2    888      6.86      6.86       206        260                       
+final-v1                 8   135.3    512      6.92      6.92       188        245                       
+final-v2                 8   134.2    512      6.99      6.99       190        246                       
+# 20:12:10 FINAL_REPORT_DONE all

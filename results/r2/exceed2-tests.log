@@ -1,0 +1,75 @@
+e=0 routes=1: h equal 1.0000 (rel 0.00e+00); y equal 1.0000, max ulp 0, rel cpu-gpu 0.00e+00; vs fp32 ref: cpu 4.220e-03 gpu 4.220e-03
+e=17 routes=1: h equal 1.0000 (rel 0.00e+00); y equal 1.0000, max ulp 0, rel cpu-gpu 0.00e+00; vs fp32 ref: cpu 3.632e-03 gpu 3.632e-03
+e=300 routes=1: h equal 1.0000 (rel 0.00e+00); y equal 1.0000, max ulp 0, rel cpu-gpu 0.00e+00; vs fp32 ref: cpu 4.118e-03 gpu 4.118e-03
+e=511 routes=1: h equal 1.0000 (rel 0.00e+00); y equal 1.0000, max ulp 0, rel cpu-gpu 0.00e+00; vs fp32 ref: cpu 4.272e-03 gpu 4.272e-03
+.e=0 routes=5: h equal 1.0000 (rel 0.00e+00); y equal 0.9999, max ulp 1, rel cpu-gpu 1.45e-05; vs fp32 ref: cpu 4.348e-03 gpu 4.348e-03
+e=17 routes=5: h equal 1.0000 (rel 0.00e+00); y equal 0.9997, max ulp 1, rel cpu-gpu 2.39e-06; vs fp32 ref: cpu 4.281e-03 gpu 4.281e-03
+e=300 routes=5: h equal 0.9997 (rel 1.38e-09); y equal 0.9999, max ulp 2, rel cpu-gpu 2.36e-08; vs fp32 ref: cpu 4.565e-03 gpu 4.565e-03
+e=511 routes=5: h equal 1.0000 (rel 0.00e+00); y equal 1.0000, max ulp 0, rel cpu-gpu 0.00e+00; vs fp32 ref: cpu 4.576e-03 gpu 4.576e-03
+.edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.50, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+pool job 0: 6 experts 21 routes in 206 us
+pool job 1: 6 experts 21 routes in 198 us
+pool job 2: 6 experts 21 routes in 187 us
+.edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.50, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+T=4 seed=0: split vs gpu-only rel 3.65e-06 (equal 1.000), vs ref 4.257e-03 (gpu-only 4.257e-03), cpu sel 12
+T=4 seed=1: split vs gpu-only rel 8.94e-06 (equal 1.000), vs ref 4.467e-03 (gpu-only 4.467e-03), cpu sel 13
+T=4 seed=2: split vs gpu-only rel 2.64e-05 (equal 1.000), vs ref 4.542e-03 (gpu-only 4.542e-03), cpu sel 14
+T=4 seed=3: split vs gpu-only rel 2.75e-05 (equal 1.000), vs ref 4.906e-03 (gpu-only 4.906e-03), cpu sel 12
+T=4 seed=4: split vs gpu-only rel 2.45e-05 (equal 1.000), vs ref 4.315e-03 (gpu-only 4.316e-03), cpu sel 14
+{'jobs': 6.0, 'experts': 78.0, 'routes': 80.0, 'cpu_s': 0.004260413, 'gpu_calls': 6.0, 'gpu_s': 0.009142752, 'wait_s': 9.606400000000001e-05, 'timeouts': 0.0, 'frac': 0.5, 'g2_waits': 0.0, 'auto_updates': 0.0}
+.edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.50, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+T=16 seed=0: split vs gpu-only rel 1.44e-04 (equal 0.998), vs ref 4.263e-03 (gpu-only 4.263e-03), cpu sel 45
+T=16 seed=1: split vs gpu-only rel 3.70e-05 (equal 1.000), vs ref 4.354e-03 (gpu-only 4.354e-03), cpu sel 48
+T=16 seed=2: split vs gpu-only rel 2.55e-05 (equal 1.000), vs ref 4.485e-03 (gpu-only 4.485e-03), cpu sel 44
+T=16 seed=3: split vs gpu-only rel 2.06e-04 (equal 0.998), vs ref 4.343e-03 (gpu-only 4.343e-03), cpu sel 41
+T=16 seed=4: split vs gpu-only rel 8.44e-05 (equal 1.000), vs ref 4.431e-03 (gpu-only 4.431e-03), cpu sel 42
+{'jobs': 6.0, 'experts': 265.0, 'routes': 301.0, 'cpu_s': 0.013353702, 'gpu_calls': 6.0, 'gpu_s': 0.016474912, 'wait_s': 4.8224000000000004e-05, 'timeouts': 0.0, 'frac': 0.5, 'g2_waits': 0.0, 'auto_updates': 0.0}
+.edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.50, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+T=32 seed=0: split vs gpu-only rel 9.92e-05 (equal 0.999), vs ref 4.351e-03 (gpu-only 4.351e-03), cpu sel 77
+T=32 seed=1: split vs gpu-only rel 6.16e-05 (equal 1.000), vs ref 4.442e-03 (gpu-only 4.441e-03), cpu sel 80
+T=32 seed=2: split vs gpu-only rel 5.07e-05 (equal 1.000), vs ref 4.131e-03 (gpu-only 4.131e-03), cpu sel 70
+T=32 seed=3: split vs gpu-only rel 1.56e-04 (equal 0.999), vs ref 4.256e-03 (gpu-only 4.256e-03), cpu sel 68
+T=32 seed=4: split vs gpu-only rel 4.94e-05 (equal 1.000), vs ref 4.350e-03 (gpu-only 4.351e-03), cpu sel 73
+{'jobs': 6.0, 'experts': 439.0, 'routes': 582.0, 'cpu_s': 0.022242606, 'gpu_calls': 6.0, 'gpu_s': 0.026639968, 'wait_s': 4.8704e-05, 'timeouts': 0.0, 'frac': 0.5, 'g2_waits': 0.0, 'auto_updates': 0.0}
+.edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.50, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+rep 0 min_cold 1000000: split vs gpu-only rel 0.00e+00
+rep 0 min_cold 1: split vs gpu-only rel 3.99e-06
+rep 0 min_cold 1000000: split vs gpu-only rel 0.00e+00
+rep 0 min_cold 1: split vs gpu-only rel 0.00e+00
+rep 0 min_cold 1: split vs gpu-only rel 5.53e-06
+rep 0 min_cold 1000000: split vs gpu-only rel 0.00e+00
+rep 1 min_cold 1000000: split vs gpu-only rel 0.00e+00
+rep 1 min_cold 1: split vs gpu-only rel 4.21e-06
+rep 1 min_cold 1000000: split vs gpu-only rel 0.00e+00
+rep 1 min_cold 1: split vs gpu-only rel 1.67e-05
+rep 1 min_cold 1: split vs gpu-only rel 3.17e-05
+rep 1 min_cold 1000000: split vs gpu-only rel 0.00e+00
+rep 2 min_cold 1000000: split vs gpu-only rel 0.00e+00
+rep 2 min_cold 1: split vs gpu-only rel 9.14e-06
+rep 2 min_cold 1000000: split vs gpu-only rel 0.00e+00
+rep 2 min_cold 1: split vs gpu-only rel 3.17e-06
+rep 2 min_cold 1: split vs gpu-only rel 3.78e-06
+rep 2 min_cold 1000000: split vs gpu-only rel 0.00e+00
+{'jobs': 12.0, 'experts': 147.0, 'routes': 151.0, 'cpu_s': 0.007238944000000001, 'gpu_calls': 12.0, 'gpu_s': 0.008626816, 'wait_s': 9.9296e-05, 'timeouts': 0.0, 'frac': 0.5, 'g2_waits': 0.0, 'auto_updates': 0.0}
+.edge0 cpu-experts: 8 workers on CPUs [2, 3, 4, 5, 6, 7, 8, 9], frac 0.50, calls of 1..64 tokens, >= 1 cold experts, <= 64 routes per CPU expert, mailbox 4.6 MB
+rep 0 min_cold 1000000: split vs gpu-only rel 0.00e+00
+rep 0 min_cold 1: split vs gpu-only rel 3.99e-06
+rep 0 min_cold 1000000: split vs gpu-only rel 0.00e+00
+rep 0 min_cold 1: split vs gpu-only rel 0.00e+00
+rep 0 min_cold 1: split vs gpu-only rel 5.53e-06
+rep 0 min_cold 1000000: split vs gpu-only rel 0.00e+00
+rep 1 min_cold 1000000: split vs gpu-only rel 0.00e+00
+rep 1 min_cold 1: split vs gpu-only rel 4.21e-06
+rep 1 min_cold 1000000: split vs gpu-only rel 0.00e+00
+rep 1 min_cold 1: split vs gpu-only rel 1.67e-05
+rep 1 min_cold 1: split vs gpu-only rel 3.17e-05
+rep 1 min_cold 1000000: split vs gpu-only rel 0.00e+00
+rep 2 min_cold 1000000: split vs gpu-only rel 0.00e+00
+rep 2 min_cold 1: split vs gpu-only rel 9.14e-06
+rep 2 min_cold 1000000: split vs gpu-only rel 0.00e+00
+rep 2 min_cold 1: split vs gpu-only rel 3.17e-06
+rep 2 min_cold 1: split vs gpu-only rel 3.78e-06
+rep 2 min_cold 1000000: split vs gpu-only rel 0.00e+00
+{'jobs': 12.0, 'experts': 147.0, 'routes': 151.0, 'cpu_s': 0.007112543000000001, 'gpu_calls': 12.0, 'gpu_s': 0.008590048000000001, 'wait_s': 7.766400000000001e-05, 'timeouts': 0.0, 'frac': 0.5, 'g2_waits': 0.0, 'auto_updates': 0.0}
+.
+8 passed in 14.77s

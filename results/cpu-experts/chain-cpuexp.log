@@ -1,0 +1,5 @@
+# 03:45:21 lock acquired (spec)
+# 03:54:56 greedy diff exit 1 (results/greedy-cpuexp-diff.txt)
+# 04:32:15 CPUEXP_spec_DONE, lock released
+# 04:32:15 lock acquired (tune)
+# 04:59:10 CPUEXP_tune_DONE, lock released
