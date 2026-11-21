@@ -6,7 +6,7 @@ the coordinator; both agents re-read it after every change.
 
 Inputs: `edge0/docs/MODEL-SPEC.md` (how Strata computes the model, file formats), `edge0/docs/VLLM-BASE.md` (what the
 `nvcr.io/nvidia/vllm:26.11-py3` image provides), `edge0/convert/strata_formats.py` (numpy readers and a float32 MoE
-oracle), and the TidalMoE plugin (`plugin/moe_placement/__init__.py`). The vLLM facts below were re-checked in the
+oracle), and the TidalMoE plugin ([andynoodles/tidal-moe](https://github.com/andynoodles/tidal-moe) `plugin/moe_placement/__init__.py`). The vLLM facts below were re-checked in the
 extracted image source at `5090:/home/andychen/work/edge0-vllm-ref/vllm` (paths below are relative to that directory).
 
 The goal that drives every choice: **spend less time loading experts.** On this box the 44.3 GiB expert pool sits

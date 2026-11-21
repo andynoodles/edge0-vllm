@@ -13,8 +13,8 @@ Hugging Face is the converter's output, ready to serve (a format conversion of
 Edge0 is a latent MoE built on Qwen3.8-Flash-Next (qwen4exp): 145B parameters, about 10B active per token, 48 layers
 with 512 routed experts and top-10 routing per layer, hybrid GDN + QSA attention, and a 51 GB PLE n-gram table. Its
 routed experts are 44.3 GiB of NVFP4, more than the GPU holds. Each layer therefore splits its experts between a
-**hot pool in VRAM** and a **cold pool in pinned host memory**, which Marlin reads zero-copy over PCIe (TidalMoE's
-layout). The work followed TidalMoE's goal, **spend less time loading experts**, and then ported the mechanisms that
+**hot pool in VRAM** and a **cold pool in pinned host memory**, which Marlin reads zero-copy over PCIe
+([TidalMoE](https://github.com/andynoodles/tidal-moe)'s layout). The work followed TidalMoE's goal, **spend less time loading experts**, and then ported the mechanisms that
 make Strata (the engine the model ships with) fast at one request at a time.
 
 **Status (2026-11-20).** Two presets, both from the image `edge0-vllm:dev` (`d0d3bace6b03`), both passing the
@@ -287,7 +287,7 @@ Gains are interleaved A/B deltas (A B A or A B B A, a fresh server per letter, 5
 the configuration before each change; they compound. Every kept change passed the correctness gate. Details and
 raw numbers: `docs/TUNING-LOG.md`.
 
-**From TidalMoE** (tuning for many requests, `PRESET=tuned`; c1 / c8 / c32):
+**From [TidalMoE](https://github.com/andynoodles/tidal-moe)** (tuning for many requests, `PRESET=tuned`; c1 / c8 / c32):
 
 | TidalMoE mechanism | Edge0 / vLLM port | result |
 |---|---|---|
